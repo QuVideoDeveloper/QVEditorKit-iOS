@@ -1,0 +1,6 @@
+framework module SSZipArchive {
+  umbrella header "SSZipArchive.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module XYCommonEngineKit {
+  umbrella header "XYCommonEngineKit.h"
+
+  export *
+  module * { export * }
+}
