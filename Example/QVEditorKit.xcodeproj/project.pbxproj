@@ -64,6 +64,7 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B8420654D997531A0BB5257 /* Pods-QVEditorKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QVEditorKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-QVEditorKit_Tests/Pods-QVEditorKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		90889380FD9065B171BD1B0D /* QVEditorKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = QVEditorKit.podspec; path = ../QVEditorKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AECA9AF5247FBED10056CA66 /* QVEditorKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QVEditorKit-Prefix.pch"; sourceTree = "<group>"; };
 		C0D40EA1E8637294F3228058 /* Pods_QVEditorKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QVEditorKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06FB2BBEC39B7163F242D65 /* Pods-QVEditorKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QVEditorKit_Example.release.xcconfig"; path = "Target Support Files/Pods-QVEditorKit_Example/Pods-QVEditorKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E5E41932D40B93A791E6AEEA /* Pods_QVEditorKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QVEditorKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +133,7 @@
 		6003F593195388D20070C39A /* Example for QVEditorKit */ = {
 			isa = PBXGroup;
 			children = (
+				AECA9AF5247FBED10056CA66 /* QVEditorKit-Prefix.pch */,
 				6003F59C195388D20070C39A /* QVAppDelegate.h */,
 				6003F59D195388D20070C39A /* QVAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -207,7 +209,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				23D3CE8D5F2A0239E9F0A10D /* [CP] Embed Pods Frameworks */,
+				62FC7904F3DA1D7E053F161C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -247,6 +249,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Sunshine;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = BMP99N9345;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -295,18 +300,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		23D3CE8D5F2A0239E9F0A10D /* [CP] Embed Pods Frameworks */ = {
+		62FC7904F3DA1D7E053F161C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-QVEditorKit_Example/Pods-QVEditorKit_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/QVEditorKit/QVEditorKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QVEditorKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -494,6 +507,9 @@
 			baseConfigurationReference = 11A2BF5D7383B588A4D3F1C3 /* Pods-QVEditorKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				DEVELOPMENT_TEAM = BMP99N9345;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QVEditorKit/QVEditorKit-Prefix.pch";
 				INFOPLIST_FILE = "QVEditorKit/QVEditorKit-Info.plist";
@@ -510,6 +526,9 @@
 			baseConfigurationReference = D06FB2BBEC39B7163F242D65 /* Pods-QVEditorKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				DEVELOPMENT_TEAM = BMP99N9345;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QVEditorKit/QVEditorKit-Prefix.pch";
 				INFOPLIST_FILE = "QVEditorKit/QVEditorKit-Info.plist";

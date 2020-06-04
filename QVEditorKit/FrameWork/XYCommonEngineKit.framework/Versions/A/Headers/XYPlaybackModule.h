@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 XiaoYing Team. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#import "CXiaoYingInc.h"
+#import <XYCommonEngine/CXiaoYingInc.h>
 
 typedef NS_ENUM(NSInteger, XYPlayerState) {
     XYPlayerStateNone = AMVE_PROCESS_STATUS_NONE,

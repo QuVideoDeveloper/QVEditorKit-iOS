@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CXiaoYingInc.h"
+#import <XYCommonEngine/CXiaoYingInc.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

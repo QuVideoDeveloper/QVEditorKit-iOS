@@ -5,7 +5,7 @@
 //  Created by hzy on 2019/8/22.
 //
 
-#import "XYBaseDatabase.h"
+#import <XYDatabase/XYBaseDatabase.h>
 #import <XYDatabase/XYDBUtility.h>
 
 NS_ASSUME_NONNULL_BEGIN

@@ -28,14 +28,27 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/QuVideoDeveloper/QVEditorKit-iOS.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
-  s.vendored_frameworks = 'QVCommonKit/FrameWork/*.framework'
+  s.libraries = 'iconv', 'c', 'c++', 'stdc++', 'z'
+
+  s.frameworks = 'VideoToolbox', 'Webkit', 'Photos', 'ImageIO', 'QuartzCore', 'AssetsLibrary', 'CoreGraphics' , 'Accelerate', 'UIKit', 'Foundation', 'AdSupport', 'CoreTelephony', 'CoreMedia'
+  
+  s.vendored_frameworks = 'QVEditorKit/FrameWork/*.framework'
 
   s.source_files = 'QVEditorKit/Classes/**/*'
 
+
+  s.dependency 'ReactiveObjC'
+  s.dependency 'FMDB'
+  s.dependency 'YYModel'
+  s.dependency 'SDWebImage'
+#  s.dependency 'QVCommonKit' , '0.9.3'
+ # s.dependency 'XYCommonEngine' , '0.1.0'
+
   s.xcconfig = { "OTHER_LDFLAGS" => "-ObjC" }
 
+  
   # s.resource_bundles = {
   #   'QVEditorKit' => ['QVEditorKit/Assets/*.png']
   # }

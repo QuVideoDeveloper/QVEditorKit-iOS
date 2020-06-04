@@ -5,7 +5,7 @@
 //  Created by 徐新元 on 2018/7/13.
 //
 
-#import "CXiaoYingInc.h"
+#import <XYCommonEngine/CXiaoYingInc.h>
 #import <Foundation/Foundation.h>
 
 typedef void (^SAVE_COMPLETE_BLOCK)(MRESULT result);

@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XYStoryboard.h"
 
 #import "NSBundle+XYTemplateDataMgr.h"
 #import "XYTemplateDBDefine.h"
 #import "XYTemplateDBMgr.h"
+#import <XYCommonEngineKit/XYCommonEngineKit.h>
 
 
 typedef NS_ENUM(NSInteger, XYTemplateDataType) {

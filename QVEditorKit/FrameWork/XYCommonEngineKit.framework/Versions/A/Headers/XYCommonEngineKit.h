@@ -7,7 +7,7 @@
 
 #ifndef XYCommonEngineKit_h
 #define XYCommonEngineKit_h
-#import "CXiaoYingInc.h"
+//#import <XYCommonEngine/CXiaoYingInc.h>
 
 #import <XYCommonEngineKit/XYEngine.h>
 #import <XYCommonEngineKit/XYEngineParam.h>
@@ -20,7 +20,6 @@
 #import <XYCommonEngineKit/XYStoryboardUtility.h>
 
 #import <XYCommonEngineKit/XYEffectPropertyMgr.h>
-#import <XYCommonEngineKit/XYCommonEngineUtility.h>
 #import <XYCommonEngineKit/XYEffectPostionUtilFuncs.h>
 
 #import <XYCommonEngineKit/XYAudioPlayer.h>

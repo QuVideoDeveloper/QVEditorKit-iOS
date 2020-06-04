@@ -7,11 +7,46 @@
 //
 
 #import "QVAppDelegate.h"
+#import <XYTemplateDataMgr/XYTemplateDataMgr.h>
+//#import <XYCommonEngineKit/XYStoryboard.h>
+
+#import <XYCommonEngineKit/XYCommonEngineKit.h>
 
 @implementation QVAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //inital template db\
+    //初始化window
+    //inital template db
+    NSBundle *mainBundle =  [NSBundle xy_templateBundle];
+    XYTemplateDBMgr *templateDBMgr = [[XYTemplateDBMgr alloc] init];
+    NSString *globalTargetPath = APP_TEMPLATE_DATABASE_FULL_PATH;
+    NSString *globalSourcePath = [[mainBundle resourcePath] stringByAppendingPathComponent:APP_TEMPLATE_DATABASE_NAME];
+    [templateDBMgr initDBWithTargetPath:globalTargetPath sourcePath:globalSourcePath];
+    [[XYDBUtility shareInstance] registerDatabaseManager:templateDBMgr forName:@"XYTemplateDBMgr"];
+    
+    //inital engine
+    XYEngineParam *engineparam = [[XYEngineParam alloc] initWithDefaultParam];
+    engineparam.licensePath = nil;
+    [[XYEngine sharedXYEngine] initEngineWithParam:engineparam
+                                   templateAdapter:[XYTemplateDataMgr sharedInstance]
+                                   filePathAdapter:[XYTemplateDataMgr sharedInstance]
+                                       metalEnable:NO];
+    [XYStoryboard sharedXYStoryboard].templateDelegate = [XYTemplateDataMgr sharedInstance];
+
+    //inital template
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [[XYTemplateDataMgr sharedInstance] initAll];
+        [[XYTemplateDataMgr sharedInstance] scanDisk:^(BOOL result) {
+
+        }];
+        
+        [[XYTemplateDataMgr sharedInstance] registerTemplateFonts];
+    
+    });
+
+//    [[XYStoryboard sharedXYStoryboard] initAll];
     // Override point for customization after application launch.
     return YES;
 }

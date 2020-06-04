@@ -5,7 +5,7 @@
 //  Created by 徐新元 on 2018/7/9.
 //
 
-#import "CXiaoYingInc.h"
+#import <XYCommonEngine/CXiaoYingInc.h>
 #import <Foundation/Foundation.h>
 
 @interface AnimatedFrameInfo : NSObject

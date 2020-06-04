@@ -7,7 +7,7 @@
 //
 
 #import "AnimatedFrameInfo.h"
-#import "CXiaoYingInc.h"
+#import <XYCommonEngine/CXiaoYingInc.h>
 #import "MultiTextInfo.h"
 #import "StickerInfo.h"
 #import "TextInfo.h"
