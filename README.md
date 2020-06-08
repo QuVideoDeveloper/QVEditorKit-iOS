@@ -1267,7 +1267,8 @@ XYProjectExportMgr 导出管理类说明：
     }];
 ```
 ### 七、Camera接入文档
-1）初始化XYCameraDevice
+1. 初始化
+1.1 初始化XYCameraDevice
 ```
 #pragma mark - 初始化CameraDevice
 - (void)initCameraDevice {
@@ -1282,7 +1283,7 @@ XYProjectExportMgr 导出管理类说明：
     }];
 }
 ```
-2）初始化XYCameraEngine
+1.2 初始化XYCameraEngine
 ```
 ⚠️需要在能够拿到预览的view的frame size之后再初始化XYCameraEngine
 #pragma mark - 初始化CameraEngine
@@ -1321,7 +1322,7 @@ XYProjectExportMgr 导出管理类说明：
 }
 ```
 
-3） 启动CameraSession
+1.3 启动CameraSession
 在viewWillAppear的时候就可以启动CameraSession
 ```
 - (void)viewWillAppear:(BOOL)animated {
@@ -1329,7 +1330,7 @@ XYProjectExportMgr 导出管理类说明：
     [self.cameraDevice startSession];//启动CameraSession，成功后可看到画面
 }
 ```
-4）销毁CameraEngine
+1.4 销毁CameraEngine
 ⚠️UIViewController dealloc的时候需要手动销毁CameraEngine
 ```
 - (void)dealloc {
@@ -1337,8 +1338,8 @@ XYProjectExportMgr 导出管理类说明：
     [_cameraEngine uninitCameraEngine];
 }
 ```
-
-5）切换前后摄像头
+2. XYCameraDevice相关功能使用
+2.1 切换前后摄像头
  
 ```
 //切换前后摄像头
@@ -1351,7 +1352,7 @@ XYProjectExportMgr 导出管理类说明：
 }
 
 ```
-6）设置对焦点
+2.2 设置对焦点
  
 ```
 /// 点击屏幕设置对焦点
@@ -1371,7 +1372,7 @@ XYProjectExportMgr 导出管理类说明：
 }
 
 ```
-7）开关闪光灯
+2.3 开关闪光灯
  
 ```
 //开关闪光灯
@@ -1384,7 +1385,7 @@ XYProjectExportMgr 导出管理类说明：
 }
 
 ```
-8）调节曝光程度
+2.4 调节曝光程度
  
 ```
 #pragma mark - 调节曝光程度
@@ -1393,7 +1394,8 @@ XYProjectExportMgr 导出管理类说明：
 }
 
 ```
-9）开始录制
+3. XYCameraEngine相关功能使用
+3.1 开始录制
  
 ```
    [self.cameraEngine startRecordWithParamMaker:^(XYCameraRecordParamMaker * _Nonnull paramMaker) {
@@ -1406,18 +1408,18 @@ XYProjectExportMgr 导出管理类说明：
 
 ```
 
-10） 暂停录制
+3.2 暂停录制
  
 ```
    [self.cameraEngine pauseRecord];
 
 ```
-11）继续录制
+3.3 继续录制
  
 ```
 [self.cameraEngine resumeRecord];
 ```
-12）停止录制
+3.4 停止录制
  
 ```
 [self.cameraEngine stopRecord];
@@ -1445,7 +1447,7 @@ XYProjectExportMgr 导出管理类说明：
     }];
 }
 ```
-13）拍照
+3.5 拍照
  
 ```
 /// 拍照（分辨率等于录制视频的分辨率，也就是outPutResolution）
@@ -1453,33 +1455,33 @@ XYProjectExportMgr 导出管理类说明：
 /// @param isOriginal 是否原始图像，不包括效果（滤镜，美颜等效果）
 - (void)captureWithFilePath:(NSString *)filePath isOriginal:(BOOL)isOriginal;
 ```
-14）删除最后一个已拍镜头
+3.6 删除最后一个已拍镜头
  
 ```
 /// 删除最后一个镜头
 - (void)deleteCameraClip;
 ```
 
-15）设置滤镜
+3.7 设置滤镜
  
 ```
 /// 设置滤镜模版
 /// @param templateFilePath 模版文件地址
 - (void)setFilterTemplate:(NSString *)templateFilePath;
 ```
-
-16）启用美颜
+3.8 设置美颜
+3.8.1 启用美颜
  
 ```
 self.cameraEngine.enableFaceBeauty
 ```
 
-17）调节美颜程度
+3.8.2 调节美颜程度
  
 ```
 self.cameraEngine.faceBeautyLevel = 0.5;//[0, 1]
 ```
-18）缩放
+4.9 缩放
  
 ```
 self.cameraEngine.zoomLevel = 2.0;//[1.0, 4.0]
