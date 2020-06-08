@@ -96,13 +96,13 @@ destRange：出入区间，效果在工程上的起始点和长度。
 (c)输入工程名，点击“Next”
 (d)输入工程路径，点击”Create“
 
-<img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/112.png" width="384" height="209" align="center">
+<img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/112.png" width="768" height="418" align="center">
 
 #### 2.禁用Bitcode
 (a)在工程设置界面，选择“Build Settings”。
 (b)在搜索框输入“bitcode”。
 (c)在“Enable Bitcode”选项卡中选择“No”
-<img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/EnableBitcode_ios.png" width="200" height="66" align="center">
+<img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/EnableBitcode_ios.png" width="400" height="132" align="center">
 
 3.添加SDK
 Podfile 文件中添加后执行pod update
