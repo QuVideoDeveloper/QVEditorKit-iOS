@@ -95,7 +95,7 @@ destRange：出入区间，效果在工程上的起始点和长度。
 (b)在工程类型界面选择适合的工程类型，点击“Next”
 (c)输入工程名，点击“Next”
 (d)输入工程路径，点击”Create“
-![Alt text](./1591065544786.jpg)
+https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/112.png
 
 #### 2.禁用Bitcode
 (a)在工程设置界面，选择“Build Settings”。
