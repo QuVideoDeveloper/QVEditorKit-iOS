@@ -1445,7 +1445,7 @@ XYProjectExportMgr 导出管理类说明：
     }];
 }
 ```
-12）拍照
+13）拍照
  
 ```
 /// 拍照（分辨率等于录制视频的分辨率，也就是outPutResolution）
@@ -1453,14 +1453,14 @@ XYProjectExportMgr 导出管理类说明：
 /// @param isOriginal 是否原始图像，不包括效果（滤镜，美颜等效果）
 - (void)captureWithFilePath:(NSString *)filePath isOriginal:(BOOL)isOriginal;
 ```
-12）删除最后一个已拍镜头
+14）删除最后一个已拍镜头
  
 ```
 /// 删除最后一个镜头
 - (void)deleteCameraClip;
 ```
 
-12）设置滤镜
+15）设置滤镜
  
 ```
 /// 设置滤镜模版
@@ -1468,18 +1468,18 @@ XYProjectExportMgr 导出管理类说明：
 - (void)setFilterTemplate:(NSString *)templateFilePath;
 ```
 
-12）启用美颜
+16）启用美颜
  
 ```
 self.cameraEngine.enableFaceBeauty
 ```
 
-12）调节美颜程度
+17）调节美颜程度
  
 ```
 self.cameraEngine.faceBeautyLevel = 0.5;//[0, 1]
 ```
-12）缩放
+18）缩放
  
 ```
 self.cameraEngine.zoomLevel = 2.0;//[1.0, 4.0]
