@@ -168,7 +168,8 @@ XYTemplateItemData *itemData = [[XYTemplateDataMgr sharedInstance] getByID:ttId]
 /**
 * 通过素材路径查询素材信息
 */
-XYTemplateItemData *itemData = [[XYTemplateDataMgr sharedInstance] getByPath:xytPath]```
+XYTemplateItemData *itemData = [[XYTemplateDataMgr sharedInstance] getByPath:xytPath]
+```
 
 XYTemplateItemData参数说明：
 
