@@ -148,8 +148,11 @@ QVEngineDataSourceProtocol 提供用户实现设置语言代码、及主题的�
 #### 1. 素材安装
 * 默认的本地素材和引擎的模板安装
 1.在工程目录下建立private实际目录文件夹的名字一定要是private这个名字
+
 2.引擎的模板放在Engine目录下 此目录可自定义
+
 3.将默认的本地素材放在DefaultTemplate目录下 此目录可自定义
+
 结构如下图：
 <img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/3.png" width="768" height="418" align="center">
 
