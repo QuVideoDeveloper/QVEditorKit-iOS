@@ -184,7 +184,7 @@ XYTemplateItemData参数说明：
 | strTitle | 素材名称 | NSString |
 
 ### 五、剪辑功能开发接入
-1. 剪辑的所以数据的获取
+* 剪辑的所以数据的获取
 所有片段上的数据获取
 ```
 NSArray <XYClipModel *> * clips = [XYEngineWorkspace clipMgr].clipModels
@@ -212,7 +212,20 @@ NSArray <XYClipModel *> * clips = [XYEngineWorkspace clipMgr].clipModels
  XYStoryboardModel *sbModel = [XYEngineWorkspace  stordboardMgr].currentStbModel;
 
 ```
+* 引擎执行完后的回调
+1.注册监听
+```
+   [XYEngineWorkspace addObserver:self taskID:XYCommonEngineTaskIDObserverEveryTaskFinishDispatchMain block:^(XYBaseEngineTask *task) {
+        if (XYCommonEngineTaskIDClipAddClip == task.taskID) {
+            //添加clip 后的回调
+        }
+    }];
+ ```
+ 2.移除监听
+```
+    [XYEngineWorkspace removeObserver:self taskID:XYCommonEngineTaskIDObserverEveryTaskFinishDispatchMain];
 
+ ```
 #### 1. 剪辑工程
 ##### 创建和加载
 ```
