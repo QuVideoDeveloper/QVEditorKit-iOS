@@ -144,7 +144,41 @@ QVEngineDataSourceProtocol 提供用户实现设置语言代码、及主题的�
 }
 ```
 
-### 四、剪辑功能开发接入
+### 四、素材管理开发接入
+#### 1. 素材安装
+* 默认的本地素材和引擎的模板安装
+1.在工程目录下建立private实际目录文件夹的名字一定要是private这个名字
+2.引擎的模板放在Engine目录下 此目录可自定义
+3.将默认的本地素材放在DefaultTemplate目录下 此目录可自定义
+结构如下图：
+<img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/3.png" width="768" height="418" align="center">
+
+
+```
+/** 安装单个素材文件 */
+ [[XYTemplateDataMgr sharedInstance] install:strTemplateFile];
+```
+
+#### 2. 素材信息查询
+```
+/**
+* 通过素材id查询素材信息
+*/
+XYTemplateItemData *itemData = [[XYTemplateDataMgr sharedInstance] getByID:ttId]
+/**
+* 通过素材路径查询素材信息
+*/
+XYTemplateItemData *itemData = [[XYTemplateDataMgr sharedInstance] getByPath:xytPath]```
+
+XYTemplateItemData参数说明：
+
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: |
+| lID | 素材id| NSInteger |
+| strPath | 素材路径 | NSString |
+| strTitle | 素材名称 | NSString |
+
+### 五、剪辑功能开发接入
 
 #### 1. 剪辑工程
 ##### 创建和加载
