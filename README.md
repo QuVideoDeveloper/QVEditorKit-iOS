@@ -184,6 +184,34 @@ XYTemplateItemData参数说明：
 | strTitle | 素材名称 | NSString |
 
 ### 五、剪辑功能开发接入
+1. 剪辑的所以数据的获取
+所有片段上的数据获取
+```
+NSArray <XYClipModel *> * clips = [XYEngineWorkspace clipMgr].clipModels
+```
+2.  所有效果的数据获取 
+```
+/**
+ * 音乐类的
+ */
+    NSArray <XYEffectAudioModel *> *effectList = [[XYEngineWorkspace effectMgr] effectModels:groupId];
+
+/**
+ * 字幕
+ */
+    NSArray <XYEffectVisionTextModel *> *effectList = [[XYEngineWorkspace effectMgr] effectModels:groupId];
+    
+ /**
+ * 普通的效果
+ */
+    NSArray <XYEffectVisionModel *> *effectList = [[XYEngineWorkspace effectMgr] effectModels:groupId];
+```
+3.  主题、比例、主题字幕、视频总时长信息获取
+
+```
+ XYStoryboardModel *sbModel = [XYEngineWorkspace  stordboardMgr].currentStbModel;
+
+```
 
 #### 1. 剪辑工程
 ##### 创建和加载
@@ -1550,3 +1578,4 @@ Sunshine, cheng.xia@quvideo.com
 ## License
 
 QVEditorKit is available under the MIT license. See the LICENSE file for more info.
+
