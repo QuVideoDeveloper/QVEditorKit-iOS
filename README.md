@@ -1196,7 +1196,7 @@ XYProjectExportMgr 导出管理类说明：
 
 ```
 
-### 五、卡点视频工程功能开发接入
+### 六、卡点视频工程功能开发接入
 
 #### 1. 卡点视频工程
 ##### 创建和加载
@@ -1255,7 +1255,7 @@ XYProjectExportMgr 导出管理类说明：
 【详情请参看剪辑工程导出相关。】
 
 
-### 六、 缩略图获取
+### 七、 缩略图获取
 ##### 1. 工程相关缩略图获取
 ```
   /**
@@ -1305,7 +1305,7 @@ XYProjectExportMgr 导出管理类说明：
     } placeholderBlock:^(XYVivaEditorThumbnailCompleteModel * _Nonnull completeModel) {
     }];
 ```
-### 七、Camera接入文档
+### 八、Camera接入文档
 1. 初始化
 1.1 初始化XYCameraDevice
 ```
@@ -1526,7 +1526,7 @@ self.cameraEngine.faceBeautyLevel = 0.5;//[0, 1]
 self.cameraEngine.zoomLevel = 2.0;//[1.0, 4.0]
 ```
 
-### 八、其它
+### 九、其它
 ```
   /**
    * 视频倒放
