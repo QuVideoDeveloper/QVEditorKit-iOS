@@ -1266,8 +1266,228 @@ XYProjectExportMgr 导出管理类说明：
     } placeholderBlock:^(XYVivaEditorThumbnailCompleteModel * _Nonnull completeModel) {
     }];
 ```
+### 七、Camera接入文档
+1. 初始化
+1.1 初始化XYCameraDevice
+```
+#pragma mark - 初始化CameraDevice
+- (void)initCameraDevice {
+    if (self.cameraDevice) {
+        return;
+    }
+    self.cameraDevice = [XYCameraDevice new];
+    
+    [self.cameraDevice initCameraDeviceWithParamMaker:^(XYCameraDeviceParamMaker * _Nonnull paramMaker) {
+        paramMaker.captureSessionPreset(AVCaptureSessionPreset1280x720);//设置分辨率
+        paramMaker.devicePosition(AVCaptureDevicePositionBack);//设置初始镜头方向
+    }];
+}
+```
+1.2 初始化XYCameraEngine
+```
+⚠️需要在能够拿到预览的view的frame size之后再初始化XYCameraEngine
+#pragma mark - 初始化CameraEngine
+- (void)initCameraEngine {
+    if (self.cameraEngine) {
+        return;
+    }
+    self.cameraEngine = [XYCameraEngine new];
+    
+    NSString *licensePath = [[NSBundle mainBundle] pathForResource:@"license" ofType:@"txt"];
+    
+    [self.cameraEngine initCameraEngineWithParamMaker:^(XYCameraEngineParamMaker * _Nonnull paramMaker) {
+        paramMaker.cXiaoYingEngine([[XYEngine sharedXYEngine] getCXiaoYingEngine]);//传入CXiaoYingEngine
+        paramMaker.enableMetal(YES);//是否启用Metal
+        paramMaker.previewView(self.fullSceenPreviewView);//预览用的view
+        paramMaker.inputResolutionSize(CGSizeMake(1280, 720)).outputResolutionSize(CGSizeMake(1280, 720));//设置输入输入的分辨率
+        paramMaker.renderRegionRect(self.fullSceenPreviewView.bounds);//用于在预览view上渲染的区域
+        paramMaker.deviceOrientation(UIDeviceOrientationPortrait);//设备方向
+        paramMaker.templateAdapter([XYTemplateDataMgr sharedInstance]);//用于处理模版相关的回调
+        paramMaker.fbTemplateFilepath([[XYTemplateDataMgr sharedInstance] getByID:0x4400000000180001].strPath);//美颜模版的路径
+        paramMaker.fbTemplateID(0x4400000000180001);//美颜模版的ID
+        paramMaker.licensePath(licensePath);//License路径
+    }];
+    self.cameraDevice.cameraDeviceDelegate = self.cameraEngine;//SampleBuffer的delegate由CameraEngine来处理
+    self.cameraEngine.cameraEngineDelegate = self;//CameraEngine的回调处理
+}
 
-### 七、其它
+/// CameraEngine的状态回调
+/// @param stateModel CameraEngine当前状态Model
+- (void)onCameraEngineStateUpdate:(XYCameraEngineStateModel *)stateModel {
+    //stateModel中主要关心2个数据
+    //当前CameraEngine的状态信息: 预览中，录制中，暂停中
+    XYCameraEngineRecordState stateModel.recordState = stateModel.recordState;
+    //当前已录制视频总时长
+    NSInteger totalDuration = stateModel. totalDuration;
+}
+```
+
+1.3 启动CameraSession
+在viewWillAppear的时候就可以启动CameraSession
+```
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.cameraDevice startSession];//启动CameraSession，成功后可看到画面
+}
+```
+1.4 销毁CameraEngine
+⚠️UIViewController dealloc的时候需要手动销毁CameraEngine
+```
+- (void)dealloc {
+    NSLog(@"XYEngineCameraVC dealloc");
+    [_cameraEngine uninitCameraEngine];
+}
+```
+2. XYCameraDevice相关功能使用
+2.1 切换前后摄像头
+ 
+```
+//切换前后摄像头
+- (void)onSwapCameraBtnClick {
+    if (self.cameraDevice.firstCameraParam.devicePosition == AVCaptureDevicePositionFront) {
+        [self.cameraDevice swapCamera:AVCaptureDevicePositionBack];
+    } else {
+        [self.cameraDevice swapCamera:AVCaptureDevicePositionFront];
+    }
+}
+
+```
+2.2 设置对焦点
+ 
+```
+/// 点击屏幕设置对焦点
+/// @param touchPoint 点击位置相对于预览区域的坐标
+/// @param previewAreaRect 预览区域rect
+- (void)setFocusPointWithTouchPoint:(CGPoint)touchPoint previewAreaRect:(CGRect)previewAreaRect;
+
+//示例代码
+- (void)onTapGesture:(UITapGestureRecognizer *)gesture {
+    CGPoint touchPoint = [gesture locationInView:[gesture view]];
+    CGRect previewAreaRect = self.fullSceenPreviewView.frame;
+    BOOL isTouchInThePreviewArea = CGRectContainsPoint(previewAreaRect, touchPoint);
+    if (!isTouchInThePreviewArea) {//没有点在预览区域，忽略该点击
+        return;
+    }
+    [self.cameraDevice setFocusPointWithTouchPoint:touchPoint previewAreaRect:previewAreaRect];
+}
+
+```
+2.3 开关闪光灯
+ 
+```
+//开关闪光灯
+- (void)onFlashBtnClick {
+    if (self.cameraDevice.torchMode == AVCaptureTorchModeOff) {
+        self.cameraDevice.torchMode = AVCaptureTorchModeOn;
+    } else {
+        self.cameraDevice.torchMode = AVCaptureTorchModeOff;
+    }
+}
+
+```
+2.4 调节曝光程度
+ 
+```
+#pragma mark - 调节曝光程度
+- (void)onExposureBiasChanged:(float)level {
+    self.cameraDevice.exposureBias = level;//调节范围[-2.0, 2.0]
+}
+
+```
+3. XYCameraEngine相关功能使用
+3.1 开始录制
+ 
+```
+   [self.cameraEngine startRecordWithParamMaker:^(XYCameraRecordParamMaker * _Nonnull paramMaker) {
+   paramMaker.clipFilePath(self.videoClipFilePath);//录制文件保存路径
+   paramMaker.hasAudioTrack(YES);//录制文件是否包含音轨
+   paramMaker.PCMSampleRate(44100);//音频采样率
+   paramMaker.PCMChannels(2);//音频声道数
+   paramMaker.maxFrameRate(30);//最大帧率
+        }];
+
+```
+
+3.2 暂停录制
+ 
+```
+   [self.cameraEngine pauseRecord];
+
+```
+3.3 继续录制
+ 
+```
+[self.cameraEngine resumeRecord];
+```
+3.4 停止录制
+ 
+```
+[self.cameraEngine stopRecord];
+
+//完成录制后，可从self.cameraEngine.cameraClipModels获取数据，然后添加到工程中，可参考代码
+- (void)insertClips:(NSArray<XYCameraClipModel *> *)cameraClipModels index:(NSInteger)index {
+    NSMutableArray<XYClipModel *> *clipModels = [NSMutableArray array];
+    [cameraClipModels enumerateObjectsUsingBlock:^(XYCameraClipModel * _Nonnull cameraClipModel, NSUInteger idx, BOOL * _Nonnull stop) {
+        XYClipModel *clipModel = [[XYClipModel alloc] init];
+        clipModel.sourceVeRange.dwPos = cameraClipModel.startPos;
+        clipModel.sourceVeRange.dwLen = cameraClipModel.endPos - cameraClipModel.startPos;
+        clipModel.clipFilePath = cameraClipModel.clipFilePath;
+        clipModel.rotation = cameraClipModel.rotation;
+        clipModel.clipIndex = index + idx;
+        [clipModels addObject:clipModel];
+    }];
+    
+    XYClipModel *taskModel = [[XYClipModel alloc] init];
+    taskModel.taskID = XYCommonEngineTaskIDClipAddClip;
+    taskModel.clipModels = clipModels;
+    [[XYEngineWorkspace clipMgr] runTask:taskModel];
+    __weak typeof(self) weakSelf = self;
+    [[XYEngineWorkspace clipMgr] addObserver:self observerID:XYCommonEngineTaskIDClipAddClip block:^(id  _Nonnull obj) {
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    }];
+}
+```
+3.5 拍照
+ 
+```
+/// 拍照（分辨率等于录制视频的分辨率，也就是outPutResolution）
+/// @param filePath 拍照文件保存地址
+/// @param isOriginal 是否原始图像，不包括效果（滤镜，美颜等效果）
+- (void)captureWithFilePath:(NSString *)filePath isOriginal:(BOOL)isOriginal;
+```
+3.6 删除最后一个已拍镜头
+ 
+```
+/// 删除最后一个镜头
+- (void)deleteCameraClip;
+```
+
+3.7 设置滤镜
+ 
+```
+/// 设置滤镜模版
+/// @param templateFilePath 模版文件地址
+- (void)setFilterTemplate:(NSString *)templateFilePath;
+```
+3.8 设置美颜
+3.8.1 启用美颜
+ 
+```
+self.cameraEngine.enableFaceBeauty
+```
+
+3.8.2 调节美颜程度
+ 
+```
+self.cameraEngine.faceBeautyLevel = 0.5;//[0, 1]
+```
+4.9 缩放
+ 
+```
+self.cameraEngine.zoomLevel = 2.0;//[1.0, 4.0]
+```
+
+### 八、其它
 ```
   /**
    * 视频倒放
@@ -1283,7 +1503,7 @@ XYProjectExportMgr 导出管理类说明：
         
     }];
 
-
+```
 ## Author
 
 Sunshine, cheng.xia@quvideo.com
