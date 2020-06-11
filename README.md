@@ -384,6 +384,39 @@ XYClipModel参数说明：
 | clipEffectModel | 特效滤镜信息，null表示无{@see XYClipEffectModel} | XYClipEffectModel |
 | adjustItems | 参数调节信息{@see XYAdjustItem} | NSArray <XYAdjustItem *>  |
 
+XYEffectPropertyData参数说明：
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: | :-: |
+| scale | 缩放 缩放是相对原始尺寸的比例 没有做缩放默认值是1| CGFloat | 
+| angleZ |旋转角度 值范围是0-3360 | NSInteger  | 
+| shiftX | X轴移动 没做移动默认值都是1,shiftX 是移动的X除以播放器的的宽(streamSize.width) + 原来的shiftX | CGFloat| 
+| shiftX | Y轴移动 没做移动默认值都是1,shiftX 是移动的X除以播放器的的宽(streamSize.width) + 原来的shiftX| CGFloat | 
+XYCommonEngineClipModuleType参数说明：
+| 名称  | 解释 |
+| :-: | :-: |
+| XYCommonEngineClipModuleImage | 图片clip |
+| XYCommonEngineClipModuleVideo | 视频clip |
+| XYCommonEngineClipModuleGif | gif clip |
+| XYCommonEngineClipModuleThemeCoverFront | 主题片头 |
+| XYCommonEngineClipModuleThemeCoverBack |主题片尾 |
+
+XYClipEffectModel参数说明：
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: | :-: |
+| effectConfigIndex | 有些素材包含多种效果，表示使用第几个效果，默认0| NSInteger | 
+| colorFilterFilePath |调色滤镜的路径 | NSString  | 
+| colorFilterAlpha | 调色程度值 滤镜调节 范围 0-1 | colorFilterAlpha| 
+| fxFilterFilePath |特效滤镜的路径 | NSString  | 
+| fxFilterAlpha | 特效程度值 滤镜调节 范围 0-1 | colorFilterAlpha| 
+| effectTransFilePath | 转场的路径| NSString | 
+| transDuration | 转场时长| NSInteger | 
+
+XYAdjustItem参数说明：
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: | :-: |
+| adjustType | 调节类型，共有类型为（亮度、对比度、饱和度、锐度、色温、暗角、色调、阴影、高光、褪色、噪点） | XYCommonEngineAdjustType | 
+| dwID | 唯一id | NSInteger  | 
+| dwCurrentValue |当前的值 0~100,默认50 | NSInteger| 
 
 XYCommonEngineClipModuleType参数说明：
 | 名称  | 解释 |
@@ -394,7 +427,70 @@ XYCommonEngineClipModuleType参数说明：
 | XYCommonEngineClipModuleThemeCoverFront | 主题片头 |
 | XYCommonEngineClipModuleThemeCoverBack |主题片尾 |
 
-2) 工程相关信息
+2) 效果相关信息
+
+XYEffectAudioModel参数说明：XYEffectAudioModel继承XYEffectModel
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: | :-: |
+| taskID | 执行的操作类型 | XYCommonEngineTaskID | 
+| groupID | effect的类型 | XYCommonEngineGroupID | 
+| filePath | 素材资源路径 | NSString | 必须 | 
+| sourceVeRange | 效果选取的时长，可以选取某一部分，默认（0， -1） | VXYVeRangeModeleRange | 
+| destVeRange | effect在storyboard上的 mVeRange（起始点，时长） | XYVeRangeModel | 
+| trimVeRange | 对效果时长的裁剪 | destVeRange | 
+| layerID | 效果的层级信息，是一个浮点数，数字越大 层级越高 | CGFloat | 
+| isFadeOutON | 是否开启淡入 | BOOL |
+| isFadeOutON | 是否开启淡出 | BOOL | 
+| fadeDuration | 渐变时长,0则无效果 | CGFloat | 
+
+XYEffectVisionModel
+XYEffectVisionModel参数说明：XYEffectVisionModel继承XYEffectModel
+| 名称  | 解释 | 类型 | 
+| :-: | :-: | :-: | :-: |
+| width | 宽度 | CGFloat | 
+| height | 高度 | XYCommonEngineGroupID | 
+| filePath | 素材资源路径 | NSString | 
+| sourceVeRange | 效果选取的时长，可以选取某一部分，默认（0， -1） | VXYVeRangeModeleRange | 
+| destVeRange | effect在storyboard上的 mVeRange（起始点，时长） | XYVeRangeModel | 
+| trimVeRange | 对效果时长的裁剪 | destVeRange | 
+| layerID | 效果的层级信息，是一个浮点数，数字越大 层级越高 | CGFloat | 
+| centerPoint | 相对于播放界面的中心点坐标 | CGPoint |
+| rotation | 旋转角度，顺时针 0 - 360| NSInteger | 
+| propData | 程度调节，默认1.0，范围 0 -1  | CGFloat | 
+| verticalReversal | 竖直翻转 | BOOL | 
+| horizontalReversal | 水平翻转  | BOOL | 
+| isStaticPicture | YES的情况下，该效果将会静态展示  | BOOL | 
+| isInstantRefresh | YES的情况下，该效果将会快速刷新  | BOOL | 
+| currentScale | 根据当前宽度和dafault宽度自动计算当前放大倍数，只读  | CGFloat | 
+| previewDuration | 预览时长 | CGFloat | 
+| volume | 效果的音量（只有特效和视频画中画才有作用） | NSInteger | 
+
+
+XYEffectVisionTextModel参数说明：XYEffectVisionTextModel继承XYEffectVisionModel
+| 名称  | 解释 | 类型 | 
+| :-: | :-: | :-: | :-: |
+| isAnimatedText |是否动画字幕 | BOOL | 
+| textTransparency |字幕不透明度 全透明0，不透明100 | NSInteger | 
+| useCustomTextInfo |第一次添加 如果这个值是YES，则文字大小、颜色、字体、位置、阴影、描边、描边大小、对齐方式，都用外面传进来的值，否则用模版里的信息| BOOL |
+| multiTextList |多行字幕标签信息列表， 单行字幕数组里只有一个 | XYEffectVisionSubTitleLabelInfoModel | 
+
+XYEffectVisionSubTitleLabelInfoModel参数说明：
+| 名称  | 解释 | 类型 | 
+| :-: | :-: | :-: | :-: |
+| text | 字幕当前文字| NSString |
+| textFontName |字幕字体名称 | NSString | 
+| textColor | 字幕颜色 | UIColor | 
+| textLine |字幕行数 | NSInteger | 
+| textAlignment | 对齐方式| XYEffectVisionTextAlignment | 
+| textStrokeColor | 描边颜色 | UIColor | 
+| textShadowColor | 阴影颜色 | UIColor |
+| textStrokeWPercent | 描边粗细，引擎那边限制可以认为是0.0～1.0，但取值范围建议 0.0～0.5| CGFloat |
+| textShadowBlurRadius | 阴影模糊程度: 必须>=0| CGFloat |
+| textShadowXShift | 阴影X轴偏移 | CGFloat |
+| textShadowXShift | 阴影Y轴偏移| CGFloat |
+
+
+3) 工程相关信息
 XYStoryboardModel参数说明：
 | 名称  | 解释 | 类型 |
 | :-: | :-: | :-: |
@@ -696,13 +792,6 @@ taskID参数设置
    */
     taskID = XYCommonEngineTaskIDClipGestureRotation;
 ```
-XYEffectPropertyData参数说明：
-| 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
-| scale | 缩放 缩放是相对原始尺寸的比例 没有做缩放默认值是1| CGFloat | 
-| angleZ |旋转角度 值范围是0-3360 | NSInteger  | 
-| shiftX | X轴移动 没做移动默认值都是1,shiftX 是移动的X除以播放器的的宽(streamSize.width) + 原来的shiftX | CGFloat| 
-| shiftX | Y轴移动 没做移动默认值都是1,shiftX 是移动的X除以播放器的的宽(streamSize.width) + 原来的shiftX| CGFloat | 
 
 20）镜头参数调节
 ```
@@ -748,7 +837,7 @@ clipEffectModel参数说明：
     clipModel.clipEffectModel.fxFilterFilePath = fxFilterFilePath;
     [[XYEngineWorkspace clipMgr] runTask:clipModel];
 ```
-XYClipEffectModel 参数说明：
+clipEffectModel 参数说明：
 | 名称  | 解释 | 类型 |
 | :-: | :-: | :-: | :-: |
 | fxFilterFilePath | 特效滤镜路径 | NSString | 
@@ -762,7 +851,7 @@ XYClipEffectModel 参数说明：
     clipModel.clipEffectModel.effectTransFilePath = effectTransFilePath;
     [[XYEngineWorkspace clipMgr] runTask:clipModel];
 ```
-XYClipEffectModel参数说明：
+clipEffectModel参数说明：
 | 名称  | 解释 | 类型 |
 | :-: | :-: | :-: | :-: |
 | effectTransFilePath | 转场路径 | NSString | 
@@ -1067,42 +1156,25 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 ```
 	// groupId默认为XYCommonEngineGroupIDMosaic
 	// effectIndex为同类型中第几个效果
-	// mosaicInfo表示马赛克模糊程度 {@see XYMosaicInfo}
+	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionAdd;
+    visionModel.filePath = mediaItem.filePath;
+    visionModel.destVeRange = veRangeModel;
+    visionModel.propData = 0.5;
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+
+程度调节
+
+// groupId默认为XYCommonEngineGroupIDMosaic
+	// effectIndex为同类型中第几个效果
 	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
-  currentEffectModel.mosaicInfo = mosaicInfo;
+    visionModel.propData = 0.5;
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+
 ```
-XYMosaicInfo参数说明：
-| 名称  | 解释 | 类型 | 是否必须 |
-| :-: | :-: | :-: | :-: |
-| horValue | 水平模糊程度 | NSInteger | 必须 | 
-| verValue | 垂直模糊程度 | NSInteger | 必须 | 
 
 * 字幕
-XYEffectVisionTextModel参数说明：
-| 名称  | 解释 | 类型 | 是否必须 |
-| :-: | :-: | :-: | :-: |
-| isAnimatedText |是否动画字幕 | BOOL | 非必须| 
-| textTransparency |字幕不透明度 全透明0，不透明100 | NSInteger | 非必须  | 
-| useCustomTextInfo |第一次添加 如果这个值是YES，则文字大小、颜色、字体、位置、阴影、描边、描边大小、对齐方式，都用外面传进来的值，否则用模版里的信息| BOOL |非必须| 
-| multiTextList |多行字幕标签信息列表， 单行字幕数组里只有一个 | XYEffectVisionSubTitleLabelInfoModel | 非必须  | 
-
-XYEffectVisionSubTitleLabelInfoModel参数说明：
-| 名称  | 解释 | 类型 | 是否必须 |
-| :-: | :-: | :-: | :-: |
-| text | 字幕当前文字| NSString | 非必须 | 
-| textFontName |字幕字体名称 | NSString | 非必须 | 
-| textColor | 字幕颜色 | UIColor | 非必须 | 
-| textLine |字幕行数 | NSInteger | 非必须| 
-| textAlignment | 对齐方式| XYEffectVisionTextAlignment | 非必须 | 
-| textStrokeColor | 描边颜色 | UIColor | 非必须 | 
-| textShadowColor | 阴影颜色 | UIColor |非必须 | 
-| textStrokeWPercent | 描边粗细，引擎那边限制可以认为是0.0～1.0，但取值范围建议 0.0～0.5| CGFloat |非必须| 
-| textShadowBlurRadius | 阴影模糊程度: 必须>=0| CGFloat |非必须| 
-| textShadowXShift | 阴影X轴偏移 | CGFloat |非必须| 
-| textShadowXShift | 阴影Y轴偏移| CGFloat |非必须| 
-
 6.3.1 字幕动画开关
 
 20）字幕文本
@@ -1571,5 +1643,6 @@ Sunshine, cheng.xia@quvideo.com
 ## License
 
 QVEditorKit is available under the MIT license. See the LICENSE file for more info.
+
 
 
