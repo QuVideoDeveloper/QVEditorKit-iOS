@@ -1187,8 +1187,29 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 ```
 
 * 字幕
-6.3.1 字幕动画开关
 
+XYEffectVisionTextModel参数说明
+| 名称  | 解释 | 类型 | 是否必须 |
+| :-: | :-: | :-: | :-: |
+| isAnimatedText |是否动画字幕 | BOOL | 非必须| 
+| textTransparency |字幕不透明度 全透明0，不透明100 | NSInteger | 非必须  | 
+| useCustomTextInfo |第一次添加 如果这个值是YES，则文字大小、颜色、字体、位置、阴影、描边、描边大小、对齐方式，都用外面传进来的值，否则用模版里的信息| BOOL |非必须| 
+| multiTextList |多行字幕标签信息列表， 单行字幕数组里只有一个 | XYEffectVisionSubTitleLabelInfoModel | 非必须  | 
+
+XYEffectVisionSubTitleLabelInfoModel参数说明：
+| 名称  | 解释 | 类型 | 是否必须 |
+| :-: | :-: | :-: | :-: |
+| text | 字幕当前文字| NSString | 非必须 | 
+| textFontName |字幕字体名称 | NSString | 非必须 | 
+| textColor | 字幕颜色 | UIColor | 非必须 | 
+| textLine |字幕行数 | NSInteger | 非必须| 
+| textAlignment | 对齐方式| XYEffectVisionTextAlignment | 非必须 | 
+| textStrokeColor | 描边颜色 | UIColor | 非必须 | 
+| textShadowColor | 阴影颜色 | UIColor |非必须 | 
+| textStrokeWPercent | 描边粗细，引擎那边限制可以认为是0.0～1.0，但取值范围建议 0.0～0.5| CGFloat |非必须| 
+| textShadowBlurRadius | 阴影模糊程度: 必须>=0| CGFloat |非必须| 
+| textShadowXShift | 阴影X轴偏移 | CGFloat |非必须| 
+| textShadowXShift | 阴影Y轴偏移| CGFloat |非必须| 
 20）字幕文本
 
 ```
