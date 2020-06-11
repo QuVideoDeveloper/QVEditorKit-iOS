@@ -815,7 +815,7 @@ taskID参数设置
 
 adjustItem参数说明：
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | adjustType | 调节类型，共有类型为（亮度、对比度、饱和度、锐度、色温、暗角、色调、阴影、高光、褪色、噪点） | XYCommonEngineAdjustType | 
 | dwID | 唯一id | NSInteger  | 
 | dwCurrentValue |当前的值 0~100,默认50 | NSInteger| 
@@ -832,7 +832,7 @@ adjustItem参数说明：
 ```
 clipEffectModel参数说明：
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | colorFilterFilePath | 滤镜路径 | NSString | 
 | colorFilterAlpha | 滤镜程度, 0～1.0 | CGFloat  | 
 | taskID | XYCommonEngineTaskIDClipFilterAdd（添加滤镜）,  XYCommonEngineTaskIDClipFilterUpdateAlpha（修改滤镜程度 | XYCommonEngineTaskID  | 
@@ -849,7 +849,7 @@ clipEffectModel参数说明：
 ```
 clipEffectModel 参数说明：
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | fxFilterFilePath | 特效滤镜路径 | NSString | 
 
 
@@ -863,7 +863,7 @@ clipEffectModel 参数说明：
 ```
 clipEffectModel参数说明：
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | effectTransFilePath | 转场路径 | NSString | 
 | transDestRange | //转场在视频中的range | XYVeRangeModel | 
 | effectConfigIndex | 转场效果样式，有些素材包含多种效果，表示使用第几个效果，默认0 | NSInteger | 
@@ -1653,6 +1653,7 @@ Sunshine, cheng.xia@quvideo.com
 ## License
 
 QVEditorKit is available under the MIT license. See the LICENSE file for more info.
+
 
 
 
