@@ -388,11 +388,12 @@ XYClipModel参数说明：
 XYEffectPropertyData参数说明：
 
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | scale | 缩放 缩放是相对原始尺寸的比例 没有做缩放默认值是1| CGFloat | 
 | angleZ |旋转角度 值范围是0-3360 | NSInteger  | 
 | shiftX | X轴移动 没做移动默认值都是1,shiftX 是移动的X除以播放器的的宽(streamSize.width) + 原来的shiftX | CGFloat| 
 | shiftX | Y轴移动 没做移动默认值都是1,shiftX 是移动的X除以播放器的的宽(streamSize.width) + 原来的shiftX| CGFloat | 
+
 XYCommonEngineClipModuleType参数说明：
 | 名称  | 解释 |
 | :-: | :-: |
@@ -405,7 +406,7 @@ XYCommonEngineClipModuleType参数说明：
 XYClipEffectModel参数说明：
 
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | effectConfigIndex | 有些素材包含多种效果，表示使用第几个效果，默认0| NSInteger | 
 | colorFilterFilePath |调色滤镜的路径 | NSString  | 
 | colorFilterAlpha | 调色程度值 滤镜调节 范围 0-1 | colorFilterAlpha| 
@@ -417,7 +418,7 @@ XYClipEffectModel参数说明：
 XYAdjustItem参数说明：
 
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | adjustType | 调节类型，共有类型为（亮度、对比度、饱和度、锐度、色温、暗角、色调、阴影、高光、褪色、噪点） | XYCommonEngineAdjustType | 
 | dwID | 唯一id | NSInteger  | 
 | dwCurrentValue |当前的值 0~100,默认50 | NSInteger| 
@@ -437,10 +438,10 @@ XYCommonEngineClipModuleType参数说明：
 XYEffectAudioModel参数说明：XYEffectAudioModel继承XYEffectModel
 
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | taskID | 执行的操作类型 | XYCommonEngineTaskID | 
 | groupID | effect的类型 | XYCommonEngineGroupID | 
-| filePath | 素材资源路径 | NSString | 必须 | 
+| filePath | 素材资源路径 | NSString | 
 | sourceVeRange | 效果选取的时长，可以选取某一部分，默认（0， -1） | VXYVeRangeModeleRange | 
 | destVeRange | effect在storyboard上的 mVeRange（起始点，时长） | XYVeRangeModel | 
 | trimVeRange | 对效果时长的裁剪 | destVeRange | 
@@ -452,7 +453,7 @@ XYEffectAudioModel参数说明：XYEffectAudioModel继承XYEffectModel
 XYEffectVisionModel参数说明：XYEffectVisionModel继承XYEffectModel
 
 | 名称  | 解释 | 类型 | 
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | width | 宽度 | CGFloat | 
 | height | 高度 | XYCommonEngineGroupID | 
 | filePath | 素材资源路径 | NSString | 
@@ -475,7 +476,7 @@ XYEffectVisionModel参数说明：XYEffectVisionModel继承XYEffectModel
 XYEffectVisionTextModel参数说明：XYEffectVisionTextModel继承XYEffectVisionModel
 
 | 名称  | 解释 | 类型 | 
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | isAnimatedText |是否动画字幕 | BOOL | 
 | textTransparency |字幕不透明度 全透明0，不透明100 | NSInteger | 
 | useCustomTextInfo |第一次添加 如果这个值是YES，则文字大小、颜色、字体、位置、阴影、描边、描边大小、对齐方式，都用外面传进来的值，否则用模版里的信息| BOOL |
@@ -484,7 +485,7 @@ XYEffectVisionTextModel参数说明：XYEffectVisionTextModel继承XYEffectVisio
 XYEffectVisionSubTitleLabelInfoModel参数说明：
 
 | 名称  | 解释 | 类型 | 
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | text | 字幕当前文字| NSString |
 | textFontName |字幕字体名称 | NSString | 
 | textColor | 字幕颜色 | UIColor | 
