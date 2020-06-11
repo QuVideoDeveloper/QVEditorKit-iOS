@@ -1026,6 +1026,7 @@ XYEffectAudioModel参数说明：
 
 * 视觉类的分为普通类型和字幕类型两种，字幕继承了普通类型的属性
 普通类型的,修改字幕对应的普通属性，只需将taskID 改成对应的字幕的taskID即可
+
 6.2.1
 XYEffectVisionModel参数说明：
 
