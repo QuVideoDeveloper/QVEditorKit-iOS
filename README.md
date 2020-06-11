@@ -1028,6 +1028,7 @@ XYEffectAudioModel参数说明：
 普通类型的,修改字幕对应的普通属性，只需将taskID 改成对应的字幕的taskID即可
 6.2.1
 XYEffectVisionModel参数说明：
+
 | 名称  | 解释 | 类型 | 是否必须 |
 | :-: | :-: | :-: | :-: |
 | defaultWidth | 默认宽度，素材中提取| CGFloat | 非必须 | 
@@ -1653,6 +1654,7 @@ Sunshine, cheng.xia@quvideo.com
 ## License
 
 QVEditorKit is available under the MIT license. See the LICENSE file for more info.
+
 
 
 
