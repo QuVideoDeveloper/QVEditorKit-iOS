@@ -360,6 +360,7 @@ XYEffectOperationMgr信息:
 1) 片段Clip相关
 
 XYClipModel参数说明：
+
 | 名称 | 解释 | 类型 |
 | :-: | :-: | :-: |
 | identifier | clip的唯一识别码 | NSString |
@@ -385,6 +386,7 @@ XYClipModel参数说明：
 | adjustItems | 参数调节信息{@see XYAdjustItem} | NSArray <XYAdjustItem *>  |
 
 XYEffectPropertyData参数说明：
+
 | 名称  | 解释 | 类型 |
 | :-: | :-: | :-: | :-: |
 | scale | 缩放 缩放是相对原始尺寸的比例 没有做缩放默认值是1| CGFloat | 
@@ -401,6 +403,7 @@ XYCommonEngineClipModuleType参数说明：
 | XYCommonEngineClipModuleThemeCoverBack |主题片尾 |
 
 XYClipEffectModel参数说明：
+
 | 名称  | 解释 | 类型 |
 | :-: | :-: | :-: | :-: |
 | effectConfigIndex | 有些素材包含多种效果，表示使用第几个效果，默认0| NSInteger | 
@@ -412,6 +415,7 @@ XYClipEffectModel参数说明：
 | transDuration | 转场时长| NSInteger | 
 
 XYAdjustItem参数说明：
+
 | 名称  | 解释 | 类型 |
 | :-: | :-: | :-: | :-: |
 | adjustType | 调节类型，共有类型为（亮度、对比度、饱和度、锐度、色温、暗角、色调、阴影、高光、褪色、噪点） | XYCommonEngineAdjustType | 
@@ -419,6 +423,7 @@ XYAdjustItem参数说明：
 | dwCurrentValue |当前的值 0~100,默认50 | NSInteger| 
 
 XYCommonEngineClipModuleType参数说明：
+
 | 名称  | 解释 |
 | :-: | :-: |
 | XYCommonEngineClipModuleImage | 图片clip |
@@ -430,6 +435,7 @@ XYCommonEngineClipModuleType参数说明：
 2) 效果相关信息
 
 XYEffectAudioModel参数说明：XYEffectAudioModel继承XYEffectModel
+
 | 名称  | 解释 | 类型 |
 | :-: | :-: | :-: | :-: |
 | taskID | 执行的操作类型 | XYCommonEngineTaskID | 
@@ -443,8 +449,8 @@ XYEffectAudioModel参数说明：XYEffectAudioModel继承XYEffectModel
 | isFadeOutON | 是否开启淡出 | BOOL | 
 | fadeDuration | 渐变时长,0则无效果 | CGFloat | 
 
-XYEffectVisionModel
 XYEffectVisionModel参数说明：XYEffectVisionModel继承XYEffectModel
+
 | 名称  | 解释 | 类型 | 
 | :-: | :-: | :-: | :-: |
 | width | 宽度 | CGFloat | 
@@ -467,6 +473,7 @@ XYEffectVisionModel参数说明：XYEffectVisionModel继承XYEffectModel
 
 
 XYEffectVisionTextModel参数说明：XYEffectVisionTextModel继承XYEffectVisionModel
+
 | 名称  | 解释 | 类型 | 
 | :-: | :-: | :-: | :-: |
 | isAnimatedText |是否动画字幕 | BOOL | 
@@ -475,6 +482,7 @@ XYEffectVisionTextModel参数说明：XYEffectVisionTextModel继承XYEffectVisio
 | multiTextList |多行字幕标签信息列表， 单行字幕数组里只有一个 | XYEffectVisionSubTitleLabelInfoModel | 
 
 XYEffectVisionSubTitleLabelInfoModel参数说明：
+
 | 名称  | 解释 | 类型 | 
 | :-: | :-: | :-: | :-: |
 | text | 字幕当前文字| NSString |
@@ -492,6 +500,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
 
 3) 工程相关信息
 XYStoryboardModel参数说明：
+
 | 名称  | 解释 | 类型 |
 | :-: | :-: | :-: |
 | outPutResolution | 分辨率 | CGSize |
@@ -1643,6 +1652,7 @@ Sunshine, cheng.xia@quvideo.com
 ## License
 
 QVEditorKit is available under the MIT license. See the LICENSE file for more info.
+
 
 
 
