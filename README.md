@@ -144,8 +144,77 @@ QVEngineDataSourceProtocol 提供用户实现设置语言代码、及主题的�
 }
 ```
 
-### 四、剪辑功能开发接入
+### 四、素材管理开发接入
+#### 1. 素材安装
+* 默认的本地素材和引擎的模板安装
 
+1.在工程目录下建立private实际目录文件夹的名字一定要是private这个名字
+
+2.引擎的模板放在Engine目录下 此目录可自定义
+
+3.将默认的本地素材放在DefaultTemplate目录下 此目录可自定义
+
+结构如下图：
+<img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/3.png" width="768" height="418" align="center">
+
+
+```
+/** 安装单个素材文件 */
+ [[XYTemplateDataMgr sharedInstance] install:strTemplateFile];
+```
+
+#### 2. 素材信息查询
+```
+/**
+* 通过素材id查询素材信息
+*/
+XYTemplateItemData *itemData = [[XYTemplateDataMgr sharedInstance] getByID:ttId]
+/**
+* 通过素材路径查询素材信息
+*/
+XYTemplateItemData *itemData = [[XYTemplateDataMgr sharedInstance] getByPath:xytPath]
+```
+
+XYTemplateItemData参数说明：
+
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: |
+| lID | 素材id| NSInteger |
+| strPath | 素材路径 | NSString |
+| strTitle | 素材名称 | NSString |
+
+### 五、剪辑功能开发接入
+
+* taskID 操作id说明
+1. taskID是每个操作的唯一id
+2.  与runTask配套使用  每次runTask都需要传是什么操作，如添加主题
+```
+// themePath表示主题素材路径
+	 XYStoryboardModel *sbModel = [XYEngineWorkspace stordboardMgr].currentStbModel;
+     sbModel.taskID = XYCommonEngineTaskIDStoryboardAddTheme;
+     sbModel.themePath = themePath;
+     [[XYEngineWorkspace stordboardMgr] runTask:sbModel];
+```
+
+效果分类groupId说明
+
+```
+typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
+    XYCommonEngineGroupIDBgmMusic = GROUP_ID_BGMUSIC,//背景音乐分类
+    XYCommonEngineGroupIDDubbing = GROUP_ID_DUBBING,//音效分类
+    XYCommonEngineGroupIDRecord = GROUP_ID_RECORD,//录音分类
+    XYCommonEngineGroupIDSticker = GROUP_STICKER,//贴纸
+    XYCommonEngineGroupIDMosaic = GROUP_ID_MOSAIC,//马赛克
+    XYCommonEngineGroupIDWatermark = GROUP_ID_WATERMARK,//水印
+    XYCommonEngineGroupIDText = GROUP_TEXT_FRAME,//字幕
+    XYCommonEngineGroupIDCollage = GROUP_ID_COLLAGE,//画中画
+    XYCommonEngineGroupIDAnimatedFrame = GROUP_ANIMATED_FRAME,//特效 全屏的特效。
+    XYCommonEngineGroupIDColorFilter = GROUP_IMAGING_EFFECT,//调色滤镜
+    XYCommonEngineGroupIDThemeFilter = GROUP_ID_THEME_FILTER,//主题滤镜group
+    XYCommonEngineGroupIDFXFilter = GROUP_ID_FX_FILTER,//特效滤镜。
+};
+
+```
 #### 1. 剪辑工程
 ##### 创建和加载
 ```
@@ -180,6 +249,14 @@ QVEngineDataSourceProtocol 提供用户实现设置语言代码、及主题的�
  播放器 
 XYPlayerView类
 用于播放预览剪辑后的视频
+其中有属性streamSize 如下
+```
+@interface XYPlayerView : UIView
+@property (nonatomic, assign) CGSize streamSize;
+
+```
+这个streamSize是播放器中引擎内容真正渲染的区域，引擎的坐标都相对于这个区域来计算，这个区域的位置是相对于XYPlayerView的位置居中的，如计算区域手势可通过这里转换得到。
+
 1）在工程加载成功后，可以绑定工程和播放器
 代码如下：
 ```
@@ -260,6 +337,188 @@ editorPlayerView.playStreamBounds
 [editorPlayerView removePlayDelegate:self]//移除监听播放回调
 ```
 
+##### 3. 获取工程相关信息
+
+```
+@interface XYClipOperationMgr : XYOperationMgrBase
+
+/** 获取所有clip信息 */
+@property (nonatomic, copy) NSArray <XYClipModel *> *clipModels
+
+  /** 通过当前时间，获取Clip */ 
+- (XYClipModel *)fetchClipModelWithPosition:(NSInteger)position;
+```
+
+XYEffectOperationMgr信息:
+```
+@interface XYEffectOperationMgr : XYOperationMgrBase
+
+/** 获取所有效果的信息 */
+@property (nonatomic, copy) NSArray <XYEffectModel *> *allEffects;
+
+/** 根据groupID 获取效果列表 */ 
+- (NSArray <XYEffectModel *> *)effectModels:(XYCommonEngineGroupID)groupType;//根据groupID 获取效果列表
+
+/** 根据时间和位置来获取效果 */ 
+- (XYEffectModel *)fetchEffectModelOnTopByTouchPoint:(CGPoint)touchPoint seekPosition:(NSInteger)seekPosition;
+ 
+```
+
+##### 数据结构说明
+1) 片段Clip相关
+
+XYClipModel参数说明：
+
+| 名称 | 解释 | 类型 |
+| :-: | :-: | :-: |
+| identifier | clip的唯一识别码 | NSString |
+| clipType | 类型{@see XYCommonEngineClipModuleType}  | XYCommonEngineClipModuleType |
+| clipFilePath | 片段文件路径 | NSString |
+| sourceVeRange | 源文件区间 | XYVeRangeModel |
+| trimRange | 片段裁切区间 | XYVeRangeModel |
+| destRange | 片段出入区间 | XYVeRangeModel |
+| cropRect | 裁剪区域 | CGRect |
+| sourceSize | 源视频宽高，相对streamSize的尺寸 | CGSize |
+| rotation | 旋转角度 | NSInteger |
+| isMute | 是否静音 | BOOL |
+| volumeValue | 音量，默认100 范围 0- 200 | CGFloat |
+| voiceChangeValue | 变声，-60~60，正常0。{@see XYDftSoundTone}类中有提供的特定音调 | CGFloat |
+| speedValue | 变速值，默认1.0f，设置变速时，也会对音调产生影响 | CGFloat |
+| iskeepTone | 是否保持原声调 | BOOL |
+| mirrorMode | 镜像{@see XYClipMirrorMode} | XYClipMirrorMode |
+| isReversed | 是否倒放 | BOOL |
+| clipPropertyData | 图片动画 clip的手势 背景颜色 背景图片 属性 {@see XYEffectPropertyData}| XYEffectPropertyData |
+| clipEffectModel | 转场，null表示无。当前片段和下一个片段的转场数据{@see XYClipEffectModel} | CrossInfo |
+| clipEffectModel | 滤镜信息，null表示无{@see XYClipEffectModel} | XYClipEffectModel |
+| clipEffectModel | 特效滤镜信息，null表示无{@see XYClipEffectModel} | XYClipEffectModel |
+| adjustItems | 参数调节信息{@see XYAdjustItem} | NSArray <XYAdjustItem *>  |
+
+XYEffectPropertyData参数说明：
+
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: | 
+| scale | 缩放 缩放是相对原始尺寸的比例 没有做缩放默认值是1| CGFloat | 
+| angleZ |旋转角度 值范围是0-3360 | NSInteger  | 
+| shiftX | X轴移动 没做移动默认值都是1,shiftX 是移动的X除以播放器的的宽(streamSize.width) + 原来的shiftX | CGFloat| 
+| shiftX | Y轴移动 没做移动默认值都是1,shiftX 是移动的X除以播放器的的宽(streamSize.width) + 原来的shiftX| CGFloat | 
+
+XYCommonEngineClipModuleType参数说明：
+| 名称  | 解释 |
+| :-: | :-: |
+| XYCommonEngineClipModuleImage | 图片clip |
+| XYCommonEngineClipModuleVideo | 视频clip |
+| XYCommonEngineClipModuleGif | gif clip |
+| XYCommonEngineClipModuleThemeCoverFront | 主题片头 |
+| XYCommonEngineClipModuleThemeCoverBack |主题片尾 |
+
+XYClipEffectModel参数说明：
+
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: | 
+| effectConfigIndex | 有些素材包含多种效果，表示使用第几个效果，默认0| NSInteger | 
+| colorFilterFilePath |调色滤镜的路径 | NSString  | 
+| colorFilterAlpha | 调色程度值 滤镜调节 范围 0-1 | colorFilterAlpha| 
+| fxFilterFilePath |特效滤镜的路径 | NSString  | 
+| fxFilterAlpha | 特效程度值 滤镜调节 范围 0-1 | colorFilterAlpha| 
+| effectTransFilePath | 转场的路径| NSString | 
+| transDuration | 转场时长| NSInteger | 
+
+XYAdjustItem参数说明：
+
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: | 
+| adjustType | 调节类型，共有类型为（亮度、对比度、饱和度、锐度、色温、暗角、色调、阴影、高光、褪色、噪点） | XYCommonEngineAdjustType | 
+| dwID | 唯一id | NSInteger  | 
+| dwCurrentValue |当前的值 0~100,默认50 | NSInteger| 
+
+XYCommonEngineClipModuleType参数说明：
+
+| 名称  | 解释 |
+| :-: | :-: |
+| XYCommonEngineClipModuleImage | 图片clip |
+| XYCommonEngineClipModuleVideo | 视频clip |
+| XYCommonEngineClipModuleGif | gif clip |
+| XYCommonEngineClipModuleThemeCoverFront | 主题片头 |
+| XYCommonEngineClipModuleThemeCoverBack |主题片尾 |
+
+2) 效果相关信息
+
+XYEffectModel参数说明：
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: | 
+| taskID | 执行的操作类型 | XYCommonEngineTaskID | 
+| groupID | effect的类型 | XYCommonEngineGroupID | 
+| filePath | 素材资源路径 | NSString | 
+| sourceVeRange | 效果选取的时长，可以选取某一部分，默认（0， -1） | VXYVeRangeModeleRange | 
+| destVeRange | effect在storyboard上的 mVeRange（起始点，时长） | XYVeRangeModel | 
+| trimVeRange | 对效果时长的裁剪 | destVeRange | 
+| layerID | 效果的层级信息，是一个浮点数，数字越大 层级越高 | CGFloat | 
+
+XYEffectAudioModel参数说明：XYEffectAudioModel继承XYEffectModel
+
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: | 
+| isFadeOutON | 是否开启淡入 | BOOL |
+| isFadeOutON | 是否开启淡出 | BOOL | 
+| fadeDuration | 渐变时长,0则无效果 | CGFloat | 
+
+XYEffectVisionModel参数说明：XYEffectVisionModel继承XYEffectModel
+
+| 名称  | 解释 | 类型 | 
+| :-: | :-: | :-: | 
+| width | 宽度 | CGFloat | 
+| height | 高度 | XYCommonEngineGroupID | 
+| centerPoint | 相对于播放界面的中心点坐标 | CGPoint |
+| rotation | 旋转角度，顺时针 0 - 360| NSInteger | 
+| propData | 程度调节，默认1.0，范围 0 -1  | CGFloat | 
+| verticalReversal | 竖直翻转 | BOOL | 
+| horizontalReversal | 水平翻转  | BOOL | 
+| isStaticPicture | YES的情况下，该效果将会静态展示  | BOOL | 
+| isInstantRefresh | YES的情况下，该效果将会快速刷新  | BOOL | 
+| currentScale | 根据当前宽度和dafault宽度自动计算当前放大倍数，只读  | CGFloat | 
+| previewDuration | 预览时长 | CGFloat | 
+| volume | 效果的音量（只有特效和视频画中画才有作用） | NSInteger | 
+
+
+XYEffectVisionTextModel参数说明：XYEffectVisionTextModel继承XYEffectVisionModel
+
+| 名称  | 解释 | 类型 | 
+| :-: | :-: | :-: | 
+| isAnimatedText |是否动画字幕 | BOOL | 
+| textTransparency |字幕不透明度 全透明0，不透明100 | NSInteger | 
+| useCustomTextInfo |第一次添加 如果这个值是YES，则文字大小、颜色、字体、位置、阴影、描边、描边大小、对齐方式，都用外面传进来的值，否则用模版里的信息| BOOL |
+| multiTextList |多行字幕标签信息列表， 单行字幕数组里只有一个 | XYEffectVisionSubTitleLabelInfoModel | 
+
+XYEffectVisionSubTitleLabelInfoModel参数说明：
+
+| 名称  | 解释 | 类型 | 
+| :-: | :-: | :-: | 
+| text | 字幕当前文字| NSString |
+| textFontName |字幕字体名称 | NSString | 
+| textColor | 字幕颜色 | UIColor | 
+| textLine |字幕行数 | NSInteger | 
+| textAlignment | 对齐方式| XYEffectVisionTextAlignment | 
+| textStrokeColor | 描边颜色 | UIColor | 
+| textShadowColor | 阴影颜色 | UIColor |
+| textStrokeWPercent | 描边粗细，引擎那边限制可以认为是0.0～1.0，但取值范围建议 0.0～0.5| CGFloat |
+| textShadowBlurRadius | 阴影模糊程度: 必须>=0| CGFloat |
+| textShadowXShift | 阴影X轴偏移 | CGFloat |
+| textShadowXShift | 阴影Y轴偏移| CGFloat |
+
+
+3) 工程相关信息
+XYStoryboardModel参数说明：
+
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: |
+| outPutResolution | 分辨率 | CGSize |
+| videoDuration | 视频总时长 | NSInteger |
+| themeTextList | 主题字幕列表| TextInfo |
+| themePath | 主题素材路径| NSArray |
+| themeID | 主题id| NSInteger |
+| ratioValue | 视频比例 | CGFloat |
+
+XYClipOperationMgr信息:
 #### 4. 主题剪辑功能接口
 1）应用/切换主题
 ```
@@ -493,7 +752,7 @@ clipModel.taskID = XYCommonEngineTaskIDClipBackgroundBlur;
 clipModel.clipPropertyData = clipPropertyData;
 ```
 
-ClipBgData参数说明：
+XYEffectPropertyData参数说明：
 | 名称  | 解释 | 类型 | 是否必须 |
 | :-: | :-: | :-: | :-: |
 | fitType | 背景类型 | XYCommonEngineRatioFitType | 非必须 | 
@@ -550,13 +809,6 @@ taskID参数设置
    */
     taskID = XYCommonEngineTaskIDClipGestureRotation;
 ```
-clipPropertyData参数说明：
-| 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
-| scale | 缩放 缩放是相对原始尺寸的比例 没有做缩放默认值是1| CGFloat | 
-| angleZ |旋转角度 值范围是0-3360 | NSInteger  | 
-| shiftX | X轴移动 没做移动默认值都是1,shiftX 是移动的X除以播放器的的宽(streamSize.width) + 原来的shiftX | CGFloat| 
-| shiftX | Y轴移动 没做移动默认值都是1,shiftX 是移动的X除以播放器的的宽(streamSize.width) + 原来的shiftX| CGFloat | 
 
 20）镜头参数调节
 ```
@@ -570,7 +822,7 @@ clipPropertyData参数说明：
 
 adjustItem参数说明：
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | adjustType | 调节类型，共有类型为（亮度、对比度、饱和度、锐度、色温、暗角、色调、阴影、高光、褪色、噪点） | XYCommonEngineAdjustType | 
 | dwID | 唯一id | NSInteger  | 
 | dwCurrentValue |当前的值 0~100,默认50 | NSInteger| 
@@ -587,7 +839,7 @@ adjustItem参数说明：
 ```
 clipEffectModel参数说明：
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | colorFilterFilePath | 滤镜路径 | NSString | 
 | colorFilterAlpha | 滤镜程度, 0～1.0 | CGFloat  | 
 | taskID | XYCommonEngineTaskIDClipFilterAdd（添加滤镜）,  XYCommonEngineTaskIDClipFilterUpdateAlpha（修改滤镜程度 | XYCommonEngineTaskID  | 
@@ -604,7 +856,7 @@ clipEffectModel参数说明：
 ```
 clipEffectModel 参数说明：
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | fxFilterFilePath | 特效滤镜路径 | NSString | 
 
 
@@ -618,7 +870,7 @@ clipEffectModel 参数说明：
 ```
 clipEffectModel参数说明：
 | 名称  | 解释 | 类型 |
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | 
 | effectTransFilePath | 转场路径 | NSString | 
 | transDestRange | //转场在视频中的range | XYVeRangeModel | 
 | effectConfigIndex | 转场效果样式，有些素材包含多种效果，表示使用第几个效果，默认0 | NSInteger | 
@@ -781,8 +1033,10 @@ XYEffectAudioModel参数说明：
 
 * 视觉类的分为普通类型和字幕类型两种，字幕继承了普通类型的属性
 普通类型的,修改字幕对应的普通属性，只需将taskID 改成对应的字幕的taskID即可
+
 6.2.1
 XYEffectVisionModel参数说明：
+
 | 名称  | 解释 | 类型 | 是否必须 |
 | :-: | :-: | :-: | :-: |
 | defaultWidth | 默认宽度，素材中提取| CGFloat | 非必须 | 
@@ -921,60 +1175,50 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 ```
 	// groupId默认为XYCommonEngineGroupIDMosaic
 	// effectIndex为同类型中第几个效果
-	// mosaicInfo表示马赛克模糊程度 {@see XYMosaicInfo}
+	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionAdd;
+    visionModel.filePath = mediaItem.filePath;
+    visionModel.destVeRange = veRangeModel;
+    visionModel.propData = 0.5;
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+
+程度调节
+
+// groupId默认为XYCommonEngineGroupIDMosaic
+	// effectIndex为同类型中第几个效果
 	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
-  currentEffectModel.mosaicInfo = mosaicInfo;
+    visionModel.propData = 0.5;
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+
 ```
-XYMosaicInfo参数说明：
-| 名称  | 解释 | 类型 | 是否必须 |
-| :-: | :-: | :-: | :-: |
-| horValue | 水平模糊程度 | NSInteger | 必须 | 
-| verValue | 垂直模糊程度 | NSInteger | 必须 | 
 
 * 字幕
-6.3.1 字幕动画开关
-```
-	// groupId默认为GROUP_ID_SUBTITLE
-	// effectIndex为同类型中第几个效果
-	// isAnimatedText表示是否开启动画
-	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
-    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
-  currentEffectModel.isAnimatedText = isAnimatedText;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
-```
 
-20）字幕文本
-XYEffectVisionTextModel参数说明：
+XYEffectVisionTextModel参数说明
+| 名称  | 解释 | 类型 | 是否必须 |
+| :-: | :-: | :-: | :-: |
+| isAnimatedText |是否动画字幕 | BOOL | 非必须| 
+| textTransparency |字幕不透明度 全透明0，不透明100 | NSInteger | 非必须  | 
+| useCustomTextInfo |第一次添加 如果这个值是YES，则文字大小、颜色、字体、位置、阴影、描边、描边大小、对齐方式，都用外面传进来的值，否则用模版里的信息| BOOL |非必须| 
+| multiTextList |多行字幕标签信息列表， 单行字幕数组里只有一个 | XYEffectVisionSubTitleLabelInfoModel | 非必须  | 
+
+XYEffectVisionSubTitleLabelInfoModel参数说明：
 | 名称  | 解释 | 类型 | 是否必须 |
 | :-: | :-: | :-: | :-: |
 | text | 字幕当前文字| NSString | 非必须 | 
 | textFontName |字幕字体名称 | NSString | 非必须 | 
 | textColor | 字幕颜色 | UIColor | 非必须 | 
 | textLine |字幕行数 | NSInteger | 非必须| 
-| isAnimatedText |是否动画字幕 | BOOL | 非必须| 
 | textAlignment | 对齐方式| XYEffectVisionTextAlignment | 非必须 | 
-| textTransparency |字幕不透明度 全透明0，不透明100 | NSInteger | 非必须  | 
 | textStrokeColor | 描边颜色 | UIColor | 非必须 | 
 | textShadowColor | 阴影颜色 | UIColor |非必须 | 
 | textStrokeWPercent | 描边粗细，引擎那边限制可以认为是0.0～1.0，但取值范围建议 0.0～0.5| CGFloat |非必须| 
 | textShadowBlurRadius | 阴影模糊程度: 必须>=0| CGFloat |非必须| 
 | textShadowXShift | 阴影X轴偏移 | CGFloat |非必须| 
 | textShadowXShift | 阴影Y轴偏移| CGFloat |非必须| 
-| useCustomTextInfo | 如果这个值是YES，则文字大小、颜色、字体、位置、阴影、描边、描边大小、对齐方式，都用外面传进来的值，否则用模版里的信息| BOOL |非必须| 
+20）字幕文本
 
-单字幕：
-```
-	// groupId默认为GROUP_ID_SUBTITLE
-	// effectIndex为同类型中第几个效果
-	// text表示字幕文本
-	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
-    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
-  currentEffectModel.text = text;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
-```
-组合字幕：
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
 	// effectIndex为同类型中第几个效果
@@ -982,23 +1226,12 @@ XYEffectVisionTextModel参数说明：
 	// text表示字幕文本
 	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
-    XYEffectVisionMultiSubTextModel *multiSubTextModel = currentEffectModel.multiTextList[textIndex];
-  multiSubTextModel = text;
+    XYEffectVisionSubTitleLabelInfoModel *labelInfoModel = currentEffectModel.multiTextList[textIndex];
+  labelInfoModel.text = text;
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
 ```
 
 21）字幕字体
-单字幕：
-```
-	// groupId默认为GROUP_ID_SUBTITLE
-	// effectIndex为同类型中第几个效果
-	// textFontName表示字幕字体名称
-	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
-    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
-  currentEffectModel.textFontName = textFontName;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
-```
-组合字幕：
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
 	// effectIndex为同类型中第几个效果
@@ -1006,50 +1239,14 @@ XYEffectVisionTextModel参数说明：
 	// textFontName表示字幕字体名称
 	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
-    XYEffectVisionMultiSubTextModel *multiSubTextModel = currentEffectModel.multiTextList[textIndex];
-  multiSubTextModel = textFontName;
+    XYEffectVisionSubTitleLabelInfoModel *labelInfoModel = currentEffectModel.multiTextList[textIndex];
+  labelInfoModel.textFontName = textFontName;
   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
 ```
 
 
 22）字幕文本颜色
-单字幕：
-```
-	// groupId默认为GROUP_ID_SUBTITLE
-	// effectIndex为同类型中第几个效果
-	// textColor表示文本颜色
-	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
-    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
-  currentEffectModel.textColor = textColor;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
-```
-组合字幕：
-```
-	// groupId默认为GROUP_ID_SUBTITLE
-	// effectIndex为同类型中第几个效果
-	// textIndex表示组合字幕中的第几个字幕
-	// textColor表示文本颜色
-	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
-    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
-    XYEffectVisionMultiSubTextModel *multiSubTextModel = currentEffectModel.multiTextList[textIndex];
-  multiSubTextModel.textColor = textColor;
-  [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
-```
 
-
-
-23）字幕文本对齐方式
-单字幕：
-```
-	// groupId默认为GROUP_ID_SUBTITLE
-	// effectIndex为同类型中第几个效果
-	// textAlignment表示对齐方式 {@see XYEffectVisionTextAlignment}
-	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
-    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
-  currentEffectModel.textAlignment = textAlignment;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
-```
-组合字幕：
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
 	// effectIndex为同类型中第几个效果
@@ -1057,27 +1254,13 @@ XYEffectVisionTextModel参数说明：
 	// textAlignment表示对齐方式
 	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
-   XYEffectVisionMultiSubTextModel *multiSubTextModel = currentEffectModel.multiTextList[textIndex];
-  multiSubTextModel.textAlignment = textAlignment;
+   XYEffectVisionSubTitleLabelInfoModel *labelInfoModel = currentEffectModel.multiTextList[textIndex];
+  labelInfoModel.textAlignment = textAlignment;
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
 ```
 
 24）字幕文本阴影
-单字幕：
-```
-	// groupId默认为GROUP_ID_SUBTITLE
-	// effectIndex为同类型中第几个效果
-	
-	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
-    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
-  currentEffectModel.isTextExtraEffectEnabled = YES;
-    currentEffectModel.textShadowXShift = textShadowXShift;
-  currentEffectModel.textShadowYShift = textShadowYShift;
-  currentEffectModel.textShadowColor = textShadowColor;
-  currentEffectModel.textShadowBlurRadius = textShadowBlurRadius;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
-```
-组合字幕：
+
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
 	// effectIndex为同类型中第几个效果
@@ -1085,35 +1268,24 @@ XYEffectVisionTextModel参数说明：
 	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
   currentEffectModel.isTextExtraEffectEnabled = YES;
-     XYEffectVisionMultiSubTextModel *multiSubTextModel = currentEffectModel.multiTextList[textIndex];
-    multiSubTextModel.textShadowXShift = textShadowXShift;
-  multiSubTextModel.textShadowYShift = textShadowYShift;
-  multiSubTextModel.textShadowColor = textShadowColor;
-  multiSubTextModel.textShadowBlurRadius = textShadowBlurRadius;
+     XYEffectVisionSubTitleLabelInfoModel *labelInfoModel = currentEffectModel.multiTextList[textIndex];
+    labelInfoModel.textShadowXShift = textShadowXShift;
+  labelInfoModel.textShadowYShift = textShadowYShift;
+  labelInfoModel.textShadowColor = textShadowColor;
+  labelInfoModel.textShadowBlurRadius = textShadowBlurRadius;
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
 ```
 
 25）字幕文本描边
-单字幕：
-```
-	// groupId默认为GROUP_ID_SUBTITLE
-	// effectIndex为同类型中第几个效果
-	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
-    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
-  currentEffectModel.textStrokeColord = textStrokeColor;
-    currentEffectModel.textStrokeWPercent = textStrokeWPercent;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
-```
-组合字幕：
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
 	// effectIndex为同类型中第几个效果
 	// textIndex表示组合字幕中的第几个字幕
 	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
-      XYEffectVisionMultiSubTextModel *multiSubTextModel = currentEffectModel.multiTextList[textIndex];
-  multiSubTextModel.textStrokeColor = textStrokeColor;
-    multiSubTextModel.textStrokeWPercent = textStrokeWPercent;
+      XYEffectVisionSubTitleLabelInfoModel *labelInfoModel = currentEffectModel.multiTextList[textIndex];
+  labelInfoModel.textStrokeColor = textStrokeColor;
+    labelInfoModel.textStrokeWPercent = textStrokeWPercent;
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
 ```
 
@@ -1157,7 +1329,7 @@ XYProjectExportMgr 导出管理类说明：
 
 ```
 
-### 五、卡点视频工程功能开发接入
+### 六、卡点视频工程功能开发接入
 
 #### 1. 卡点视频工程
 ##### 创建和加载
@@ -1216,7 +1388,7 @@ XYProjectExportMgr 导出管理类说明：
 【详情请参看剪辑工程导出相关。】
 
 
-### 六、 缩略图获取
+### 七、 缩略图获取
 ##### 1. 工程相关缩略图获取
 ```
   /**
@@ -1266,7 +1438,7 @@ XYProjectExportMgr 导出管理类说明：
     } placeholderBlock:^(XYVivaEditorThumbnailCompleteModel * _Nonnull completeModel) {
     }];
 ```
-### 七、Camera接入文档
+### 八、Camera接入文档
 1. 初始化
 1.1 初始化XYCameraDevice
 ```
@@ -1487,7 +1659,7 @@ self.cameraEngine.faceBeautyLevel = 0.5;//[0, 1]
 self.cameraEngine.zoomLevel = 2.0;//[1.0, 4.0]
 ```
 
-### 八、其它
+### 九、其它
 ```
   /**
    * 视频倒放
@@ -1511,3 +1683,13 @@ Sunshine, cheng.xia@quvideo.com
 ## License
 
 QVEditorKit is available under the MIT license. See the LICENSE file for more info.
+
+
+
+
+
+
+
+
+
+
