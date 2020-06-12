@@ -187,7 +187,7 @@ XYTemplateItemData参数说明：
 
 * taskID 操作id说明
 1. taskID是每个操作的唯一id
-2.  runTask配套使用  每次runTask都需要传是什么操作，如添加主题
+2.  与runTask配套使用  每次runTask都需要传是什么操作，如添加主题
 ```
 // themePath表示主题素材路径
 	 XYStoryboardModel *sbModel = [XYEngineWorkspace stordboardMgr].currentStbModel;
@@ -249,6 +249,14 @@ typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
  播放器 
 XYPlayerView类
 用于播放预览剪辑后的视频
+其中有属性streamSize 如下
+```
+@interface XYPlayerView : UIView
+@property (nonatomic, assign) CGSize streamSize;
+
+```
+这个streamSize是播放器中引擎内容真正渲染的区域，引擎的坐标都相对于这个区域来计算，这个区域的位置是相对于XYPlayerView的位置居中的，如计算区域手势可通过这里转换得到。
+
 1）在工程加载成功后，可以绑定工程和播放器
 代码如下：
 ```
@@ -435,8 +443,7 @@ XYCommonEngineClipModuleType参数说明：
 
 2) 效果相关信息
 
-XYEffectAudioModel参数说明：XYEffectAudioModel继承XYEffectModel
-
+XYEffectModel参数说明：
 | 名称  | 解释 | 类型 |
 | :-: | :-: | :-: | 
 | taskID | 执行的操作类型 | XYCommonEngineTaskID | 
@@ -446,6 +453,11 @@ XYEffectAudioModel参数说明：XYEffectAudioModel继承XYEffectModel
 | destVeRange | effect在storyboard上的 mVeRange（起始点，时长） | XYVeRangeModel | 
 | trimVeRange | 对效果时长的裁剪 | destVeRange | 
 | layerID | 效果的层级信息，是一个浮点数，数字越大 层级越高 | CGFloat | 
+
+XYEffectAudioModel参数说明：XYEffectAudioModel继承XYEffectModel
+
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: | 
 | isFadeOutON | 是否开启淡入 | BOOL |
 | isFadeOutON | 是否开启淡出 | BOOL | 
 | fadeDuration | 渐变时长,0则无效果 | CGFloat | 
@@ -456,11 +468,6 @@ XYEffectVisionModel参数说明：XYEffectVisionModel继承XYEffectModel
 | :-: | :-: | :-: | 
 | width | 宽度 | CGFloat | 
 | height | 高度 | XYCommonEngineGroupID | 
-| filePath | 素材资源路径 | NSString | 
-| sourceVeRange | 效果选取的时长，可以选取某一部分，默认（0， -1） | VXYVeRangeModeleRange | 
-| destVeRange | effect在storyboard上的 mVeRange（起始点，时长） | XYVeRangeModel | 
-| trimVeRange | 对效果时长的裁剪 | destVeRange | 
-| layerID | 效果的层级信息，是一个浮点数，数字越大 层级越高 | CGFloat | 
 | centerPoint | 相对于播放界面的中心点坐标 | CGPoint |
 | rotation | 旋转角度，顺时针 0 - 360| NSInteger | 
 | propData | 程度调节，默认1.0，范围 0 -1  | CGFloat | 
@@ -1676,6 +1683,10 @@ Sunshine, cheng.xia@quvideo.com
 ## License
 
 QVEditorKit is available under the MIT license. See the LICENSE file for more info.
+
+
+
+
 
 
 
