@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <XYCommonEngineKit/XYCommonEngineKit.h>
 
 #import "NSBundle+XYTemplateDataMgr.h"
 #import "XYTemplateDBDefine.h"
 #import "XYTemplateDBMgr.h"
-#import <XYCommonEngineKit/XYCommonEngineKit.h>
 
 
 typedef NS_ENUM(NSInteger, XYTemplateDataType) {
@@ -26,11 +26,6 @@ typedef NS_ENUM(NSInteger, XYTemplateDataType) {
     XYTemplateDataTypeText = AMVE_STYLE_MODE_BUBBLE_FRAME,//字幕
 };
 
-
-#define CURRENT_PREINSTALLED_TEMPLATE_VERSION_XIAOYING         1
-
-
-#define CURRENT_PREINSTALLED_TEMPLATE_VERSION                  CURRENT_PREINSTALLED_TEMPLATE_VERSION_XIAOYING
 
 
 #define FROM_TYPE_LOCAL                 0
@@ -98,7 +93,7 @@ typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
 
 
 @interface XYTemplateItemData : NSObject
-@property (readwrite, nonatomic) UInt64 lID;
+@property (readwrite, nonatomic) NSInteger lID;
 @property (readwrite, nonatomic, copy) NSString* strPath;
 @property (readwrite, nonatomic, copy) NSString* strTitle;
 @property (readwrite, nonatomic, copy) NSString* strLocalizedTitle;
@@ -130,29 +125,15 @@ typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
 @end
 
 
-@protocol XYTemplateDataMgrDataSource <NSObject>
-
-@optional
-
-/// 当前用户的语言 比系统的语言 或者是app语言
-- (NSString *)currentUserLanguage;
-
-/// 是否是在中国 可有ip、语言、国家码等来确定
-- (BOOL)templateCountryIsInChina;
-
-@end
-
 @interface XYTemplateDataMgr : NSObject <NSFileManagerDelegate,CXiaoYingTemplateAdapter,CXiaoYingFilePathAdapter,XYStoryboardTemplateDelegate>
 
 @property BOOL isInstalling;
 @property int nInstallProgress;
 
-@property (nonatomic, weak) id <XYTemplateDataMgrDataSource> dataSource;
-
 + (XYTemplateDataMgr *)sharedInstance;
 
 #pragma mark -- init method
-- (void)initAll;
+- (void)initAll:(NSInteger)defaultTemplateVersion;
 
 #pragma mark -- utility method
 -(BOOL)isDefaultTemplate:(UInt64)lID;
@@ -161,8 +142,8 @@ typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
 - (void)scanDisk:(XYTEMPLATE_COMPLETE_BLOCK)block;
 
 #pragma mark -- public method
-- (NSArray<NSNumber *> *)install:(NSString *)strTemplateFile;
-- (NSArray<NSNumber *> *)install:(NSString *)strTemplateFile isDeleteOriginFile:(BOOL)isDeleteOriginFile;
+- (void)install:(NSString *)strTemplateFile;
+- (void)install:(NSString *)strTemplateFile isDeleteOriginFile:(BOOL)isDeleteOriginFile;
 - (void)uninstall:(NSString*)strTemplatePath;
 - (NSArray<XYTemplateItemData *>*)query:(XYTemplateDataType)nTemplateType queryMask:(int)nQueryMask;
 
@@ -174,7 +155,7 @@ typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
                                          groupIndex:(NSInteger)groupIndex
                                        subPasterIDs:(NSArray<NSNumber *> *)subPasterIDs;
 - (XYTemplateItemData*)getByID:(UInt64)lID;
-- (XYTemplateItemData*)getByURL:(NSString*)strURL;
+- (XYTemplateItemData*)getByPath:(NSString*)path;
 - (NSString*)getPathByID:(UInt64)lID;
 - (UInt64)getIDByPath:(NSString *)path;
 - (NSString *)getTemplateExternalFile:(MInt64)templateID SubTemID:(MDWord)subTemplateID FileID:(MDWord)fileID;
