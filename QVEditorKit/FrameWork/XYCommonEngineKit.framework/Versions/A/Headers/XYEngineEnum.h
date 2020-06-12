@@ -44,6 +44,8 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     //clip 相关taskID========================================================================clip 相关taskID
     
     XYCommonEngineTaskIDClipAddClip,
+    XYCommonEngineTaskIDClipRotation,//旋转clip 需要的参数rotation
+    XYCommonEngineTaskIDClipCrop,//旋转clip 需要的参数cropRect
     XYCommonEngineTaskIDClipMuteState,//设置声音是否开启  需要的参数 isMute
     XYCommonEngineTaskIDClipUpdateVolume,//修改原clip的声音大小 需要的参数 volumeValue
     XYCommonEngineTaskIDClipFilterAdd,//添加滤镜 需要的参数 clipEffectModel对象设置值 1. 对应的FilterFilePath 2. 对应的FilterAlpha 0～1.0  3. effectConfigIndex 对应素材的TemplateItemData 的 nConfigureCount 4.groupID <XYCommonEngineGroupIDColorFilter 调色滤镜 XYCommonEngineGroupIDThemeFilter 特色滤镜 XYCommonEngineGroupIDThemeFilter 主题滤镜>
@@ -51,8 +53,9 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDClipVoiceChange,//变声 需要的参数 voiceChangeValue
     XYCommonEngineTaskIDClipAdjustUpdate,//参数调节   1.adjustItem dwCurrentValue
     XYCommonEngineTaskIDClipSpeed,//变速 1. speedValue 2.iskeepTone//是否保持原声调 调用变速前需要判断设置后clip时长是否>=VIVAVIDEO_MINIMUM_TRIM_RANGE。 设置后需要重新计算效果
+    XYCommonEngineTaskIDClipMirror,//镜像 参数设置 clipModel.mirrorMode
     //比例背景相关
-    XYCommonEngineTaskIDClipMirror,//镜像 参数设置 clipPropertyData.isMirror //yes 镜像 in no 非镜像
+    XYCommonEngineTaskIDClipCropMirror,//镜像 参数设置 clipPropertyData.isMirror //yes 镜像 in no 非镜像
     XYCommonEngineTaskIDClipFit,//比例fit In fit Out 参数 1.0 clipPropertyData.isFitIn //yes fit in no fit out
     XYCommonEngineTaskIDClipBackgroundBlur, //背景模糊 参数 1.0 clipPropertyData.backgroundBlurValue 引擎的默认值是 50  值范围 0~100
     XYCommonEngineTaskIDClipBackgroundColor, //背景颜色 参数  1. clipPropertyData.backgroundColorStartValue;//背景颜色 渐变起始颜色 格式（0Xffffff） 2.clipPropertyData.backgroundColorEndValue;//背景颜色 渐变结束颜色 格式（0Xffffff）3clipPropertyData.linearGradientAngle; //线性渐变的角度 默认为水平方向，取值范围：0~90，对应的角度：0~90，单位为°
@@ -95,41 +98,19 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     
     //背景音乐相关的
     
-    XYCommonEngineTaskIDEffectAddBgmMusic,// 对应 需要的参数,1. filePath 音乐的路径 2. mTrimVeRange 3.mDestVeRange 开始的时间和结束时间。5. title 音乐名称 5.groupID = XYCommonEngineGroupIDBgmMisic 6.isRepeatON
-    XYCommonEngineTaskIDEffectDeleteBgmMusic,//对应 需要的参数,
-    XYCommonEngineTaskIDEffectReplaceBgmMusic,// 对应 需要的参数,1.filePath 音乐的路径  2. title 音乐名称
-    XYCommonEngineTaskIDEffectBgmMusicUpdateRange,//加添加音乐id 对应 需要的参数 1.mDestVeRange 开始的时间和结束时间
-    XYCommonEngineTaskIDEffectBgmUpdateAudioVolume,// 对应 需要的参数 1.volumeValue
-    XYCommonEngineTaskIDEffectBgmFadeIn,//音乐淡入 对应 需要的参数 1.isFadeON 2.0 2.0 fadeDuration 默认2000 默认2000
-    XYCommonEngineTaskIDEffectBgmFadeOut,//音乐淡出 对应 需要的参数 1.isFadeOutON 2.0 fadeDuration 默认2000
-    XYCommonEngineTaskIDEffectBgmSetRepeat,// 对应 需要的参数 1.isRepeatON
-    XYCommonEngineTaskIDEffectBgmMusicTrimUpdate,//修改背景音乐的trimRange 对应 需要的参数 1.mTrimVeRange
-    XYCommonEngineTaskIDEffectBgmVoiceChange,//背景音乐变声
-
-    //音效相关的
-    XYCommonEngineTaskIDEffectAddDubbing,// 对应 需要的参数,1. filePath 音乐的路径 2. mTrimVeRange 3.mDestVeRange 开始的时间和结束时间。 4. title 音乐名称 5.groupID = XYCommonEngineGroupIDDubbing
-    XYCommonEngineTaskIDEffectDeleteDubbing,//
-    XYCommonEngineTaskIDEffectReplaceDubbing,// 对应 需要的参数,1.filePath 音乐的路径 2. title 音乐名称
-    XYCommonEngineTaskIDEffectDubbingUpdateRange,// 对应 需要的参数 1.mDestVeRange 开始的时间和结束时间
-    XYCommonEngineTaskIDEffectDuplicateDubbing,// 对应 需要的参数  new 新的model 1.mDestVeRange 开始的时间和结束时间 新的赋值给duplicateClipModel
-    XYCommonEngineTaskIDEffectDubbingUpdateAudioVolume,// 对应 需要的参数 1.volumeValue
-    //音乐淡入
-    XYCommonEngineTaskIDEffectDubbingFadeIn,// 对应 需要的参数 1.isFadeON 2.0 fadeDuration 默认2000
-    //音乐淡出
-    XYCommonEngineTaskIDEffectDubbingFadeOut,// 对应 需要的参数 1.isFadeOutON 2.0 fadeDuration 默认2000
-    XYCommonEngineTaskIDEffectDubbingVoiceChange,//音效变声
-    //录音相关的
-    XYCommonEngineTaskIDEffectAddRecord,// 对应 需要的参数,1. filePath 音乐的路径 2. mTrimVeRange 3. mDestVeRange 开始的时间和结束时间。4. title 音乐名称 5.groupID = XYCommonEngineGroupIDRecord
-    XYCommonEngineTaskIDEffectDeleteRecord,//删除录音
-    XYCommonEngineTaskIDEffectRecordUpdateRange,//对应 需要的参数 1.mDestVeRange 开始的时间和结束时间
-    XYCommonEngineTaskIDEffectDuplicateRecord,// 对应 需要的参数  new 新的model 1.mDestVeRange 开始的时间和结束时间 新的赋值给duplicateClipModel
-    XYCommonEngineTaskIDEffectRecordUpdateAudioVolume,// 对应 需要的参数 1.volumeValue
-    XYCommonEngineTaskIDEffectRecordFadeIn,//录音淡入 对应 需要的参数 1.isFadeON 2.0 2.0 fadeDuration 默认2000 默认2000
-    XYCommonEngineTaskIDEffectRecordFadeOut,//录音淡出 对应 需要的参数 1.isFadeOutON 2.0 fadeDuration 默认2000
-    XYCommonEngineTaskIDEffectRecordTrimUpdate,//修改录音的trimRange 对应 需要的参数 1.mTrimVeRange
-    XYCommonEngineTaskIDEffectRecordVoiceChange,//录音变声
-
-    XYCommonEngineTaskIDEffectBgmRetThemeAudio,//恢复主题带的音乐 参数 1. groupid = XYCommonEngineGroupIDBgmMusic
+    XYCommonEngineTaskIDEffectAudioAdd,// 对应 需要的参数,1. filePath 音乐的路径 2. mTrimVeRange 3.mDestVeRange 开始的时间和结束时间。5. title 音乐名称 5.groupID = XYCommonEngineGroupIDBgmMisic 6.isRepeatON
+    XYCommonEngineTaskIDEffectAudioDelete,//对应 需要的参数,
+    XYCommonEngineTaskIDEffectAudioReplace,// 对应 需要的参数,1.filePath 音乐的路径  2. title 音乐名称
+    XYCommonEngineTaskIDEffectAudioUpdateDestRange,//加添加音乐id 对应 需要的参数 1.mDestVeRange 开始的时间和结束时间
+    XYCommonEngineTaskIDEffectAudioUpdateSourceVeRange,
+    XYCommonEngineTaskIDEffectUpdateAudioVolume,// 对应 需要的参数 1.volumeValue
+    XYCommonEngineTaskIDEffectAudioFadeIn,//音乐淡入 对应 需要的参数 1.isFadeON 2.0 2.0 fadeDuration 默认2000 默认2000
+    XYCommonEngineTaskIDEffectAudioFadeOut,//音乐淡出 对应 需要的参数 1.isFadeOutON 2.0 fadeDuration 默认2000
+    XYCommonEngineTaskIDEffectAudioUpdateRepeat,// 对应 需要的参数 1.isRepeatON
+    XYCommonEngineTaskIDEffectAudioUpdateTrimRange,//修改背景音乐的trimRange 对应 需要的参数 1.mTrimVeRange
+    XYCommonEngineTaskIDEffectAudioVoiceChange,//背景音乐变声
+    XYCommonEngineTaskIDEffectAudioDuplicate,//复制 对应 需要的参数  new 新的model 1.mDestVeRange 开始的时间和结束时间 新的赋值给duplicateClipModel
+    XYCommonEngineTaskIDEffectResetThemeAudio,//恢复主题带的音乐 参数 1. groupid = XYCommonEngineGroupIDBgmMusic
 
     
      //可视效果 相关taskID========================================================================可视效果 相关taskID
@@ -153,22 +134,18 @@ typedef NS_ENUM(MDWord, XYCommonEngineTrackType) {
 };
 
 typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
-    XYCommonEngineGroupIDBgmMusic = GROUP_ID_BGMUSIC,//背景音乐分类 1
-    XYCommonEngineGroupIDDubbing = GROUP_ID_DUBBING,//音效分类 4
-    XYCommonEngineGroupIDRecord = GROUP_ID_RECORD,//录音分类 11
-    XYCommonEngineGroupIDSticker = GROUP_STICKER,//贴纸 8
-    XYCommonEngineGroupIDMosaic = GROUP_ID_MOSAIC,//马赛克 40
-    XYCommonEngineGroupIDWatermark = GROUP_ID_WATERMARK,//水印 50
-    XYCommonEngineGroupIDText = GROUP_TEXT_FRAME,//字幕 3
-    XYCommonEngineGroupIDCollage = GROUP_ID_COLLAGE,//画中画 20
+    XYCommonEngineGroupIDBgmMusic = GROUP_ID_BGMUSIC,//背景音乐分类
+    XYCommonEngineGroupIDDubbing = GROUP_ID_DUBBING,//音效分类
+    XYCommonEngineGroupIDRecord = GROUP_ID_RECORD,//录音分类
+    XYCommonEngineGroupIDSticker = GROUP_STICKER,//贴纸
+    XYCommonEngineGroupIDMosaic = GROUP_ID_MOSAIC,//马赛克
+    XYCommonEngineGroupIDWatermark = GROUP_ID_WATERMARK,//水印
+    XYCommonEngineGroupIDText = GROUP_TEXT_FRAME,//字幕
+    XYCommonEngineGroupIDCollage = GROUP_ID_COLLAGE,//画中画
     XYCommonEngineGroupIDAnimatedFrame = GROUP_ANIMATED_FRAME,//特效 全屏的特效。
     XYCommonEngineGroupIDColorFilter = GROUP_IMAGING_EFFECT,//调色滤镜
     XYCommonEngineGroupIDThemeFilter = GROUP_ID_THEME_FILTER,//主题滤镜group
-    XYCommonEngineGroupIDFXFilter = 15,//特效滤镜。
-
-    XYCommonEngineGroupIDClip = 10000,//clip 分类
-    XYCommonEngineGroupIDTheme = 10001,//主题 分类
-    XYCommonEngineGroupIDTransition = 10002,//转场 分类
+    XYCommonEngineGroupIDFXFilter = GROUP_ID_FX_FILTER,//特效滤镜。
 };
 
 typedef NS_ENUM(NSInteger, XYCommonEngineRequestID) {
@@ -213,6 +190,23 @@ typedef NS_ENUM(NSInteger, XYEngineUndoActionState) {
     XYEngineUndoActionStateReplaceLastOne,//undoStact替换掉最后一个
     XYEngineUndoActionStateBySelf,//不会拷贝引擎的内存数据 业务自己通过自己的参数 做undo redo
 
+};
+
+typedef NS_ENUM(NSInteger, XYDftSoundTone) {
+    XYDftSoundToneOriginal = 0,//原声
+    XYDftSoundToneValueEt = -18,//外星人
+    XYDftSoundToneBoy = -8,//男生
+    XYDftSoundToneGirl = 8,//女生
+    XYDftSoundToneCat = 10,//tom猫
+    XYDftSoundToneKid = 12,//萝莉
+    XYDftSoundToneOlder = -5,//老人
+};
+
+typedef NS_ENUM(NSInteger, XYClipMirrorMode) {
+    XYClipMirrorModeNormal = 0,//正常
+    XYClipMirrorModeX = 1,//沿X方向镜像
+    XYClipMirrorModeY = 2,//沿Y方向镜像
+    XYClipMirrorModeXY = 3,//沿XY方向镜像
 };
 
 #endif /* XYEngineEnum_h */

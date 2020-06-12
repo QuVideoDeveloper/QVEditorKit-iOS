@@ -8,6 +8,8 @@
 
 #import "XYEngineParam.h"
 #import <UIKit/UIKit.h>
+#import <XYCommonEngine/CXiaoYingInc.h>
+#import "QVEngineDataSourceProtocol.h"
 
 #define XY_TIMESCALE_DIV_4 0.25
 #define XY_TIMESCALE_DIV_2 0.5
@@ -15,20 +17,11 @@
 #define XY_TIMESCALE_MUL_2 2.0
 #define XY_TIMESCALE_MUL_4 4.0
 
-@protocol XYEngineTarceLogDelegate <NSObject>
-
-- (void)xYEngineTarceLog:(NSString *)log;
-
-- (void)xYEnginePrintLog:(NSString *)log;
-
-- (void)xYEventLog:(NSString *)eventId attributes:(NSDictionary *)attributes;// 小影业务需要实现日志收集
-
-@end
 
 @interface XYEngine : NSObject
 
 @property (nonatomic, weak) id<CXiaoYingTemplateAdapter> templateDelegate;
-@property (nonatomic, weak) id<XYEngineTarceLogDelegate> engineTarceLogDelegate;
+@property (nonatomic, weak) id<QVEngineDataSourceProtocol> engineLogDelegate;
 
 + (XYEngine *)sharedXYEngine;
 

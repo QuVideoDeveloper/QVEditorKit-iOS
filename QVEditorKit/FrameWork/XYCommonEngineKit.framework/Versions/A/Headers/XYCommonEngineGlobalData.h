@@ -15,8 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) XYEngineWorkspaceConfiguration *configModel;
 @property(nonatomic, assign) CGRect playbackViewFrame;//播放器的viewframe
-@property (nonatomic, copy) NSString *effectDefaultTransFilePath;//删除clip时需要将默认的转场设置进来 用于删除转场
-@property(nonatomic, assign) NSInteger transMinTime;
 
 + (XYCommonEngineGlobalData *)data;
 

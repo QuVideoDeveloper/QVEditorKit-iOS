@@ -24,28 +24,26 @@ typedef NS_ENUM(NSInteger, XYCommonEngineAdjustType) {
 
 @interface XYAdjustItem : XYBaseCopyModel
 @property (nonatomic, assign) XYCommonEngineAdjustType adjustType;
-@property MDWord dwID;
-@property MLong dwDefaultValue;
-@property MLong dwPreviousValue;
-@property MLong dwCurrentValue;//值的范围 [0-100];
-@property MLong dwMinValue;
-@property MLong dwMaxValue;
-@property (nonatomic, strong) NSString *nameEn;
-@property (nonatomic, strong) NSString *iconImagePath;
-@property (nonatomic, strong) NSString *nameLocale;
+@property NSInteger dwID;//唯一id
+@property NSInteger dwDefaultValue;//默认值
+@property NSInteger dwPreviousValue;
+@property NSInteger dwCurrentValue;//值的范围 [0-100];
+@property NSInteger dwMinValue;//最大值
+@property NSInteger dwMaxValue;//最小值
+@property (nonatomic, copy) NSString *nameEn;
+@property (nonatomic, copy) NSString *iconImagePath;
+@property (nonatomic, copy) NSString *nameLocale;
 @end
 
-/**
- 滤镜参数调节设置类
- */
+
 @interface XYEffectPropertyMgr : NSObject
 
-+ (MDWord)getEffectPropertyItemsCount:(MInt64)ltemplateID;
++ (NSInteger)getEffectPropertyItemsCount:(long long)ltemplateID;
 
-+ (XYAdjustItem *)getEffectPropertyItem:(MInt64)ltemplateID
-                                    dwItemIndex:(MDWord)dwItemIndex;
++ (XYAdjustItem *)getEffectPropertyItem:(long long)ltemplateID
+                                    dwItemIndex:(NSInteger)dwItemIndex;
 
-+ (NSArray<XYAdjustItem *> *)getEffectPropertyItemsWithTemplateID:(MInt64)ltemplateID;
++ (NSArray<XYAdjustItem *> *)getEffectPropertyItemsWithTemplateID:(long long)ltemplateID;
 
 + (NSArray<XYAdjustItem *> *)getEffectPropertyItemsWithEffectPropertyInfo:(CXYEffectpropertyInfo *)effectPropertyInfo;
 

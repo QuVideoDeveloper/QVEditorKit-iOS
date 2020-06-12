@@ -12,6 +12,8 @@
 
 @property (nonatomic) UInt64 startPos;
 @property (nonatomic) UInt64 endPos;
+@property (nonatomic) UInt64 trimPos;
+@property (nonatomic) UInt64 trimLen;
 @property (nonatomic) float timeScale;
 @property (nonatomic, strong) NSString *clipFilePath;
 @property (nonatomic, strong) NSString *filterFilePath;

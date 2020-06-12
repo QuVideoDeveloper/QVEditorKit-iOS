@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "XYSlideShowEnum.h"
 
-@class CXiaoYingSourceInfoNode, XYVeRangeModel;
+@class CXiaoYingSourceInfoNode, XYVeRangeModel, PHAsset;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,6 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 视频的range
 @property (nonatomic, strong) XYVeRangeModel *videoRange;
+
+/// 根据phAsset 获取到给引擎的镜头路径
+/// @param phAsset PHAsset对象
++ (NSString *)getMediaPathForEngine:(PHAsset *)phAsset;
 
 - (instancetype)initWithMediaPath:(NSString *)mediaPath mediaTyp:(XYSlideShowMediaType)mediaType;
 

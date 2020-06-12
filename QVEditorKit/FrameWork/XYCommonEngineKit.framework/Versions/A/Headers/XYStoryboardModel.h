@@ -14,18 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYStoryboardModel : XYBaseEngineModel
 
-/// 主题字幕list
-@property (nonatomic, copy) NSArray <TextInfo *> *themeTextList;
-@property (nonatomic, strong) TextInfo *themeTextInfo;//用于修改主题字幕
-@property(nonatomic, weak) XYClipModel *clipModel;
-@property (nonatomic, copy) NSString *themePath;
+@property (nonatomic, copy) NSArray <TextInfo *> *themeTextList;//主题字幕list
+@property (nonatomic, copy) NSString *themePath;//主题素材路径
 @property (nonatomic, copy) NSArray *themeMusicPathList;//主题音乐路径
-@property(nonatomic, assign, readonly) long long themeID;
+@property(nonatomic, assign, readonly) NSInteger themeID;//主题id
 @property(nonatomic, assign) CGFloat ratioValue;
 @property(nonatomic, assign) BOOL isPhotoMV;
-@property(nonatomic, assign) NSInteger outPutResolutionWidth;
-@property(nonatomic, assign) NSInteger outPutResolutionHeight;
-
+@property(nonatomic, assign) CGSize outPutResolution;//分辨率
 @property(nonatomic, assign) BOOL isPropRatioSelected;//是否设置了比例 如原比例为NO 非原比例 YES
 @property(nonatomic, assign) NSInteger videoDuration;//视频总时长
 

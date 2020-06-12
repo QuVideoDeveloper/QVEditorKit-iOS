@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "XYEngineEnum.h"
 #import "XYEngineWorkspaceConfiguration.h"
+#import "QVEngineDataSourceProtocol.h"
 
 @class XYClipOperationMgr;
 @class XYEffectOperationMgr;
@@ -17,19 +18,11 @@
 @class XYClipModel;
 @class XYEngineUndoMgr;
 @class XYProjectExportMgr;
+@class XYBaseEngineTask;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol XYEngineWorkspaceDataSource <NSObject>
-
-/// 是否是在中国 可有ip、语言、国家码等来确定
-- (BOOL)engingCountryIsInChina;
-
-@end
-
 @interface XYEngineWorkspace : NSObject
-
-@property (nonatomic, weak) id <XYEngineWorkspaceDataSource> dataSource;
 
 @property (nonatomic, assign) BOOL isPrebackWorkspace;//切换会正式工作站的前处理中
 @property (nonatomic, assign) XYEngineUndoActionState undoActionState;
@@ -37,12 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (XYEngineWorkspace *)space;
 
-+ (void)addObserver:(id _Nonnull )observer taskID:(XYCommonEngineTaskID)taskID block:(void (^)(id obj))block;
++ (void)addObserver:(id _Nonnull )observer taskID:(XYCommonEngineTaskID)taskID block:(void (^)(XYBaseEngineTask *task))block;
 
 + (void)removeObserver:(id _Nonnull )observer taskID:(XYCommonEngineTaskID)taskID;
 
-+ (void)initializeWithConfig:(XYEngineWorkspaceConfiguration *(^)(XYEngineWorkspaceConfiguration *config))configBlock;
-+ (void)updateWithConfig:(XYEngineWorkspaceConfiguration *(^)(XYEngineWorkspaceConfiguration *config))configBlock;
 + (XYClipOperationMgr *)clipMgr;
 
 + (XYEffectOperationMgr *)effectMgr;

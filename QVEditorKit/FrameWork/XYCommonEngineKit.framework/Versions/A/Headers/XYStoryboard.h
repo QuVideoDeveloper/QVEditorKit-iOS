@@ -8,7 +8,7 @@
 
 #import "AnimatedFrameInfo.h"
 #import <XYCommonEngine/CXiaoYingInc.h>
-#import "MultiTextInfo.h"
+#import "XYMultiTextInfo.h"
 #import "StickerInfo.h"
 #import "TextInfo.h"
 #import "XYAMVELoadStoryboardDelegateToBlock.h"
@@ -19,7 +19,7 @@
 #import "XYEngineDef.h"
 #import <Foundation/Foundation.h>
 #import "XYPlayerView.h"
-
+#import "QVEngineDataSourceProtocol.h"
 
 static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineAppVersion";
 
@@ -59,13 +59,18 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
  */
 @interface XYStoryboard : NSObject <AMVESessionStateDelegate, AMVEThemeOptDelegate>
 @property (weak, nonatomic) XYPlayerView *playView;
-@property (copy, nonatomic) NSString *fullLanguage;
+@property (nonatomic, weak) id <QVEngineDataSourceProtocol> dataSource;
+@property (copy, nonatomic) NSString *languageCode;//语言
 //引擎这边的CXiaoYingStoryBoardSession
 @property (nonatomic, strong) CXiaoYingStoryBoardSession *cXiaoYingStoryBoardSession;
 //当前工程文件的全路径
 @property (nonatomic, copy) NSString *currentProjectFullFilePath;
 //字符串解析delegate
 @property (nonatomic, weak) id<XYStoryboardEditTextParserDelegate> textParserDelegate;
+
+@property (nonatomic, weak) id<QVEngineDataSourceProtocol> textDataSourceDelegate;
+
+
 //模版解析delegate
 @property (nonatomic, weak) id<XYStoryboardTemplateDelegate> templateDelegate;
 //Storyboard是否被修改
@@ -143,8 +148,8 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 - (TextInfo *)getTemplateTextInfo:(NSString *)templateFilePath
                      previewFrame:(CGRect)previewFrame
                         inputText:(NSString *)inputText;
-- (CXiaoYingEffect *)setTextEffect:(TextInfo *)textInfo layerId:(float)layerId;
-- (MRESULT)setTextEffect:(TextInfo *)textInfo effect:(CXiaoYingEffect *)pEffect;
+- (CXiaoYingEffect *)setTextEffect:(XYMultiTextInfo *)multiTextInfo layerId:(float)layerId;
+- (MRESULT)setTextEffect:(XYMultiTextInfo *)multiTextInfo effect:(CXiaoYingEffect *)pEffect;
 - (UIImage *)getTextThumb:(TextInfo *)textInfo multiply:(int)multiply maxWidth:(int)maxWidth block:(void (^)(CGSize bubbleSize))block;
 
 #pragma mark - Sticker ralated
@@ -195,7 +200,7 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
                     titleIndex:(MDWord)dwTitleIndex
                      viewFrame:(CGRect)viewFrame;
 //！如果viewFram 传的size是 （0,0） 就不计算大小 几位置 但是可以用TextInfo.rcRegionRatio 计算出位子大小
-- (TextInfo *)getStoryboardTextInfo:(CXiaoYingEffect *)effect
+- (XYMultiTextInfo *)getStoryboardTextInfo:(CXiaoYingEffect *)effect
                           viewFrame:(CGRect)viewFrame;
 - (void)updateCoverText:(CXiaoYingCover *)cover
                textInfo:(TextInfo *)textInfo
@@ -463,5 +468,9 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
                      complete:(void (^)(NSInteger errorCode, NSArray <NSNumber *> *templates))complete;
 
 - (MSIZE)getThemeInnerBestSize:(NSString *)themePath;
+
+//- (AMVE_MUL_BUBBLETEXT_INFO *)fetchTemplateMultiTextInfo:(NSString *)templatePath;
+
+- (NSString *)fetchLanguageCode;//向外部获取语言
 
 @end

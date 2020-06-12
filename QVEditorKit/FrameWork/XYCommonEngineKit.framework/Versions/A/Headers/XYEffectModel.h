@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @class XYEffectRelativeClipInfo;
 
 @interface XYEffectUserDataModel : NSObject <YYModel>
-
+@property (nonatomic, assign) CGFloat originWidth; //原始宽度
+@property (nonatomic, assign) CGFloat originHeight; //原始高度
 @property (nonatomic, assign) CGFloat defaultWidth;//视觉效果默认宽度
 @property (nonatomic, assign) CGFloat defaultHeight;//视觉效果默认高度
 @property (nonatomic, assign) NSInteger previewDuration;//视觉效果的预览时长

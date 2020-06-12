@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <XYCommonEngine/CXiaoYingInc.h>
+
 @interface XYEngineParam : NSObject
 
 @property (nonatomic, copy) NSString *licensePath;

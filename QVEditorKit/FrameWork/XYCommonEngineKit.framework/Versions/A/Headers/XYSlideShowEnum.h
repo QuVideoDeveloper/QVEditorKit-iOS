@@ -14,9 +14,9 @@ typedef NS_ENUM(NSUInteger, XYSlideShowTransformType) {
 };
 
 typedef NS_ENUM(NSUInteger, XYSlideShowMediaType) {
-    XYSlideShowMediaTypeNone = 0,
-    XYSlideShowMediaTypeImage,
-    XYSlideShowMediaTypeVideo
+    XYSlideShowMediaTypeNone = 0, // 不知道什么类型
+    XYSlideShowMediaTypeImage, // 图片
+    XYSlideShowMediaTypeVideo // 视频
 };
 
 #endif /* XYSlideShowEnum_h */

@@ -7,6 +7,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, XYEngineExportType) {
+    XYEngineExportType480 = 0,
+    XYEngineExportType720,
+    XYEngineExportType1080,
+    XYEngineExportType4k,
+};
+
 @class XYVeRangeModel, XYStoryboard;
 
 typedef NS_ENUM(NSInteger, XYProjectType) {
@@ -18,17 +25,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYProjectExportConfiguration : NSObject
 
+
 /// 工程的类型 默认是正常的编辑工程
 @property (nonatomic, assign) XYProjectType projectType;
 
 /// 导出的路径 需要创建文件夹及导出对应文件的后缀名，如导出mp4 格式是**/filename.mp4, 导出GIF 格式是**/filename.GIF
 @property (nonatomic, copy) NSString *exportingFilePath;
 
-/// 导出的宽
-@property (nonatomic, assign) NSInteger width;
+/// 导出分辨率类型
+@property (nonatomic, assign) XYEngineExportType expType;
 
-/// 导出的高
-@property (nonatomic, assign) NSInteger height;
+/// 自定义的导出分辨率限制，使用自定义的话，expType就不重要了
+@property (nonatomic, assign) CGSize customLimitSize;
+
 
 /// 导出的视频的range 默认是全长 如导出GIF 需要设置trimRange
 @property (nonatomic, assign) XYVeRangeModel *trimRange;
@@ -55,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *nickNameWatermark;
 
 /// 比特率系数；在原计算出来的BitRate基础上乘以该系数 值范围 [1, 10] 默认值为1
-@property (nonatomic) float bitrateRatio;
+@property (nonatomic) CGFloat bitRate;
 
 /// 导出是否是音频
 @property (nonatomic, assign) BOOL isAudio;

@@ -22,8 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)bgmIsAddedByTheme:(NSString *)bgmPath;
 
-- (CGFloat)originaRatio:(BOOL)isPhotoMV;
-
 @end
 
 NS_ASSUME_NONNULL_END

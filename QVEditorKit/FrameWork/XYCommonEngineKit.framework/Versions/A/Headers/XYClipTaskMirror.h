@@ -1,15 +1,15 @@
 //
-//  XYClipTaskMirror.h
+//  XYClipMirrorTask.h
 //  XYCommonEngineKit
 //
-//  Created by 夏澄 on 2020/4/26.
+//  Created by 夏澄 on 2020/6/4.
 //
 
-#import "XYBaseClipTaskProperty.h"
+#import "XYBaseClipTask.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYClipTaskMirror : XYBaseClipTaskProperty
+@interface XYClipTaskMirror : XYBaseClipTask
 
 @end
 

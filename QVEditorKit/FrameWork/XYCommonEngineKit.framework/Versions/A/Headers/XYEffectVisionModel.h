@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) CGFloat defaultWidth; //默认宽度，素材中提取
 @property (nonatomic, assign) CGFloat defaultHeight; //默认高度，素材中提取
+@property (nonatomic, assign) BOOL reCalculateFrame; // YES不管当前宽高，重新计算宽高
 @property (nonatomic, assign) CGFloat width; //当前宽度
 @property (nonatomic, assign) CGFloat height; //当前高度
 @property (nonatomic, assign) CGFloat maxWidth; //最大的宽

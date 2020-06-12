@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, XYEngineTaskType) {
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XYBaseEngineTask : NSObject
+@property (nonatomic, copy) NSDictionary *userInfo;//用户自带的信息
 @property(nonatomic, assign) BOOL dataClipReinitThumbnailManager;
 @property(nonatomic, assign) XYEngineUndoActionState undoAntionState;
 @property (nonatomic, strong) XYEngineUndoManagerConfig *undoConfigModel;

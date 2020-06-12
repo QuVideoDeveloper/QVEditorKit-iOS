@@ -37,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface XYBaseEngineModel : XYBaseCopyModel
+@property (nonatomic, copy) NSDictionary *userInfo;//用户自带的信息
 @property (nonatomic, strong) XYVeRangeModel *trimVeRange;
 @property (nonatomic, strong) XYVeRangeModel *destVeRange;//如果加了有cover的主题，clipindex是包括cover的，例如：封面index是0，第一个clip的index就是1
 @property (nonatomic, strong) XYVeRangeModel *sourceVeRange;

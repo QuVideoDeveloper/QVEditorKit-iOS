@@ -33,6 +33,7 @@
 #import <XYCommonEngineKit/XYBaseStoryboardTask.h>
 #import <XYCommonEngineKit/XYClipModel.h>
 #import <XYCommonEngineKit/XYEffectModel.h>
+#import <XYCommonEngineKit/XYEffectAudioModel.h>
 #import <XYCommonEngineKit/XYEffectVisionModel.h>
 #import <XYCommonEngineKit/XYEffectVisionTextModel.h>
 #import <XYCommonEngineKit/XYStoryboardModel.h>

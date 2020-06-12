@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 将XYEffectVisionTextModel转换成TextInfo
 /// @param effectVisionTextModel 字幕的model
-- (TextInfo *)mapToTextInfo:(XYEffectVisionTextModel *)effectVisionTextModel;
+- (XYMultiTextInfo *)mapToTextInfo:(XYEffectVisionTextModel *)effectVisionTextModel;
 
 
 #pragma mark - Sticker

@@ -22,12 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * _Nullable adjustEffectPath; //F模板路径
 
 @property (nonatomic, assign) CGFloat outPutResolutionWidth;
-@property (nonatomic, assign) CGFloat outPutResolutionHeight;
 
 @property (nonatomic) BOOL isMVPrj; //是否是相册工程 默认不是
 @property (nonatomic) BOOL addClipNeedAutoAdjustVideoScale; //添加clip是否需要自动调整视频的比例 默认NO
 @property (nonatomic) BOOL isUsedCustomWatermark; //是否使用了自定义水印 默认NO
-@property (nonatomic, copy) NSString * _Nullable fullLanguage; //语言
 
 @end
 

@@ -23,7 +23,7 @@
 @end
 
 @interface XYPlayerView : UIView
-@property (nonatomic, assign) CGRect playStreamBounds;
+@property (nonatomic, assign) CGSize streamSize;//播放器中引擎内容真正渲染的区域，引擎的坐标都相对于这个区域来计算，这个区域的位置是相对于XYPlayerView的位置居中的，如计算区域手势可通过这里转换得到
 @property (nonatomic, assign, getter=isDisablePlayAndSeek) BOOL disablePlayAndSeek;//禁止手动播放和Seek操作
 @property (strong, nonatomic) XYPlayerViewConfiguration *playerConfig;//当前播放器的播放源Config
 
@@ -38,11 +38,8 @@
 
 /// 根据config里的参数初始化播放器源
 /// @param block 可以在block里初始化PlayerView当前的config参数
-- (void)initializeWithConfig:(XYPlayerViewConfiguration *(^)(XYPlayerViewConfiguration * config))block;
+- (void)refreshWithConfig:(XYPlayerViewConfiguration *(^)(XYPlayerViewConfiguration * config))block;
 
-/// 根据config里的参数更新播放器源
-/// @param block 可以在block里修改PlayerView当前的config参数
-- (void)updateWithConfig:(XYPlayerViewConfiguration *(^)(XYPlayerViewConfiguration * config))block;
 
 /// 销毁播放源
 - (void)destroySource;
@@ -69,14 +66,14 @@
 /// @param async YES异步执行seek操作，NO同步执行该seek操作
 - (void)seekToPosition:(NSInteger)seekPosition async:(BOOL)async;
 
-/// 重置到播放全部时长
-- (void)resetPlaybackFullrange;
-
 /// 设置Playback Range
 /// @param range 播放的range
 - (void)setPlaybackRange:(XYVeRangeModel *)range;
 
-/// 设置Playback Range
+/// 获取播放时间区域
+- (XYVeRangeModel *)getPlaybackRange;
+
+/// 设置播放时间区域 Range
 /// @param range 播放的range
 /// @param async  YES异步执行该操作，NO同步执行该操作
 - (void)setPlaybackRange:(XYVeRangeModel *)range async:(BOOL)async;
@@ -104,5 +101,8 @@
 /// 刷新音频
 - (void)refreshAudio;
 
+/// 设置播放器音量
+/// @param volume 音量值
+- (void)setVolume:(MDWord)volume;
 
 @end
