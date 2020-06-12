@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QVEditorKit'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'A short description of QVEditorKit.'
 
 # This description is used to generate tags and improve search results.
@@ -45,8 +45,8 @@ TODO: Add long description of the pod here.
   s.dependency 'FMDB'
   s.dependency 'YYModel'
   s.dependency 'SDWebImage'
+  s.dependency 'QVCommonKit'
   #s.dependency 'QVEngineKit'
-#  s.dependency 'QVCommonKit' , '0.9.3'
  # s.dependency 'XYCommonEngine' , '0.1.0'
 
   s.xcconfig = { "OTHER_LDFLAGS" => "-ObjC" }

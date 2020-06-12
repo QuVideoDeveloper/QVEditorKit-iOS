@@ -4,7 +4,6 @@ platform :ios, '9.0'
 
 target 'QVEditorKit_Example' do
   pod 'QVEditorKit', :path => '../'
-  pod 'QVCommonKit', :path => '/Users/sunshine/Desktop/githubSDk/QVCommonKit'
   
   target 'QVEditorKit_Tests' do
     inherit! :search_paths

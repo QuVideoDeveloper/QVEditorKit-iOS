@@ -4,8 +4,9 @@ PODS:
   - FMDB/standard (2.7.5)
   - QVCommonKit (0.9.4):
     - SSZipArchive
-  - QVEditorKit (0.1.3):
+  - QVEditorKit (0.1.4):
     - FMDB
+    - QVCommonKit
     - ReactiveObjC
     - SDWebImage
     - YYModel
@@ -17,32 +18,30 @@ PODS:
   - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - QVCommonKit (from `/Users/sunshine/Desktop/githubSDk/QVCommonKit`)
   - QVEditorKit (from `../`)
 
 SPEC REPOS:
   trunk:
     - FMDB
+    - QVCommonKit
     - ReactiveObjC
     - SDWebImage
     - SSZipArchive
     - YYModel
 
 EXTERNAL SOURCES:
-  QVCommonKit:
-    :path: "/Users/sunshine/Desktop/githubSDk/QVCommonKit"
   QVEditorKit:
     :path: "../"
 
 SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   QVCommonKit: b038b9bb9541d376e75011646adb84462c82c79e
-  QVEditorKit: bb8fe20ecd3a48132491be3eb2612230057a746b
+  QVEditorKit: e500d7023a87a69249f42f2d6fa3fd9ce0c3a15d
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: dfaa0f5e8854498a4f36a0bd6bbb44d61d0e8731
+PODFILE CHECKSUM: 3348c831137c86e7452749429fe6bb8b19e4a389
 
 COCOAPODS: 1.9.2
