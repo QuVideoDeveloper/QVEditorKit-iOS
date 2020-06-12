@@ -249,13 +249,15 @@ typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
  播放器 
 XYPlayerView类
 用于播放预览剪辑后的视频
-其中有属性streamSize 如下
+其中有属性streamSize 如下：
 ```
 @interface XYPlayerView : UIView
 @property (nonatomic, assign) CGSize streamSize;
 
 ```
-这个streamSize是播放器中引擎内容真正渲染的区域，引擎的坐标都相对于这个区域来计算，这个区域的位置是相对于XYPlayerView的位置居中的，如计算区域手势可通过这里转换得到。
+这个streamSize是播放器中引擎内容真正渲染的区域，引擎的坐标都相对于这个区域来计算，这个区域的位置是相对于XYPlayerView的位置居中的，如计算区域手势可通过这里转换得到，图层结构如图所示：蓝色边框区域为引擎渲染区域，灰色边框区域为XYPlayerView区域，其中擎渲染蓝色区域相对XYPlayerView灰色边框居中
+
+img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/55.png" width="768" height="418" align="center">
 
 1）在工程加载成功后，可以绑定工程和播放器
 代码如下：
@@ -1683,10 +1685,6 @@ Sunshine, cheng.xia@quvideo.com
 ## License
 
 QVEditorKit is available under the MIT license. See the LICENSE file for more info.
-
-
-
-
 
 
 
