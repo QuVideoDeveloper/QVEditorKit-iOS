@@ -7,6 +7,7 @@
 //
 
 #import "QVAppDelegate.h"
+
 #import <XYTemplateDataMgr/XYTemplateDataMgr.h>
 //#import <XYCommonEngineKit/XYStoryboard.h>
 
@@ -37,7 +38,7 @@
 
     //inital template
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        [[XYTemplateDataMgr sharedInstance] initAll];
+        [[XYTemplateDataMgr sharedInstance] initAll:1];
         [[XYTemplateDataMgr sharedInstance] scanDisk:^(BOOL result) {
 
         }];
