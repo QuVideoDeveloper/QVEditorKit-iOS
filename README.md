@@ -257,7 +257,7 @@ XYPlayerView类
 ```
 这个streamSize是播放器中引擎内容真正渲染的区域，引擎的坐标都相对于这个区域来计算，这个区域的位置是相对于XYPlayerView的位置居中的，如计算区域手势可通过这里转换得到，图层结构如图所示：蓝色边框区域为引擎渲染区域，灰色边框区域为XYPlayerView区域，其中擎渲染蓝色区域相对XYPlayerView灰色边框居中
 
-img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/55.png" width="768" height="418" align="center">
+img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/55.png" width="562" height="794" align="center">
 
 1）在工程加载成功后，可以绑定工程和播放器
 代码如下：
