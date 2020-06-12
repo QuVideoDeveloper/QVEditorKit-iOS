@@ -38,7 +38,7 @@ TODO: Add long description of the pod here.
 
   s.vendored_libraries = 'QVEditorKit/engine_libraries/device/*.a'
   
-  s.source_files = 'QVEditorKit/Classes/**/*'
+  #s.source_files = 'QVEditorKit/Classes/**/*'
 
 
   s.dependency 'ReactiveObjC'
