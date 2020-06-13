@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QVEditorKit'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = 'A short description of QVEditorKit.'
 
 # This description is used to generate tags and improve search results.
@@ -32,13 +32,12 @@ TODO: Add long description of the pod here.
 
   s.libraries = 'iconv', 'c', 'c++', 'stdc++', 'z'
 
-  s.frameworks = 'VideoToolbox', 'Webkit', 'Photos', 'ImageIO', 'QuartzCore', 'AssetsLibrary', 'CoreGraphics' , 'Accelerate', 'UIKit', 'Foundation', 'AdSupport', 'CoreTelephony', 'CoreMedia', 'SceneKit'
+  s.frameworks = 'VideoToolbox', 'Webkit', 'Photos', 'ImageIO', 'QuartzCore', 'AssetsLibrary', 'CoreGraphics' , 'Accelerate', 'UIKit', 'Foundation', 'AdSupport', 'CoreTelephony', 'CoreMedia', 'SceneKit', 'AudioToolbox'
   
   s.vendored_frameworks = 'QVEditorKit/FrameWork/*.framework'
 
   s.vendored_libraries = 'QVEditorKit/engine_libraries/device/*.a'
   
-  #s.source_files = 'QVEditorKit/Classes/**/*'
 
 
   s.dependency 'ReactiveObjC'
@@ -50,6 +49,8 @@ TODO: Add long description of the pod here.
  # s.dependency 'XYCommonEngine' , '0.1.0'
 
   s.xcconfig = { "OTHER_LDFLAGS" => "-ObjC" }
+  # s.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES" }
+  # s.xcconfig = { "ENABLE_BITCODE" => "NO" }
 
   
   # s.resource_bundles = {
