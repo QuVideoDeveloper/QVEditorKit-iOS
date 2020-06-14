@@ -4,44 +4,55 @@ PODS:
   - FMDB/standard (2.7.5)
   - QVCommonKit (0.9.4):
     - SSZipArchive
-  - QVEditorKit (0.1.4):
+  - QVEditorKit (0.1.7):
     - FMDB
     - QVCommonKit
     - ReactiveObjC
     - SDWebImage
+    - XYCommonEngine
+    - YYModel
+  - QVPodTest (0.1.0):
+    - QVEditorKit
     - YYModel
   - ReactiveObjC (3.1.1)
-  - SDWebImage (5.8.0):
-    - SDWebImage/Core (= 5.8.0)
-  - SDWebImage/Core (5.8.0)
+  - SDWebImage (5.8.1):
+    - SDWebImage/Core (= 5.8.1)
+  - SDWebImage/Core (5.8.1)
   - SSZipArchive (2.2.3)
+  - XYCommonEngine (0.1.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - QVEditorKit (from `../`)
+  - QVPodTest (from `/Users/sunshine/Desktop/demo/Pod/QVPodTest`)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - FMDB
     - QVCommonKit
     - ReactiveObjC
     - SDWebImage
     - SSZipArchive
+    - XYCommonEngine
     - YYModel
 
 EXTERNAL SOURCES:
   QVEditorKit:
     :path: "../"
+  QVPodTest:
+    :path: "/Users/sunshine/Desktop/demo/Pod/QVPodTest"
 
 SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   QVCommonKit: b038b9bb9541d376e75011646adb84462c82c79e
-  QVEditorKit: e500d7023a87a69249f42f2d6fa3fd9ce0c3a15d
+  QVEditorKit: d64ffdf6a7294f2fcb0cc1433bc5b2612f1482aa
+  QVPodTest: 35437d0da5b839514b87c7b62c8f57a870242b38
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
+  SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  XYCommonEngine: 26eb935c8a86c75f5acf9af62816d9daf2ee05f0
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 3348c831137c86e7452749429fe6bb8b19e4a389
+PODFILE CHECKSUM: 83320d9ca3f5bde6b018cb311d4d44a5e6aa9b8b
 
 COCOAPODS: 1.9.2

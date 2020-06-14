@@ -1,10 +1,13 @@
-use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
+
+#use_frameworks!
 
 platform :ios, '9.0'
 
 target 'QVEditorKit_Example' do
   pod 'QVEditorKit', :path => '../'
-  
+  pod 'QVPodTest', :path => '/Users/sunshine/Desktop/demo/Pod/QVPodTest'
+
   target 'QVEditorKit_Tests' do
     inherit! :search_paths
 

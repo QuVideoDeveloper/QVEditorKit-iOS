@@ -10,7 +10,7 @@
 
 #import <XYTemplateDataMgr/XYTemplateDataMgr.h>
 //#import <XYCommonEngineKit/XYStoryboard.h>
-
+#import <XYCommonEngine/CXiaoYingInc.h>
 #import <XYCommonEngineKit/XYCommonEngineKit.h>
 
 @implementation QVAppDelegate
