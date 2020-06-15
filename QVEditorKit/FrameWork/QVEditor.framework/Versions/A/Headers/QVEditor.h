@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QVEngineDataSourceProtocol.h"
+#import <XYCommonEngineKit/XYCommonEngineKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
