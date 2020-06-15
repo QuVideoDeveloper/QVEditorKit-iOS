@@ -1,0 +1,1 @@
+../../../XYCommonEngine/XYCommonEngine/engine_header/common/inc/amoperatornew.h

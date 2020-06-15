@@ -1,0 +1,1 @@
+../../../QVMediCamera/QVMediCamera/Classes/QVMediNativeCameraVC.h

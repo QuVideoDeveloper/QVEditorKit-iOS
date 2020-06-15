@@ -1,0 +1,1 @@
+../../../QVMediEdit/QVMediEdit/Classes/VideoEdit/Manager/QVMediVideoEditManager.h

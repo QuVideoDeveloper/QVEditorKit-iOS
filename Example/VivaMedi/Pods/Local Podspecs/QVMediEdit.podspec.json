@@ -1,0 +1,48 @@
+{
+  "name": "QVMediEdit",
+  "version": "0.0.1",
+  "summary": "XiaoYing - QVMediEdit",
+  "description": "XiaoYing pod  - QVMediEdit",
+  "homepage": "git@192.168.1.33:iOSDemoGroup/QVMediEdit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "irobbin1024": "longbin.lai@quvideo.com"
+  },
+  "source": {
+    "git": "git@192.168.1.33:iOSDemoGroup/QVMediEdit.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "resource_bundles": {
+    "QVMediEdit": [
+      "QVMediEdit/Assets/*.xcassets",
+      "QVMediEdit/Assets/**/*.*"
+    ]
+  },
+  "source_files": "QVMediEdit/Classes/**/*",
+  "dependencies": {
+    "SVProgressHUD": [
+
+    ],
+    "Masonry": [
+
+    ],
+    "YYCategories": [
+
+    ],
+    "TZImagePickerController": [
+
+    ],
+    "XYCommonEngine": [
+
+    ],
+    "QVEditorKit": [
+
+    ]
+  }
+}

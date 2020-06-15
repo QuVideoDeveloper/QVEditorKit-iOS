@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sequence>
+    <animateframe>
+        <item name="激光束" id="0x0600000000000086" />
+        <item name="动感光波" id="0x060000000000007F" />
+        <item name="火团" id="0x0600000000000084" />
+
+        <item name="轰炸" id="0x0600000000000081" />
+        <item name="烟雾弹" id="0x060000000000008A" />
+        <item name="爱心" id="0x0600000000000074" />
+        <item name="飞花" id="0x0600000000000070" />
+        <item name="荧光" id="0x0600000000000054" />
+
+        <item name="爱心花瓣" id="0x060000000000001F" />
+        <item name="天使" id="0x0600000000000009" />
+    </animateframe>
+
+    <bubbleframe>
+        <item name="stadium" id="0x0900000000000042" />
+        <item name="Corcovado" id="0x0900000000000044" />
+        <item name="fuzi" id="0x090000000000002D" />
+        <item name="hongbao" id="0x090000000000002E" />
+        <item name="horse" id="0x090000000000002F" />
+        <item name="Bubble05" id="0x0900000000000005" />
+        <item name="Bubble03" id="0x0900000000000003" />
+        <item name="Bubble06" id="0x0900000000000006" />
+        <item name="Bubble07" id="0x0900000000000007" />
+        <item name="Bubble02" id="0x0900000000000002" />
+        <item name="Bubble09" id="0x0900000000000009" />
+        <item name="Bubble08" id="0x0900000000000008" />
+
+        <item id="0x0900000000080005" name="Free" />
+        <item id="0x0900000000080006" name="Free" />
+        <item id="0x0900000000080007" name="Free" />
+
+        <item id="0x090000000008000A" name="Purchase" />
+        <item id="0x0900000000080001" name="Purchase" />
+        <item id="0x0900000000080002" name="Purchase" />
+        <item id="0x0900000000080003" name="Purchase" />
+        <item id="0x0900000000080004" name="Purchase" />
+        <item id="0x0900000000080008" name="Purchase" />
+        <item id="0x0900000000080009" name="Purchase" />
+    </bubbleframe>
+
+    <defaultmusic>
+        <item name="A Happy Wonderful Life" id="0x0700000000000050" />
+        <item name="Better Times Ahead" id="0x0700000000000051" />
+        <item name="Bouncy Party" id="0x0700000000000052" />
+        <item name="Floating Times" id="0x0700000000000053" />
+        <item name="Garden Adventure" id="0x0700000000000054" />
+        <item name="Life Is Light" id="0x0700000000000055" />
+        <item name="Music Box Frolic" id="0x0700000000000056" />
+        <item name="Stones in Still Waters" id="0x0700000000000057" />
+    </defaultmusic>
+
+    <imageeffect>
+        <item id="0x0400000000000006" name="光芒" />
+        <item id="0x0400000000000087" name="幽梦" />
+        <item id="0x0400000000000099" name="粉黛" />
+        <item id="0x040000000000008A" name="晨露" />
+        
+        <item id="0x04000000000000A9" name="时光" />
+        <item id="0x04000000000000AA" name="酷玩" />
+        <item id="0x04000000000000AB" name="午后" />
+        <item id="0x0400000000000044" name="香草" />
+        <item id="0x040000000000006B" name="影像志" />
+        <item id="0x0400000000000004" name="回忆" />
+        <item id="0x0400000000000001" name="小文艺" />
+        <item id="0x040000000000000B" name="拿铁" />
+        <item id="0x0400000000000012" name="甜美" />
+        <item id="0x040000000000000C" name="胶卷" />
+
+        <item id="0x0400000000100001" name="青春" />
+        <item id="0x0400000000100002" name="樱花" />
+        <item id="0x0400000000100009" name="精灵" />
+        <item id="0x0400000000100005" name="阿宝" />
+        <item id="0x040000000010000A" name="牛奶" />
+        <item id="0x0400000000100008" name="活力" />
+        <item id="0x0400000000100004" name="抹茶" />
+        <item id="0x0400000000100007" name="经典" />
+        
+        <item id="0x0400000000080002" name="分身" />
+        <item id="0x0400000000080001" name="四格" />
+        <item id="0x0400000000080003" name="穿越" />
+        <item id="0x040000000000003B" name="镜像" />
+        <item id="0x0400000000080005" name="锥形脸" />
+        <item id="0x0400000000080004" name="国字脸" />
+        <item id="0x0400000000080006" name="圆饼脸" />
+        <item id="0x0400000000080007" name="水晶球" />
+        <item id="0x040000000000003E" name="鱼眼" />
+    </imageeffect>
+
+    <pip>
+        <item name="对半分" id="0x0C00000000000006" />
+        <item name="lets rock" id="0x0C00000000000010" />
+        <item name="贴纸旅行" id="0x0C0000000000001A" />
+        <item name="遇见" id="0x0C00000000000019" />
+        <item name="一天" id="0x0C00000000000017" />
+        <item name="happiness" id="0x0C00000000000016" />
+        <item name="水晶球" id="0x0C00000000000004" />
+        <item name="思考" id="0x0C00000000000005" />
+        <item name="渐变对半分" id="0x0C00000000000003" />
+        <item name="想象" id="0x0C00000000000002" />
+        <item name="小窗" id="0x0C00000000000001" />
+
+        <item name="对半分" id="0x0C0000000000000C" />
+        <item name="hey you" id="0x0C00000000000012" />
+        <item name="KAWAII" id="0x0C00000000000013" />
+        <item name="爱你不是两三天" id="0x0C00000000000014" />
+        <item name="想念" id="0x0C00000000000018" />
+        <item name="旅行的意义" id="0x0C00000000000015" />
+        <item name="新闻联播" id="0x0C00000000000007" />
+        <item name="爱心" id="0x0C0000000000000A" />
+        <item name="明信片" id="0x0C0000000000000B" />
+        <item name="中心圆" id="0x0C00000000000009" />
+        <item name="右边椭圆" id="0x0C00000000000008" />
+    </pip>
+
+    <poster>
+        <item name="Poster1E" id="0x010003000000001E" />
+        <item name="Poster2" id="0x0800000000000002" />
+    </poster>
+
+    <theme_video>		
+        <item name="影像志"   id="0x010000000000005E" />
+        <item name="怦然心动" id="0x010000000000006E" />
+        <item name="冬恋时光" id="0x0100000000000068" />
+        <item name="自由跑酷" id="0x010000000000006A" />
+        <item name="一叶知秋" id="0x0100000000000084" />
+        <item name="摩登时代" id="0x010000000000006F" />
+    </theme_video>
+
+    <theme_photo>
+        <item name="生活小记" id="0x0100020000000073" />
+        <item name="悠闲时光" id="0x0100030000000058" />
+        <item name="活力空间" id="0x0100030000000052" />
+        <item name="记忆碎片" id="0x010003000000005A" />
+        <item name="影像志"   id="0x010000000000005E" />
+        <item name="怦然心动" id="0x010000000000006E" />
+        <item name="冬恋时光" id="0x0100000000000068" />
+        <item name="自由跑酷" id="0x010000000000006A" />
+        <item name="一叶知秋" id="0x0100000000000084" />
+        <item name="摩登时代" id="0x010000000000006F" />
+    </theme_photo>
+
+    <transition>
+        <item name="交叉渐显" id="0x0300000000000007" />
+        <item name="闪黑" id="0x0300000000000001" />
+        <item name="闪白" id="0x0300000000000006" />
+        <item name="推入推出" id="0x030000000000001C" />
+        <item name="溶变" id="0x0300000000000003" />
+        <item name="圈入圈出" id="0x0300000000000005" />
+        <item name="栅栏" id="0x0300000000000011" />
+        <item name="旋出" id="0x0300000000000018" />
+        <item name="燃烧" id="0x0300000000000013" />
+        <item name="百叶窗" id="0x0300000000000004" />
+    </transition>
+
+    <funny>
+        <item id="0x0400000000080002" name="分身" />
+        <item id="0x0400000000080001" name="四格" />
+        <item id="0x0400000000080003" name="穿越" />
+        <item id="0x040000000000003B" name="镜像" />
+        <item id="0x0400000000080005" name="锥形脸" />
+        <item id="0x0400000000080004" name="国字脸" />
+        <item id="0x0400000000080006" name="圆饼脸" />
+        <item id="0x0400000000080007" name="水晶球" />
+        <item id="0x040000000000003E" name="鱼眼" />
+    </funny>
+
+    <international_invisible>
+        <item name="一地节操" id="0x0600000000000016" />
+        <item name="都是浮云" id="0x0600000000000015" />
+        <item name="扔肥皂" id="0x060000000000000B" />
+        <item name="新春快乐" id="0x060000000000000E" />
+        <item name="让红包飞" id="0x060000000000000F" />
+        <item name="马上有钱" id="0x0600000000000010" />
+        <item name="马到成功" id="0x0100000000000026" />
+        <item name="新春快乐" id="0x0100000000000028" />
+        <item name="一生一世" id="0x0100000000000025" />
+        <item name="春来了" id="0x040000000000004C" />
+        <item name="霓虹" id="0x040000000000004B" />
+    </international_invisible>
+
+    <postfb>
+        <item id="0x0400000000100001" name="青春" />
+        <item id="0x0400000000100002" name="樱花" />
+        <item id="0x0400000000100009" name="精灵" />
+        <item id="0x0400000000100005" name="阿宝" />
+        <item id="0x040000000010000A" name="牛奶" />
+        <item id="0x0400000000100008" name="活力" />
+        <item id="0x0400000000100004" name="抹茶" />
+        <item id="0x0400000000100007" name="经典" />
+    </postfb>
+
+    <sticker>
+        <item name="尴尬" id="0x050000000000001A" />
+        <item name="流汗" id="0x05000000000000E3" />
+        <item name="皇冠" id="0x05000000000000E2" />
+        <item name="流汗" id="0x05000000000000E4" />
+        <item name="流汗" id="0x05000000000000E5" />
+        <item name="流汗" id="0x05000000000000E6" />
+        <item name="流汗" id="0x05000000000000E7" />
+        <item name="流汗" id="0x05000000000000E8" />
+        <item name="流汗" id="0x05000000000000E9" />
+        <item name="流汗" id="0x05000000000000EA" />
+        <item name="流汗" id="0x0500000000000160" />
+        <item name="流汗" id="0x050000000000015F" />
+        <item name="腮红" id="0x050000000000015E" />
+        <item name="胡须" id="0x050000000000015D" />
+        <item name="惊讶" id="0x050000000000015C" />
+        <item name="疑问" id="0x050000000000015B" />
+        <item name="头晕" id="0x0500000000000162" />
+        <item name="尴尬" id="0x0500000000000161" />
+    </sticker>
+</sequence>
+    

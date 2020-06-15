@@ -1,0 +1,83 @@
+
+source 'http://192.168.1.33:9090/Pods/Specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
+
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '9.0'
+
+inhibit_all_warnings!
+
+#消除多源pod警告
+install! 'cocoapods', :deterministic_uuids => false, :integrate_targets => false, :warn_for_multiple_pod_sources => false
+
+target 'VivaMedi' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  #use_frameworks!
+#  use_modular_headers!
+  eval(File.open('PodDevExtension.rb').read) if File.exist? 'PodDevExtension.rb'
+  ENV['use_source'] = '0'
+  use_source_frome = 'http://192.168.1.33:9090/Pods/Specs.git'
+  
+  def batch_pod(pods, type = 'remote', group = 'ioscomponentgroup', branch = 'sdk_dev')
+      case type
+          when 'local'
+          pods.each do |name|
+              pod name, :path => "~/XYPod/#{name}"
+          end
+          when 'remote'
+          pods.each do |name|
+              pod name, :git => "git@192.168.1.33:#{group}/#{name}.git", :branch => "#{branch}"
+          end
+          else
+      end
+  end
+
+#demo 库
+  pod 'QVMediEdit', :git => "git@192.168.1.33:iOSDemoGroup/QVMediEdit.git", :branch => "dev"
+  pod 'QVMediTools', :git => "git@192.168.1.33:iOSDemoGroup/QVMediTools.git", :branch => "dev"
+#pod 'QVMediTools', :path => '~/Documents/XYEnvironment/SRC/QVMediTools'
+batch_pod ["QVMediCamera"],'remote','iOSDemoGroup','sdk_dev'
+
+  pod 'YYWebImage'
+#  batch_pod ["XYToolbarKit"],'local'
+  batch_pod ["QVMediToolbarKit"],'remote','iOSDemoGroup','sdk_dev'
+
+  #editorSdk 依赖的引擎相关库
+#  batch_pod ['XYCommonEngine'],'local'
+ # batch_pod ['XYCommonEngine'],'remote','ioscomponentgroup','audioprovider'
+
+  #editorSdk 依赖的base,QVEditor库
+
+#  pod 'QVEditor'
+  #公共库
+
+  pod 'QVEditorKit'
+
+  #pod 'QVEditorKit', :path => '/Users/sunshine/Desktop/githubSDk/QVEditorKit'
+#  batch_pod ['XYTemplateDataMgr','XYCommonEngineKit','XYCommonEngine'],'remote','ioscomponentgroup','sdk_dev'
+#  pod 'QVBaseKit'
+#  batch_pod ['QVEditor'],'remote','iOSBusinessSDKGroup','dev'
+#pod 'XYDatabase'
+#pod 'XYReactDataBoard'
+
+  #第三方库
+  pod 'ReactiveObjC', :source=>use_source_frome
+#  pod 'SSZipArchive'
+  pod 'SDWebImage', '4.4.2'
+  pod 'FMDB'
+  pod 'YYModel'
+
+
+  # Pods for VivaMedi
+
+  target 'VivaMediTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'VivaMediUITests' do
+    # Pods for testing
+  end
+
+end

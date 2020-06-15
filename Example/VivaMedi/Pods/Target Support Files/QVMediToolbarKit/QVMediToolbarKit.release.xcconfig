@@ -1,0 +1,11 @@
+CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/QVMediToolbarKit
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Masonry/Framework/1.1.0" "${PODS_ROOT}/QVCommonKit/QVCommonKit/FrameWork" "${PODS_ROOT}/QVEditorKit/QVEditorKit/FrameWork" "${PODS_ROOT}/ReactiveObjC/Framework/3.1.0" "${PODS_ROOT}/SDWebImage/Products" "${PODS_ROOT}/SVProgressHUD/Framework/2.2.5" "${PODS_ROOT}/XYCommonEngine/XYCommonEngine/engine_frameworks"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/QVMediToolbarKit" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/QVMediToolbarKit" "${PODS_ROOT}/Headers/Public/XYCommonEngine" "${PODS_ROOT}/Headers/Public/YYKeyboardManager" "${PODS_ROOT}/Headers/Public/YYModel"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}
+PODS_TARGET_SRCROOT = ${PODS_ROOT}/QVMediToolbarKit
+PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
+SKIP_INSTALL = YES
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

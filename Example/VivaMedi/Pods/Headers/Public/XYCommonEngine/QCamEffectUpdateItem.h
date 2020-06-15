@@ -1,0 +1,1 @@
+../../../XYCommonEngine/XYCommonEngine/engine_header/include/cev4_inc/basic_class/QCamEffectUpdateItem.h

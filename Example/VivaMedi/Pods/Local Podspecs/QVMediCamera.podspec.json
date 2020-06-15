@@ -1,0 +1,33 @@
+{
+  "name": "QVMediCamera",
+  "version": "1.0.18",
+  "summary": "XiaoYing - QVMediCamera",
+  "description": "XiaoYing pod  - QVMediCamera",
+  "homepage": "git@192.168.1.33:iOSDemoGroup/QVMediCamera",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "irobbin1024": "longbin.lai@quvideo.com"
+  },
+  "source": {
+    "git": "git@192.168.1.33:iOSDemoGroup/QVMediCamera.git",
+    "tag": "1.0.18"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "resource_bundles": {
+    "QVMediCamera": [
+      "QVMediCamera/Assets/*.xcassets",
+      "QVMediCamera/Assets/**/*.*"
+    ]
+  },
+  "source_files": "QVMediCamera/Classes/**/*",
+  "dependencies": {
+    "QVMediToolbarKit/QVMediCameraToolbarKit": [
+
+    ]
+  }
+}

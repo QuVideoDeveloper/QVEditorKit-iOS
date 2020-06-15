@@ -1,0 +1,1 @@
+../../../QVMediToolbarKit/QVMediToolbarKit/Classes/Common/QVMediToolbarManager.h

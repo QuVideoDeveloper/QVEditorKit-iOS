@@ -1,0 +1,401 @@
+/*
+ * Loco ios export: iOS Localizable.strings
+ * Project: Mono
+ * Release: Working copy
+ * Locale: en-US, English (USA)
+ * Exported by: longbin lai
+ * Exported at: Mon, 08 Jun 2020 14:34:08 +0800
+ */
+
+/* loco:5ed70f1db8148f4bb80e0612 */
+"mn_edit_split_progress_title" = "Split";
+
+/* loco:5ed70f7d5d57ff72af4bd3f2 */
+"mn_edit_title_split" = "Split";
+
+/* loco:5ed70fc0872b360a153f7732 */
+"mn_edit_title_transitions" = "Transitions";
+
+/* loco:5ed710002f55bf6d91761512 */
+"mn_edit_title_volume" = "Volume";
+
+/* loco:5ed74f91938ccd790f5e5282 */
+"mn_edit_title_trim" = "Trim";
+
+/* loco:5ed74fcee73e6a17c65bdb14 */
+"mn_edit_title_delete" = "Delete";
+
+/* loco:5ed74fe3a864ed654c1191c2 */
+"mn_edit_title_filter" = "Filter";
+
+/* loco:5ed75003f6c51c5b1d15fd82 */
+"mn_edit_title_speed" = "Speed";
+
+/* loco:5ed75021f8b86c3ac872cd42 */
+"mn_edit_title_mirror" = "Mirror";
+
+/* loco:5ed75034cae08968b444b072 */
+"mn_edit_title_reserve" = "Reserve";
+
+/* loco:5ed7504cf8b86c3ac872cd43 */
+"mn_edit_title_rotate" = "Rotate";
+
+/* loco:5ed75073a06b3c4c3f439ce2 */
+"mn_edit_title_adjust" = "Adjust";
+
+/* loco:5ed750b2b073ec5db4039904 */
+"mn_edit_title_change_voice" = "Voice";
+
+/* loco:5ed7514f75b64b2df2135235 */
+"mn_edit_title_edit" = "Edit";
+
+/* loco:5ed7516b08a1d651344448c2 */
+"mn_edit_title_mosaic" = "Mosaic";
+
+/* loco:5ed751ecac32673ec6727f72 */
+"mn_edit_title_sticker" = "Sticker";
+
+/* loco:5ed7520aa8156373f7159994 */
+"mn_edit_title_subtitle" = "Subtitle";
+
+/* loco:5ed75225dec8c73c9c6d9232 */
+"mn_edit_title_collages" = "Collages";
+
+/* loco:5ed7523b6abaa6081b2a983f */
+"mn_edit_title_fx" = "Fx";
+
+/* loco:5ed752522b06386ce860eb13 */
+"mn_edit_title_bgm" = "Music";
+
+/* loco:5ed7526f1ef78544384af773 */
+"mn_edit_title_dubbing" = "Dubbing";
+
+/* loco:5ed753bac2e0f3470741f3a3 */
+"mn_edit_zoom_in" = "Zoom in";
+
+/* loco:5ed753cbfe40bc1780076f72 */
+"mn_edit_zoom_out" = "Zoom out";
+
+/* loco:5ed7544043178321cb022be2 */
+"mn_edit_subtitle_input" = "Input";
+
+/* loco:5ed7549e25f9d07ef8491e04 */
+"mn_edit_bgm_edit" = "Edit";
+
+/* loco:5ed754d8d23303144c51cad2 */
+"mn_edit_alpha_change" = "Alpha";
+
+/* loco:5ed7560067faf540480a9203 */
+"mn_edit_tips_no_define" = "Undefine";
+
+/* loco:5ed756449293b4011a1e6713 */
+"mn_edit_tips_no_support" = "Operation is not support";
+
+/* loco:5ed7579457b2fd5fb5507a73 */
+"mn_edit_adjust_luminance" = "Luminance";
+
+/* loco:5ed757b0e8e215695e1ff8d2 */
+"mn_edit_adjust_contrast" = "Contrast";
+
+/* loco:5ed757d407462018c704ac74 */
+"mn_edit_adjust_saturation" = "Saturation";
+
+/* loco:5ed757fa0a49e7398d6036b5 */
+"mn_edit_adjust_sharpness" = "Sharpness";
+
+/* loco:5ed7581b6f8f3916c0712f72 */
+"mn_edit_adjust_colortemp" = "ColorTemp";
+
+/* loco:5ed75830b7b9dd609b6aef83 */
+"mn_edit_adjust_vignette" = "Vignette";
+
+/* loco:5ed75850c1cdfc140c763952 */
+"mn_edit_adjust_shadow" = "Shadow";
+
+/* loco:5ed75869d9072e358c17acd2 */
+"mn_edit_adjust_hue" = "Hue";
+
+/* loco:5ed75883b7b9dd609b6aef84 */
+"mn_edit_adjust_highlight" = "Highlight";
+
+/* loco:5ed75899e61dc5139f63e692 */
+"mn_edit_adjust_fade" = "Fade";
+
+/* loco:5ed75b6941b5a255c24ae364 */
+"mn_cam_permission_request" = "This feature needs permission for camera and audio recording.";
+
+/* loco:5ed75c3df2b9973994393d52 */
+"mn_app_mode_template" = "Template";
+
+/* loco:5ed75c511312db68e8566f82 */
+"mn_app_mode_camera" = "Camera";
+
+/* loco:5ed75c6a59a1b30a7727cd32 */
+"mn_app_mode_editor" = "Editor";
+
+/* loco:5ed75cd70253f7507c06e875 */
+"mn_app_brvah_loading" = "Loading";
+
+/* loco:5ed75d010e95e23962268a35 */
+"mn_app_brvah_load_failed" = "Load failed, try again";
+
+/* loco:5ed75d30167df04bdf1202b4 */
+"mn_app_brvah_load_end" = "No more";
+
+/* loco:5ed75d730e95e23962268a3b */
+"mn_gallery_local_system_album_title" = "System album";
+
+/* loco:5ed75d8af2b9973994393d55 */
+"mn_gallery_preview_confirm_title" = "Add";
+
+/* loco:5ed75da1ac379b7571586d94 */
+"mn_gallery_preview_ok_title" = "Add(%d)";
+
+/* loco:5ed75dca167df04bdf1202b8 */
+"mn_gallery_camera_album_title" = "Camera Album";
+
+/* loco:5ed75def167df04bdf1202b9 */
+"mn_gallery_file_download_message" = "Downloading from the web...";
+
+/* loco:5ed75e0e72b4cd6dfa6747f2 */
+"mn_gallery_file_import_tip_message" = "Importing and optimizing, please wait...";
+
+/* loco:5ed75e2ff9ed49120873efa4 */
+"mn_app_cancel" = "Cancel";
+
+/* loco:5ed75e4bbec3e11e8f05b1a2 */
+"mn_gallery_info_title" = "Information";
+
+/* loco:5ed75e6fe5a05b66d9271124 */
+"mn_gallery_msg_network_3g_not_allow" = "Currently not using Wi-Fi, if you want to use mobile network to upload/download, please modify the network settings.";
+
+/* loco:5ed75e8e0ac0d5168d28e133 */
+"mn_gallery_msg_network_inactive" = "No internet connection";
+
+/* loco:5ed75eacbec3e11e8f05b1a3 */
+"mn_app_confirm" = "Confirm";
+
+/* loco:5ed75ec672b4cd6dfa6747f4 */
+"mn_app_setting" = "Setting";
+
+/* loco:5ed75ee138a8315445704216 */
+"mn_gallery_wait_tip" = "Please wait...";
+
+/* loco:5ed75f0ee5a05b66d9271127 */
+"mn_gallery_click_retry" = "Retry";
+
+/* loco:5ed75f29bc536255fc780b35 */
+"mn_gallery_date_today" = "Today";
+
+/* loco:5ed75f3f616b7c027a0e6b54 */
+"mn_gallery_date_yesterday" = "Yesterday";
+
+/* loco:5ed75f60d5bd53273f29d522 */
+"mn_gallery_file_download_from_cloud" = "Downloading...";
+
+/* loco:5ed75f7d1b622d49f6147806 */
+"mn_gallery_file_download_from_cloud_failed" = "Download failed, please try again";
+
+/* loco:5ed75f960ac0d5168d28e139 */
+"mn_gallery_file_download_from_cloud_success" = "Download completed";
+
+/* loco:5ed75faf09ccfa680b730e82 */
+"mn_gallery_file_importing" = "Importing and optimizing...";
+
+/* loco:5ed75fc79766e23e9863ccd2 */
+"mn_gallery_home_album_pre_select" = "Select";
+
+/* loco:5ed75fdf09fa512fde2ed735 */
+"mn_gallery_no_meida_data" = "It seems that there is nothing here.";
+
+/* loco:5ed75ffb3c649741035a8e43 */
+"mn_gallery_no_photo_data" = "No photo";
+
+/* loco:5ed7601509fa512fde2ed737 */
+"mn_gallery_no_video_data" = "No video";
+
+/* loco:5ed7603709ccfa680b730e86 */
+"mn_gallery_return_home" = "Return to camera";
+
+/* loco:5ed7605f09fa512fde2ed73a */
+"mn_gallery_selected_import" = "Next";
+
+/* loco:5ed7607d09fa512fde2ed73c */
+"mn_gallery_slide_guide_prompt" = "Swipe to select multiple photos";
+
+/* loco:5ed7609509fa512fde2ed73d */
+"mn_gallery_socail_platform_login_button" = "Login";
+
+/* loco:5ed760b89766e23e9863ccd8 */
+"mn_gallery_social_login_status_failed" = "Login failed";
+
+/* loco:5ed760d26fbce950a6169787 */
+"mn_gallery_template_enough_tip_text" = "Enough clips have been selected";
+
+/* loco:5ed760e79766e23e9863ccd9 */
+"mn_gallery_template_file_type_no_support" = "Unsupported file type";
+
+/* loco:5ed76100031cd72ed8299648 */
+"mn_gallery_template_selected_change_position_tip" = "Long press to sort the clips";
+
+/* loco:5ed7611a6f063363fb7ffc62 */
+"mn_gallery_template_selected_count_deficient_description" = "The clips you selected is not enough, please continue to add";
+
+/* loco:5ed76135031cd72ed829964a */
+"mn_gallery_template_selected_count_description" = "Please select %s clips";
+
+/* loco:5ed7614df799917c9c6e7a02 */
+"mn_gallery_template_selected_count_fixed_description" = "Can only choose %d clips";
+
+/* loco:5ed7617b6a62836948763e12 */
+"mn_gallery_template_selected_count_no_max_description" = "Select at least %d clip";
+
+/* loco:5ed76197835712036044ad73 */
+"mn_gallery_template_selected_duration_deficient_description" = "The lens of clips you selected is not long enough, please continue to add";
+
+/* loco:5ed761d1b9d0086a3c76cb32 */
+"mn_gallery_template_unsurpport_gif" = "GIF is not supported";
+
+/* loco:5ed7620d8a66e928bb3b3e23 */
+"mn_gallery_ve_limit_max_duration_text" = "The duration exceeds the limit, cannot be added";
+
+/* loco:5ed76228b9d0086a3c76cb34 */
+"mn_gallery_ve_permission_gallery_des" = "Please change Settings to allow VivaVideo to access your gallery";
+
+/* loco:5ed76248debd8858810bbcb5 */
+"mn_gallery_video_album_placeholder_title" = "All";
+
+/* loco:5ed76260d7f37e51e91d9f73 */
+"mn_gallery_video_album_retry" = "Retry";
+
+/* loco:5ed76275c15b571adb6d0ef3 */
+"mn_gallery_video_count_up_to_tip_text" = "Select up to %d clips";
+
+/* loco:5ed7629086b1be19af512ff5 */
+"mn_gallery_video_edit_unssupported_action" = "OK";
+
+/* loco:5ed762a8a76ec84f3d7e7fe4 */
+"mn_gallery_video_edit_unssupported_message" = "This video cannot be edited because it is not supported";
+
+/* loco:5ed762c0fd9f3d7ea97e34e2 */
+"mn_gallery_video_edit_unssupported_title" = "Unable to edit video";
+
+/* loco:5ed762d586b1be19af512ff6 */
+"mn_gallery_video_size_unfit_tip_text" = "The video size does not match the currently selected size";
+
+/* loco:5ed762edfd9f3d7ea97e34e3 */
+"mn_gallery_video_total_duration_longer_than_tip_text" = "Can't choose videos longer than %d minutes";
+
+/* loco:5ed76305d7f37e51e91d9f75 */
+"mn_gallery_video_total_duration_shorter_than_tip_text" = "Can't choose videos shorter than 1 second";
+
+/* loco:5ed7631ffd9f3d7ea97e34e5 */
+"mn_gallery_video_unsupport" = "Unsupported image format";
+
+/* loco:5ed76362719e6873a8591b62 */
+"mn_gallery_select_photo" = "Photo";
+
+/* loco:5ed76378b21b0805c44589a2 */
+"mn_gallery_select_video" = "Video";
+
+/* loco:5ed7638db87ef7398e239d53 */
+"mn_gallery_mini_mum_txt" = "It's the shortest";
+
+/* loco:5ed763a650c2af635f556d42 */
+"mn_gallery_vide_trim_path_error" = "Resource path error";
+
+/* loco:5ed763ba9d46a84ce65e4373 */
+"mn_gallery_recent_image_folder" = "Recent Images";
+
+/* loco:5ed763cce1506e7532503973 */
+"mn_gallery_recent_video_folder" = "Recent Videos";
+
+/* loco:5ed7687fda006f26e843aa24 */
+"mn_edit_title_theme" = "Theme";
+
+/* loco:5ed768c1b75b810e8f6c0fe3 */
+"mn_edit_title_start" = "Start";
+
+/* loco:5ed768ce40a25b30f7770135 */
+"mn_edit_title_end" = "End";
+
+/* loco:5ed769ddf9c2193fdf1675b3 */
+"mn_cam_func_zoom" = "Zoom";
+
+/* loco:5ed769fb213ca94697226a85 */
+"mn_cam_func_exposure" = "Exposure";
+
+/* loco:5ed76a19cea1fe1c8231c6f7 */
+"mn_cam_func_face_beauty" = "Smoother";
+
+/* loco:5ed76ad91b99c05f0428f684 */
+"mn_edit_title_ratio" = "Ratio";
+
+/* loco:5ed76b11e8719425d76cbc95 */
+"mn_edit_title_music" = "Music";
+
+/* loco:5ed76b2de8719425d76cbc97 */
+"mn_edit_title_watermark" = "Watermark";
+
+/* loco:5ed76bfb1fb0f55413685da0 */
+"mn_app_done" = "Done";
+
+/* loco:5ed76c359d7a3e0b0a4124f3 */
+"mn_edit_title_dub_record" = "Record";
+
+/* loco:5ed76c57d1845e35aa174593 */
+"mn_edit_title_preview" = "Preview";
+
+/* loco:5ed76c689d7a3e0b0a4124f5 */
+"mn_edit_title_export" = "Export";
+
+/* loco:5ed76c8a8864e34dc9098012 */
+"mn_cam_func_add_bgm" = "Add music";
+
+/* loco:5ed76cb2c407c32c892d39c2 */
+"mn_cam_func_camera_id_switch" = "Camera";
+
+/* loco:5ed76e013dcb4833f4564bb2 */
+"mn_edit_tips_no_allow_del_last" = "Not allow to delete";
+
+/* loco:5ed76e25256eba5647082084 */
+"mn_edit_tips_error_params" = "Error parameter";
+
+/* loco:5ed76e7045d3e644135c8b43 */
+"mn_edit_tips_no_allow_set_last_trans" = "Not allow to set transition";
+
+/* loco:5ed76eca3dcb4833f4564bb4 */
+"mn_edit_tips_no_allow_trim" = "Not allow to trim";
+
+/* loco:5ed76efe9a9f976daf676722 */
+"mn_edit_tips_export_cancel" = "Export canceled";
+
+/* loco:5ed76f26fa519a1daf03dd62 */
+"mn_edit_tips_error_template" = "Error template";
+
+/* loco:5ed7702ad90d713345006132 */
+"mn_cam_func_flash" = "Flash";
+
+/* loco:5ed770a08a40a148f37c7306 */
+"mn_edit_tips_input_text" = "Enter text";
+
+/* loco:5ed7719dba28856ab24e2002 */
+"mn_edit_export_resolution" = "Resolution";
+
+/* loco:5ed771b8ba28856ab24e2003 */
+"mn_edit_back_home" = "Home";
+
+/* loco:5ed771e9ba28856ab24e2004 */
+"mn_edit_tips_template_theme_error" = "Theme error";
+
+/* loco:5ed77262c34493717148e445 */
+"mn_edit_tips_cannot_operate" = "Operation failed";
+
+/* loco:5ed773678e43275b25407246 */
+"mn_app_splash_slogan" = "Easy editing, free expression";
+
+"mn_edit_change_style" = "Change Style";
+
+"mn_edit_change_zoom" = "Zoom";
+
+"mn_edit_total_time" = "total time";

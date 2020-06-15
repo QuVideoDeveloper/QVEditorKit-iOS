@@ -1,0 +1,95 @@
+{
+  "name": "QVMediToolbarKit",
+  "version": "3.2.12",
+  "summary": "XiaoYing - QVMediToolbarKit",
+  "description": "XiaoYing pod  - QVMediToolbarKit",
+  "homepage": "git@192.168.1.33:iOSComponentGroup/QVMediToolbarKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "irobbin1024": "longbin.lai@quvideo.com"
+  },
+  "source": {
+    "git": "git@192.168.1.33:iOSComponentGroup/QVMediToolbarKit.git",
+    "tag": "3.2.12"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "resource_bundles": {
+    "QVMediToolbarKit": [
+      "QVMediToolbarKit/Assets/*.xcassets",
+      "QVMediToolbarKit/Assets/**/*.*"
+    ]
+  },
+  "source_files": "QVMediToolbarKit/Classes/**/*",
+  "dependencies": {
+    "XYCommonEngine": [
+
+    ],
+    "QVEditorKit": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Resources",
+      "dependencies": {
+        "Masonry": [
+
+        ],
+        "YYKeyboardManager": [
+
+        ],
+        "SVProgressHUD": [
+
+        ]
+      },
+      "resource_bundles": {
+        "QVMediToolbarKit": [
+          "QVMediToolbarKit/Assets/*.xcassets",
+          "QVMediToolbarKit/Assets/**/*.*"
+        ]
+      }
+    },
+    {
+      "name": "QVMediVideoEditToolbarKit",
+      "source_files": [
+        "QVMediToolbarKit/Classes/QVMediVideoEditToolbarKit/**/*",
+        "QVMediToolbarKit/Classes/Common/**/*"
+      ],
+      "dependencies": {
+        "QVMediToolbarKit/Resources": [
+
+        ]
+      }
+    },
+    {
+      "name": "QVMediScrollToolbarSelectUIKit",
+      "source_files": [
+        "QVMediToolbarKit/Classes/QVMediScrollToolbarSelectUIKit/**/*",
+        "QVMediToolbarKit/Classes/Common/**/*"
+      ],
+      "dependencies": {
+        "QVMediToolbarKit/Resources": [
+
+        ]
+      }
+    },
+    {
+      "name": "QVMediCameraToolbarKit",
+      "source_files": [
+        "QVMediToolbarKit/Classes/XYCameraToolbarKit/**/*",
+        "QVMediToolbarKit/Classes/QVMediScrollToolbarSelectUIKit/**/*",
+        "QVMediToolbarKit/Classes/Common/**/*"
+      ],
+      "dependencies": {
+        "QVMediToolbarKit/Resources": [
+
+        ]
+      }
+    }
+  ]
+}

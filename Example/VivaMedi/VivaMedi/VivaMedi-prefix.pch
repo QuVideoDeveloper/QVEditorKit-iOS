@@ -1,0 +1,20 @@
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
+
+#ifndef _SUPPORT_64BITS_
+#define _SUPPORT_64BITS_
+#endif
+#ifndef __IPHONE__
+#define __IPHONE__  1
+#endif
+#import <XYCommonEngine/CXiaoYingInc.h>
+#import <XYCommonEngineKit/XYCommonEngineKit.h>

@@ -1,0 +1,1 @@
+../../../QVMediTools/QVMediTools/Classes/NSString+QVTools.h
