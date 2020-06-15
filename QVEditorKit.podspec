@@ -47,6 +47,8 @@ TODO: Add long description of the pod here.
  # s.dependency 'XYCommonEngine' , '0.1.0'
 
   s.xcconfig = { "OTHER_LDFLAGS" => "-ObjC" }
+  s.xcconfig = { "ENABLE_BITCODE" => "NO" }
+
   # s.xcconfig = { "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES" }
   # s.xcconfig = { "ENABLE_BITCODE" => "NO" }
 
