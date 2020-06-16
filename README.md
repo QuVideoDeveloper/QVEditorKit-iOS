@@ -17,6 +17,8 @@ QVEditorKit is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
+Podfile 文件中加上：
+inhibit_all_warnings!
 pod 'QVEditorKit'
 ```
 ## 小影 iOS 剪辑SDK 接入文档
@@ -79,7 +81,10 @@ destRange：出入区间，效果在工程上的起始点和长度。
 <img src="https://github.com/QuVideoDeveloper/QVEditor-Android/blob/master/IMG/image_range.png" width="637" height="441" align="center">
 
 #### 5. 坐标系：
-即iOS的坐标系
+剪辑中使用的坐标系，统一使用视频流(stream)的坐标系，即视频流的左上角为（0, 0），右下角为（stream.width，stream.height）。角度水平向右为0度，顺时针为增大。
+
+
+<img src="https://github.com/QuVideoDeveloper/QVEditor-Android/blob/master/IMG/image_range.png" width="637" height="441" align="center">
 
 ####  2 运行环境
 运行环境如下：iOS 9.0以上
@@ -123,6 +128,7 @@ QVEditorConfiguration是初始化配置参数类
 | :-: | :-: | :-: | :-: |
 | licensePath  | 证书路径 | NSString | 是 |
 | corruptImgPath  | clip错误时显示图片的地址。如相册的图片被删除或者上传到iCloud等 | NSString | 是 |
+| isUseStuffClip  | 是否末尾补黑帧,默认false（详解【高级玩法-自由黑帧模式】一章说明） | BOOL | 非 |
 
 2.1.3 QVEngineDataSourceProtocol协议
 QVEngineDataSourceProtocol 提供用户实现设置语言代码、及主题的字幕的转译。
@@ -257,7 +263,7 @@ XYPlayerView类
 ```
 这个streamSize是播放器中引擎内容真正渲染的区域，引擎的坐标都相对于这个区域来计算，这个区域的位置是相对于XYPlayerView的位置居中的，如计算区域手势可通过这里转换得到，图层结构如图所示：蓝色边框区域为引擎渲染区域，灰色边框区域为XYPlayerView区域，其中擎渲染蓝色区域相对XYPlayerView灰色边框居中
 
-<img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/55.png" width="281" height="397" align="center">
+<img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/55.png" width="562" height="794" align="center">
 
 1）在工程加载成功后，可以绑定工程和播放器
 代码如下：
