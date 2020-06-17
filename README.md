@@ -490,7 +490,7 @@ XYEffectVisionModel参数说明：XYEffectVisionModel继承XYEffectModel
 | maskInfo | 画中画 蒙版 | XYEffectPicInPicMaskInfo | 
 | chromaInfo | 画中画 抠色信息数据（绿幕） | XYEffectPicInPicChromaInfo | 
 | filterInfo | 画中画 滤镜 | XYEffectPicInPicFilterInfo | 
-| fxInfoList |画中画特效 | XYEffectPicInPicSubFx | 
+| fxInfoList |画中画特效 | NSMutableArray < XYEffectPicInPicSubFx > | 
 | adjustItems | 画中画 参数调节 | NSArray < XYAdjustItem > | 
 
 
@@ -516,7 +516,7 @@ XYEffectPicInPicChromaInfo参数说明：
 | :-: | :-: | :-: | 
 | enable |是否开启 | BOOL | 
 | colorHexValue |抠色的颜色值, 如0xFFFFFF | NSInteger | 
-| accuracy |抠色的精度（0~5000） | CGFloat | 
+| accuracy |抠色的精度（0~100） | CGFloat | 
 | isAutoMaskBgColor |是否自动去除画中画纯背景色 | BOOL | 
 | selectPoint | 画中画选中的坐标 相对画中画的坐标 | CGPoint | 
 
@@ -1283,7 +1283,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
         // effectIndex为同类型中第几个效果
         // fxInfoList表示混合模式信息 {@see XYEffectPicInPicSubFx}
         XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
-        NSArray <XYEffectPicInPicSubFx *> fxInfoList = list;
+        NSMutableArray <XYEffectPicInPicSubFx *> fxInfoList = list;
         visionModel.fxInfoList = fxInfoList;
         visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicSubFX;
         [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
@@ -1297,7 +1297,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
         // effectIndex为同类型中第几个效果
         // fxInfoList表示混合模式信息 {@see XYEffectPicInPicSubFx}
         XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
-        NSArray <XYEffectPicInPicSubFx *> fxInfoList = visionModel.fxInfoList;
+        NSMutableArray <XYEffectPicInPicSubFx *> fxInfoList = visionModel.fxInfoList;
         fxInfoList enumerateObjectsUsingBlock:^(XYEffectPicInPicSubFx * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj.destRange = [XYVeRangeModel VeRangeModelWithPosition:start length:length];
         }
@@ -1312,7 +1312,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
         // effectIndex为同类型中第几个效果
         // fxInfoList表示混合模式信息 {@see XYEffectPicInPicSubFx}
         XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
-        NSArray <XYEffectPicInPicSubFx *> fxInfoList = visionModel.fxInfoList;
+        NSMutableArray <XYEffectPicInPicSubFx *> fxInfoList = visionModel.fxInfoList;
         fxInfoList enumerateObjectsUsingBlock:^(XYEffectPicInPicSubFx * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj.subFxPath = nil;
         }
