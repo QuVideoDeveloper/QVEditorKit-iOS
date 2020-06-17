@@ -486,10 +486,54 @@ XYEffectVisionModel参数说明：XYEffectVisionModel继承XYEffectModel
 | currentScale | 根据当前宽度和dafault宽度自动计算当前放大倍数，只读  | CGFloat | 
 | previewDuration | 预览时长 | CGFloat | 
 | volume | 效果的音量（只有特效和视频画中画才有作用） | NSInteger | 
+| overlayInfo | 画中画 透明度 | XYEffectPicInPicOverlayInfo | 
+| maskInfo | 画中画 蒙版 | XYEffectPicInPicMaskInfo | 
+| chromaInfo | 画中画 抠色信息数据（绿幕） | XYEffectPicInPicChromaInfo | 
+| filterInfo | 画中画 滤镜 | XYEffectPicInPicFilterInfo | 
+| fxInfoList |画中画特效 | XYEffectPicInPicSubFx | 
+| adjustItems | 画中画 参数调节 | NSArray < XYAdjustItem > | 
 
+
+XYEffectPicInPicOverlayInfo参数说明：
+| 名称  | 解释 | 类型 | 
+| :-: | :-: | :-: | 
+| overlayPath |混合模式素材路径 | NSString | 
+| level |混合程度，改参数和透明度一个效果,0~100 | CGFloat | 
+
+XYEffectPicInPicMaskInfo参数说明：
+| 名称  | 解释 | 类型 | 
+| :-: | :-: | :-: | 
+| maskType |蒙版类型 | XYEffectMaskType | 
+| centerPoint |中心点 在streamSize的坐标系中，中心点尽量保持在素材位置内 | CGPoint | 
+| radiusX |水平方向半径，在streamSize的坐标系中 | CGFloat | 
+| radiusY |垂直方向半径，在streamSize的坐标系中 | CGFloat | 
+| rotation | 旋转角度， 0~360 | CGFloat | 
+| softness |羽化程度，取值范围：[0~10000] | NSInteger | 
+| reverse |是否反选 | BOOL | 
+
+XYEffectPicInPicChromaInfo参数说明：
+| 名称  | 解释 | 类型 | 
+| :-: | :-: | :-: | 
+| enable |是否开启 | BOOL | 
+| colorHexValue |抠色的颜色值, 如0xFFFFFF | NSInteger | 
+| accuracy |抠色的精度（0~5000） | CGFloat | 
+| isAutoMaskBgColor |是否自动去除画中画纯背景色 | BOOL | 
+| selectPoint | 画中画选中的坐标 相对画中画的坐标 | CGPoint | 
+
+XYEffectPicInPicFilterInfo参数说明：
+| 名称  | 解释 | 类型 | 
+| :-: | :-: | :-: | 
+| filterPath |滤镜路径 | NSString | 
+| filterLevel | 滤镜程度,0~100 | NSInteger | 
+
+XYEffectPicInPicSubFx参数说明：
+| 名称  | 解释 | 类型 | 
+| :-: | :-: | :-: | 
+| subFxPath |子特效素材路径 | NSString | 
+| subType | 子特效索引，不可修改 范围1000 - 2000 | NSInteger | 
+| destRange | 子特效出入点区间，相对效果的时间 | XYVeRangeModel | 
 
 XYEffectVisionTextModel参数说明：XYEffectVisionTextModel继承XYEffectVisionModel
-
 | 名称  | 解释 | 类型 | 
 | :-: | :-: | :-: | 
 | isAnimatedText |是否动画字幕 | BOOL | 
@@ -1165,6 +1209,129 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
 ```
 当需要快速刷新播放器某个效果位置时，需要先锁定该效果，当位置刷新结束后，需要对改效果解锁。
+
+6.2.10 画中画混合模式设置
+```
+	// groupId为effect的类型
+	// effectIndex为同类型中第几个效果
+	// overlayInfo表示混合模式信息 {@see XYEffectPicInPicOverlayInfo}
+		XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+       XYEffectPicInPicOverlayInfo *overlayInfo = [[XYEffectPicInPicOverlayInfo alloc] init];
+        visionModel.overlayInfo = overlayInfo;
+        visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicOverlayUpdate;
+	 [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+
+```
+
+
+6.2.11 画中画蒙版设置
+```
+	// groupId为effect的类型
+	// effectIndex为同类型中第几个效果
+	// maskInfo表示混合模式信息 {@see XYEffectPicInPicMaskInfo}
+		XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+        XYEffectPicInPicMaskInfo *maskInfo = [[XYEffectPicInPicMaskInfo alloc] init];
+        visionModel.maskInfo = maskInfo;
+        visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicMaskUpdate;
+	 [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+```
+
+
+19）画中画抠色设置（绿幕）
+```
+	    // groupId为effect的类型
+        // effectIndex为同类型中第几个效果
+        // visionModel.chromaInfo表示混合模式信息 {@see XYEffectPicInPicChromaInfo}
+        XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+        XYEffectPicInPicChromaInfo *chromaInfo = [[XYEffectPicInPicChromaInfo alloc] init];
+        visionModel.chromaInfo = chromaInfo;
+        visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicChromaUpdate;
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+```
+
+
+20）画中画滤镜设置
+```
+	     // groupId为effect的类型
+        // effectIndex为同类型中第几个效果
+        // maskInfo表示混合模式信息 {@see XYEffectPicInPicFilterInfo}
+        XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+        XYEffectPicInPicFilterInfo *filterInfo = [[XYEffectPicInPicFilterInfo alloc] init];
+        visionModel.filterInfo = filterInfo;
+        visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicFilterUpdate;
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+```
+
+
+21）画中画参数调节设置
+```
+	    // groupId为effect的类型
+        // effectIndex为同类型中第几个效果
+        // adjustItems表示混合模式信息 {@see XYAdjustItem}
+        XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+        NSArray <XYAdjustItem *> *adjustItems = list;
+        visionModel.adjustItems = adjustItems;
+        visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicSubAdjust;
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+```
+
+
+
+22）画中画添加子特效
+```
+	// groupId为effect的类型
+        // effectIndex为同类型中第几个效果
+        // fxInfoList表示混合模式信息 {@see XYEffectPicInPicSubFx}
+        XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+        NSArray <XYEffectPicInPicSubFx *> fxInfoList = list;
+        visionModel.fxInfoList = fxInfoList;
+        visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicSubFX;
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+```
+
+
+
+23）画中画修改子特效出入点时间区间
+```
+	// groupId为effect的类型
+        // effectIndex为同类型中第几个效果
+        // fxInfoList表示混合模式信息 {@see XYEffectPicInPicSubFx}
+        XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+        NSArray <XYEffectPicInPicSubFx *> fxInfoList = visionModel.fxInfoList;
+        fxInfoList enumerateObjectsUsingBlock:^(XYEffectPicInPicSubFx * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.destRange = [XYVeRangeModel VeRangeModelWithPosition:start length:length];
+        }
+        visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicSubFX;
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+```
+
+
+24）画中画删除子特效
+```
+	// groupId为effect的类型
+        // effectIndex为同类型中第几个效果
+        // fxInfoList表示混合模式信息 {@see XYEffectPicInPicSubFx}
+        XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+        NSArray <XYEffectPicInPicSubFx *> fxInfoList = visionModel.fxInfoList;
+        fxInfoList enumerateObjectsUsingBlock:^(XYEffectPicInPicSubFx * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.subFxPath = nil;
+        }
+        visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicSubFX;
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+```
+
+
+25）锚点修改
+```
+	// groupId为effect的类型
+	// effectIndex为同类型中第几个效果
+	// anchor锚点,(0,0)为效果的左上角位置，（0.5，0.5）表示效果的中心，（1.0，1.0）表示效果的右下角。默认是(0.5,0.5) 。取值范围是0~1
+	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
+  currentEffectModel.anchor = anchor;
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+```
+
 
 6.2.10 显示静态图片
 ```
