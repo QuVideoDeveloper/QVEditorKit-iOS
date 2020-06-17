@@ -1237,7 +1237,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 ```
 
 
-19）画中画抠色设置（绿幕）
+6.2.12 画中画抠色设置（绿幕）
 ```
 	    // groupId为effect的类型
         // effectIndex为同类型中第几个效果
@@ -1250,7 +1250,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 ```
 
 
-20）画中画滤镜设置
+6.2.13 画中画滤镜设置
 ```
 	     // groupId为effect的类型
         // effectIndex为同类型中第几个效果
@@ -1263,7 +1263,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 ```
 
 
-21）画中画参数调节设置
+6.2.14 画中画参数调节设置
 ```
 	    // groupId为effect的类型
         // effectIndex为同类型中第几个效果
@@ -1277,7 +1277,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 
 
 
-22）画中画添加子特效
+6.2.14 画中画添加子特效
 ```
 	// groupId为effect的类型
         // effectIndex为同类型中第几个效果
@@ -1291,7 +1291,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 
 
 
-23）画中画修改子特效出入点时间区间
+6.2.15 画中画修改子特效出入点时间区间
 ```
 	// groupId为effect的类型
         // effectIndex为同类型中第几个效果
@@ -1306,7 +1306,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 ```
 
 
-24）画中画删除子特效
+6.2.16 画中画删除子特效
 ```
 	// groupId为effect的类型
         // effectIndex为同类型中第几个效果
@@ -1321,7 +1321,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 ```
 
 
-25）锚点修改
+6.2.17 锚点修改
 ```
 	// groupId为effect的类型
 	// effectIndex为同类型中第几个效果
@@ -1333,7 +1333,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 ```
 
 
-6.2.10 显示静态图片
+6.2.18 显示静态图片
 ```
 	// groupId为effect的类型
 	// effectIndex为同类型中第几个效果
@@ -1346,7 +1346,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 备注：由于一些动态贴纸/字幕，有效果变化，可以通过该操作，使效果关闭动画显示固定效果。
 
 
-6.2.11 马赛克模糊程度
+6.2.19 马赛克模糊程度
 ```
 	// groupId默认为XYCommonEngineGroupIDMosaic
 	// effectIndex为同类型中第几个效果
@@ -1392,7 +1392,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
 | textShadowBlurRadius | 阴影模糊程度: 必须>=0| CGFloat |非必须| 
 | textShadowXShift | 阴影X轴偏移 | CGFloat |非必须| 
 | textShadowXShift | 阴影Y轴偏移| CGFloat |非必须| 
-20）字幕文本
+1）字幕文本
 
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
@@ -1406,7 +1406,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
 ```
 
-21）字幕字体
+2）字幕字体
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
 	// effectIndex为同类型中第几个效果
@@ -1420,7 +1420,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
 ```
 
 
-22）字幕文本颜色
+3）字幕文本颜色
 
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
@@ -1434,7 +1434,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
 ```
 
-24）字幕文本阴影
+4）字幕文本阴影
 
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
@@ -1451,7 +1451,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
 ```
 
-25）字幕文本描边
+5）字幕文本描边
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
 	// effectIndex为同类型中第几个效果
