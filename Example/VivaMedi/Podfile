@@ -52,7 +52,7 @@ batch_pod ["QVMediCamera"],'remote','iOSDemoGroup','sdk_dev'
 #  pod 'QVEditor'
   #公共库
 
-  pod 'QVEditorKit'
+  #pod 'QVEditorKit'
 
   #pod 'QVEditorKit', :path => '/Users/sunshine/Desktop/githubSDk/QVEditorKit'
 #  batch_pod ['XYTemplateDataMgr','XYCommonEngineKit','XYCommonEngine'],'remote','ioscomponentgroup','sdk_dev'
