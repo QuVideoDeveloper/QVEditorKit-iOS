@@ -469,6 +469,8 @@ XYEffectAudioModel参数说明：XYEffectAudioModel继承XYEffectModel
 | isFadeOutON | 是否开启淡入 | BOOL |
 | isFadeOutON | 是否开启淡出 | BOOL | 
 | fadeDuration | 渐变时长,0则无效果 | CGFloat | 
+| lyricPath | 歌曲字幕lyric文件路径 | NSString |
+| lyricTtid | 歌词模板的素材id | NSInteger |
 
 XYEffectVisionModel参数说明：XYEffectVisionModel继承XYEffectModel
 
@@ -1080,6 +1082,19 @@ XYEffectAudioModel参数说明：
 	XYEffectAudioModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
 	  currentEffectModel.filePath = filePath;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioReplace;
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel]
+```
+6.1.12 歌词文件生成字幕
+```
+	// groupId为effect的类型
+	// effectIndex为同类型中第几个效果
+	// lyric表示歌曲字幕lyric文件路径
+	// lyricTtid表示歌词模板的素材id
+
+	XYEffectAudioModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+	  currentEffectModel.lyric = lyric;
+	  currentEffectModel.lyricTtid = lyricTtid;
+    currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioLyic;
     [[XYEngineWorkspace effectMgr] runTask:currentEffectModel]
 ```
 
