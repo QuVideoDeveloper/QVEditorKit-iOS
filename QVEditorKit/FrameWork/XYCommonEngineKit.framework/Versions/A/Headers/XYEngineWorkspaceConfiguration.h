@@ -18,6 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * _Nullable effectXytEFilePath; //E模板路径
 @property (nonatomic, copy) NSString * _Nullable effectXytFFilePath; //F模板路径
 
+@property (nonatomic, copy) NSString * _Nullable effectEffectMaskLinearPath; //线性蒙版
+@property (nonatomic, copy) NSString * _Nullable effectEffectMaskMirrorPath; //镜像蒙版
+@property (nonatomic, copy) NSString * _Nullable effectEffectMaskRadialPath; //径向蒙版
+@property (nonatomic, copy) NSString * _Nullable effectEffectMaskRectanglePath; //矩形蒙版
+
 @property (nonatomic, assign) long long adjustEffectId;//
 @property (nonatomic, copy) NSString * _Nullable adjustEffectPath; //F模板路径
 

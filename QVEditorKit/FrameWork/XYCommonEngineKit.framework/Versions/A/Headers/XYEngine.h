@@ -22,6 +22,8 @@
 
 @property (nonatomic, weak) id<CXiaoYingTemplateAdapter> templateDelegate;
 @property (nonatomic, weak) id<QVEngineDataSourceProtocol> engineLogDelegate;
+/// 开启引擎日志写入到本地 默认关闭
+@property (nonatomic, assign) BOOL isSaveLog;
 
 + (XYEngine *)sharedXYEngine;
 
@@ -42,5 +44,7 @@
 - (void)setFontAdapter:(id<CXiaoYingFontAdapter>)fontAdapter;
 
 - (BOOL)getMetalEnable;
+
+- (NSString *)getLog;
 
 @end

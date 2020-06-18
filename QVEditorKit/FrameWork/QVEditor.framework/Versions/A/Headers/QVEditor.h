@@ -22,11 +22,19 @@ NS_ASSUME_NONNULL_BEGIN
 /// 默认素材的版本 如果有升级素材 需要修改版好 加1往上升即可
 @property (nonatomic, assign) NSInteger defaultTemplateVersion;
 
+/// 是否末尾补黑帧,默认false（详解【高级玩法-自由黑帧模式】一章说明）
+@property (nonatomic, assign) BOOL isUseStuffClip;
+
+/// 是否开启引擎日志写入到本地 默认关闭
+@property (nonatomic, assign) BOOL isSaveLog;
+
 @end
 
 @interface QVEditor : NSObject
 
 + (void)initializeWithConfig:(QVEditorConfiguration *)config delegate:(id <QVEngineDataSourceProtocol>)delegate;
+
++ (NSString *)getCatchLog;
 
 @end
 

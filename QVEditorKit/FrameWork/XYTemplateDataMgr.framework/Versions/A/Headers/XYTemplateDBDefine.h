@@ -73,47 +73,11 @@
 [[NSBundle mainBundle] resourcePath]
 
 #define APP_BUNDLE_PRIVATE_PATH         \
-[NSString stringWithFormat:@"%@/private",APP_BUNDLE_DIRECTORY]
+[NSString stringWithFormat:@"%@/private/",APP_BUNDLE_DIRECTORY]
 
 #define APP_BUNDLE_FONTS_PATH         \
 [NSString stringWithFormat:@"%@/private/fonts",APP_BUNDLE_DIRECTORY]
 
-//define new default bundle template path
-#define APP_BUNDLE_EFFECTS_PATH          \
-[NSString stringWithFormat:@"%@/imageeffect/",APP_BUNDLE_PRIVATE_PATH]
-
-#define APP_BUNDLE_POSTERS_PATH          \
-[NSString stringWithFormat:@"%@/poster/",APP_BUNDLE_PRIVATE_PATH]
-
-#define APP_BUNDLE_BUBBLES_PATH          \
-[NSString stringWithFormat:@"%@/bubbleframe/",APP_BUNDLE_PRIVATE_PATH]
-
-#define APP_BUNDLE_THEMES_PATH          \
-[NSString stringWithFormat:@"%@/theme/",APP_BUNDLE_PRIVATE_PATH]
-
-#define APP_BUNDLE_TEXTFRAMES_PATH          \
-[NSString stringWithFormat:@"%@/textframe/",APP_BUNDLE_PRIVATE_PATH]
-
-#define APP_BUNDLE_COVERS_PATH          \
-[NSString stringWithFormat:@"%@/cover/",APP_BUNDLE_PRIVATE_PATH]
-
-#define APP_BUNDLE_TRANSITIONS_PATH          \
-[NSString stringWithFormat:@"%@/transition/",APP_BUNDLE_PRIVATE_PATH]
-
-#define APP_BUNDLE_ANIMATED_FRAME_PATH          \
-[NSString stringWithFormat:@"%@/animateframe/",APP_BUNDLE_PRIVATE_PATH]
-
-#define APP_BUNDLE_MUSIC_PATH          \
-[NSString stringWithFormat:@"%@/defaultmusic/",APP_BUNDLE_PRIVATE_PATH]
-
-#define APP_BUNDLE_SOUND_EFFECT_PATH          \
-[NSString stringWithFormat:@"%@/sounds/",APP_BUNDLE_PRIVATE_PATH]
-
-#define APP_BUNDLE_PIP_PATH          \
-[NSString stringWithFormat:@"%@/pip/",APP_BUNDLE_PRIVATE_PATH]
-
-#define APP_BUNDLE_STICKER_PATH          \
-[NSString stringWithFormat:@"%@/sticker/",APP_BUNDLE_PRIVATE_PATH]
 
 //路径相关
 #define APP_HOME_PATH  NSHomeDirectory()

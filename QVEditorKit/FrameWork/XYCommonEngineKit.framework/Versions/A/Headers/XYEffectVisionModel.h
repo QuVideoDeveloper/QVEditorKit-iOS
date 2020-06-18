@@ -7,6 +7,7 @@
 
 #import "XYEffectModel.h"
 
+@class XYEffectPicInPicOverlayInfo, XYEffectPicInPicMaskInfo, XYEffectPicInPicChromaInfo, XYEffectPicInPicFilterInfo, XYEffectPicInPicSubFx, XYAdjustItem;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,7 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 视觉类效果的model
 @interface XYEffectVisionModel : XYEffectModel
-
 @property (nonatomic, assign) CGFloat defaultWidth; //默认宽度，素材中提取
 @property (nonatomic, assign) CGFloat defaultHeight; //默认高度，素材中提取
 @property (nonatomic, assign) BOOL reCalculateFrame; // YES不管当前宽高，重新计算宽高
@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL hasAudio; //是否带音效
 @property (nonatomic, assign) BOOL verticalReversal; //竖直翻转
 @property (nonatomic, assign) BOOL horizontalReversal; //水平翻转
+@property (nonatomic, assign) CGPoint anchor; //锚点,(0,0)为效果的左上角位置，（0.5，0.5）表示效果的中心，（1.0，1.0）表示效果的右下角。默认是(0.5,0.5) 。取值范围是0~1
 @property (nonatomic, assign) BOOL isFrameMode; //YES的情况下，应用到全透明的Storyboard上也是透明的，否则背景会变黑
 @property (nonatomic, assign) BOOL defaultIsStaticPicture; //该视觉效果默认是否静态
 @property (nonatomic, assign) BOOL isStaticPicture; //YES的情况下，该效果将会静态展示
@@ -52,6 +53,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger previewDuration;//动画预览时长
 @property (nonatomic, assign) NSInteger volume;//效果的音量（只有特效和视频画中画才有作用）
 
+@property (nonatomic, strong) XYEffectPicInPicOverlayInfo *overlayInfo; //画中画 透明度
+@property (nonatomic, strong) XYEffectPicInPicMaskInfo *maskInfo; //画中画 蒙版
+@property (nonatomic, strong) XYEffectPicInPicChromaInfo *chromaInfo; //画中画 抠色信息数据（绿幕）
+@property (nonatomic, strong) XYEffectPicInPicFilterInfo *filterInfo; //画中画 滤镜
+@property (nonatomic, strong) NSMutableArray <XYEffectPicInPicSubFx *> *fxInfoList; //画中画 特效
+@property (nonatomic, copy) NSArray <XYAdjustItem *> *adjustItems;// 画中画 参数调节
 
 /// 根据引擎万分比计算视觉效果在播放区域显示的rect
 /// @param regionRect 引擎万分比
