@@ -13,3 +13,4 @@
 #pod 'QVMediCameraKit', :path => '/Users/sunshine/Desktop/XYKit/SDK/QVMediCameraKit'
 
 
+pod 'QVEditorKit', :path => '/Users/sunshine/Desktop/githubSDk/QVEditorKit'

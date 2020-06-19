@@ -67,6 +67,7 @@ batch_pod ["QVMediCamera"],'remote','iOSDemoGroup','sdk_dev'
   pod 'SDWebImage', '4.4.2'
   pod 'FMDB'
   pod 'YYModel'
+  pod 'QVEditorKit', '0.1.12'
 
 
   # Pods for VivaMedi

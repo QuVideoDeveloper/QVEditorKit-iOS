@@ -225,6 +225,9 @@
 #define AMVE_PROP_EFFECT_AUDIO_FRAME_SOURCE_RANGE      (AMVE_PROP_EFFECT_BASE+91) //配乐时音频文件的source range
 #define AMVE_PROP_EFFECT_AUDIO_FRAME_TITLE             (AMVE_PROP_EFFECT_BASE+92) //配乐文件的title
 #define AMVE_PROP_EFFECT_VIDEOFRAME_SRCRANGE           (AMVE_PROP_EFFECT_BASE+93) //视频画中画用户选取的source range
+#define AMVE_PROP_EFFECT_EQ_BAND_VALUE_LIST				(AMVE_PROP_EFFECT_BASE+94) //配乐EQ 配置
+#define AMVE_PROP_EFFECT_EQ_BAND_VALUE					(AMVE_PROP_EFFECT_BASE+95) //配乐EQ 配置
+#define AMVE_PROP_EFFECT_EQ_BAND_FREQUENCY				(AMVE_PROP_EFFECT_BASE+96) //配乐EQ 配置
 #define AMVE_PROP_EFFECT_TEXT_ATTACHMENT_ID			   (AMVE_PROP_EFFECT_BASE+97) //通过类型设置/获取字幕效果附件ID
 #define AMVE_PROP_EFFECT_TEXT_ATTACHMENT_DURATION      (AMVE_PROP_EFFECT_BASE+98) //通过类型设置/获取效果附件时长
 
@@ -340,6 +343,12 @@
 //该属性包含get和set方法,但set方法目前只能在load project时调用,对于外部(app客户端)来说只能get,因为在jni和oc封装层不处理该属性set操作
 #define AMVE_PROP_EFFECT_UUID							(AMVE_PROP_EFFECT_BASE+220)
 
+#define AMVE_PROP_EFFECT_PIP_STORYBOARD_INFO			(AMVE_PROP_EFFECT_BASE+221)
+//高级字幕属性,对应结构体QTextAdvanceStyle
+#define AMVE_PROP_EFFECT_TEXT_ADV_STYLE					(AMVE_PROP_EFFECT_BASE+222)
+//高级字幕属性激活标志
+#define AMVE_PROP_EFFECT_TEXT_ADV_FLAG					(AMVE_PROP_EFFECT_BASE+223)
+
 #define AVME_EFFECT_SUB_ITEM_TYPE_BASE                   0
 #define AVME_EFFECT_SUB_ITEM_TYPE_CHROMA                 (AVME_EFFECT_SUB_ITEM_TYPE_BASE + 1)
 #define AVME_EFFECT_SUB_ITEM_TYPE_FILTER                 (AVME_EFFECT_SUB_ITEM_TYPE_BASE + 2)
@@ -449,25 +458,32 @@
 #define AMVE_PROP_CLIP_INVERSE_PLAY_TRIM_RANGE         (AMVE_PROP_CLIP_BASE+57)
 #define AMVE_PROP_CLIP_INVERSE_PLAY_SOURCE_RANGE       (AMVE_PROP_CLIP_BASE+58)
 
+
 /*
  *  audio gain >= 0, to set/get the audio gain. 
  *	the new audio gain will replace the old gain you set 
  *	Default is 1.0 from audio head to tail. The data of this prop is QVET_AUDIO_GAIN
  *	this prop can be change when you are in player,  If there is no more change to clip audio gain, you need to call AMVES_PlayerPerformOperation to perform the changement on audio
  */
-#define AMVE_PROP_CLIP_AUDIO_GAIN						 (AMVE_PROP_CLIP_BASE+59)
+#define AMVE_PROP_CLIP_AUDIO_GAIN					   (AMVE_PROP_CLIP_BASE+59)
 
 #define AMVE_PROP_CLIP_UNIQUE_IDENTIFIER               (AMVE_PROP_CLIP_BASE+60) //传递clip的唯一标识符
 #define AMVE_PROP_CLIP_AUDIO_IS_NEED_NSX               (AMVE_PROP_CLIP_BASE+61) //是否给这个clip上面的音频降噪
 
-#define AMVE_PROP_CLIP_NORMAL_SOURCE                   (AMVE_PROP_CLIP_BASE+62) //获取clip正常的源
-#define AMVE_PROP_CLIP_USE_ONLY_SINGLE_SCENE            (AMVE_PROP_CLIP_BASE+63) 
-#define AMVE_PROP_CLIP_EDIT_ENABLE                      (AMVE_PROP_CLIP_BASE+64) //是否加了镜头编辑效果
+#define AMVE_PROP_CLIP_NORMAL_SOURCE                   (AMVE_PROP_CLIP_BASE+62) //获取clip正常的源			
+#define AMVE_PROP_CLIP_USE_ONLY_SINGLE_SCENE           (AMVE_PROP_CLIP_BASE+63) 
+#define AMVE_PROP_CLIP_EDIT_ENABLE                     (AMVE_PROP_CLIP_BASE+64) //是否加了镜头编辑效果
+#define AMVE_PROP_CLIP_EQ_BAND_VALUE                   (AMVE_PROP_CLIP_BASE+65)  //设置EQ增益
+#define AMVE_PROP_CLIP_EQ_BAND_FREQUENCY               (AMVE_PROP_CLIP_BASE+66) //获取频率分段
+#define AMVE_PROP_CLIP_EQ_BAND_VALUE_LIST              (AMVE_PROP_CLIP_BASE+67) //获取EQ增益列表
 
-#define AMVE_PROP_CLIP_REVERSE_SOURCE_CLEAR                     (AMVE_PROP_CLIP_BASE+70) //清除到放源
+#define AMVE_PROP_CLIP_REVERSE_SOURCE_CLEAR            (AMVE_PROP_CLIP_BASE+70) //清除到放源
 //每个cilp对象的唯一id,AMVE_PROP_CLIP_UNIQUE_IDENTIFIER,可用来在storyboard中获取该id对应的clip对象
 //该属性包含get和set方法,但set方法目前只能在load project时调用,对于外部(app客户端)来说只能get,因为在jni和oc封装层不处理该属性set操作
-#define AMVE_PROP_CLIP_UUID								(AMVE_PROP_CLIP_BASE+71)
+#define AMVE_PROP_CLIP_UUID							   (AMVE_PROP_CLIP_BASE+71)
+//该属性用于音频倒放
+#define AMVE_PROP_CLIP_INVERSE_PLAY_AUDIO_FLAG         (AMVE_PROP_CLIP_BASE+72)
+
 
 //constants used to identify the property for storyboard
 #define AMVE_PROP_STORYBOARD_BASE                      0X00004000
@@ -528,6 +544,7 @@
 #define AMVE_PROP_PRODUCER_USE_INPUT_FILE_NAME         (AMVE_PROP_PRODUCER_BASE+6)
 #define AMVE_PROP_PRODUCER_CB_INTERVAL                 (AMVE_PROP_PRODUCER_BASE+7)
 #define AMVE_PROP_PRODUCER_ERR_INFO                    (AMVE_PROP_PRODUCER_BASE+8)
+#define AMVE_PROP_PRODUCER_USE_WEBP_ENCODER			   (AMVE_PROP_PRODUCER_BASE+9)
 
 //constants used to identify the property for auto editor
 #define AMVE_PROP_AUTOCUT_BASE						   0X00007000
@@ -558,6 +575,9 @@
 #define AMVE_AP_PROVIDE_MODE_NO_VAD                    0    //不做静音检测直接发送pcm
 #define AMVE_AP_PROVIDE_MODE_WITH_VAD                  1    //做静音检测后再发送pcm
 
+
+#define AMVE_PROP_STREAM_CONFIG_BASE                    0X80000000
+#define AMVE_PROP_STREAM_USE_WEBP_ENCODER               (AMVE_PROP_STREAM_CONFIG_BASE+86)
 
 /**
  * AUDIO_PITCH_DELTA_VALUE_XXX
@@ -1212,6 +1232,13 @@ typedef struct _tagAMVE_PRODUCER_STATE_TYPE
 	MDWord dwCurTime;
 } AMVE_PRODUCER_STATE_TYPE;
 
+typedef struct _tagAMVE_PRODUCER_CREATE_PARAM
+{
+	MBool bReserverMode;
+	MBool bUseGifEncoder;
+	MBool bUserWebpEncoder;
+}AMVE_PRODUCER_CREATE_PARAM;
+
 typedef struct _tagAMVE_DETECTOR_STATE_TYPE
 {
 	MDWord dwStatus;
@@ -1397,6 +1424,12 @@ typedef struct _tagAMVE_BUBBLETEXT_INFO_TYPE
 	MCOLORREF clrBubble;
 	MCOLORREF clrText;
 }AMVE_BUBBLETEXT_INFO_TYPE;
+
+typedef struct _tagAMVE_PIP_STORYBOARD_INFO_TYPE
+{
+	MHandle hStrboard;
+	MChar *pProjectPath; 
+}AMVE_PIP_STORYBOARD_INFO_TYPE;
 
 typedef struct _tagAMVE_MEDIA_SOURCE_TYPE
 {
@@ -2663,7 +2696,7 @@ typedef struct __tagQVET_KEYFRAME_UNIFORM_VALUE
 	MInt64 lKeylineTemplateID;
 }QVET_KEYFRAME_UNIFORM_VALUE;
 
-#define KEYFRAME_UNIFORM_NAME_LENGTH 32
+#define KEYFRAME_UNIFORM_NAME_LENGTH 128
 typedef struct __tagQVET_KEYFRAME_UNIFORM_DATA
 {
 	QVET_KEYFRAME_UNIFORM_VALUE* values;
@@ -3135,6 +3168,19 @@ typedef struct
 	MDWord dwAllPointsDuration; //节点动画的总时长
 	MDWord dwAnimateDuration;   //模板动画的时长
 }QVET_CALC_LERP_INFO_PARAM;
+
+typedef struct __QVET_EQ_BAND_INFO
+{
+	MDWord iBandIndex;  //0 begin
+	MDWord iChannelNo; //0,1
+	MFloat fBandValue;
+}QVET_EQ_BAND_INFO;
+
+typedef struct __QVET_EQ_BAND_FREQUENCY
+{
+	MDWord iBandCount;
+	const MDouble * pArrayBandFrequency;
+}QVET_EQ_BAND_FREQUENCY;
 
 typedef struct
 {

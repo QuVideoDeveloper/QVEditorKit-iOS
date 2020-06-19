@@ -35,10 +35,6 @@
 #define LAYER_ID_EVERY_CELL_ADDEND 1000// layer id 每个分组累加单元为1000 每个单元最大支持1000 个
 #define LAYER_ID_ADDEND 1 //每个layer id 分组下最大支持1000 个 (0 - 1000] 半开区间
 
-#define SUB_TYPE_PIC_IN_PIC_FX_MIN 1000 //画中画特效的起始type
-#define SUB_TYPE_PIC_IN_PIC_FX_MAX 2000 //画中画特效的最大type
-#define SUB_TYPE_PIC_IN_PIC_ADJUST 100 //画中画参数调节
-
 
 //Groups
 #define GROUP_ID_DEFAULT 0

@@ -7,7 +7,9 @@
 
 #import "XYBaseEngineModel.h"
 
-@class XYStoryboard, XYClipModel, XYMultiTextInfo, TextInfo;
+@class XYStoryboard;
+@class XYClipModel;
+@class TextInfo;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XYStoryboardModel : XYBaseEngineModel

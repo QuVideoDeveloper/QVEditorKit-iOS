@@ -80,36 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
                               height:(CGFloat)height
                          previewSize:(CGSize)previewSize;
 
-/// 设置锚点属性
-/// @param effectVisionModel effectVisionModel
-- (void)setAnchor:(nonnull XYEffectVisionModel *)effectVisionModel;
-
-///设置混合模板及透明度
-/// @param effectVisionModel effectVisionModel
-- (void)setEffectOverlayInfo:(nonnull XYEffectVisionModel *)effectVisionModel;
-
-///设置混合蒙版
-- (void)setEffectMaskInfo:(nonnull XYEffectVisionModel *)effectVisionModel;
-
-/// 设置画中画滤镜
-/// @param effectVisionModel effectVisionModel
-- (void)setEffectFilter:(nonnull XYEffectVisionModel *)effectVisionModel;
-
-/// 设置画中画特效
-/// @param effectVisionModel effectVisionModel
-- (void)setEffectSubFX:(nonnull XYEffectVisionModel *)effectVisionModel;
-
-/// 设置画中画滤镜参数调节
-/// @param effectVisionModel effectVisionModel
-- (void)setEffectSubAdjust:(nonnull XYEffectVisionModel *)effectVisionModel;
-
-/// 计算旋转后的位置
-/// @param oldPoint oldPoint
-/// @param centerPoint centerPoint
-+ (CGPoint)calcNewPoint:(CGPoint)oldPoint
-            centerPoint:(CGPoint)centerPoint
-               rotation:(CGFloat)rotation;
-
 @end
 
 NS_ASSUME_NONNULL_END

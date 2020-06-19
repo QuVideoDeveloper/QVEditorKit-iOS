@@ -30,7 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL isUserActionFromGesture;// 是否是来源用户的手势
 
-@property (nonatomic, strong) NSDictionary *extendParams; // 扩展参数
 
 @property (nonatomic, strong) XYEffectRelativeClipInfo *relativeClipInfo;//相对clip上的range 起始点在哪个clip就相对哪个clip
 

@@ -1,15 +1,15 @@
-﻿#ifndef _ETTEXT_PARAM_DEF_
+#ifndef _ETTEXT_PARAM_DEF_
 #define _ETTEXT_PARAM_DEF_
 
 #include "amcomdef.h"
 #include<vector>
-
+#include<string>
 struct MCOlORRGB {
 	MByte R,G,B;
 };
 
 struct QEVTTextGradientPoint {
-	MFloat positon;//[0~1]; 
+	MFloat position;//[0~1]; 
 	MCOlORRGB color;
 };
 
@@ -47,7 +47,7 @@ struct QTextAdvanceFill {
 		PURE_COLOR = 0, //save field: fillColor
 		PATH_STROKE = 1, //save field: fillColor PathStrokeSize
 		GRIENDT_COLOR = 2, //save field: Gradient
-		LOOP_FILL_IAMGE = 3 //save field: FillIamgeRef
+		FILL_IMAGE = 3 //save field: FillIamgeRef
 	};
 
 	FillType Type;
@@ -56,8 +56,8 @@ struct QTextAdvanceFill {
 	MCOlORRGB FillColor;// 
 	MFloat PathStrokeSize;//use it when type == PATH_STROKE（路径描边镂空效果）
 	QEVTTextGradientStyle Gradient;//use it when type == GRIENDT_COLOR(渐变颜色)
-	MInt64 FillIamgeRef; //use it when type == LOOP_FILL_IAMGE(暂定循环填充纹理来自模板ID)
-	QTextAdvanceFill() :Type(FillType::PURE_COLOR), Opacity(1.0f), FillColor({ 0xFF,0xFF,0xFF }), Gradient(), FillIamgeRef(0) {}
+	std::string FillImagePath; //use it when type == FILL_IMAGE(填充纹理来自路径)
+	QTextAdvanceFill() :Type(FillType::PURE_COLOR), Opacity(1.0f), PathStrokeSize(0.0f), FillColor({ 0xFF,0xFF,0xFF }), Gradient(), FillImagePath("") {}
 };
 
 struct QTextBoardConfig {

@@ -89,6 +89,8 @@
 //0x00803600
 #define QVET_ERR_KEY_LINE_STYLE_PARSER     (QVET_ERR_BASE+0x00003600)  //vekeylinestyleparser.cpp
 #define QVET_ERR_SEGMENT_UTILS_BASE   (QVET_ERR_BASE+0x00003700)       //etsegmentutils
+#define QVET_ERR_ETTEXT_UTILS_BASE      (QVET_ERR_BASE+0x00003800)    //ettextutils.cpp 
+#define QVET_ERR_TEXTUTILS_JNI_BASE     (QVET_ERR_BASE+0x00003900)     //textutils_jni.cpp 
 
 
 //0x00803A00

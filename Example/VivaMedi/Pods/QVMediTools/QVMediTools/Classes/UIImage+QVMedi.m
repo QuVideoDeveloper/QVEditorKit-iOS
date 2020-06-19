@@ -5,7 +5,6 @@
 //  Created by robbin on 2019/6/20.
 //
 
-#import <XYCategory/XYCategory.h>
 #import "NSBundle+QVMedi.h"
 
 @implementation UIImage (QVMedi)

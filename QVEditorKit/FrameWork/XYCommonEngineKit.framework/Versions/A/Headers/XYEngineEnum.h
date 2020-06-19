@@ -110,7 +110,6 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDEffectAudioUpdateTrimRange,//修改背景音乐的trimRange 对应 需要的参数 1.mTrimVeRange
     XYCommonEngineTaskIDEffectAudioVoiceChange,//背景音乐变声
     XYCommonEngineTaskIDEffectAudioDuplicate,//复制 对应 需要的参数  new 新的model 1.mDestVeRange 开始的时间和结束时间 新的赋值给duplicateClipModel
-    XYCommonEngineTaskIDEffectAudioLyic,//歌词文件生成字幕的接口 lyricPath：歌曲字幕lyric文件路径 lyricTtid：歌词模板的素材id
     XYCommonEngineTaskIDEffectResetThemeAudio,//恢复主题带的音乐 参数 1. groupid = XYCommonEngineGroupIDBgmMusic
 
     
@@ -124,14 +123,6 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDEffectVisionTextAdd,  //添加字幕效果 用这个model：XYEffectVisionTextModel
     XYCommonEngineTaskIDEffectVisionTextUpdate,  //更新字幕效果 用这个model：XYEffectVisionTextModel 里面的参数都可以修改
     XYCommonEngineTaskIDEffectVisionDelelteKeyFrame,  //根据visionModels 删除关键帧
-    //高级功能 混合模式 画中画
-    XYCommonEngineTaskIDEffectVisionPinInPicOverlayUpdate,//混合模式
-    XYCommonEngineTaskIDEffectVisionPinInPicChromaUpdate,//画中画抠图（绿幕）
-    XYCommonEngineTaskIDEffectVisionPinInPicMaskUpdate,//画中画蒙版效果
-    XYCommonEngineTaskIDEffectVisionPinInPicFilterUpdate,//画中画滤镜
-    XYCommonEngineTaskIDEffectVisionPinInPicSubFX,//画中画特效
-    XYCommonEngineTaskIDEffectVisionPinInPicSubAdjust,//画中画滤镜的参数调节
-
 };
 
 typedef NS_ENUM(MDWord, XYCommonEngineTrackType) {
@@ -217,14 +208,5 @@ typedef NS_ENUM(NSInteger, XYClipMirrorMode) {
     XYClipMirrorModeY = 2,//沿Y方向镜像
     XYClipMirrorModeXY = 3,//沿XY方向镜像
 };
-
-typedef NS_ENUM(NSInteger,  XYEffectMaskType) {
-    XYEffectMaskTypeNone = 0,//无蒙版
-    XYEffectMaskTypeLinear = 1,//线性蒙版
-    XYEffectMaskTypeMirror = 2,//镜像蒙版
-    XYEffectMaskTypeRadial = 3,//径向蒙版
-    XYEffectMaskTypeRectangle = 4,//矩形蒙版
-};
-
 
 #endif /* XYEngineEnum_h */
