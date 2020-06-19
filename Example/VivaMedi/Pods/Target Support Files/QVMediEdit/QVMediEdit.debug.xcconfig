@@ -1,5 +1,5 @@
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/QVMediEdit
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../../../githubSDk/QVEditorKit/QVEditorKit/FrameWork" "${PODS_ROOT}/Masonry/Framework/1.1.0" "${PODS_ROOT}/QVCommonKit/QVCommonKit/FrameWork" "${PODS_ROOT}/ReactiveObjC/Framework/3.1.0" "${PODS_ROOT}/SDWebImage/Products" "${PODS_ROOT}/SVProgressHUD/Framework/2.2.5" "${PODS_ROOT}/XYCommonEngine/XYCommonEngine/engine_frameworks"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../../QVEditorKit/FrameWork" "${PODS_ROOT}/Masonry/Framework/1.1.0" "${PODS_ROOT}/QVCommonKit/QVCommonKit/FrameWork" "${PODS_ROOT}/ReactiveObjC/Framework/3.1.0" "${PODS_ROOT}/SDWebImage/Products" "${PODS_ROOT}/SVProgressHUD/Framework/2.2.5" "${PODS_ROOT}/XYCommonEngine/XYCommonEngine/engine_frameworks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/QVMediEdit" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/QVMediEdit" "${PODS_ROOT}/Headers/Public/TZImagePickerController" "${PODS_ROOT}/Headers/Public/XYCommonEngine" "${PODS_ROOT}/Headers/Public/YYCategories" "${PODS_ROOT}/Headers/Public/YYModel"
 PODS_BUILD_DIR = ${BUILD_DIR}

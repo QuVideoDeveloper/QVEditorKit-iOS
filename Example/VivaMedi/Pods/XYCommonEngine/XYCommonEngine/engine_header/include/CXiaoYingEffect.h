@@ -5,13 +5,7 @@
 *Description: Define XiaoYing Effect  API.
 *
 */
-@interface CXiaoYingPipStoryboardInfo : NSObject {
-@public
-    NSString *pProjectPath; //CXiaoYingKeyFrameTransformValue
-}
 
-
-@end
 
 
 @interface CXiaoYingTrajectoryValue : NSObject {
@@ -396,8 +390,5 @@
 
 - (void)DestorySubItemSourceList;
 
-- (CXiaoYingPipStoryboardInfo *) getPipStoryboardInfo;
-
-- (MRESULT) setPipStoryboardInfo:(CXiaoYingPipStoryboardInfo *)poStoryboardInfo;
 @end // CXiaoYingEffect 
 

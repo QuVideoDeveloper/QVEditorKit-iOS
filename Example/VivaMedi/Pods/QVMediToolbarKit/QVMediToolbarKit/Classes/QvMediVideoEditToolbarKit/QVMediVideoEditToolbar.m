@@ -18,6 +18,8 @@
 #import "QVMediAlbumMediaItem.h"
 #import <QVMediTools/UIImage+QVMedi.h>
 #import "QVMediTools.h"
+#import <XYTemplateDataMgr/XYTemplateDataMgr.h>
+
 @import Photos;
 
 NSString * const VideoTrimBeginDuration = @"VideoTrimBeginDuration";
@@ -60,6 +62,7 @@ NSString * const VideoParameterAdjustment = @"VideoParameterAdjustment";
 
 @property (nonatomic, assign) NSInteger effectSeletedIdx;//
 @property (nonatomic, assign) QVMediVideoEditToolbarType editToolBarType;
+@property (nonatomic, assign) BOOL isb;
 
 @end
 
@@ -124,8 +127,80 @@ NSString * const VideoParameterAdjustment = @"VideoParameterAdjustment";
         if (XYCommonEngineTaskIDEffectVisionAdd == task.taskID || XYCommonEngineTaskIDEffectVisionDelete == task.taskID || XYCommonEngineTaskIDEffectVisionTextAdd == task.taskID) {
             [self updateAddImageViewView];
         }
+        if (self.isb) {
+            return;
+        }
+       XYTemplateItemData *info = [[XYTemplateDataMgr sharedInstance]getByID:0x4B00000000080001];
+        [self engineOperate];
+        self.isb = YES;
     }];
     
+}
+
+- (void)engineOperate {
+    NSArray<XYAdjustItem *> *adjustItems = [self getEffectPropertyItemsWithTemplateID:0x4B00000000080001];
+
+    CXiaoYingEffect *adjustParamEffect = [self getClipAdjustParamEffectByClipIndex:0];
+    if (adjustParamEffect) {
+         [adjustItems enumerateObjectsUsingBlock:^(XYAdjustItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+             QVET_EFFECT_PROPDATA propData = {obj.dwID,100};
+             [adjustParamEffect setProperty:AMVE_PROP_EFFECT_PROPDATA PropertyData:&propData];
+         }];
+    }
+
+}
+
+- (CXiaoYingEffect *)getClipAdjustParamEffectByClipIndex:(int)clipIndex {
+    CXiaoYingEffect *adjustParamEffect;
+    CXiaoYingClip *clip = [[XYStoryboard sharedXYStoryboard] getClipByIndex:clipIndex];
+    adjustParamEffect = [clip getEffect:AMVE_EFFECT_TRACK_TYPE_PRIMAL_VIDEO GroupID:GROUP_ID_VIDEO_PARAM_ADJUST_EFFECT EffectIndex:0];
+    if (!adjustParamEffect) {
+        [[XYStoryboard sharedXYStoryboard] setClipEffect:[XYCommonEngineGlobalData data].configModel.adjustEffectPath
+        effectConfigIndex:0
+              dwClipIndex:0
+                  groupId:GROUP_ID_VIDEO_PARAM_ADJUST_EFFECT
+                  layerId:LAYER_ID_VIDEO_PARAM_ADJUST_EFFECT];
+    }
+    adjustParamEffect = [clip getEffect:AMVE_EFFECT_TRACK_TYPE_PRIMAL_VIDEO GroupID:GROUP_ID_VIDEO_PARAM_ADJUST_EFFECT EffectIndex:0];
+    return adjustParamEffect;
+}
+
+
+- (NSArray<XYAdjustItem *> *)getEffectPropertyItemsWithTemplateID:(long long)ltemplateID {
+    CXYEffectpropertyInfo *effectPropertyInfo = [CXiaoYingStyle GetEffectPropertyInfo:[[XYEngine sharedXYEngine] getCXiaoYingEngine] TemplateID:ltemplateID];
+    return [self getEffectPropertyItemsWithEffectPropertyInfo:effectPropertyInfo];
+}
+
+- (NSArray<XYAdjustItem *> *)getEffectPropertyItemsWithEffectPropertyInfo:(CXYEffectpropertyInfo *)effectPropertyInfo {
+    if (!effectPropertyInfo) {
+        return nil;
+    }
+    NSInteger dwItemCount = effectPropertyInfo->dwItemCount;
+    if (dwItemCount == 0) {
+        return nil;
+    }
+
+    NSMutableArray *effectPropertyItems = [NSMutableArray new];
+    for (int i = 0; i < dwItemCount; i++) {
+        CXYEffectPropertyItem *pItem = effectPropertyInfo->pItems + i;
+        XYAdjustItem *effectPropertyItem = [[XYAdjustItem alloc] init];
+        effectPropertyItem.dwID = pItem->dwID;
+        effectPropertyItem.dwMinValue = pItem->dwMinValue;
+        effectPropertyItem.dwMaxValue = pItem->dwMaxValue;
+        effectPropertyItem.dwDefaultValue = pItem->dwCurValue;
+        effectPropertyItem.dwCurrentValue = effectPropertyItem.dwDefaultValue;
+        if (pItem->pszName != NULL) {
+            effectPropertyItem.nameEn = [NSString stringWithUTF8String:pItem->pszName];
+        }
+        if (pItem->pszWildCards != NULL) {
+            effectPropertyItem.nameLocale = [NSString stringWithUTF8String:pItem->pszWildCards];
+            
+        }
+        [effectPropertyItems addObject:effectPropertyItem];
+    }
+
+    [CXiaoYingStyle ReleasePropertyInfo:effectPropertyInfo];
+    return effectPropertyItems;
 }
 
 #pragma mark- action

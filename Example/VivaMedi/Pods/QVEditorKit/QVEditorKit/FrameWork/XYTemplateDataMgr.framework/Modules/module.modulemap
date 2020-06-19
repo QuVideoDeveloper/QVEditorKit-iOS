@@ -1,0 +1,6 @@
+framework module XYTemplateDataMgr {
+  umbrella header "XYTemplateDataMgr.h"
+
+  export *
+  module * { export * }
+}

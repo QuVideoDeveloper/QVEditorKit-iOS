@@ -18,5 +18,5 @@
 #pod 'XYDatabase', :path => '/Users/sunshine/Desktop/XYKit/common/XYDatabase'
 #pod 'XYReactDataBoard', :path => '/Users/sunshine/Desktop/XYKit/common/XYReactDataBoard'
 
-pod 'QVEditorKit', :path => '/Users/sunshine/Desktop/githubSDk/QVEditorKit'
+#pod 'QVEditorKit', :path => '/Users/sunshine/Desktop/githubSDk/QVEditorKit'
 

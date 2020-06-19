@@ -47,7 +47,6 @@ typedef struct _tag_VideoReaderParam
 	MBool bDownScale;
 	MSIZE exportSize;
 	MBool bFrameMode; //是否是画中画视频贴纸模式
-	MBool bInversePlay; //是否是倒放
 }VIDEOREADERPARAM;
 
 

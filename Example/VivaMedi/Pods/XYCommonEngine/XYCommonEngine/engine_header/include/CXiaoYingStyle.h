@@ -20,19 +20,16 @@ typedef struct __TagXY_BUBBLE_MEASURE_RESULT
 
 typedef struct _tagCXYEffectPropertyItem
 {
-    MDWord  dwID;
-    MLong   dwMinValue;//lMinValue 改成dwMinValue 为了保证 app能够编译通过
-    MLong   dwMaxValue;
-    MDWord  dwCurValue;
-	MDWord  dwStep;
-	MDWord  dwControlType;
-	MBool   bIsUnlimitedMode;
-    MBool   bIsSupportKeyframe;
+    MDWord dwID;
+    MDWord dwMinValue;
+    MDWord dwMaxValue;
+    MDWord dwCurValue;
+	MDWord dwStep;
+	MDWord dwControlType;
+	MBool  bIsUnlimitedMode;
+    MBool bIsSupportKeyframe;
     MTChar* pszName;
     MTChar* pszWildCards;
-    MDWord  dwUnit;//单位 0：无（默认）1：角度 2：百分比
-	MDWord  dwPrecision;//精度 0：（默认）1：十分比 2：百分比 3：千分比 4：万分比
-    MLong   lAdjustPos;
 }CXYEffectPropertyItem;
 
 typedef struct _tagCXYEffectPropertyInfo

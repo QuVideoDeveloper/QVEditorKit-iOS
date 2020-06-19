@@ -4,7 +4,7 @@ PODS:
   - FMDB/standard (2.7.5)
   - Masonry (1.1.0)
   - QVCommonKit (0.9.5)
-  - QVEditorKit (0.1.12):
+  - QVEditorKit (0.1.14):
     - FMDB
     - QVCommonKit
     - ReactiveObjC
@@ -128,7 +128,7 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Masonry: d84e495a1186defead28d556172c449a83049a83
   QVCommonKit: 44af9aeaa5588cb5095ecd6223192cf6346133fc
-  QVEditorKit: 91ab3ebebaafd021270a1c629c3e37f24277c6b1
+  QVEditorKit: fa20c91c448c8f5cc36bf2323fc50feb91b81ec0
   QVMediCamera: dfd60fd63132a1a55203b6cf19ffd6439541233b
   QVMediEdit: dae55b3dd21b7e0cdb18cc1aae48a7a6f914e03c
   QVMediToolbarKit: 590ebb8d1ccc6706e7c26753930c3f4b2ed2dec4
@@ -145,6 +145,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: c919966f89ac22bd595d18eda745db64e3018b97
+PODFILE CHECKSUM: 0d1bd9d77566a8b11c9629ccb139ca31e0e480fd
 
 COCOAPODS: 1.9.2

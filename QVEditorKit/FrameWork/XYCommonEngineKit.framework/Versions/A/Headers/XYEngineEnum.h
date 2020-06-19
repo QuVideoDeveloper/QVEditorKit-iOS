@@ -226,5 +226,12 @@ typedef NS_ENUM(NSInteger,  XYEffectMaskType) {
     XYEffectMaskTypeRectangle = 4,//矩形蒙版
 };
 
+typedef NS_ENUM(NSInteger,  XYKeyFrameType) {
+    XYKeyFrameTypePosition = 0, //位置关键帧
+    XYKeyFrameTypeRotation, //旋转关键帧
+    XYKeyFrameTypeScale, //缩放关键帧
+    XYKeyFrameTypeAlpha, //透明度关键帧
+
+};
 
 #endif /* XYEngineEnum_h */

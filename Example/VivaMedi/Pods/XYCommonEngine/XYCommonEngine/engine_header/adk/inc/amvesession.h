@@ -350,9 +350,6 @@ MDWord AMVE_StreamGetBGColor(MHandle hStream);
 
 MRESULT AMVE_StreamSetAlkFilePath(MHandle hStream,MTChar* pszAlkFilePath);
 
-MRESULT AMVE_StreamSetConfig(MHandle hStream,MDWord dwCfgID,MVoid* pValue);
-
-
 MRESULT AMVE_RegisterHWDecQueryCallBack(MHandle hSessionContext);
 
 MDWord AMVE_GetProjectVersion(MTChar* pszFilePath);

@@ -1,0 +1,6 @@
+framework module XYToolKit {
+  umbrella header "XYToolKit.h"
+
+  export *
+  module * { export * }
+}

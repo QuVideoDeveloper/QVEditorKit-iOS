@@ -1,6 +1,6 @@
 {
   "name": "QVEditorKit",
-  "version": "0.1.12",
+  "version": "0.1.14",
   "summary": "A short description of QVEditorKit.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/QuVideoDeveloper/QVEditorKit-iOS",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/QuVideoDeveloper/QVEditorKit-iOS.git",
-    "tag": "0.1.12"
+    "tag": "0.1.14"
   },
   "platforms": {
     "ios": "9.0"
