@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 主题 -->
+	<theme HexID="0x1">
+		<categroy HexID="0x0" name="未分类" />
+	
+	</theme>
+	<!-- 转场 -->
+	<transition HexID="0x3">
+		<categroy HexID="0x0" name="未分类" />
+		
+	</transition>
+	<!-- 滤镜 -->
+	<filter HexID="0x4" >
+		<categroy HexID="0x0" name="未分类" />
+
+	</filter>
+	<!-- 贴纸 -->
+	<paster HexID="0x5">
+		<categroy HexID="0x0" name="未分类" />
+		<categroy HexID="0x1" name="通用"/>
+		<categroy HexID="0x2" name="搞笑"/>
+		<categroy HexID="0x3" name="爱情"/>
+		<categroy HexID="0x4" name="动作"/>
+		<categroy HexID="0x5" name="装扮"/>
+		<categroy HexID="0x6" name="包包"/>
+		<categroy HexID="0x7" name="节日"/>
+		<categroy HexID="0x8" name="凌乱"/>
+		<categroy HexID="0x9" name="萌"/>
+		<categroy HexID="0xA" name="酷炫"/>
+		<categroy HexID="0xB" name="悲伤"/>	
+		
+		
+	</paster>
+	<!-- FX -->
+	<fx HexID="0x6">
+		<categroy HexID="0x0" name="未分类" />
+		<categroy HexID="0x1" name="通用"/>
+		<categroy HexID="0x2" name="搞笑"/>
+		<categroy HexID="0x3" name="爱情"/>
+		<categroy HexID="0x4" name="动作"/>
+		<categroy HexID="0x7" name="节日"/>
+	</fx>
+	<!-- 配乐 -->
+	<music HexID="0x7">
+		<categroy HexID="0x0" name="未分类" />
+		<categroy HexID="0x1" name="通用"/>
+		<categroy HexID="0x7" name="节日"/>
+	</music>
+	<!-- 字幕 -->
+	<bubble HexID="0x9">
+		<categroy HexID="0x0" name="未分类" />
+		<categroy HexID="0x1" name="通用"/>
+		<categroy HexID="0x2" name="搞笑"/>
+		<categroy HexID="0x3" name="爱情"/>
+		<categroy HexID="0x4" name="动作"/>
+		<categroy HexID="0x5" name="可爱"/>
+		<categroy HexID="0x7" name="节日"/>
+		<categroy HexID="0x8" name="简约"/>
+		<categroy HexID="0x9" name="黑白"/>
+		<categroy HexID="0xA" name="气泡"/>
+		<categroy HexID="0xB" name="标签"/>
+	</bubble>
+	<!-- 水印 -->
+	<watermark HexID="0xB">
+		<categroy HexID="0x0" name="未分类" />
+		<categroy HexID="0x1" name="唯美"/>
+	</watermark>
+	<!-- PIP -->
+	<pip HexID="0xC">
+		<categroy HexID="0x0" name="未分类" />
+		<categroy HexID="0x1" name="唯美"/>
+	</pip>
+	<!-- 配音 -->
+	<sound HexID="0xD">
+		<categroy HexID="0x0" name="未分类" />
+		<categroy HexID="0x1" name="唯美"/>
+	</sound>
+</root>

@@ -1,0 +1,15 @@
+﻿<?xml version = "1.0" encoding = "utf-8"?>
+<root>
+    <version value="0x30000"/>
+    <preprocess value="1"/>
+    <color_space in="0x4000" out="0x4000"/>
+    <cache_cfg count="1">
+        <item origin_type="0x2000" cache_count="1" is_output="1" color_space="0x4000"/>
+    </cache_cfg>
+    <property count="0"/>
+    <effect_list count="3">
+        <effect type="2" param="3000" start="0" length="3067" is_static="0" is_by_pass="0" viewport_alignment="0x60" use_face_markers="0"/>
+        <effect type="4" param="5000" start="0" length="3067" is_static="0" is_by_pass="0" viewport_alignment="0x60" use_face_markers="0"/>
+        <effect type="4" param="5001" start="0" length="3067" is_static="0" is_by_pass="0" viewport_alignment="0x60" use_face_markers="0"/>
+    </effect_list>
+</root>

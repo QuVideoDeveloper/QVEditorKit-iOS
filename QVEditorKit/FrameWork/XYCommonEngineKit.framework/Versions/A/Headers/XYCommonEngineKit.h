@@ -51,6 +51,12 @@
 #import <XYCommonEngineKit/XYClipThumbnailOperation.h>
 #import <XYCommonEngineKit/XYPlayerView.h>
 #import <XYCommonEngineKit/TextInfo.h>
+#import <XYCommonEngineKit/XYEffectPicInPicOverlayInfo.h>
+#import <XYCommonEngineKit/XYEffectPicInPicMaskInfo.h>
+#import <XYCommonEngineKit/XYEffectPicInPicChromaInfo.h>
+#import <XYCommonEngineKit/XYEffectPicInPicSubFx.h>
+#import <XYCommonEngineKit/XYEffectPicInPicFilterInfo.h>
+
 #import <XYCommonEngineKit/XYPlayerViewConfiguration.h>
 #import <XYCommonEngineKit/XYPlaybackModule.h>
 #import <XYCommonEngineKit/XYTaskErrorModel.h>
@@ -61,5 +67,8 @@
 #import <XYCommonEngineKit/XYSlideShowMedia.h>
 #import <XYCommonEngineKit/XYSlideShowConfiguration.h>
 #import <XYCommonEngineKit/XYEngineWorkspace.h>
+#import <XYCommonEngineKit/QVEngineDataSourceProtocol.h>
+
+
 
 #endif /* XYCommonEngineKit_h */

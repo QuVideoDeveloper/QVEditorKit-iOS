@@ -13,4 +13,10 @@
 #pod 'QVMediCameraKit', :path => '/Users/sunshine/Desktop/XYKit/SDK/QVMediCameraKit'
 
 
+#pod 'QVBaseKit', :path => '/Users/sunshine/Desktop/XYKit/QVCommon/QVBaseKit'
+
+#pod 'XYDatabase', :path => '/Users/sunshine/Desktop/XYKit/common/XYDatabase'
+#pod 'XYReactDataBoard', :path => '/Users/sunshine/Desktop/XYKit/common/XYReactDataBoard'
+
 pod 'QVEditorKit', :path => '/Users/sunshine/Desktop/githubSDk/QVEditorKit'
+

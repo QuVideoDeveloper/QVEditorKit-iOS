@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 主题 -->
+	<theme HexID="0x1">
+		<categroy HexID="0x0" name="Undefined" />
+	
+	</theme>
+	<!-- 转场 -->
+	<transition HexID="0x3">
+		<categroy HexID="0x0" name="Undefined" />
+		
+	</transition>
+	<!-- 滤镜 -->
+	<filter HexID="0x4" >
+		<categroy HexID="0x0" name="Undefined" />
+
+	</filter>
+	<!-- 贴纸 -->
+	<paster HexID="0x5">
+		<categroy HexID="0x0" name="Undefined" />
+		<categroy HexID="0x1" name="Classic"/>
+		<categroy HexID="0x2" name="LOL"/>
+		<categroy HexID="0x3" name="Love"/>
+		<categroy HexID="0x4" name="Action"/>
+		<categroy HexID="0x5" name="Deco"/>
+		<categroy HexID="0x6" name="Baobao"/>
+		<categroy HexID="0x7" name="Festival"/>
+		<categroy HexID="0x8" name="Messy"/>
+		<categroy HexID="0x9" name="Adorable"/>
+		<categroy HexID="0xA" name="Cool"/>
+		<categroy HexID="0xB" name="Sad"/>
+    
+		
+	</paster>
+	<!-- FX -->
+	<fx HexID="0x6">
+		<categroy HexID="0x0" name="Undefined" />
+		<categroy HexID="0x1" name="Classic"/>
+		<categroy HexID="0x2" name="LOL"/>
+		<categroy HexID="0x3" name="Love"/>
+		<categroy HexID="0x4" name="Action"/>
+		<categroy HexID="0x7" name="Festival"/>
+	</fx>
+	<!-- 配乐 -->
+	<music HexID="0x7">
+		<categroy HexID="0x0" name="Undefined" />
+
+	</music>
+	<!-- 字幕 -->
+	<bubble HexID="0x9">
+		<categroy HexID="0x0" name="Undefined" />
+		<categroy HexID="0x1" name="Classic"/>
+		<categroy HexID="0x2" name="LOL"/>
+		<categroy HexID="0x3" name="Love"/>
+		<categroy HexID="0x4" name="Action"/>
+		<categroy HexID="0x5" name="Cute"/>
+		<categroy HexID="0x7" name="Festival"/>
+		<categroy HexID="0x8" name="Simple"/>
+		<categroy HexID="0x9" name="B W"/>
+		<categroy HexID="0xA" name="Bubbles"/>
+		<categroy HexID="0xB" name="Labels"/>
+		
+		
+	</bubble>
+	<!-- 水印 -->
+	<watermark HexID="0xB">
+		<categroy HexID="0x0" name="Undefined" />
+
+	</watermark>
+	<!-- PIP -->
+	<pip HexID="0xC">
+		<categroy HexID="0x0" name="Undefined" />
+
+	</pip>
+	<!-- 配音 -->
+	<sound HexID="0xD">
+		<categroy HexID="0x0" name="Undefined" />
+
+	</sound>
+</root>

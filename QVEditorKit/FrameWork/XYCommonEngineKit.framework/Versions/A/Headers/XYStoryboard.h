@@ -59,6 +59,8 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
  */
 @interface XYStoryboard : NSObject <AMVESessionStateDelegate, AMVEThemeOptDelegate>
 @property (weak, nonatomic) XYPlayerView *playView;
+@property (nonatomic, weak) CXiaoYingPlayerSession *playSeesion;
+@property (nonatomic, strong) UIImage *collogeCutOutImage;
 @property (nonatomic, weak) id <QVEngineDataSourceProtocol> dataSource;
 @property (copy, nonatomic) NSString *languageCode;//语言
 //引擎这边的CXiaoYingStoryBoardSession
@@ -75,7 +77,7 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 @property (nonatomic, weak) id<XYStoryboardTemplateDelegate> templateDelegate;
 //Storyboard是否被修改
 @property (nonatomic) BOOL isModified;
-
+@property (nonatomic) BOOL isUseStuffClip;
 //封面压缩率（百分比）
 @property (nonatomic) int coverCompressQualityParam;
 
@@ -148,8 +150,8 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 - (TextInfo *)getTemplateTextInfo:(NSString *)templateFilePath
                      previewFrame:(CGRect)previewFrame
                         inputText:(NSString *)inputText;
-- (CXiaoYingEffect *)setTextEffect:(XYMultiTextInfo *)multiTextInfo layerId:(float)layerId;
-- (MRESULT)setTextEffect:(XYMultiTextInfo *)multiTextInfo effect:(CXiaoYingEffect *)pEffect;
+- (CXiaoYingEffect *)setTextEffectWithMultiTextInfo:(XYMultiTextInfo *)multiTextInfo layerId:(float)layerId;
+- (MRESULT)setTextEffectByMultiTextInfo:(XYMultiTextInfo *)multiTextInfo effect:(CXiaoYingEffect *)pEffect;
 - (UIImage *)getTextThumb:(TextInfo *)textInfo multiply:(int)multiply maxWidth:(int)maxWidth block:(void (^)(CGSize bubbleSize))block;
 
 #pragma mark - Sticker ralated
@@ -199,8 +201,11 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 - (TextInfo *)getCoverTextInfo:(CXiaoYingCover *)cover
                     titleIndex:(MDWord)dwTitleIndex
                      viewFrame:(CGRect)viewFrame;
+
+- (TextInfo *)getStoryboardTextInfo:(CXiaoYingEffect *)effect
+                          viewFrame:(CGRect)viewFrame;
 //！如果viewFram 传的size是 （0,0） 就不计算大小 几位置 但是可以用TextInfo.rcRegionRatio 计算出位子大小
-- (XYMultiTextInfo *)getStoryboardTextInfo:(CXiaoYingEffect *)effect
+- (XYMultiTextInfo *)getStoryboardMultiTextInfo:(CXiaoYingEffect *)effect
                           viewFrame:(CGRect)viewFrame;
 - (void)updateCoverText:(CXiaoYingCover *)cover
                textInfo:(TextInfo *)textInfo
@@ -210,6 +215,7 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
                     textInfo:(TextInfo *)textInfo
                         text:(NSString *)text;
 - (NSMutableArray *)getAllThemeTextInfosWithViewFrame:(CGRect)viewFrame;
+- (NSMutableArray *)getAllThemeMultiTextInfosWithViewFrame:(CGRect)viewFrame;
 - (CXiaoYingEffect *)setThemeTextWithTextInfo:(TextInfo *)textInfo;
 - (void)showStoryboardTextLayer:(CXiaoYingEffect *)effect
                       showLayer:(BOOL)showLayer
