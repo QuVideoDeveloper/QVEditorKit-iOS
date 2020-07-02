@@ -118,9 +118,10 @@ QVEditor是趣维SDK的初始化类。
 QVEditor初始化代码如下：
 ```
 //editor sdk 初始化
-    QVEditorConfiguration *editorConfig = [[QVEditorConfiguration alloc] init];
+     QVEditorConfiguration *editorConfig = [[QVEditorConfiguration alloc] init];
     editorConfig.licensePath = [[NSBundle mainBundle] pathForResource:@"license" ofType:@"txt"];
     editorConfig.corruptImgPath = [[NSBundle mainBundle] pathForResource:@"vivavideo_default_corrupt_image" ofType:@"png"];
+    [QVEditor initializeWithConfig:editorConfig delegate:self];
 ```
 2.1.2 QVEditorConfiguration类
 QVEditorConfiguration是初始化配置参数类
