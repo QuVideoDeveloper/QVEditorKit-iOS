@@ -54,6 +54,12 @@
 ///  暂停
 - (void)pause;
 
+/// 同步强制暂停，force参数为YES的话，无论当前是否播放中都会同步执行一下pause操作
+/// 且在pause前会等待当前播放器线程之前所有操作完成
+/// @param force 是否强制暂停, ⚠️当需要严格控制播放器与引擎线程之间的时序关系时才用YES
+- (void)pause:(BOOL)force;
+
+
 /// 播放
 /// @param async 是否异步播放
 - (void)playAsync:(BOOL)async;

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QVEditorKit'
-  s.version          = '0.1.15'
+  s.version          = '0.1.16'
   s.summary          = 'A short description of QVEditorKit.'
 
 # This description is used to generate tags and improve search results.
@@ -41,7 +41,7 @@ TODO: Add long description of the pod here.
   s.dependency 'YYModel'
   s.dependency 'SDWebImage'
   s.dependency 'QVCommonKit'
-  s.dependency 'XYCommonEngine'
+  s.dependency 'XYCommonEngine' '~> 0.9.0'
 
   #s.dependency 'QVEngineKit'
  # s.dependency 'XYCommonEngine' , '0.1.0'
