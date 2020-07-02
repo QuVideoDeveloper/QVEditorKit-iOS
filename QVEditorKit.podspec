@@ -41,7 +41,7 @@ TODO: Add long description of the pod here.
   s.dependency 'YYModel'
   s.dependency 'SDWebImage'
   s.dependency 'QVCommonKit'
-  s.dependency 'XYCommonEngine' '~> 0.9.0'
+  s.dependency 'XYCommonEngine'
 
   #s.dependency 'QVEngineKit'
  # s.dependency 'XYCommonEngine' , '0.1.0'
