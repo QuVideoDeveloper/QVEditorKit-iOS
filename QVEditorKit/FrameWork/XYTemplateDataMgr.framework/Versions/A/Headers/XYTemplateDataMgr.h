@@ -133,7 +133,7 @@ typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
 + (XYTemplateDataMgr *)sharedInstance;
 
 #pragma mark -- init method
-- (void)initAll:(NSInteger)defaultTemplateVersion;
+- (void)initAll:(NSInteger)defaultTemplateVersion defaultTemplateFilePath:(NSString *)defaultTemplateFilePath;
 
 #pragma mark -- utility method
 -(BOOL)isDefaultTemplate:(UInt64)lID;

@@ -19,8 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// clip错误时显示图片的地址。如相册的图片被删除或者上传到iCloud等
 @property (nonatomic, copy) NSString *corruptImgPath;
 
-/// 默认素材的版本 如果有升级素材 需要修改版好 加1往上升即可
+/// 默认素材的版本 如果有升级素材 需要修改版好 加1往上升即可 默认值是1
 @property (nonatomic, assign) NSInteger defaultTemplateVersion;
+
+/// 默认素材文件夹路径
+@property (nonatomic, copy) NSString *defaultTemplateFilePath;
 
 /// 是否末尾补黑帧,默认false（详解【高级玩法-自由黑帧模式】一章说明）
 @property (nonatomic, assign) BOOL isUseStuffClip;
