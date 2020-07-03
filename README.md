@@ -120,6 +120,7 @@ QVEditor初始化代码如下：
 //editor sdk 初始化
      QVEditorConfiguration *editorConfig = [[QVEditorConfiguration alloc] init];
     editorConfig.licensePath = [[NSBundle mainBundle] pathForResource:@"license" ofType:@"txt"];
+        editorConfig.defaultTemplateVersion = 1;//默认是1 如果有升级默认素材 往上升级
     editorConfig.corruptImgPath = [[NSBundle mainBundle] pathForResource:@"vivavideo_default_corrupt_image" ofType:@"png"];
     [QVEditor initializeWithConfig:editorConfig delegate:self];
 ```
@@ -130,6 +131,7 @@ QVEditorConfiguration是初始化配置参数类
 | licensePath  | 证书路径 | NSString | 是 |
 | corruptImgPath  | clip错误时显示图片的地址。如相册的图片被删除或者上传到iCloud等 | NSString | 是 |
 | isUseStuffClip  | 是否末尾补黑帧,默认false（详解【高级玩法-自由黑帧模式】一章说明） | BOOL | 非 |
+| defaultTemplateVersion  | 默认素材的版本 如果有升级素材 需要修改版好 加1往上升即可 默认值是1| NSInteger | 非 |
 
 2.1.3 QVEngineDataSourceProtocol协议
 QVEngineDataSourceProtocol 提供用户实现设置语言代码、及主题的字幕的转译。
