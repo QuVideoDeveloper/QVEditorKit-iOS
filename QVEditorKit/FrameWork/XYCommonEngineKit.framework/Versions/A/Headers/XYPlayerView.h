@@ -111,4 +111,6 @@
 /// @param volume 音量值
 - (void)setVolume:(MDWord)volume;
 
+- (void)updateDisplayContextConfig;
+
 @end

@@ -9,17 +9,17 @@
 #import "XYBaseCopyModel.h"
 
 typedef NS_ENUM(NSInteger, XYCommonEngineAdjustType) {
-    XYCommonEngineAdjustTypeBrightness,//亮度
-    XYCommonEngineAdjustTypeContrast,//对比度
-    XYCommonEngineAdjustTypeSaturation,//饱和度
-    XYCommonEngineAdjustTypeSharpen,//锐度
-    XYCommonEngineAdjustTypeTemperature,//色温
-    XYCommonEngineAdjustTypeVignette,//暗角
-    XYCommonEngineAdjustTypeHue,//色调
-    XYCommonEngineAdjustTypeShadow,//阴影
-    XYCommonEngineAdjustTypeHighlight,//高光
-    XYCommonEngineAdjustTypeFade,//褪色
-    XYCommonEngineAdjustTypeNoise,//噪点
+       XYCommonEngineAdjustTypeBrightness = 1,//亮度
+       XYCommonEngineAdjustTypeContrast,//对比度
+       XYCommonEngineAdjustTypeSharpen,//锐度
+       XYCommonEngineAdjustTypeSaturation,//饱和度
+       XYCommonEngineAdjustTypeTemperature,//色温
+       XYCommonEngineAdjustTypeVignette,//暗角
+       XYCommonEngineAdjustTypeHue,//色调
+       XYCommonEngineAdjustTypeFade,//褪色
+       XYCommonEngineAdjustTypeShadow,//阴影
+       XYCommonEngineAdjustTypeHighlight,//高光
+       XYCommonEngineAdjustTypeNoise,//噪点
 };
 
 @interface XYAdjustItem : XYBaseCopyModel

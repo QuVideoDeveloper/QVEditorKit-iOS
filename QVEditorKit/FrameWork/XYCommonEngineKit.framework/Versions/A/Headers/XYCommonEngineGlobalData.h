@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import "XYEngineWorkspaceConfiguration.h"
 
+@class XYAdjustItem;
+
 NS_ASSUME_NONNULL_BEGIN
 
 
@@ -15,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) XYEngineWorkspaceConfiguration *configModel;
 @property(nonatomic, assign) CGRect playbackViewFrame;//播放器的viewframe
-
+@property (nonatomic, copy) NSArray <XYAdjustItem *> *adjustItems;// 参数调节等
 + (XYCommonEngineGlobalData *)data;
 
 
