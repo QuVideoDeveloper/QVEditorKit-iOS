@@ -11,13 +11,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYKeyBezierCurve : NSObject
 
-/// 贝塞尔缓动曲线Id
+/// 贝塞尔缓动曲线Id 业务如果需要可以自己定义一个值传进来
 @property (nonatomic, assign) NSInteger bezierCurveId;
 
-/// 贝塞尔缓动曲线起点,需固定（ 0，0）
+/// 贝塞尔缓动曲线起点
 @property (nonatomic, assign) CGPoint start;
 
-/// 贝塞尔缓动曲线终点,需固定（ 10000，10000）
+/// 贝塞尔缓动曲线终点
 @property (nonatomic, assign) CGPoint stop;
 
 /// 贝塞尔缓动节点1

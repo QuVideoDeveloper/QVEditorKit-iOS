@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 关键帧类型
 @property (nonatomic, assign) XYKeyFrameType keyFrameType;
 
-/// 相对于视频的时间点
-@property (nonatomic, assign) NSInteger posTime;
+/// 相对于效果入点的时间
+@property (nonatomic, assign) NSInteger relativeTime;
 
 /// 关键帧是否曲线路径
 @property (nonatomic, assign) BOOL isCurvePath;

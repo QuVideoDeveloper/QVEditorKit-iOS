@@ -68,7 +68,10 @@
 #import <XYCommonEngineKit/XYSlideShowConfiguration.h>
 #import <XYCommonEngineKit/XYEngineWorkspace.h>
 #import <XYCommonEngineKit/QVEngineDataSourceProtocol.h>
-
-
+#import <XYCommonEngineKit/XYEffectKeyFrameInfo.h>
+#import <XYCommonEngineKit/XYKeyPosInfo.h>
+#import <XYCommonEngineKit/XYKeyScaleInfo.h>
+#import <XYCommonEngineKit/XYKeyRotationInfo.h>
+#import <XYCommonEngineKit/XYKeyAlphaInfo.h>
 
 #endif /* XYCommonEngineKit_h */

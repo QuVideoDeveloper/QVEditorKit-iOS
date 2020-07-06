@@ -7,7 +7,7 @@
 
 #import "XYEffectModel.h"
 
-@class XYEffectPicInPicOverlayInfo, XYEffectPicInPicMaskInfo, XYEffectPicInPicChromaInfo, XYEffectPicInPicFilterInfo, XYEffectPicInPicSubFx, XYAdjustItem;
+@class XYEffectPicInPicOverlayInfo, XYEffectPicInPicMaskInfo, XYEffectPicInPicChromaInfo, XYEffectPicInPicFilterInfo, XYEffectPicInPicSubFx, XYAdjustItem, XYEffectKeyFrameInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -47,6 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL defaultIsStaticPicture; //该视觉效果默认是否静态
 @property (nonatomic, assign) BOOL isStaticPicture; //YES的情况下，该效果将会静态展示
 @property (nonatomic, assign) BOOL isInstantRefresh; //YES的情况下，该效果将会快速刷新
+@property (nonatomic, strong) XYEffectKeyFrameInfo *keyFrameInfo;
 @property (nonatomic, strong) NSArray<XYEffectVisionKeyFrameModel *> *keyFrames; //关键帧数组
 @property (nonatomic) CGFloat currentScale; //根据当前宽度和dafault宽度自动计算当前放大倍数，只读
 @property (nonatomic, assign) BOOL isResetLayerID;//是否只是resetLayerID

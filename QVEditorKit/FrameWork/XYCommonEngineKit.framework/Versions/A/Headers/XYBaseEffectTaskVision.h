@@ -110,6 +110,10 @@ NS_ASSUME_NONNULL_BEGIN
             centerPoint:(CGPoint)centerPoint
                rotation:(CGFloat)rotation;
 
+/// 设置更新关键帧
+/// @param effectVisionModel effectVisionModel
+- (void)handleSetEffectKeyFrameInfo:(XYEffectVisionModel *)effectVisionModel;
+
 @end
 
 NS_ASSUME_NONNULL_END
