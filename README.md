@@ -562,6 +562,67 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
 | textShadowXShift | 阴影X轴偏移 | CGFloat |
 | textShadowXShift | 阴影Y轴偏移| CGFloat |
 
+XYEffectKeyFrameInfo参数说明：（由于功能复杂，后期可能调整数据结构）
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: |
+| positionList | 位置关键帧列表 {@see XYKeyPosInfo} | KeyPosInfo |
+| scaleList | 缩放关键帧列表 {@see XYKeyScaleInfo}  | KeyScaleInfo |
+| rotationList | 旋转角度关键帧列表{@see XYKeyRotationInfo}   | KeyRotationInfo |
+| alphaList | 不透明度关键帧列表{@see XYKeyAlphaInfo} | KeyAlphaInfo |
+
+
+XYBaseKeyFrame参数说明：
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: |
+| keyFrameType | 关键帧类型 | XYKeyFrameType |
+| relativeTime | 相对于效果入点的时间 | NSInteger |
+| isCurvePath | 关键帧是否曲线路径 | BOOL |
+| mKeyBezierCurve | 关键帧缓动贝塞尔曲线点{@see XYKeyBezierCurve} | XYKeyBezierCurve |
+
+
+
+XYKeyFrameType参数说明：
+| 名称  | 解释 |
+| :-: | :-: |
+| XYKeyFrameTypePosition | 位置关键帧 |
+| XYKeyFrameTypeRotation | 旋转关键帧 |
+| XYKeyFrameTypeScale | 缩放关键帧 |
+| XYKeyFrameTypeAlpha | 透明度关键帧 |
+
+
+KeyBezierCurve参数说明：
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: |
+| bezierCurveId | 贝塞尔缓动曲线Id 业务如果需要可以自己定义一个值传进来 | NSInteger |
+| start | 贝塞尔缓动曲线起点 | CGPoint |
+| stop | 贝塞尔缓动曲线终点） | CGPoint |
+| c0 | 贝塞尔缓动节点1 | CGPoint |
+| c1 | 贝塞尔缓动节点2 | CGPoint |
+
+
+XYKeyPosInfo参数说明：
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: |
+| centerPoint | 在streamSize的坐标系中的中心位置| CGPoint |
+
+
+KeyScaleInfo参数说明：
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: |
+| widthScale | 宽相对于原始的宽的放大倍数 | CGFloat |
+| heightScale | 宽相对于原始的高的放大倍数 | CGFloat |
+
+
+KeyRotationInfo参数说明：
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: |
+| rotation | 旋转角度， 0~360 | CGFloat |
+
+
+KeyAlphaInfo参数说明：
+| 名称  | 解释 | 类型 |
+| :-: | :-: | :-: |
+| alpha | 不透明度 0~100 | NSInteger |
 
 3) 工程相关信息
 XYStoryboardModel参数说明：
@@ -1384,6 +1445,18 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
     visionModel.propData = 0.5;
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
 
+```
+
+6.2.20 关键帧设置
+```
+	// groupId为effect的类型
+	// effectIndex为同类型中第几个效果
+	// sourceVeRange表示源文件区间信息
+	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
+    XYEffectKeyFrameInfo *keyFrameInfo = [XYEffectKeyFrameInfo alloc] init];//@see{XYEffectKeyFrameInfo}
+  currentEffectModel.keyFrameInfo = keyFrameInfo;
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
 ```
 
 * 字幕
