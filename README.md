@@ -202,7 +202,8 @@ XYTemplateItemData参数说明：
 	 XYStoryboardModel *sbModel = [XYEngineWorkspace stordboardMgr].currentStbModel;
      sbModel.taskID = XYCommonEngineTaskIDStoryboardAddTheme;
      sbModel.themePath = themePath;
-     [[XYEngineWorkspace stordboardMgr] runTask:sbModel];
+     [[XYEngineWorkspace stordboardMgr] runTask:sbModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 ```
 
 效果分类groupId说明
@@ -232,14 +233,16 @@ typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
    */
  XYQprojectModel *newProject = [[XYQprojectModel alloc] init];
  newProject.taskID = XYCommonEngineTaskIDQProjectCreate;
- [[XYEngineWorkspace projectMgr] runTask:newProject];
+ [[XYEngineWorkspace projectMgr] runTask:newProject completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
  /**
    * 加载工程
    */
    XYQprojectModel *newProject = [[XYQprojectModel alloc] init];
  newProject.prjFilePath = @"draftProjectFilePath"//保存工程的路径
  newProject.taskID = XYCommonEngineTaskIDQProjectLoadProject;
- [[XYEngineWorkspace projectMgr] runTask:newProject];
+ [[XYEngineWorkspace projectMgr] runTask:newProject completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 
 
 ```
@@ -644,7 +647,8 @@ XYClipOperationMgr信息:
 	 XYStoryboardModel *sbModel = [XYEngineWorkspace stordboardMgr].currentStbModel;
      sbModel.taskID = XYCommonEngineTaskIDStoryboardAddTheme;
      sbModel.themePath = themePath;
-     [[XYEngineWorkspace stordboardMgr] runTask:sbModel];
+     [[XYEngineWorkspace stordboardMgr] runTask:sbModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 ```
 
 2）恢复主题背景音乐设置
@@ -653,7 +657,8 @@ XYClipOperationMgr信息:
 	XYEffectModel *effectModel = [[XYEffectModel alloc] init];
     effectModel.taskID = XYCommonEngineTaskIDEffectResetThemeAudio;
     effectModel.groupID = XYCommonEngineGroupIDBgmMusic;
-    [[XYEngineWorkspace effectMgr] runTask:effectModel];
+    [[XYEngineWorkspace effectMgr] runTask:effectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 ```
 
 
@@ -665,7 +670,8 @@ XYStoryboardModel *storyboardModel = [XYEngineWorkspace stordboardMgr].currentSt
             obj.text = @"修改字幕";
   }];
 [XYEngineWorkspace stordboardMgr].currentStbModel.taskID = XYCommonEngineTaskIDStoryboardUpdateThemeText;
- [[XYEngineWorkspace stordboardMgr] runTask:storyboardModel];
+ [[XYEngineWorkspace stordboardMgr] runTask:storyboardModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 ```
 TextInfo 参数说明：
 | 名称  | 解释 | 类型 | 是否必须 |
@@ -689,7 +695,8 @@ __block NSMutableArray <XYClipModel *> *clipArr = [[NSMutableArray alloc] initWi
     XYClipModel *taskModel = [[XYClipModel alloc] init];
     taskModel.taskID = XYCommonEngineTaskIDClipAddClip;
     taskModel.clipModels = clipArr;
-    [[XYEngineWorkspace clipMgr] runTask:taskModel];
+    [[XYEngineWorkspace clipMgr] runTask:taskModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 }
 ```
 XYClipModel参数说明：
@@ -708,7 +715,7 @@ XYClipModel参数说明：
     XYClipModel *newClipModel = [[XYClipModel alloc] init];
     clipModel.duplicateClipModel = newClipModel;
     clipModel.taskID = XYCommonEngineTaskIDClipDuplicate;
-    [[XYEngineWorkspace clipMgr] runTask:clipModel];
+    [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 
 ```
 
@@ -717,7 +724,7 @@ XYClipModel参数说明：
 	// clipIndex表示第几个片段，从0开始
 XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
  clipModel.taskID = XYCommonEngineTaskIDClipDelete;
- [[XYEngineWorkspace clipMgr] runTask:clipModel];
+ [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 4）排序
@@ -725,7 +732,7 @@ XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtInde
 XYClipModel *clipModel = [XYClipModel new];
 clipModel = fromIndex;
 clipModel = toIndex;
-[[XYEngineWorkspace clipMgr] runTask:clipModel];
+[[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 5）静音
@@ -754,7 +761,7 @@ clipModel.volumeValue = volumeValue;
 // voiceChangeValue表示音调，从-60~60，{@see XYDftSoundTone}枚举中有提供的特定音调
 XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
 clipModel.voiceChangeValue = value;
-[XYEngineWorkspace clipMgr] runTask:clipModel];
+[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 8）镜像
@@ -764,7 +771,7 @@ YClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex
 XYClipMirrorMode mirrorMode = XYClipMirrorModeX;
 clipModel.mirrorMode = mirrorMode;
 clipModel.taskID = XYCommonEngineTaskIDClipMirror;
-[[XYEngineWorkspace clipMgr] runTask:clipModel];
+[[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 clipModel.mirrorMode参数说明：
 | 名称  | 解释  |
@@ -781,7 +788,7 @@ clipModel.mirrorMode参数说明：
 XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
 clipModel.taskID = XYCommonEngineTaskIDClipRotation;
 clipModel.rotation = rotation;
-[XYEngineWorkspace clipMgr] runTask:clipModel];
+[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -791,7 +798,7 @@ clipModel.rotation = rotation;
      XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
 clipModel.splitClipPostion = seekPosition;
 clipModel.taskID = XYCommonEngineTaskIDClipSplit;
-[[XYEngineWorkspace clipMgr] runTask:clipModel];
+[[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -803,7 +810,7 @@ clipModel.taskID = XYCommonEngineTaskIDClipSplit;
     clipModel.taskID = XYCommonEngineTaskIDClipSpeed;
     clipModel.speedValue = videoSpeedChangeValue;
     clipModel.iskeepTone = NO;//是否保持原声调
-    [[XYEngineWorkspace clipMgr] runTask:clipModel];
+    [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 12）倒放
@@ -811,7 +818,7 @@ clipModel.taskID = XYCommonEngineTaskIDClipSplit;
 	// clipIndex表示第几个片段，从0开始
 	 XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
     clipModel.taskID = XYCommonEngineTaskIDClipReverse;
-    [[XYEngineWorkspace clipMgr] runTask:clipModel];
+    [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -820,7 +827,8 @@ clipModel.taskID = XYCommonEngineTaskIDClipSplit;
 	  XYStoryboardModel *sbModel = [XYEngineWorkspace stordboardMgr].currentStbModel;
     sbModel.taskID = XYCommonEngineTaskIDStoryboardRatio;
     sbModel.ratioValue = ratioValue;
-    [[XYEngineWorkspace stordboardMgr] runTask:sbModel];
+    [[XYEngineWorkspace stordboardMgr] runTask:sbModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 ```
 
 
@@ -830,7 +838,7 @@ clipModel.taskID = XYCommonEngineTaskIDClipSplit;
 	 XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
    clipModel.taskID = XYCommonEngineTaskIDClipCrop;
    clipModel.cropRecte =cropRect;
-   [[XYEngineWorkspace clipMgr] runTask:clipModel];
+   [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 
 ```
 
@@ -841,7 +849,7 @@ clipModel.taskID = XYCommonEngineTaskIDClipSplit;
 	 XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
    clipModel.taskID = XYCommonEngineTaskIDClipTrim;
    clipModel.trimVeRange = trimVeRange;
-   [[XYEngineWorkspace clipMgr] runTask:clipModel];
+   [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 16）图片时长
@@ -850,7 +858,7 @@ clipModel.taskID = XYCommonEngineTaskIDClipSplit;
 	 XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
    clipModel.taskID = XYCommonEngineTaskIDClipTrim;
    clipModel.trimVeRange = trimVeRange;
-   [[XYEngineWorkspace clipMgr] runTask:clipModel];
+   [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 17）图片动画
@@ -859,7 +867,7 @@ clipModel.taskID = XYCommonEngineTaskIDClipSplit;
 	 XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
    clipModel.taskID = XYCommonEngineTaskIDClipPhotoAnimation;
 clipModel.clipPropertyData.isAnimationON = !clipModel.clipPropertyData.isAnimationON;
-   [[XYEngineWorkspace clipMgr] runTask:clipModel];
+   [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 18）背景
@@ -953,7 +961,7 @@ adjustItem参数说明：
     clipModel.taskID = XYCommonEngineTaskIDClipFilterAdd;
     clipModel.clipEffectModel.colorFilterFilePath = filterPath;
     clipModel.clipEffectModel.colorFilterAlpha = colorFilterAlpha;
-    [[XYEngineWorkspace clipMgr] runTask:clipModel];
+    [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 clipEffectModel参数说明：
 | 名称  | 解释 | 类型 |
@@ -970,7 +978,7 @@ clipEffectModel参数说明：
     clipModel.groupID = XYCommonEngineGroupIDFXFilter;
     clipModel.taskID = XYCommonEngineTaskIDClipFilterAdd;
     clipModel.clipEffectModel.fxFilterFilePath = fxFilterFilePath;
-    [[XYEngineWorkspace clipMgr] runTask:clipModel];
+    [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 clipEffectModel 参数说明：
 | 名称  | 解释 | 类型 |
@@ -984,7 +992,7 @@ clipEffectModel 参数说明：
     XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
     clipModel.taskID = XYCommonEngineTaskIDClipTransition;
     clipModel.clipEffectModel.effectTransFilePath = effectTransFilePath;
-    [[XYEngineWorkspace clipMgr] runTask:clipModel];
+    [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 clipEffectModel参数说明：
 | 名称  | 解释 | 类型 |
@@ -1018,7 +1026,8 @@ XYVeRangeModel *sourceVeRange = [XYVeRangeModel VeRangeModelWithPosition:0 lengt
       XYVeRangeModel *destVeRange = [XYVeRangeModel VeRangeModelWithPosition:dwPos length:dwLen];
       effectModel.destVeRange = destVeRange;
 
-      [[XYEngineWorkspace effectMgr] runTask:effectModel];
+      [[XYEngineWorkspace effectMgr] runTask:effectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 ```
 XYEffectAudioModel参数说明：
 | 名称  | 解释 | 类型 | 是否必须 |
@@ -1044,7 +1053,7 @@ XYEffectAudioModel参数说明：
     duplicateEffectModel.destVeRange = destVeRange;
     currentEffectModel.duplicateEffectModel = duplicateEffectModel;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioDuplicate;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 
 ```
 6.1.3 删除
@@ -1053,7 +1062,7 @@ XYEffectAudioModel参数说明：
 	// effectIndex为同类型中第几个效果
     XYEffectAudioModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioDelete;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 
 ```
 6.1.4 裁切区间
@@ -1064,7 +1073,7 @@ XYEffectAudioModel参数说明：
 	  XYEffectAudioModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
 	  currentEffectModel.trimVeRange = currentEffectModel.trimVeRange;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioUpdateTrimRange;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 6.1.5 出入区间
@@ -1075,7 +1084,7 @@ XYEffectAudioModel参数说明：
  XYEffectAudioModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
 	  currentEffectModel.destRange = destRange;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioUpdateDestRange;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1087,7 +1096,7 @@ XYEffectAudioModel参数说明：
  XYEffectAudioModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
 	  currentEffectModel.sourceVeRange = sourceVeRange;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioUpdateSourceVeRange;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 6.1.7  音量
@@ -1098,7 +1107,7 @@ XYEffectAudioModel参数说明：
  XYEffectAudioModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
 	  currentEffectModel.volumeValue = volumeValue;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectUpdateAudioVolume;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1110,7 +1119,7 @@ XYEffectAudioModel参数说明：
 	  currentEffectModel.isFadeOutON = isFadeOutON;
 	  currentEffectModel.fadeDuration = fadeDuration;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioFadeOut;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 6.1.9 音频循环
@@ -1121,7 +1130,7 @@ XYEffectAudioModel参数说明：
  XYEffectAudioModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
 	  currentEffectModel.isRepeatON = isRepeatON;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioUpdateRepeat;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1133,7 +1142,7 @@ XYEffectAudioModel参数说明：
  XYEffectAudioModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
 	  currentEffectModel.voiceChangeValue = voiceChangeValue;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioVoiceChange;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1146,7 +1155,8 @@ XYEffectAudioModel参数说明：
 	XYEffectAudioModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
 	  currentEffectModel.filePath = filePath;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioReplace;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel]
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 ```
 6.1.12 歌词文件生成字幕
 ```
@@ -1159,7 +1169,8 @@ XYEffectAudioModel参数说明：
 	  currentEffectModel.lyric = lyric;
 	  currentEffectModel.lyricTtid = lyricTtid;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectAudioLyic;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel]
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 ```
 
 * 视觉类的分为普通类型和字幕类型两种，字幕继承了普通类型的属性
@@ -1194,7 +1205,8 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
         visionModel.isStaticPicture = YES;
         NSInteger beginTime = 0;
         visionModel.destVeRange = [XYVeRangeModel VeRangeModelWithPosition:beginTime length:length];
-        [[XYEngineWorkspace effectMgr] runTask:visionModel];
+        [[XYEngineWorkspace effectMgr] runTask:visionModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 ```
 6.2.2 复制
 ```
@@ -1206,7 +1218,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
     duplicateEffectModel.destVeRange = destVeRange;
     currentEffectModel.duplicateEffectModel = duplicateEffectModel;
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionDuplicate;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 
 ```
 
@@ -1216,7 +1228,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
    // effectIndex为同类型中第几个效果
     XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionDelete;
-    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+    [[XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 6.2.4 修改图层
@@ -1227,7 +1239,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
  XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
   currentEffectModel.layerID = layerID;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 6.2.5 裁切区间
@@ -1238,7 +1250,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
   currentEffectModel.trimVeRange = trimVeRange;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 6.2.6 出入区间
@@ -1249,7 +1261,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
   currentEffectModel.destVeRange = destVeRange;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1261,7 +1273,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
   currentEffectModel.sourceVeRange = sourceVeRange;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1273,7 +1285,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
   currentEffectModel.alpha = alpha;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 6.2.9  锁定播放器刷新效果,用于实时快速刷新修改的位置，大小，旋转角度等信息
@@ -1285,7 +1297,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
   currentEffectModel.centerPoint = centerPoint;
     currentEffectModel.isInstantRefresh = isInstantRefresh;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 当需要快速刷新播放器某个效果位置时，需要先锁定该效果，当位置刷新结束后，需要对改效果解锁。
 
@@ -1298,7 +1310,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
        XYEffectPicInPicOverlayInfo *overlayInfo = [[XYEffectPicInPicOverlayInfo alloc] init];
         visionModel.overlayInfo = overlayInfo;
         visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicOverlayUpdate;
-	 [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+	 [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 
 ```
 
@@ -1312,7 +1324,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
         XYEffectPicInPicMaskInfo *maskInfo = [[XYEffectPicInPicMaskInfo alloc] init];
         visionModel.maskInfo = maskInfo;
         visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicMaskUpdate;
-	 [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+	 [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1325,7 +1337,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
         XYEffectPicInPicChromaInfo *chromaInfo = [[XYEffectPicInPicChromaInfo alloc] init];
         visionModel.chromaInfo = chromaInfo;
         visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicChromaUpdate;
-        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1338,7 +1350,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
         XYEffectPicInPicFilterInfo *filterInfo = [[XYEffectPicInPicFilterInfo alloc] init];
         visionModel.filterInfo = filterInfo;
         visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicFilterUpdate;
-        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1351,7 +1363,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
         NSArray <XYAdjustItem *> *adjustItems = list;
         visionModel.adjustItems = adjustItems;
         visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicSubAdjust;
-        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1365,7 +1377,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
         NSMutableArray <XYEffectPicInPicSubFx *> fxInfoList = list;
         visionModel.fxInfoList = fxInfoList;
         visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicSubFX;
-        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1381,7 +1393,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
             obj.destRange = [XYVeRangeModel VeRangeModelWithPosition:start length:length];
         }
         visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicSubFX;
-        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1396,7 +1408,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
             obj.subFxPath = nil;
         }
         visionModel.taskID = XYCommonEngineTaskIDEffectVisionPinInPicSubFX;
-        [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+        [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1408,7 +1420,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
   currentEffectModel.anchor = anchor;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1420,7 +1432,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
   currentEffectModel.isStaticPicture = isStaticPicture;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 备注：由于一些动态贴纸/字幕，有效果变化，可以通过该操作，使效果关闭动画显示固定效果。
 
@@ -1434,7 +1446,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
     visionModel.filePath = mediaItem.filePath;
     visionModel.destVeRange = veRangeModel;
     visionModel.propData = 0.5;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 
 程度调节
 
@@ -1443,7 +1455,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
 	XYEffectVisionModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
     visionModel.propData = 0.5;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 
 ```
 
@@ -1456,7 +1468,7 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate;
     XYEffectKeyFrameInfo *keyFrameInfo = [XYEffectKeyFrameInfo alloc] init];//@see{XYEffectKeyFrameInfo}
   currentEffectModel.keyFrameInfo = keyFrameInfo;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 * 字幕
@@ -1494,7 +1506,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
     XYEffectVisionSubTitleLabelInfoModel *labelInfoModel = currentEffectModel.multiTextList[textIndex];
   labelInfoModel.text = text;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 2）字幕字体
@@ -1507,7 +1519,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
     XYEffectVisionSubTitleLabelInfoModel *labelInfoModel = currentEffectModel.multiTextList[textIndex];
   labelInfoModel.textFontName = textFontName;
-  [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+  [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 
@@ -1522,7 +1534,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
    XYEffectVisionSubTitleLabelInfoModel *labelInfoModel = currentEffectModel.multiTextList[textIndex];
   labelInfoModel.textAlignment = textAlignment;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 4）字幕文本阴影
@@ -1539,7 +1551,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
   labelInfoModel.textShadowYShift = textShadowYShift;
   labelInfoModel.textShadowColor = textShadowColor;
   labelInfoModel.textShadowBlurRadius = textShadowBlurRadius;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 5）字幕文本描边
@@ -1552,7 +1564,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
       XYEffectVisionSubTitleLabelInfoModel *labelInfoModel = currentEffectModel.multiTextList[textIndex];
   labelInfoModel.textStrokeColor = textStrokeColor;
     labelInfoModel.textStrokeWPercent = textStrokeWPercent;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel];
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
 #### 7. 导出
@@ -1878,7 +1890,8 @@ XYProjectExportMgr 导出管理类说明：
     XYClipModel *taskModel = [[XYClipModel alloc] init];
     taskModel.taskID = XYCommonEngineTaskIDClipAddClip;
     taskModel.clipModels = clipModels;
-    [[XYEngineWorkspace clipMgr] runTask:taskModel];
+    [[XYEngineWorkspace clipMgr] runTask:taskModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
     __weak typeof(self) weakSelf = self;
     [[XYEngineWorkspace clipMgr] addObserver:self observerID:XYCommonEngineTaskIDClipAddClip block:^(id  _Nonnull obj) {
         [weakSelf.navigationController popViewControllerAnimated:YES];
