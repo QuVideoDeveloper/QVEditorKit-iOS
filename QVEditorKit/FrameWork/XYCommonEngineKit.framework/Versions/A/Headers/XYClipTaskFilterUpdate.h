@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYClipTaskFilterUpdateAlpha : XYBaseClipTask
+@interface XYClipTaskFilterUpdate : XYBaseClipTask
 
 @end
 

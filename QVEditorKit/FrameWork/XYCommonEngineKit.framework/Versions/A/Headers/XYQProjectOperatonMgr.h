@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)runTask:(XYQprojectModel *)projectModel;
 
+- (void)runTask:(XYQprojectModel *)projectModel
+completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

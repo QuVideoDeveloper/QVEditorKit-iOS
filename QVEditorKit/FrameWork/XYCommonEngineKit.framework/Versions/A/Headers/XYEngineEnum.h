@@ -50,6 +50,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDClipUpdateVolume,//修改原clip的声音大小 需要的参数 volumeValue
     XYCommonEngineTaskIDClipFilterAdd,//添加滤镜 需要的参数 clipEffectModel对象设置值 1. 对应的FilterFilePath 2. 对应的FilterAlpha 0～1.0  3. effectConfigIndex 对应素材的TemplateItemData 的 nConfigureCount 4.groupID <XYCommonEngineGroupIDColorFilter 调色滤镜 XYCommonEngineGroupIDThemeFilter 特色滤镜 XYCommonEngineGroupIDThemeFilter 主题滤镜>
     XYCommonEngineTaskIDClipFilterUpdateAlpha,//修改滤镜程度 需要的参数 1. 对应的FilterAlpha 0～1.0 2.<XYCommonEngineGroupIDColorFilter 调色滤镜 XYCommonEngineGroupIDThemeFilter 特色滤镜 XYCommonEngineGroupIDThemeFilter 主题滤镜>
+    XYCommonEngineTaskIDClipFilterUpdate,
     XYCommonEngineTaskIDClipVoiceChange,//变声 需要的参数 voiceChangeValue
     XYCommonEngineTaskIDClipAdjustUpdate,//参数调节   1.adjustItem dwCurrentValue
     XYCommonEngineTaskIDClipSpeed,//变速 1. speedValue 2.iskeepTone//是否保持原声调 调用变速前需要判断设置后clip时长是否>=VIVAVIDEO_MINIMUM_TRIM_RANGE。 设置后需要重新计算效果

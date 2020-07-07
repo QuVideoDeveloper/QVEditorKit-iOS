@@ -55,6 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isInstantRefresh; //YES的情况下，该效果将会快速刷新
 @property (nonatomic, assign) BOOL skipRefreshPlayer; //只需要设置值 不需要刷新播放器
 @property (nonatomic, strong) XYTaskErrorModel *errorModel;
+@property (nonatomic, copy) void(^completionBlock)(BOOL success, NSError *error, id obj);
 - (void)run;
 - (void)engineOperate;//需要子类实现
 - (XYEngine *)engine;
