@@ -1,1 +1,1 @@
-../../../QVMediToolbarKit/QVMediToolbarKit/Classes/QvMediVideoEditToolbarKit/QVMediVideoToolbarOperateView.h
+../../../../../Pods/QVMediToolbarKit/QVMediToolbarKit/Classes/QvMediVideoEditToolbarKit/QVMediVideoToolbarOperateView.h

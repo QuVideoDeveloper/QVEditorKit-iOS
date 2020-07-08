@@ -1,1 +1,1 @@
-../../../QVMediTools/QVMediTools/Classes/UIColor+QVMediInit.h
+../../../../../Pods/QVMediTools/QVMediTools/Classes/UIColor+QVMediInit.h

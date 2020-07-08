@@ -1,1 +1,1 @@
-../../../QVMediEdit/QVMediEdit/Classes/Preview/QVPreviewViewController.h
+../../../../../Pods/QVMediEdit/QVMediEdit/Classes/Preview/QVPreviewViewController.h

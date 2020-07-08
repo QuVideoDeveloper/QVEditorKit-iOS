@@ -1,1 +1,1 @@
-../../../QVMediEdit/QVMediEdit/Classes/VideoEdit/View/QVMediAudioRecorderClient.h
+../../../../../Pods/QVMediEdit/QVMediEdit/Classes/VideoEdit/View/QVMediAudioRecorderClient.h

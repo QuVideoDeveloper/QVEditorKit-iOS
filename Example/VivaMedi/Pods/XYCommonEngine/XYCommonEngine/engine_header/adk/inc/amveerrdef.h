@@ -89,9 +89,10 @@
 //0x00803600
 #define QVET_ERR_KEY_LINE_STYLE_PARSER     (QVET_ERR_BASE+0x00003600)  //vekeylinestyleparser.cpp
 #define QVET_ERR_SEGMENT_UTILS_BASE   (QVET_ERR_BASE+0x00003700)       //etsegmentutils
+#define QVET_ERR_ETTEXT_UTILS_BASE      (QVET_ERR_BASE+0x00003800)    //ettextutils.cpp 
+#define QVET_ERR_TEXTUTILS_JNI_BASE     (QVET_ERR_BASE+0x00003900)     //textutils_jni.cpp 
 
-//0x00803800
-//0x00803900
+
 //0x00803A00
 //0x00803B00
 //0x00803C00
@@ -323,6 +324,8 @@
 #define QVET_ERR_MOTIONTILE_PARSER_BASE (QVET_ERR_BASE+0x000BA000)		//0x008BA000 motiontileparser.cpp
 #define QVET_ERR_MESHWARP_BASE		    (QVET_ERR_BASE+0x000BB000)		//0x008BB000 meshwarp.cpp
 #define QVET_ERR_MESHWARP_PARSER_BASE	(QVET_ERR_BASE+0x000BC000)		//0x008BC000 meshwarpparser.cpp
+#define QVET_ERR_SABER_BASE		        (QVET_ERR_BASE+0x000BD000)		//0x008BD000 etsaberstream.cpp
+#define QVET_ERR_SABER_PARSER_BASE	    (QVET_ERR_BASE+0x000BE000)		//0x008BE000 etsaberparser.cpp
 #define QVET_ERR_PSSCATTEROS_BASE		(QVET_ERR_BASE+0x000BF000)		//0x008BF000 etparticlescatter.cpp
 /*
 * Error Definition Zone for FilePackage Tools
@@ -363,6 +366,8 @@
 #define QERR_OC_CEBASE_PROTECTED    (QVET_ERR_BASE+0x000D1700)  //QCamBase+Protected.mm    0x008D1700
 #define QERR_OC_PCME_BASE           (QVET_ERR_BASE+0x000D1800)  //QPCMExtractor.mm    0x008D1800
 #define QERR_OC_AUDIO_PROVIDER_BASE         (QVET_ERR_BASE+0x000D1B00)      //0X000D1B00  CXiaoYingAudioProvider.cmm
+#define QERR_OC_TEXT_ADVSTYLE_BASE  (QVET_ERR_BASE+0x000D1C00)  //0x000D1C00 CXiaoYingTextAdvStyle.mm
+#define QERR_OC_AUDIO_PLAYER_BASE   (QVET_ERR_BASE+0x000D1D00)  //CXiaoyingAudioPlayer.mm
 
 /*
 *	以下是针对 JNI层的cpp err分段

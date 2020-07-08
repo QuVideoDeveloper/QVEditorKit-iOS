@@ -163,7 +163,7 @@ typedef struct
 #import "QPCMExtractor.h"
 #import "QBenchLogger.h"
 #import "CXiaoYingAudioProvider.h"
-
+#import "CXiaoYingAudioPlayer.h"
 
 
 

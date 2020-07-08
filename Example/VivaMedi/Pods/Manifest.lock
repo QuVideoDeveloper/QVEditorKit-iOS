@@ -3,8 +3,12 @@ PODS:
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - Masonry (1.1.0)
-  - QVCommonKit (0.9.5)
-  - QVEditorKit (0.1.14):
+  - QVCommonKit (0.9.7):
+    - QVCommonKit/Core (= 0.9.7)
+    - QVCommonKit/Zip (= 0.9.7)
+  - QVCommonKit/Core (0.9.7)
+  - QVCommonKit/Zip (0.9.7)
+  - QVEditorKit (0.1.23):
     - FMDB
     - QVCommonKit
     - ReactiveObjC
@@ -12,45 +16,48 @@ PODS:
     - XYCommonEngine
     - YYModel
   - QVMediCamera (1.0.18):
-    - QVMediToolbarKit/QVMediCameraToolbarKit
+    - QVCommonKit
+    - QVEditorKit
   - QVMediEdit (0.0.1):
     - Masonry
     - QVEditorKit
     - SVProgressHUD
     - TZImagePickerController
-    - XYCommonEngine
     - YYCategories
   - QVMediToolbarKit (3.2.12):
+    - QVCommonKit
     - QVEditorKit
     - QVMediToolbarKit/QVMediCameraToolbarKit (= 3.2.12)
     - QVMediToolbarKit/QVMediScrollToolbarSelectUIKit (= 3.2.12)
     - QVMediToolbarKit/QVMediVideoEditToolbarKit (= 3.2.12)
     - QVMediToolbarKit/Resources (= 3.2.12)
-    - XYCommonEngine
   - QVMediToolbarKit/QVMediCameraToolbarKit (3.2.12):
+    - QVCommonKit
     - QVEditorKit
     - QVMediToolbarKit/Resources
-    - XYCommonEngine
   - QVMediToolbarKit/QVMediScrollToolbarSelectUIKit (3.2.12):
+    - QVCommonKit
     - QVEditorKit
     - QVMediToolbarKit/Resources
-    - XYCommonEngine
   - QVMediToolbarKit/QVMediVideoEditToolbarKit (3.2.12):
+    - QVCommonKit
     - QVEditorKit
     - QVMediToolbarKit/Resources
-    - XYCommonEngine
   - QVMediToolbarKit/Resources (3.2.12):
     - Masonry
+    - QVCommonKit
     - QVEditorKit
     - SVProgressHUD
-    - XYCommonEngine
     - YYKeyboardManager
-  - QVMediTools (1.0.3)
-  - ReactiveObjC (3.1.0)
-  - SDWebImage (4.4.2)
+  - QVMediTools (1.0.2):
+    - QVCommonKit
+  - ReactiveObjC (3.1.1)
+  - SDWebImage (5.8.3):
+    - SDWebImage/Core (= 5.8.3)
+  - SDWebImage/Core (5.8.3)
   - SVProgressHUD (2.2.5)
   - TZImagePickerController (3.3.2)
-  - XYCommonEngine (8.3.1.0)
+  - XYCommonEngine (0.9.3)
   - YYCache (1.0.4)
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
@@ -66,27 +73,26 @@ PODS:
 
 DEPENDENCIES:
   - FMDB
-  - QVEditorKit (from `/Users/sunshine/Desktop/githubSDk/QVEditorKit`)
-  - "QVMediCamera (from `git@192.168.1.33:iOSDemoGroup/QVMediCamera.git`, branch `sdk_dev`)"
-  - "QVMediEdit (from `git@192.168.1.33:iOSDemoGroup/QVMediEdit.git`, branch `dev`)"
-  - "QVMediToolbarKit (from `git@192.168.1.33:iOSDemoGroup/QVMediToolbarKit.git`, branch `sdk_dev`)"
-  - "QVMediTools (from `git@192.168.1.33:iOSDemoGroup/QVMediTools.git`, branch `dev`)"
+  - QVEditorKit (from `../Pods/QVEditorKit`)
+  - QVMediCamera (from `../Pods/QVMediCamera`)
+  - QVMediEdit (from `../Pods/QVMediEdit`)
+  - QVMediToolbarKit (from `../Pods/QVMediToolbarKit`)
+  - QVMediTools (from `../Pods/QVMediTools`)
   - ReactiveObjC
-  - SDWebImage (= 4.4.2)
+  - SDWebImage
   - YYModel
   - YYWebImage
 
 SPEC REPOS:
-  http://192.168.1.33:9090/Pods/Specs.git:
+  https://github.com/CocoaPods/Specs.git:
+    - FMDB
     - Masonry
+    - QVCommonKit
     - ReactiveObjC
     - SDWebImage
     - SVProgressHUD
-    - XYCommonEngine
-  https://github.com/CocoaPods/Specs.git:
-    - FMDB
-    - QVCommonKit
     - TZImagePickerController
+    - XYCommonEngine
     - YYCache
     - YYCategories
     - YYImage
@@ -96,48 +102,30 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   QVEditorKit:
-    :path: "/Users/sunshine/Desktop/githubSDk/QVEditorKit"
+    :path: "../Pods/QVEditorKit"
   QVMediCamera:
-    :branch: sdk_dev
-    :git: "git@192.168.1.33:iOSDemoGroup/QVMediCamera.git"
+    :path: "../Pods/QVMediCamera"
   QVMediEdit:
-    :branch: dev
-    :git: "git@192.168.1.33:iOSDemoGroup/QVMediEdit.git"
+    :path: "../Pods/QVMediEdit"
   QVMediToolbarKit:
-    :branch: sdk_dev
-    :git: "git@192.168.1.33:iOSDemoGroup/QVMediToolbarKit.git"
+    :path: "../Pods/QVMediToolbarKit"
   QVMediTools:
-    :branch: dev
-    :git: "git@192.168.1.33:iOSDemoGroup/QVMediTools.git"
-
-CHECKOUT OPTIONS:
-  QVMediCamera:
-    :commit: 91ccf3a138ed3c270859cff6f4c3a5802a5297df
-    :git: "git@192.168.1.33:iOSDemoGroup/QVMediCamera.git"
-  QVMediEdit:
-    :commit: 4035d43d174bb673340e5746c4f7a66a30ac11f3
-    :git: "git@192.168.1.33:iOSDemoGroup/QVMediEdit.git"
-  QVMediToolbarKit:
-    :commit: 2b385249295c7298aa295d87f22ddbb2519fc733
-    :git: "git@192.168.1.33:iOSDemoGroup/QVMediToolbarKit.git"
-  QVMediTools:
-    :commit: eee7c79c9c5f261422927fb52b6376fb4e2c7078
-    :git: "git@192.168.1.33:iOSDemoGroup/QVMediTools.git"
+    :path: "../Pods/QVMediTools"
 
 SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  Masonry: d84e495a1186defead28d556172c449a83049a83
-  QVCommonKit: 44af9aeaa5588cb5095ecd6223192cf6346133fc
-  QVEditorKit: fa20c91c448c8f5cc36bf2323fc50feb91b81ec0
-  QVMediCamera: dfd60fd63132a1a55203b6cf19ffd6439541233b
-  QVMediEdit: dae55b3dd21b7e0cdb18cc1aae48a7a6f914e03c
-  QVMediToolbarKit: 590ebb8d1ccc6706e7c26753930c3f4b2ed2dec4
-  QVMediTools: 3471aa16f6f4eca01a037d4767397514dca2607d
-  ReactiveObjC: 38556867b86e806ec5f106c8695c66e8669c253f
-  SDWebImage: 51ef38730a7e8e2d4cf284ada6920a93f09ad81b
-  SVProgressHUD: 736d72ff33fbab937216648b50038bec4a968597
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  QVCommonKit: 8dc64499e4451e96fe35ee30f7ac81dd4572e60b
+  QVEditorKit: d19400d8f6499a1d8bf9a21e21c5c2f226adb7f0
+  QVMediCamera: d24dec2d03234ce18243720d2f1a1221b17ce639
+  QVMediEdit: 228e1f20a589751b915ea2399176bad11cc7c1b6
+  QVMediToolbarKit: 7fc3f193b49acd462e3328a43050345a9e509778
+  QVMediTools: b1e74b06b3271e659a2afa4d333356a24a143160
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: 36ca728ec681228918aa82e993aaab1962281b72
-  XYCommonEngine: 962cf6957e5066da88c7b4a5251302b9b2f7f6e7
+  XYCommonEngine: e95503917a3a9f27735f90c75f5470e1c0985c21
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
@@ -145,6 +133,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 0d1bd9d77566a8b11c9629ccb139ca31e0e480fd
+PODFILE CHECKSUM: edac18def4c133507407e7d8ee789bcb855b5499
 
-COCOAPODS: 1.9.2
+COCOAPODS: 1.9.3

@@ -1,1 +1,1 @@
-../../../QVMediEdit/QVMediEdit/Classes/Home/View/QVHomeContentView.h
+../../../../../Pods/QVMediEdit/QVMediEdit/Classes/Home/View/QVHomeContentView.h

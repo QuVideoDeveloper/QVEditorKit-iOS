@@ -1,1 +1,1 @@
-../../../QVMediEdit/QVMediEdit/Classes/Home/VC/QVViewController.h
+../../../../../Pods/QVMediEdit/QVMediEdit/Classes/Home/VC/QVViewController.h

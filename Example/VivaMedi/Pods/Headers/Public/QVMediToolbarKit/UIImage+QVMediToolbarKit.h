@@ -1,1 +1,1 @@
-../../../QVMediToolbarKit/QVMediToolbarKit/Classes/UIImage+QVMediToolbarKit.h
+../../../../../Pods/QVMediToolbarKit/QVMediToolbarKit/Classes/UIImage+QVMediToolbarKit.h

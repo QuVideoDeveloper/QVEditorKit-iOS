@@ -1,1 +1,1 @@
-../../../QVMediEdit/QVMediEdit/Classes/VideoEdit/VC/QVPlayerViewController.h
+../../../../../Pods/QVMediEdit/QVMediEdit/Classes/VideoEdit/VC/QVPlayerViewController.h

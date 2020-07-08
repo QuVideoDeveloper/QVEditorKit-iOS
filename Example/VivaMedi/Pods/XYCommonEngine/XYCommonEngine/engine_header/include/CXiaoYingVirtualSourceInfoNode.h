@@ -51,7 +51,6 @@
      MBool  _bFaceAlign;//人脸对齐标志
      MBool _bFitMethod;// false: fit-in, true: fit-out
 	 id _pVirtualSourceInfo;
-	 AMVE_POSITION_RANGE_TYPE _effectRange;
  }
  
  @property(readwrite,nonatomic) UInt32 uiVirtualSrcIndex;	// cqd.question.14 synthesize 与 property 各什么作用?
@@ -70,6 +69,5 @@
  @property(readwrite,nonatomic) MBool bFitMethod;
  @property(readwrite,nonatomic) MBool bFaceAlign;
  @property(readwrite,nonatomic,strong) id pVirtualSourceInfo;
- @property(readwrite,nonatomic) AMVE_POSITION_RANGE_TYPE effectRange;
  @end
 

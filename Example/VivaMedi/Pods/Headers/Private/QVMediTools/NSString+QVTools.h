@@ -1,1 +1,1 @@
-../../../QVMediTools/QVMediTools/Classes/NSString+QVTools.h
+../../../../../Pods/QVMediTools/QVMediTools/Classes/NSString+QVTools.h

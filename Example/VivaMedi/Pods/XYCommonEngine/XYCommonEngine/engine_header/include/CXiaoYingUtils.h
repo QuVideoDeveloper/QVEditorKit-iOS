@@ -254,6 +254,11 @@
            BGPoint : (MPOINT*) pPoint
        BGColorType : (MInt8*) pcColorType;
 
+/**
+ *  check the the machine supports or not nsx
+*/
++ (MBool) IsSupportNSX;
+
 @end // CXiaoYingUtils
 
 

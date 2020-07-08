@@ -19,6 +19,7 @@
 #include "amimageprocess.h"
 
 
+
 #ifndef AMVE_MAXPATH
 	#if defined (_LINUX_) || (__IPHONE__)
 		#define AMVE_MAXPATH 1024
@@ -225,6 +226,9 @@
 #define AMVE_PROP_EFFECT_AUDIO_FRAME_SOURCE_RANGE      (AMVE_PROP_EFFECT_BASE+91) //配乐时音频文件的source range
 #define AMVE_PROP_EFFECT_AUDIO_FRAME_TITLE             (AMVE_PROP_EFFECT_BASE+92) //配乐文件的title
 #define AMVE_PROP_EFFECT_VIDEOFRAME_SRCRANGE           (AMVE_PROP_EFFECT_BASE+93) //视频画中画用户选取的source range
+#define AMVE_PROP_EFFECT_EQ_BAND_VALUE_LIST				(AMVE_PROP_EFFECT_BASE+94) //配乐EQ 配置
+#define AMVE_PROP_EFFECT_EQ_BAND_VALUE					(AMVE_PROP_EFFECT_BASE+95) //配乐EQ 配置
+#define AMVE_PROP_EFFECT_EQ_BAND_FREQUENCY				(AMVE_PROP_EFFECT_BASE+96) //配乐EQ 配置
 #define AMVE_PROP_EFFECT_TEXT_ATTACHMENT_ID			   (AMVE_PROP_EFFECT_BASE+97) //通过类型设置/获取字幕效果附件ID
 #define AMVE_PROP_EFFECT_TEXT_ATTACHMENT_DURATION      (AMVE_PROP_EFFECT_BASE+98) //通过类型设置/获取效果附件时长
 
@@ -340,6 +344,18 @@
 //该属性包含get和set方法,但set方法目前只能在load project时调用,对于外部(app客户端)来说只能get,因为在jni和oc封装层不处理该属性set操作
 #define AMVE_PROP_EFFECT_UUID							(AMVE_PROP_EFFECT_BASE+220)
 
+#define AMVE_PROP_EFFECT_PIP_STORYBOARD_INFO			(AMVE_PROP_EFFECT_BASE+221)
+//高级字幕属性,对应结构体QTextAdvanceStyle
+#define AMVE_PROP_EFFECT_TEXT_ADV_STYLE					(AMVE_PROP_EFFECT_BASE+222)
+//高级字幕属性激活标志
+#define AMVE_PROP_EFFECT_TEXT_ADV_FLAG					(AMVE_PROP_EFFECT_BASE+223)
+#define AMVE_PROP_EFFECT_VIDEO_FRAME_CROP_REGION 		(AMVE_PROP_EFFECT_BASE+224)
+//subeffect应用模式
+#define AMVE_PROP_EFFECT_SUB_MODE						(AMVE_PROP_EFFECT_BASE+225)
+//effect的transform类型
+#define AMVE_PROP_EFFECT_TRANSFORM_TYPE					(AMVE_PROP_EFFECT_BASE+226)
+
+
 #define AVME_EFFECT_SUB_ITEM_TYPE_BASE                   0
 #define AVME_EFFECT_SUB_ITEM_TYPE_CHROMA                 (AVME_EFFECT_SUB_ITEM_TYPE_BASE + 1)
 #define AVME_EFFECT_SUB_ITEM_TYPE_FILTER                 (AVME_EFFECT_SUB_ITEM_TYPE_BASE + 2)
@@ -449,25 +465,35 @@
 #define AMVE_PROP_CLIP_INVERSE_PLAY_TRIM_RANGE         (AMVE_PROP_CLIP_BASE+57)
 #define AMVE_PROP_CLIP_INVERSE_PLAY_SOURCE_RANGE       (AMVE_PROP_CLIP_BASE+58)
 
+
 /*
  *  audio gain >= 0, to set/get the audio gain. 
  *	the new audio gain will replace the old gain you set 
  *	Default is 1.0 from audio head to tail. The data of this prop is QVET_AUDIO_GAIN
  *	this prop can be change when you are in player,  If there is no more change to clip audio gain, you need to call AMVES_PlayerPerformOperation to perform the changement on audio
  */
-#define AMVE_PROP_CLIP_AUDIO_GAIN						 (AMVE_PROP_CLIP_BASE+59)
+#define AMVE_PROP_CLIP_AUDIO_GAIN					   (AMVE_PROP_CLIP_BASE+59)
 
 #define AMVE_PROP_CLIP_UNIQUE_IDENTIFIER               (AMVE_PROP_CLIP_BASE+60) //传递clip的唯一标识符
 #define AMVE_PROP_CLIP_AUDIO_IS_NEED_NSX               (AMVE_PROP_CLIP_BASE+61) //是否给这个clip上面的音频降噪
 
-#define AMVE_PROP_CLIP_NORMAL_SOURCE                   (AMVE_PROP_CLIP_BASE+62) //获取clip正常的源
-#define AMVE_PROP_CLIP_USE_ONLY_SINGLE_SCENE            (AMVE_PROP_CLIP_BASE+63) 
-#define AMVE_PROP_CLIP_EDIT_ENABLE                      (AMVE_PROP_CLIP_BASE+64) //是否加了镜头编辑效果
+#define AMVE_PROP_CLIP_NORMAL_SOURCE                   (AMVE_PROP_CLIP_BASE+62) //获取clip正常的源			
+#define AMVE_PROP_CLIP_USE_ONLY_SINGLE_SCENE           (AMVE_PROP_CLIP_BASE+63) 
+#define AMVE_PROP_CLIP_EDIT_ENABLE                     (AMVE_PROP_CLIP_BASE+64) //是否加了镜头编辑效果
+#define AMVE_PROP_CLIP_EQ_BAND_VALUE                   (AMVE_PROP_CLIP_BASE+65)  //设置EQ增益
+#define AMVE_PROP_CLIP_EQ_BAND_FREQUENCY               (AMVE_PROP_CLIP_BASE+66) //获取频率分段
+#define AMVE_PROP_CLIP_EQ_BAND_VALUE_LIST              (AMVE_PROP_CLIP_BASE+67) //获取EQ增益列表
+#define AMVE_PROP_CLIP_ENABLE_LOOP_MODE                 (AMVE_PROP_CLIP_BASE+68) //是否开启clip 循环模式
 
-#define AMVE_PROP_CLIP_REVERSE_SOURCE_CLEAR                     (AMVE_PROP_CLIP_BASE+70) //清除到放源
+#define AMVE_PROP_CLIP_REVERSE_SOURCE_CLEAR            (AMVE_PROP_CLIP_BASE+70) //清除到放源
 //每个cilp对象的唯一id,AMVE_PROP_CLIP_UNIQUE_IDENTIFIER,可用来在storyboard中获取该id对应的clip对象
 //该属性包含get和set方法,但set方法目前只能在load project时调用,对于外部(app客户端)来说只能get,因为在jni和oc封装层不处理该属性set操作
-#define AMVE_PROP_CLIP_UUID								(AMVE_PROP_CLIP_BASE+71)
+#define AMVE_PROP_CLIP_UUID							   (AMVE_PROP_CLIP_BASE+71)
+//该属性用于音频倒放
+#define AMVE_PROP_CLIP_INVERSE_PLAY_AUDIO_FLAG         (AMVE_PROP_CLIP_BASE+72)
+//该属性用于将单独的audio pitch从变速时的audio pitch分离,使用方法可以参照AMVE_PROP_CLIP_AUDIO_PITCH_DELTA
+#define AMVE_PROP_CLIP_AUDIO_PITCH_VALUE			   (AMVE_PROP_CLIP_BASE+73)	//used to modify the audio pitch of clip
+
 
 //constants used to identify the property for storyboard
 #define AMVE_PROP_STORYBOARD_BASE                      0X00004000
@@ -493,6 +519,13 @@
 #define AMVE_PROP_STORYBOARD_AV_USER_PARAM             (AMVE_PROP_STORYBOARD_BASE+20)
 #define AMVE_PROP_STORYBOARD_IS_USE_STUFF_CLIP         (AMVE_PROP_STORYBOARD_BASE+21) //dataclip 是否使用补偿clip,补偿effect的时间
 #define AMVE_PROP_STORYBOARD_AUDIO_APPLY_SCALE         (AMVE_PROP_STORYBOARD_BASE+22)
+/*在storyboard中应用主题时,主题内滤镜的使用模式,目前支持
+	AMVE_THEME_FILTER_MODE_REPLACE
+	AMVE_THEME_FILTER_MODE_RETAIN
+	AMVE_THEME_FILTER_MODE_OVERLAY
+*/
+#define AMVE_PROP_STORYBOARD_THEME_FILTER_MODE		   (AMVE_PROP_STORYBOARD_BASE+23)
+#define AMVE_PROP_STORYBOARD_AUDIO_PITCH_VALUE         (AMVE_PROP_STORYBOARD_BASE+24) //Storyboard audio pitch value,data type is float 
 
 
 //constants used to identify the property for SlideShow
@@ -528,6 +561,7 @@
 #define AMVE_PROP_PRODUCER_USE_INPUT_FILE_NAME         (AMVE_PROP_PRODUCER_BASE+6)
 #define AMVE_PROP_PRODUCER_CB_INTERVAL                 (AMVE_PROP_PRODUCER_BASE+7)
 #define AMVE_PROP_PRODUCER_ERR_INFO                    (AMVE_PROP_PRODUCER_BASE+8)
+#define AMVE_PROP_PRODUCER_USE_WEBP_ENCODER			   (AMVE_PROP_PRODUCER_BASE+9)
 
 //constants used to identify the property for auto editor
 #define AMVE_PROP_AUTOCUT_BASE						   0X00007000
@@ -553,10 +587,14 @@
 #define AMVE_PROP_AP_AUDIO_OBSERVER_CALLBACK           (AMVE_PROP_AUDIO_PROVIDER_BASE+3)
 #define AMVE_PROP_AP_AUDIO_OBSERVER_DATA               (AMVE_PROP_AUDIO_PROVIDER_BASE+4)
 #define AMVE_PROP_AP_PROVIDE_MODE                      (AMVE_PROP_AUDIO_PROVIDER_BASE+5)
+#define AMVE_PROP_AP_AUDIO_SEND_TIME                   (AMVE_PROP_AUDIO_PROVIDER_BASE+6)//每次发送的pcm数据最大时长
 
 #define AMVE_AP_PROVIDE_MODE_NO_VAD                    0    //不做静音检测直接发送pcm
 #define AMVE_AP_PROVIDE_MODE_WITH_VAD                  1    //做静音检测后再发送pcm
 
+
+#define AMVE_PROP_STREAM_CONFIG_BASE                    0X80000000
+#define AMVE_PROP_STREAM_USE_WEBP_ENCODER               (AMVE_PROP_STREAM_CONFIG_BASE+86)
 
 /**
  * AUDIO_PITCH_DELTA_VALUE_XXX
@@ -635,6 +673,7 @@
 #define AMVE_AUDIOFORMAT_AAC_HE						   0X0000000C
 #define AMVE_AUDIOFORMAT_AAC_HE_V2					   0X0000000D
 #define AMVE_AUDIOFORMAT_PCM                           0x0000000E
+#define AMVE_AUDIOFORMAT_WAV                           0x0000000F
 #define AMVE_AUDIOFORMAT_AUTO                          AMVE_AUDIOFORMAT_UNKNOWN
 
 //constants used to identify the track type
@@ -1008,11 +1047,18 @@
 #define AMVE_SUB_EFFECT_APPLY_MODE_STORYBOARD        0
 #define AMVE_SUB_EFFECT_APPLY_MODE_EFFECT            1
 #define AMVE_SUB_EFFECT_APPLY_MODE_MOTION_TITLE      2
+#define AMVE_SUB_EFFECT_APPLY_MODE_MIX				 3
+
 
 
 #define AMVE_EFFECT_REGION_ALIGN_MODE_DEFALUT               0
 #define AMVE_EFFECT_REGION_ALIGN_MODE_WIDTH                 0 // width algin
 #define AMVE_EFFECT_REGION_ALIGN_MODE_WIDTH_PERCENT         1 //width percent align  ratio of equality scale
+
+//应用主题时,如果原clip上已有滤镜,主题中滤镜的使用模式
+#define AMVE_THEME_FILTER_MODE_REPLACE						(0) //替换-将滤镜效果替换成主题里的滤镜 
+#define AMVE_THEME_FILTER_MODE_RETAIN						(1) //保留-原滤镜不变,不使用主题里的滤镜
+#define AMVE_THEME_FILTER_MODE_OVERLAY						(2) //叠加-将主题里的滤镜叠加到原滤镜上
 
 #define QVET_CHECK_VALID_RET(ret)   \
         if (ret) {                  \
@@ -1211,6 +1257,13 @@ typedef struct _tagAMVE_PRODUCER_STATE_TYPE
 	MDWord dwCurTime;
 } AMVE_PRODUCER_STATE_TYPE;
 
+typedef struct _tagAMVE_PRODUCER_CREATE_PARAM
+{
+	MBool bReserverMode;
+	MBool bUseGifEncoder;
+	MBool bUserWebpEncoder;
+}AMVE_PRODUCER_CREATE_PARAM;
+
 typedef struct _tagAMVE_DETECTOR_STATE_TYPE
 {
 	MDWord dwStatus;
@@ -1397,6 +1450,12 @@ typedef struct _tagAMVE_BUBBLETEXT_INFO_TYPE
 	MCOLORREF clrText;
 }AMVE_BUBBLETEXT_INFO_TYPE;
 
+typedef struct _tagAMVE_PIP_STORYBOARD_INFO_TYPE
+{
+	MHandle hStrboard;
+	MChar *pProjectPath; 
+}AMVE_PIP_STORYBOARD_INFO_TYPE;
+
 typedef struct _tagAMVE_MEDIA_SOURCE_TYPE
 {
 	MDWord dwSrcType; //AMVE_MEDIA_SOURCE_TYPE_FILE, etc.
@@ -1469,6 +1528,7 @@ typedef struct _tagAMVE_STREAM_PARAM_TYPE
 	MDWord	dwRotation;
 	MDWord	dwResampleMode;
 	MDWord dwDecoderUsageType;				//指定Decoder的使用方式
+	MDWord dwFps;							//指定输出帧率
 	MHandle hWatermark;						//如果空表示不带水印
 	MTChar* pszFaceDTDataFile;
     AMVE_WM_HIDER_DATA WMHiderData;
@@ -2111,7 +2171,6 @@ typedef struct
 	MRECT region; //源在场景中显示的区域,用于app点中
 	MBool bFaceAlign; //这个源是否需要人脸对齐
 
-	AMVE_POSITION_RANGE_TYPE effectRange;
 	union
 	{
 	    QVET_SLSH_VIRTUAL_IMAGE_SOURCE_INFO imageSourceInfo;
@@ -2657,12 +2716,15 @@ typedef struct __tagQVET_KEYFRAME_UNIFORM_LIST
 typedef struct __tagQVET_KEYFRAME_UNIFORM_VALUE
 {
 	MDWord dwMethod;
-	MFloat  ts;
+	MFloat ts;
 	MFloat value;
+	MFloat fOffetValue;// is realVale = fOffetValue + value
 	MInt64 lKeylineTemplateID;
+	QVET_KEYFRAME_TRANSFORM_EXTINFO extInfo; //Bezier曲线插值参数
+	QVET_KEYFRAME_EASINGINFO easingInfo; //缓动曲线参数
 }QVET_KEYFRAME_UNIFORM_VALUE;
 
-#define KEYFRAME_UNIFORM_NAME_LENGTH 32
+#define KEYFRAME_UNIFORM_NAME_LENGTH 128
 typedef struct __tagQVET_KEYFRAME_UNIFORM_DATA
 {
 	QVET_KEYFRAME_UNIFORM_VALUE* values;
@@ -2717,6 +2779,26 @@ typedef struct __tagQVET_AR_INFO
 }QVET_AR_INFO;
 
 
+typedef struct _tagQVET_TIME_DETAIL_ITEM
+{
+	MDWord 	dwStart;
+	MDWord 	dwLength;
+	MLong	lInterVal;
+	MLong	lSingleTime;
+}QVET_TIME_DETAIL_ITEM;
+
+typedef struct _tagQVET_TIME_DETAIL
+{
+	MDWord 	dwItemCount;
+	QVET_TIME_DETAIL_ITEM* pItemList;
+}QVET_TIME_DETAIL;
+
+typedef struct _tagQVET_SOURSE_TIME_INFO
+{
+	MDWord	dwDetailCount;
+	QVET_TIME_DETAIL* pDetailList;
+}QVET_SOURSE_TIME_INFO;
+
 typedef struct
 {
     MInt64 ID;
@@ -2725,6 +2807,8 @@ typedef struct
 	MSIZE viewSize; //该场景的view size
 	MDWord* pdwPreviewPos; //preview position in this scene
 	MRECT* pRegion; //万分比表示源在场景中的区域
+	MSIZE* pSizeInfo;
+	QVET_SOURSE_TIME_INFO* pSourseTimeInfo ;
 }QVET_THEME_SCECFG_ITEM;
 
 typedef struct
@@ -3135,6 +3219,19 @@ typedef struct
 	MDWord dwAnimateDuration;   //模板动画的时长
 }QVET_CALC_LERP_INFO_PARAM;
 
+typedef struct __QVET_EQ_BAND_INFO
+{
+	MDWord iBandIndex;  //0 begin
+	MDWord iChannelNo; //0,1
+	MFloat fBandValue;
+}QVET_EQ_BAND_INFO;
+
+typedef struct __QVET_EQ_BAND_FREQUENCY
+{
+	MDWord iBandCount;
+	const MDouble * pArrayBandFrequency;
+}QVET_EQ_BAND_FREQUENCY;
+
 typedef struct
 {
 	MDWord dwCount;
@@ -3153,5 +3250,12 @@ typedef enum _tag_qv_color_type {
     COLOR_TYPE_PURPLE,
     COLOR_TYPE_FORCE_32BIT = 0x7FFFFFFF
 } QVColorType;
+
+typedef struct
+{
+	MDWord dwSrcCount;
+	MVoid** pSubRangeList; //std::vector<AMVE_POSITION_RANGE_TYPE>*指针,为了防止出现编译问题，这里用MVoid**
+}QVET_SLSH_SCENE_SUB_SOURCE_RANGE;
+
 
 #endif //_AMVE_DEF_H_

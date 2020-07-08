@@ -1,1 +1,1 @@
-../../../QVMediTools/QVMediTools/Classes/NSFileManager+QVMediOperate.h
+../../../../../Pods/QVMediTools/QVMediTools/Classes/NSFileManager+QVMediOperate.h

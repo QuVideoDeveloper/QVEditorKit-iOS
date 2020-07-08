@@ -7,7 +7,7 @@
 //
 
 #import "NSObject+RACSelectorSignal.h"
-#import <ReactiveObjC/EXTRuntimeExtensions.h>
+#import <ReactiveObjC/RACEXTRuntimeExtensions.h>
 #import "NSInvocation+RACTypeParsing.h"
 #import "NSObject+RACDeallocating.h"
 #import "RACCompoundDisposable.h"
@@ -18,8 +18,7 @@
 #import <objc/message.h>
 #import <objc/runtime.h>
 
-NSString * const RACSelectorSignalErrorDomain = @"RACSelectorSignalErrorDomain";
-const NSInteger RACSelectorSignalErrorMethodSwizzlingRace = 1;
+NSErrorDomain const RACSelectorSignalErrorDomain = @"RACSelectorSignalErrorDomain";
 
 static NSString * const RACSignalForSelectorAliasPrefix = @"rac_alias_";
 static NSString * const RACSubclassSuffix = @"_RACSelectorSignal";

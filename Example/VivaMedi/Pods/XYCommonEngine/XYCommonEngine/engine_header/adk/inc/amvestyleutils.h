@@ -45,6 +45,7 @@
 
 //是否需要这个定义，回头再看
 #define AMVE_STYLE_MODE_GRAFFITI			0x00000015 //may include 2D picture material and partical material at the same time, similar to the combo effect
+#define AMVE_STYLE_MODE_ANIMATOR            0x00000016// text animator param for text animator attach
 
 #define AMVE_STYLE_MODE_ALL					0xFFFFFFFF
 
@@ -455,6 +456,8 @@ MRESULT AMVE_StyleGetEffectPreviewInfo(MHandle hStyle, QEVT_EFFECT_PREVIEW_INFO 
 MRESULT AMVE_StylePasterGetThemeMusicTempIDs(MHandle hStyle, MInt64 ** ppArrayTemIDs, MDWord * pArraySize);
 
 MBool AMVE_StyleBubbleIsAdujestAlpha(MHandle hSessionCtx, MInt64 llTemplate, MSIZE bgSize);//判断字幕模板能不能调节alpha
+
+MRESULT AMVE_StyleGetTransformType(MHandle hStyle, MDWord* pType);
 #ifdef __cplusplus
 }
 #endif

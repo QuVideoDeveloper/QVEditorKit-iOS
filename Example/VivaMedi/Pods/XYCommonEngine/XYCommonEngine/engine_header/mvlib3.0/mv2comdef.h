@@ -234,7 +234,7 @@ extern "C"
 #define MV2_CODEC_TYPE_GIF              'gif '	// 1734960672
 #define MV2_CODEC_TYPE_PNG              'png '
 #define MV2_CODEC_TYPE_M4A              'm4a '	// 1832149280
-
+#define MV2_CODEC_TYPE_WAV              'wav '
 
 
 /*=====================================

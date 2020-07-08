@@ -1,1 +1,1 @@
-../../../QVMediEdit/QVMediEdit/Classes/VideoEdit/Manager/QVMediVideoEditManager.h
+../../../../../Pods/QVMediEdit/QVMediEdit/Classes/VideoEdit/Manager/QVMediVideoEditManager.h

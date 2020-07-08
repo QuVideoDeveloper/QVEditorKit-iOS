@@ -1,1 +1,1 @@
-../../../QVMediEdit/QVMediEdit/Classes/QVUIKit/QVPopupViewMgr.h
+../../../../../Pods/QVMediEdit/QVMediEdit/Classes/QVUIKit/QVPopupViewMgr.h

@@ -5,7 +5,13 @@
 *Description: Define XiaoYing Effect  API.
 *
 */
+@interface CXiaoYingPipStoryboardInfo : NSObject {
+@public
+    NSString *pProjectPath; //CXiaoYingKeyFrameTransformValue
+}
 
+
+@end
 
 
 @interface CXiaoYingTrajectoryValue : NSObject {
@@ -136,9 +142,16 @@
 @interface CXiaoYingKeyFrameUniformValue : NSObject {
 
 @public
+//#define METHOD_KEYFRAME_TYPE_LINEAR_INTER 1  //普通线性插值
+//#define METHOD_KEYFRAME_TYPE_KEY_LINEAR	2  //在线条上进行线性插值，需要模板
+//#define METHOD_KEYFRAME_TYPE_BEZIER_INTER	3  //bezier curve interpolation
 	MDWord method;
     MDWord ts;
-    MFloat floatValue;
+    MInt64 llKeyLineId;// method == 2 此值必须要设置
+    MFloat floatValue;// 值
+    MFloat fOffsetValue;//整体关键帧的偏移
+    QVET_KEYFRAME_TRANSFORM_EXTINFO extInfo;//method==3 时，这个值是引擎用来储存贝塞尔曲线的信息的
+    QVET_KEYFRAME_EASINGINFO easingInfo;//缓动曲线配置
 }
 @end
 
@@ -390,5 +403,8 @@
 
 - (void)DestorySubItemSourceList;
 
+- (CXiaoYingPipStoryboardInfo *) getPipStoryboardInfo;
+
+- (MRESULT) setPipStoryboardInfo:(CXiaoYingPipStoryboardInfo *)poStoryboardInfo;
 @end // CXiaoYingEffect 
 

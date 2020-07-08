@@ -1,1 +1,1 @@
-../../../QVMediToolbarKit/QVMediToolbarKit/Classes/Common/QVMediToolbarManager.h
+../../../../../Pods/QVMediToolbarKit/QVMediToolbarKit/Classes/Common/QVMediToolbarManager.h

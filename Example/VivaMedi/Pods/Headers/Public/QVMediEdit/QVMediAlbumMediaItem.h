@@ -1,1 +1,1 @@
-../../../QVMediEdit/QVMediEdit/Classes/QVMediAlbumMediaItem.h
+../../../../../Pods/QVMediEdit/QVMediEdit/Classes/QVMediAlbumMediaItem.h

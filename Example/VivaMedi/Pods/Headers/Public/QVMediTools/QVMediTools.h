@@ -1,1 +1,1 @@
-../../../QVMediTools/QVMediTools/Classes/QVMediTools.h
+../../../../../Pods/QVMediTools/QVMediTools/Classes/QVMediTools.h

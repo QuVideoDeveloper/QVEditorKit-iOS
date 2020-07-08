@@ -1,22 +1,7 @@
+pod 'QVEditorKit', :path => '../Pods/QVEditorKit'
 
+pod 'QVMediToolbarKit', :path => '../Pods/QVMediToolbarKit'
 
-#pod 'XYCommonEngineKit', :path => '/Users/sunshine/Desktop/XYKit/common/XYCommonEngineKit'
-#pod 'XYCommonEngine', :path => '/Users/sunshine/Desktop/XYKit/common/XYCommonEngine'
-#pod 'XYTemplateDataMgr', :path => '/Users/sunshine/Desktop/XYKit/business/XYTemplateDataMgr'
-#pod 'QVEditor', :path => '/Users/sunshine/Desktop/XYKit/SDK/QVEditor'
-
-#pod 'QVMediToolbarKit', :path => '/Users/sunshine/Desktop/XYKit/demo/QVMediToolbarKit'
-
-#pod 'QVMediEdit', :path => '/Users/sunshine/Desktop/XYKit/demo/QVMediEdit'
-#pod 'QVMediCamera', :path => '/Users/sunshine/Desktop/XYKit/demo/QVMediCamera'
-#pod 'QVMediTools', :path => '/Users/sunshine/Desktop/XYKit/demo/QVMediTools'
-#pod 'QVMediCameraKit', :path => '/Users/sunshine/Desktop/XYKit/SDK/QVMediCameraKit'
-
-
-#pod 'QVBaseKit', :path => '/Users/sunshine/Desktop/XYKit/QVCommon/QVBaseKit'
-
-#pod 'XYDatabase', :path => '/Users/sunshine/Desktop/XYKit/common/XYDatabase'
-#pod 'XYReactDataBoard', :path => '/Users/sunshine/Desktop/XYKit/common/XYReactDataBoard'
-
-#pod 'QVEditorKit', :path => '/Users/sunshine/Desktop/githubSDk/QVEditorKit'
-
+pod 'QVMediEdit', :path => '../Pods/QVMediEdit'
+pod 'QVMediCamera', :path => '../Pods/QVMediCamera'
+pod 'QVMediTools', :path => '../Pods/QVMediTools'

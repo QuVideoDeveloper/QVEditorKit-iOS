@@ -1,1 +1,1 @@
-../../../QVMediEdit/QVMediEdit/Classes/UIImage+QVMediEdit.h
+../../../../../Pods/QVMediEdit/QVMediEdit/Classes/UIImage+QVMediEdit.h

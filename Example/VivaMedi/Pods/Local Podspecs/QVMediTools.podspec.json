@@ -1,6 +1,6 @@
 {
   "name": "QVMediTools",
-  "version": "1.0.3",
+  "version": "1.0.2",
   "summary": "XiaoYing - QVMediTools",
   "description": "XiaoYing pod  - QVMediTools",
   "homepage": "git@192.168.1.33:iOSDemoGroup/QVMediTools",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "git@192.168.1.33:iOSDemoGroup/QVMediTools.git",
-    "tag": "1.0.3"
+    "tag": "1.0.2"
   },
   "platforms": {
     "ios": "9.0"
@@ -24,5 +24,10 @@
       "QVMediTools/Assets/**/*.*"
     ]
   },
-  "source_files": "QVMediTools/Classes/**/*"
+  "source_files": "QVMediTools/Classes/**/*",
+  "dependencies": {
+    "QVCommonKit": [
+
+    ]
+  }
 }

@@ -1,1 +1,1 @@
-../../../QVMediEdit/QVMediEdit/Classes/Base/QVBaseNavigationController.h
+../../../../../Pods/QVMediEdit/QVMediEdit/Classes/Base/QVBaseNavigationController.h

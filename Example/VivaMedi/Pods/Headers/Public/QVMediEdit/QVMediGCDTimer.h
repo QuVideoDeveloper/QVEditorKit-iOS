@@ -1,1 +1,1 @@
-../../../QVMediEdit/QVMediEdit/Classes/VideoEdit/View/QVMediGCDTimer.h
+../../../../../Pods/QVMediEdit/QVMediEdit/Classes/VideoEdit/View/QVMediGCDTimer.h

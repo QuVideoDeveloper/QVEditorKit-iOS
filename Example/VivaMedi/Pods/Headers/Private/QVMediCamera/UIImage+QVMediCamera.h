@@ -1,1 +1,1 @@
-../../../QVMediCamera/QVMediCamera/Classes/UIImage+QVMediCamera.h
+../../../../../Pods/QVMediCamera/QVMediCamera/Classes/UIImage+QVMediCamera.h
