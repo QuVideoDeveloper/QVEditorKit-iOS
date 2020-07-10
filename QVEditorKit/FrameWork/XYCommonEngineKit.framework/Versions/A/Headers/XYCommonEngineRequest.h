@@ -16,15 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYCommonEngineRequest : NSObject
 
-//获取素材转场的时长
-+ (NSInteger)requestEffectTansDuration:(NSString *)effectTransFilePath
-                 editorPlayerViewFrame:(CGRect)editorPlayerViewFrame;
+/// 获取素材转场的时长
+/// @param effectTransFilePath 转场路径
++ (NSInteger)requestEffectTansDuration:(NSString *)effectTransFilePath;
 
-+ (MPOINT)requestStoryboardSizeWithInputWidth:(CGFloat)width
-                                   inputScale:(MSIZE)inputScale
-                                    isPhotoMV:(BOOL)isPhotoMV
-                             isAppliedEffects:(BOOL)isAppliedEffects;
-
+/// 判断转场是否可以编辑
+/// @param effectTransFilePath 转场路径
++ (BOOL)requestTranEditable:(NSString *)effectTransFilePath;
 
 /// 同步获取素材的缩略图
 /// @param visionModel visionModel
@@ -41,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
                                 size:(CGSize)size
                                block:(void(^)(UIImage *image))block;
 
-/// 同步步获取素材的缩略图，包括相册作为素材的
+/// 同步获取素材的缩略图，包括相册作为素材的
 /// @param visionModel 视觉效果对象
 /// @param size size 尺寸
 + (UIImage *)synchronousRequestEffectVisionThumbnail:(XYEffectVisionModel *)visionModel size:(CGSize)size;
@@ -54,6 +52,11 @@ NS_ASSUME_NONNULL_BEGIN
 ///将engineFilePath 转换成PHAsset
 /// @param engineFilePath engineFilePath
 + (PHAsset *)requestAssetByEngineFilePath:(NSString *)engineFilePath;
+
++ (MPOINT)requestStoryboardSizeWithInputWidth:(CGFloat)width
+      inputScale:(MSIZE)inputScale
+       isPhotoMV:(BOOL)isPhotoMV
+isAppliedEffects:(BOOL)isAppliedEffects;
 
 @end
 

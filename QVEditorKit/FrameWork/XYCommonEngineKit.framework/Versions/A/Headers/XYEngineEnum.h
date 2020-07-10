@@ -95,7 +95,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     
     
     //effect 相关taskID========================================================================effect 相关taskID
-    
+    XYCommonEngineTaskIDEffectUpdate,//用于删除clip 修剪clip等对效果起始点及长度的修改或者删除
     
     //背景音乐相关的
     
