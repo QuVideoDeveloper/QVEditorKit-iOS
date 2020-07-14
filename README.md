@@ -992,8 +992,24 @@ clipEffectModel 参数说明：
     XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
     clipModel.taskID = XYCommonEngineTaskIDClipTransition;
     clipModel.clipEffectModel.effectTransFilePath = effectTransFilePath;
+    effectModel.transDuration = [XYCommonEngineRequest requestEffectTansDuration:effectModel.effectTransFilePath];
     [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
+
+23）修改转场时长
+```
+// clipIndex表示第几个片段，从0开始
+
+BOOL editable = [XYCommonEngineRequest requestTranEditable:clipModel.clipEffectModel.effectTransFilePath];//判断是否可以修改转场时长
+if (editable) {
+    XYClipModel *clipModel = [[XYEngineWorkspace clipMgr] fetchClipModelObjectAtIndex:clipIndex];
+    clipModel.taskID = XYCommonEngineTaskIDClipTransition;
+    clipModel.clipEffectModel.effectTransFilePath = effectTransFilePath;
+    effectModel.transDuration = transDuration;
+    [[XYEngineWorkspace clipMgr] runTask:clipModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
+    }
+```
+
 clipEffectModel参数说明：
 | 名称  | 解释 | 类型 |
 | :-: | :-: | :-: | 
