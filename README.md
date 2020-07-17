@@ -1602,6 +1602,8 @@ XYProjectExportConfiguration 参数说明：
 | fps | 自定义帧率,  默认30 | int |
 | isFullKeyFrame | 是否纯i帧，只支持转码时使用 | boolean |
 | trimRange | 导出时间区域 | XYVeRangeModel |
+| resolution |导出分辨率类型 | XYEngineResolution |
+
 
 XYProjectExportMgr 导出管理类说明：
 ```
