@@ -8,6 +8,7 @@
 #ifndef XYEngineEnum_h
 #define XYEngineEnum_h
 #import "XYEngineDef.h"
+#import <XYCommonEngine/CXiaoYingInc.h>
 
 typedef NS_ENUM(NSInteger, XYCommonEngineClipModuleType) {
     XYCommonEngineClipModuleImage = AMVE_IMAGE_CLIP,

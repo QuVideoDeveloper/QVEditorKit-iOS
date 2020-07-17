@@ -58,6 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) void(^completionBlock)(BOOL success, NSError *error, id obj);
 - (void)run;
 - (void)engineOperate;//需要子类实现
+- (void)engineOperateEnd;//需要子类实现
 - (XYEngine *)engine;
 
 @end

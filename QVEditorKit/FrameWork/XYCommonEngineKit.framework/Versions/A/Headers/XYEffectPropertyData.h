@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYEffectPropertyData : XYBaseCopyModel
 @property (nonatomic, assign) XYCommonEngineRatioFitType fitType;
-@property (nonatomic, assign) CGFloat backgroundBlurValue;//背景模糊
+@property (nonatomic, assign) CGFloat backgroundBlurValue;//背景模糊 值范围 0 - 100
 @property (nonatomic, assign) NSInteger linearGradientAngle; //线性渐变的旋转角度 默认为水平方向，取值范围：0~360，对应的角度：0~360，单位为°
 @property (nonatomic, copy) NSArray *backgroundColorList;//严格要求排序是起始颜色 中间颜色 结束颜色   数组里的对象  格式（0Xffffff）
 

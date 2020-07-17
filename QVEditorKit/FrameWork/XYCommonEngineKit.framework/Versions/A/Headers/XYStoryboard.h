@@ -71,6 +71,8 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 @property (nonatomic, weak) id<XYStoryboardEditTextParserDelegate> textParserDelegate;
 
 @property (nonatomic, weak) id<QVEngineDataSourceProtocol> textDataSourceDelegate;
+/// 是否开启日志的打印
+@property (nonatomic, assign) BOOL isPrintLog;
 
 
 //模版解析delegate
@@ -478,5 +480,7 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 //- (AMVE_MUL_BUBBLETEXT_INFO *)fetchTemplateMultiTextInfo:(NSString *)templatePath;
 
 - (NSString *)fetchLanguageCode;//向外部获取语言
+
++ (void)printLog:(NSString *)log errorCode:(NSInteger)errorCode;
 
 @end

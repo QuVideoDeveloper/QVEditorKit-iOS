@@ -16,7 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XYEffectVisionKeyFrameModel : XYBaseCopyModel
 
 @property (nonatomic, assign) NSInteger position;//时间点，单位ms
-@property (nonatomic, assign) NSInteger rotation;//旋转角度 0 - 360
+@property (nonatomic, assign) NSInteger rotation;//旋转角度 0 - 360 Z轴的旋转
+@property (nonatomic, assign) NSInteger rotationY;//旋转角度 0 - 360 Y轴的旋转
+@property (nonatomic, assign) NSInteger rotationZ;//旋转角度 0 - 360 Z轴的旋转
+
 @property (nonatomic, assign) CGPoint centerPoint;//中心点坐标
 @property (nonatomic, assign) float width;//效果宽度
 @property (nonatomic, assign) float height;//效果高度
@@ -32,17 +35,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat defaultWidth; //默认宽度，素材中提取
 @property (nonatomic, assign) CGFloat defaultHeight; //默认高度，素材中提取
 @property (nonatomic, assign) BOOL reCalculateFrame; // YES不管当前宽高，重新计算宽高
-@property (nonatomic, assign) CGFloat width; //当前宽度
-@property (nonatomic, assign) CGFloat height; //当前高度
 @property (nonatomic, assign) CGFloat maxWidth; //最大的宽
 @property (nonatomic, assign) CGPoint centerPoint; //相对于播放界面的中心点坐标
-@property (nonatomic, assign) NSInteger rotation; //旋转角度，顺时针 0 - 360
 @property (nonatomic, assign) CGFloat alpha; //透明度，默认1.0
 @property (nonatomic, assign) CGFloat propData; //程度调节，默认1.0
 @property (nonatomic, assign) BOOL hasAudio; //是否带音效
 @property (nonatomic, assign) BOOL verticalReversal; //竖直翻转
 @property (nonatomic, assign) BOOL horizontalReversal; //水平翻转
-@property (nonatomic, assign) CGPoint anchor; //锚点,(0,0)为效果的左上角位置，（0.5，0.5）表示效果的中心，（1.0，1.0）表示效果的右下角。默认是(0.5,0.5) 。取值范围是0~1
+
+@property (nonatomic, assign) CGFloat width; //当前宽度
+@property (nonatomic, assign) CGFloat height; //当前高度
+@property (nonatomic, assign) CGFloat depth; //深度 默认值是0 表示2d
+@property (nonatomic, assign) NSInteger rotation; //旋转角度，顺时针 0 - 360 z轴旋转
+@property (nonatomic, assign) NSInteger x_rotation; //旋转角度，顺时针 0 - 360 x轴旋转
+@property (nonatomic, assign) NSInteger y_rotation; //旋转角度，顺时针 0 - 360 y轴旋转
+@property (nonatomic) CGPoint anchor; //锚点,(0,0,0)为效果的左上角位置，（0.5，0.5，0.5）表示效果的中心，（1.0，1.0，1.0）表示效果的右下角。默认是(0.5,0.5, 0) 。取值范围是0~1
+
 @property (nonatomic, assign) BOOL isFrameMode; //YES的情况下，应用到全透明的Storyboard上也是透明的，否则背景会变黑
 @property (nonatomic, assign) BOOL defaultIsStaticPicture; //该视觉效果默认是否静态
 @property (nonatomic, assign) BOOL isStaticPicture; //YES的情况下，该效果将会静态展示

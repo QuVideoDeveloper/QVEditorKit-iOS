@@ -7,11 +7,11 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, XYEngineExportType) {
-    XYEngineExportType480 = 0,
-    XYEngineExportType720,
-    XYEngineExportType1080,
-    XYEngineExportType4k,
+typedef NS_ENUM(NSInteger, XYEngineResolution) {
+    XYEngineResolution480 = 0,
+    XYEngineResolution720,
+    XYEngineResolution1080,
+    XYEngineResolution4k,
 };
 
 @class XYVeRangeModel, XYStoryboard;
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *exportingFilePath;
 
 /// 导出分辨率类型
-@property (nonatomic, assign) XYEngineExportType expType;
+@property (nonatomic, assign) XYEngineResolution resolution;
 
 /// 自定义的导出分辨率限制，使用自定义的话，expType就不重要了
 @property (nonatomic, assign) CGSize customLimitSize;

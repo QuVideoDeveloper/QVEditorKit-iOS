@@ -22,14 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 @class PHAsset;
 
 @interface XYClipModel : XYBaseEngineModel
-
 @property (nonatomic, copy) NSString *clipFilePath;
 @property (nonatomic, copy) NSString *filterFilePath;
 @property (nonatomic) NSInteger filterConfigIndex;
 @property (nonatomic, copy) NSString *musicFilePath;
 @property (nonatomic) NSInteger dwMusicTrimStartPos;
 @property (nonatomic) NSInteger dwMusicTrimLen;
-@property (nonatomic) CGRect cropRect;
+@property (nonatomic) CGRect cropRect;//比例 (0,0,1,1)表示裁剪的区域时全部
 @property (nonatomic) NSInteger rotation;//值范围 0-360
 @property (nonatomic) NSInteger clipIndex;//当前的clipIndex
 @property (nonatomic) NSInteger globalIndex;//用于切换到了临时storyboard 时使用
@@ -59,7 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) XYClipModel *duplicateClipModel;
 @property (nonatomic, assign) CGSize clipSize;//clip 的原始尺寸
-@property (nonatomic, assign) CGSize sourceSize;//源视频宽高，相对streamSize的尺寸
 
 //交互顺序
 @property (nonatomic, assign) NSInteger sourceIndex;
@@ -70,6 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger frontTransTime;//转场前部分时间
 @property (nonatomic, assign) NSInteger backTransTime;//转场后部分时间
 @property (nonatomic, assign) NSInteger fixTime;//用于缩略图的起始时间的校准
+@property (readonly, nonatomic, copy) NSDictionary *clipParam;
 
 
 /// 根据phAsset 获取到给引擎的镜头路径
