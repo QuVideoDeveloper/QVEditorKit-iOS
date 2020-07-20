@@ -21,10 +21,20 @@ typedef NS_ENUM(NSInteger, XYProjectType) {
     XYProjectTypeSlideShow,//幻灯片
 };
 
+typedef NS_ENUM(NSInteger, XYProjectExportType) {
+    XYProjectExportTypeVideo = 0,//导出视频
+    XYProjectExportTypeGIF,//导出GIF
+    XYProjectExportTypeWebp,//导出webp
+    XYProjectExportTypeAudio,//导出音频
+
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XYProjectExportConfiguration : NSObject
 
+/// 导出类型 默认导出视频
+@property (nonatomic, assign) XYProjectExportType exportType;
 
 /// 工程的类型 默认是正常的编辑工程
 @property (nonatomic, assign) XYProjectType projectType;
@@ -54,9 +64,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// 水印的样式 对应的水印样式模版的id
 @property (nonatomic, assign) long long llWaterMarkID;
 
-/// 导出的是否是GIF
-@property (nonatomic, assign) BOOL isGIF;
-
 /// 导出的fps 默认30
 @property (nonatomic, assign) NSInteger fps;
 
@@ -65,9 +72,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 比特率系数；在原计算出来的BitRate基础上乘以该系数 值范围 [1, 10] 默认值为1
 @property (nonatomic) CGFloat bitRate;
-
-/// 导出是否是音频
-@property (nonatomic, assign) BOOL isAudio;
 
 /// 用于提取音频
 @property (nonatomic, strong) XYStoryboard *storyboard;
