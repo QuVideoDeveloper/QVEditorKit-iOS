@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// 导出的视频的range 默认是全长 如导出GIF 需要设置trimRange
-@property (nonatomic, assign) XYVeRangeModel *trimRange;
+@property (nonatomic, strong) XYVeRangeModel *trimRange;
 
 /// 导出视频填充背景颜色 默认是黑色 格式是 0x000000
 @property (nonatomic, assign) NSInteger bgColor;
