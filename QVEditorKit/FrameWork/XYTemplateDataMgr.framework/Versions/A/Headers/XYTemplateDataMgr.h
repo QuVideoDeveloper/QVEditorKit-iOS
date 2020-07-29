@@ -13,7 +13,6 @@
 #import "XYTemplateDBDefine.h"
 #import "XYTemplateDBMgr.h"
 
-
 typedef NS_ENUM(NSInteger, XYTemplateDataType) {
     XYTemplateDataTypeTheme = AMVE_STYLE_MODE_THEME,//主题
     XYTemplateDataTypeThemeCover = AMVE_STYLE_MODE_COVER,//主题封面
@@ -205,5 +204,28 @@ typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
 
 - (MSIZE)getThemeInnerBestSize:(UInt64)themeId;//获取主题里推荐的比例
 + (BOOL)IsPhotoTemplate:(UInt64)themeId;
+
+/// 获取素材的时间
+/// @param templateFilePath 素材的路径
+- (NSInteger)requestTemplateDurationWithTemplateFilePath:(NSString *)templateFilePath;
+
+/// 获取素材转场的时长
+/// @param effectTransFilePath 转场路径
+- (NSInteger)requestEffectTansDuration:(NSString *)effectTransFilePath;
+
+/// 判断转场是否可以编辑
+/// @param effectTransFilePath 转场路径
+- (BOOL)requestTranEditable:(NSString *)effectTransFilePath;
+
+/// 获取素材的缩略图，包括相册作为素材的
+/// @param filePath 素材路径
+/// @param isSynchronous 是否是同步
+/// @param targetSize targetSize 尺寸
+/// @param resultHandler main block
+
+- (void)requestEffectVisionThumbnail:(NSString *)filePath
+                     isSynchronous:(BOOL)isSynchronous
+                        targetSize:(CGSize)targetSize
+                     resultHandler:(void(^)(UIImage *image))resultHandler;
 
 @end
