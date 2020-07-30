@@ -34,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) XYEffectRelativeClipInfo *relativeClipInfo;//相对clip上的range 起始点在哪个clip就相对哪个clip
 
+@property (nonatomic, copy) NSString *visionTitle;
+
 @end
 
 @interface XYEffectModel : XYBaseEngineModel
