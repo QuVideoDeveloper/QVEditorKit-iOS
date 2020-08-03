@@ -20,6 +20,9 @@ it, simply add the following line to your Podfile:
 Podfile 文件中加上：
 inhibit_all_warnings!
 pod 'QVEditorKit'
+pod 'SSZipArchive'
+pod 'YYImage/WebP'
+
 ```
 ## 小影 iOS 剪辑SDK 接入文档
 ### 一、名词解释
