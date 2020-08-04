@@ -20,6 +20,9 @@ it, simply add the following line to your Podfile:
 Podfile 文件中加上：
 inhibit_all_warnings!
 pod 'QVEditorKit'
+pod 'SSZipArchive'
+pod 'YYImage/WebP'
+
 ```
 ## 小影 iOS 剪辑SDK 接入文档
 ### 一、名词解释
@@ -226,7 +229,7 @@ typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
 
 ```
 #### 1. 剪辑工程
-##### 创建和加载
+##### 创建、保存和加载工程
 ```
   /**
    * 创建新的工程
@@ -244,7 +247,14 @@ typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
  [[XYEngineWorkspace projectMgr] runTask:newProject completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
     }];
 
-
+ /**
+   * 保存工程
+   */
+   XYQprojectModel *newProject = [[XYQprojectModel alloc] init];
+ newProject.prjFilePath = @"draftProjectFilePath"//保存工程的路径
+ newProject.taskID = XYCommonEngineTaskIDQProjectSaveProject;
+ [[XYEngineWorkspace projectMgr] runTask:newProject completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {
+    }];
 ```
 
 ##### 工程删除
