@@ -113,8 +113,11 @@ destRange：出入区间，效果在工程上的起始点和长度。
 <img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/EnableBitcode_ios.png" width="400" height="132" align="center">
 
 3.添加SDK
-Podfile 文件中添加后执行pod update
-pod 'QVEditorKit'
+
+Podfile 文件中添加 pod 'QVEditorKit'
+
+后执行pod update
+
 
 #### 3. 剪辑SDK初始化
 QVEditor是趣维SDK的初始化类。 
