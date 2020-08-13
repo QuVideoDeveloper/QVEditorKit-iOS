@@ -1669,7 +1669,7 @@ XYProjectExportMgr 导出管理类说明：
 【详情请参看剪辑工程播放器相关。】
 
 #### 3. 获取片段节点信息
-
+NSArray XYSlideShowSourceNode *> *nodeList = [XYSlideShowEditor sharedInstance].clipMgr fetchSlideShowSourceNodes]
 
 #### 4. 卡点视频剪辑功能接口
 1）排序
