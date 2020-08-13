@@ -45,7 +45,7 @@ pod 'YYImage/WebP'
 17. 素材包ID：素材包的唯一标识，安装素材后，可以通过解析素材获取。详情可以参考【素材管理】一节。
 
 
-### 二、基础结构与概念（要不要写待定）
+### 二、基础结构与概念
 ####  1. 支持格式
 * 输入规范：
 
@@ -113,8 +113,11 @@ destRange：出入区间，效果在工程上的起始点和长度。
 <img src="https://github.com/QuVideoDeveloper/QVEditorKit-iOS/blob/master/IMG/EnableBitcode_ios.png" width="400" height="132" align="center">
 
 3.添加SDK
-Podfile 文件中添加后执行pod update
-pod 'QVEditorKit'
+
+Podfile 文件中添加 pod 'QVEditorKit'
+
+后执行pod update
+
 
 #### 3. 剪辑SDK初始化
 QVEditor是趣维SDK的初始化类。 
@@ -1669,7 +1672,7 @@ XYProjectExportMgr 导出管理类说明：
 【详情请参看剪辑工程播放器相关。】
 
 #### 3. 获取片段节点信息
-
+NSArray XYSlideShowSourceNode *> *nodeList = [XYSlideShowEditor sharedInstance].clipMgr fetchSlideShowSourceNodes]
 
 #### 4. 卡点视频剪辑功能接口
 1）排序
