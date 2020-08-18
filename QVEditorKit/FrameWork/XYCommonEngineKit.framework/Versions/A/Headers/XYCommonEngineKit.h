@@ -74,6 +74,7 @@
 #import <XYCommonEngineKit/XYKeyRotationInfo.h>
 #import <XYCommonEngineKit/XYKeyAlphaInfo.h>
 #import <XYCommonEngineKit/XYVideoThumbnailManager.h>
+#import <XYCommonEngineKit/XYEngineAudioPlayer.h>
 
 
 #endif /* XYCommonEngineKit_h */
