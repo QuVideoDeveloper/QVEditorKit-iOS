@@ -6,16 +6,14 @@
 //
 
 #import "XYBaseKeyFrame.h"
+#import "XYVe3DDataF.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XYKeyScaleInfo : XYBaseKeyFrame
 
-/// 宽相对于原始的宽的放大倍数
-@property (nonatomic, assign) CGFloat widthScale;
-
-/// 宽相对于原始的高的放大倍数
-@property (nonatomic, assign) CGFloat heightScale;
+/// 相对于当前的尺寸的放大倍数 默认值为(1,1,1)
+@property (nonatomic, strong) XYVe3DDataF *scale;
 
 @end
 

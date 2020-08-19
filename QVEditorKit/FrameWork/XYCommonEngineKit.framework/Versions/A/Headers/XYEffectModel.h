@@ -33,7 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDictionary *extendParams; // 扩展参数
 
 @property (nonatomic, strong) XYEffectRelativeClipInfo *relativeClipInfo;//相对clip上的range 起始点在哪个clip就相对哪个clip
-
 @property (nonatomic, copy) NSString *visionTitle;
 
 @end
@@ -48,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat  voiceChangeValue;//变声值
 @property (nonatomic, assign) BOOL isInvalid;//是否失效的
 @property (nonatomic, copy) NSString *filePath;
-@property (nonatomic, assign) NSInteger templateID;
+@property (nonatomic, assign) UInt64 templateID;
 @property (nonatomic, copy) NSString *title;//如音乐的名称
 @property (nonatomic, assign) NSInteger duplicateStartPos;//复制效果的起始点
 
@@ -71,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateRelativeClipInfo;//刷新相对clip的数据 添加 手动修改mDestVeRange都需要刷新下
 - (void)adjustEffect;//clip造成effct的重新计算  delete 或者 被修改mDestVeRange
 - (void)updateIndexInStoryboard:(NSInteger)indexInStoryboard;
-
+- (void)onGetEffectMaskInfo:(CXiaoYingEffect *)pEffect streamSize:(CGSize)streamSize;
 @end
 
 NS_ASSUME_NONNULL_END

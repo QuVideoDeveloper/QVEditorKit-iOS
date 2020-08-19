@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) CGFloat storyboardRatioValue;
 
 @property (nonatomic, assign) BOOL     isMute;//是否静音  type为video时有效
-@property (nonatomic, assign) CGFloat  volumeValue;//音量值 值范围
+@property (nonatomic, assign) CGFloat  volumeValue;//音量值 值范围 0- 200 100是原声音量 
 @property (nonatomic, assign) CGFloat  voiceChangeValue;//变声值 值范围 -60~60
 @property (nonatomic, assign) CGFloat  speedValue;//视频变速
 @property (nonatomic, assign) BOOL     speedAdjustEffect;//视频变速是否刷新效果

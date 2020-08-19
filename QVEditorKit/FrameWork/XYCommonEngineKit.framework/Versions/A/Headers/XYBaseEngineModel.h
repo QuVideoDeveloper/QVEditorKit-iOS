@@ -9,12 +9,6 @@
 #import "XYCommonEngineGlobalData.h"
 #import "XYBaseCopyModel.h"
 
-struct CGAnchorPoint {
-    CGFloat x;
-    CGFloat y;
-    CGFloat z;
-};
-
 typedef NS_ENUM(NSInteger, XYEngineModelType) {
     XYEngineModelTypeClip,
     XYEngineModelTypeAudio,

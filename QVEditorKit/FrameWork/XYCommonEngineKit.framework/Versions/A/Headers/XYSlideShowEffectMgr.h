@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class XYSlideShowMusicModel, XYSlideShowThemeTextInfo;
+@class XYSlideShowMusicModel, XYSlideShowThemeTextInfo ,XYSlideShowThemeTextScene;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,10 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 ///应用主题
 ///return 判断是否应用主题成功。返回YES则主题运用成功，NO则运用失败。
 /// @param themeID 主题id
-- (BOOL)applyTheme:(NSInteger)themeID;
+- (BOOL)applyTheme:(UInt64)themeID;
 
 /// 获得当前主题的id
-- (NSInteger)fetchCurrentThemeId;
+- (UInt64)fetchCurrentThemeId;
 
 /// 移除当前主题
 - (void)removeCurrentTheme;
@@ -34,13 +34,20 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取默认的音乐 如主题自带的音乐
 - (NSString *)fetchDefaultMusic;
 
-/// 获取主题字幕列表
-- (NSArray<XYSlideShowThemeTextInfo *> *)fetchThemeTextInfos;
+/// 获取工程所有主题字幕
+- (NSArray<XYSlideShowThemeTextInfo *> *)fetchSlideShowThemeTextInfos;
+
+/// 获取工程场景字幕的信息
+- (NSArray<XYSlideShowThemeTextScene *> *)fetchSlideShowThemeTextScenes;
 
 /// 更新主题字幕
 /// @param themeTextInfo 字幕对象
 - (void)updateThemeText:(XYSlideShowThemeTextInfo *)themeTextInfo;
 
+/// <#Description#>
+/// @param sceneIdx <#sceneIdx description#>
+- (NSArray <XYSlideShowThemeTextInfo *> *)fetchSlideShowThemeTextListBySceneIndex:(NSInteger)sceneIdx
+;
 /// 设置静音
 /// return 判断是否应用成功。返回YES则用成功，NO则运用失败。
 /// @param mute YES为静音，NO则不为静音

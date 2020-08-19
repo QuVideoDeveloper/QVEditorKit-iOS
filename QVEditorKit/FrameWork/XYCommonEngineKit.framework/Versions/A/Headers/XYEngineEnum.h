@@ -20,9 +20,9 @@ typedef NS_ENUM(NSInteger, XYCommonEngineClipModuleType) {
 };
 
 typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
-    XYCommonEngineTaskNone,
+    XYCommonEngineTaskNone = 0,
     //获取引擎数据 不在内存中能拿到的数据 需引擎取
-    XYCommonEngineTaskIDAchieveEngineTaskHandle = 0,
+    XYCommonEngineTaskIDAchieveEngineTaskHandle,
     XYCommonEngineTaskIDObserverEveryTaskStart,//每个引擎操作开始前回调 ⚠️注意回调是在子线程
     XYCommonEngineTaskIDObserverEveryTaskFinish,//每个引擎操作完成后回调 ⚠️注意回调是在子线程
     XYCommonEngineTaskIDFinanceObserverEveryTaskFinish,//每个引擎操作完成后回调 ⚠️注意回调是在子线程 ⚠️ 给变现用
@@ -122,10 +122,13 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDEffectVisionUpdate,  //更新可视效果 用这个model：XYEffectVisionModel 里面的参数都可以修改
     XYCommonEngineTaskIDEffectVisionDuplicate, //复制一个可视效果
     XYCommonEngineTaskIDEffectVisionDelete,  //删除可视效果 用这个model：XYEffectVisionModel 需要确保pEffect有值
+    XYCommonEngineTaskIDEffectVisionKeyFrameUpdate, //关键帧添加和更新
     //可视效果-字幕
     XYCommonEngineTaskIDEffectVisionTextAdd,  //添加字幕效果 用这个model：XYEffectVisionTextModel
     XYCommonEngineTaskIDEffectVisionTextUpdate,  //更新字幕效果 用这个model：XYEffectVisionTextModel 里面的参数都可以修改
     XYCommonEngineTaskIDEffectVisionDelelteKeyFrame,  //根据visionModels 删除关键帧
+    XYCommonEngineTaskIDEffectVisionUpdate3dInfo,  //中心点：center，尺寸大小：size，相对中心的（锚点偏移量）anchorOffset
+
     //高级功能 混合模式 画中画
     XYCommonEngineTaskIDEffectVisionPinInPicOverlayUpdate,//混合模式
     XYCommonEngineTaskIDEffectVisionPinInPicChromaUpdate,//画中画抠图（绿幕）
@@ -232,7 +235,21 @@ typedef NS_ENUM(NSInteger,  XYKeyFrameType) {
     XYKeyFrameTypePosition = 0, //位置关键帧
     XYKeyFrameTypeRotation, //旋转关键帧
     XYKeyFrameTypeScale, //缩放关键帧
+    XYKeyFrameTypeAnchorOffset,
     XYKeyFrameTypeAlpha, //透明度关键帧
+    XYKeyFrameTypeMask, //蒙版关键帧
+    XYKeyFrameTypeAttribute //属性关键帧
+};
+
+typedef NS_ENUM(NSInteger,  XYKeyFrameOffsetOpcodeType) {
+    XYKeyFrameOffsetOpcodeTypePlus = KEYFRAME_TRANSFORM_COMMON_OFFSET_TYPE_PLUS, //相对offset 做加法操作
+    XYKeyFrameOffsetOpcodeTypeMul = KEYFRAME_TRANSFORM_COMMON_OFFSET_TYPE_MUL, //相对offset 做乘法操作
+};
+
+typedef NS_ENUM(NSInteger,  XYMethodKeyFrameType) {
+    XYMethodKeyFrameTypeNormal = METHOD_KEYFRAME_TYPE_LINEAR_INTER, //普通线性插值
+    XYMethodKeyFrameTypeLinear = METHOD_KEYFRAME_TYPE_KEY_LINEAR, //在线条上进行线性插值，需要模板 暂不支持
+    XYMethodKeyFrameTypeBezier = METHOD_KEYFRAME_TYPE_BEZIER_INTER, //bezier curve interpolation
 
 };
 

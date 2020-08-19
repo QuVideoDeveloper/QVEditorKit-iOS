@@ -25,13 +25,13 @@
 @property (nonatomic, assign) MFloat layerID;
 
 @property (nonatomic, assign) MFloat fRotateAngle;//度数
-@property (nonatomic, assign) MPOINT ptRotateCenter;
+//@property (nonatomic, assign) MPOINT ptRotateCenter;
 @property (nonatomic, assign) MRECT rcRegionRatio;
 @property (nonatomic, assign) MBool bVerReversal;
 @property (nonatomic, assign) MBool bHorReversal;
 @property (nonatomic, assign) BOOL isFrameMode;     //isFrameMode为YES的情况下，贴纸应用到全透明的Storyboard上也是透明的，否则背景会变黑
 @property (nonatomic, assign) BOOL isStaticPicture; //isStaticPicture为YES的情况下，动画贴纸的将会静态展示
-@property (nonatomic, assign) BOOL isInstantRefresh;
+//@property (nonatomic, assign) BOOL isInstantRefresh;
 
 @property (nonatomic, assign) MFloat mosaicRatio;
 @property (nonatomic, assign) MFloat alpha;

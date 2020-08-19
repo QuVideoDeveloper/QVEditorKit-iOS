@@ -76,6 +76,11 @@
 //马赛克像素化最小值
 #define VIVAVIDEO_MOSAIC_PIXEL_MIN_VALUE     10
 
+//效果插件的sub type 最小值
+#define EFFECT_SUB_TYPE_MIN     5000
+
+//效果插件的sub type 最大值
+#define EFFECT_SUB_TYPE_MAX     6000
 
 #define XY_CUSTOM_COVER_BACK_IDENTIFIER    @"xy_custom_cover_back_identifier"
 

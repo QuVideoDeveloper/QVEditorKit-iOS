@@ -86,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///设置混合模板及透明度
 /// @param effectVisionModel effectVisionModel
-- (void)setEffectOverlayInfo:(nonnull XYEffectVisionModel *)effectVisionModel;
+- (CXiaoYingEffect *)setEffectOverlayInfo:(nonnull XYEffectVisionModel *)effectVisionModel;
 
 ///设置混合蒙版
 - (void)setEffectMaskInfo:(nonnull XYEffectVisionModel *)effectVisionModel;
@@ -113,6 +113,19 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置更新关键帧
 /// @param effectVisionModel effectVisionModel
 - (void)handleSetEffectKeyFrameInfo:(XYEffectVisionModel *)effectVisionModel;
+
+
+/// 设置3d信息
+/// @param effectVisionModel effectVisionModel
+ - (void)set3DTransform:(XYEffectVisionModel *)effectVisionModel;
+
+/// 设置更新关键帧
+/// @param effectVisionModel effectVisionModel
+- (void)handleSetEffectKeyFrameInfo:(XYEffectVisionModel *)effectVisionModel;
+
+/// 设置画中画效果插件
+/// @param effectVisionModel effectVisionModel
+- (void)setEffectEffectPlugin:(nonnull XYEffectVisionModel *)effectVisionModel;
 
 @end
 

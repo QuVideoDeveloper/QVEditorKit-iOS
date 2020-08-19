@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XYKeyAlphaInfo : XYBaseKeyFrame
 
 /// 不透明度 0~100
-@property (nonatomic, assign) NSInteger alpha;
+@property (nonatomic, assign) CGFloat alpha;
 
 @end
 

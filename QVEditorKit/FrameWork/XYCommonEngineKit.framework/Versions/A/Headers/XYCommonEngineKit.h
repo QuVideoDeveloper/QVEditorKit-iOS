@@ -68,13 +68,20 @@
 #import <XYCommonEngineKit/XYSlideShowConfiguration.h>
 #import <XYCommonEngineKit/XYEngineWorkspace.h>
 #import <XYCommonEngineKit/QVEngineDataSourceProtocol.h>
+#import <XYCommonEngineKit/XYKeyBezierCurve.h>
 #import <XYCommonEngineKit/XYEffectKeyFrameInfo.h>
 #import <XYCommonEngineKit/XYKeyPosInfo.h>
 #import <XYCommonEngineKit/XYKeyScaleInfo.h>
 #import <XYCommonEngineKit/XYKeyRotationInfo.h>
+#import <XYCommonEngineKit/XYKeyAnchorOffsetInfo.h>
 #import <XYCommonEngineKit/XYKeyAlphaInfo.h>
 #import <XYCommonEngineKit/XYVideoThumbnailManager.h>
+#import <XYCommonEngineKit/XYVe3DDataF.h>
+#import <XYCommonEngineKit/XYEffectPropertyInfoModel.h>
+#import <XYCommonEngineKit/XYEffectPropertyItemModel.h>
 #import <XYCommonEngineKit/XYEngineAudioPlayer.h>
+
+
 
 
 #endif /* XYCommonEngineKit_h */

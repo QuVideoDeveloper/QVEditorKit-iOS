@@ -47,11 +47,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// 在源的数组中的位置
 @property (nonatomic) NSInteger idx;
 
-@property(readonly,nonatomic) CXIAOYING_TRANSFORM_PARAMETERS transformPara;
+/// 在播放器stremSize的中心点
+@property (nonatomic, readonly) CGPoint point;
+
+/// 在播放器stremSize的宽高
+@property (nonatomic, readonly) CGSize size;
+
 
 @property (nonatomic, strong, nonnull) CXiaoYingVirtualSourceInfoNode *vSourceInfoNode;
 
-- (void)updateTransformWithMedia:(XYSlideShowMedia *)media;
 - (instancetype)initWithVSourceInfoNode:(CXiaoYingVirtualSourceInfoNode *)vSourceInfoNode;
 
 @end

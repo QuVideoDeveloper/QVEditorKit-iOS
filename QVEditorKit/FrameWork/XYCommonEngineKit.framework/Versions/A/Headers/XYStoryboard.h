@@ -21,6 +21,8 @@
 #import "XYPlayerView.h"
 #import "QVEngineDataSourceProtocol.h"
 
+@class XYEffectPropertyInfoModel;
+
 static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineAppVersion";
 
 
@@ -41,7 +43,12 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 @protocol XYStoryboardTemplateDelegate <NSObject>
 
 - (NSString *)onGetTemplateFilePathWithID:(UInt64)templateID;
+- (UInt64)onGetTemplateIDWithTemplateFilePath:(NSString *)TemplateFilePath;
+
 - (NSInteger)onGetThemeCoverPositionByThemeId:(UInt64)themeId;
+/// 根据模板id 获取模板信息 此接口是获取参数调节模板，效果插件模板信息
+/// @param templateID 模板id
+- (XYEffectPropertyInfoModel *)onGetEffectPropertyInfoWithTemplateID:(UInt64)templateID;
 @end
 
 @interface XYStoryboardSaveConfig : NSObject

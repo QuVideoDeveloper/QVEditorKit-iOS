@@ -238,4 +238,8 @@
 
 - (void)updateEffectGroupID:(CXiaoYingEffect *)pEffect groupID:(MDWord)groupID;
 
+//效果变声
+- (MRESULT )updateAuioPicthEffect:(int)index tracktype:(MDWord)dwTrackType groupID:(MDWord)groupID volumeValue:(MFloat)picthValue;
+
+- (MFloat)audioPitchEffectIndex:(int)index trackType:(MDWord)dwTrackType groupID:(MDWord)groupID;
 @end

@@ -6,7 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <XYCommonEngineKit/XYEngine.h>
+#import "XYEngine.h"
+
 typedef NS_ENUM(NSInteger,XYEngineAudioPlayerPlayState) {
     XYEngineAudioPlayerPlayStateReady = AMVE_PROCESS_STATUS_READY,
     XYEngineAudioPlayerPlayStateRunning = AMVE_PROCESS_STATUS_RUNNING,

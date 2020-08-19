@@ -7,7 +7,7 @@
 
 #import "XYEffectModel.h"
 
-@class XYEffectPicInPicOverlayInfo, XYEffectPicInPicMaskInfo, XYEffectPicInPicChromaInfo, XYEffectPicInPicFilterInfo, XYEffectPicInPicSubFx, XYAdjustItem, XYEffectKeyFrameInfo;
+@class XYEffectPicInPicOverlayInfo, XYEffectPicInPicMaskInfo, XYEffectPicInPicChromaInfo, XYEffectPicInPicFilterInfo, XYEffectPicInPicSubFx, XYAdjustItem, XYEffectKeyFrameInfo, XYVe3DDataF, XYEffectPropertyInfoModel, XYEffectPropertyItemModel, XYEffectPropertyKeyInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,15 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XYEffectVisionKeyFrameModel : XYBaseCopyModel
 
 @property (nonatomic, assign) NSInteger position;//时间点，单位ms
-@property (nonatomic, assign) NSInteger rotation;//旋转角度 0 - 360 Z轴的旋转
-@property (nonatomic, assign) NSInteger rotationY;//旋转角度 0 - 360 Y轴的旋转
-@property (nonatomic, assign) NSInteger rotationZ;//旋转角度 0 - 360 Z轴的旋转
-
-@property (nonatomic, assign) CGPoint centerPoint;//中心点坐标
-@property (nonatomic, assign) float width;//效果宽度
-@property (nonatomic, assign) float height;//效果高度
-
-@property (nonatomic, assign) BOOL needUpdateFrameModelLater;//是否需要在设置到引擎之前再次更新
+@property (nonatomic, strong) XYVe3DDataF *degree;//旋转角度 0 - 360
+@property (nonatomic, strong) XYVe3DDataF *center;//中心点坐标 z方向中心点，< 0往屏幕外， > 0 往屏幕里
+@property (nonatomic, strong) XYVe3DDataF *size;//效果宽度
+@property (nonatomic, strong) XYVe3DDataF *anchorOffset;//相对锚点偏移量 默认为(0,0,0)
 
 @end
 
@@ -36,27 +31,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat defaultHeight; //默认高度，素材中提取
 @property (nonatomic, assign) BOOL reCalculateFrame; // YES不管当前宽高，重新计算宽高
 @property (nonatomic, assign) CGFloat maxWidth; //最大的宽
-@property (nonatomic, assign) CGPoint centerPoint; //相对于播放界面的中心点坐标
 @property (nonatomic, assign) CGFloat alpha; //透明度，默认1.0
 @property (nonatomic, assign) CGFloat propData; //程度调节，默认1.0
 @property (nonatomic, assign) BOOL hasAudio; //是否带音效
 @property (nonatomic, assign) BOOL verticalReversal; //竖直翻转
 @property (nonatomic, assign) BOOL horizontalReversal; //水平翻转
 
-@property (nonatomic, assign) CGFloat width; //当前宽度
-@property (nonatomic, assign) CGFloat height; //当前高度
-@property (nonatomic, assign) CGFloat depth; //深度 默认值是0 表示2d
-@property (nonatomic, assign) NSInteger rotation; //旋转角度，顺时针 0 - 360 z轴旋转
-@property (nonatomic, assign) NSInteger x_rotation; //旋转角度，顺时针 0 - 360 x轴旋转
-@property (nonatomic, assign) NSInteger y_rotation; //旋转角度，顺时针 0 - 360 y轴旋转
-@property (nonatomic) CGPoint anchor; //锚点,(0,0,0)为效果的左上角位置，（0.5，0.5，0.5）表示效果的中心，（1.0，1.0，1.0）表示效果的右下角。默认是(0.5,0.5, 0) 。取值范围是0~1
+@property (nonatomic, strong) XYVe3DDataF *center;//中心点 如果有修改锚点 ，效果的位置就是相对这个中心点偏移了anchor.x,anchor.y,anchor.z
+@property (nonatomic, strong) XYVe3DDataF *size;//效果以streamsize的宽高深
+@property (nonatomic, strong) XYVe3DDataF *degree;//角度,(0,0,0)为效果以x/y/z轴的旋转角度 。取值范围是 0~360
+@property (nonatomic, strong) XYVe3DDataF *anchorOffset;//相对锚点偏移量 默认为(0,0,0)
 
 @property (nonatomic, assign) BOOL isFrameMode; //YES的情况下，应用到全透明的Storyboard上也是透明的，否则背景会变黑
 @property (nonatomic, assign) BOOL defaultIsStaticPicture; //该视觉效果默认是否静态
 @property (nonatomic, assign) BOOL isStaticPicture; //YES的情况下，该效果将会静态展示
 @property (nonatomic, assign) BOOL isInstantRefresh; //YES的情况下，该效果将会快速刷新
 @property (nonatomic, strong) XYEffectKeyFrameInfo *keyFrameInfo;
-@property (nonatomic, strong) NSArray<XYEffectVisionKeyFrameModel *> *keyFrames; //关键帧数组
 @property (nonatomic) CGFloat currentScale; //根据当前宽度和dafault宽度自动计算当前放大倍数，只读
 @property (nonatomic, assign) BOOL isResetLayerID;//是否只是resetLayerID
 @property (nonatomic, assign) NSInteger previewDuration;//动画预览时长
@@ -68,6 +58,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) XYEffectPicInPicFilterInfo *filterInfo; //画中画 滤镜
 @property (nonatomic, strong) NSMutableArray <XYEffectPicInPicSubFx *> *fxInfoList; //画中画 特效
 @property (nonatomic, copy) NSArray <XYAdjustItem *> *adjustItems;// 画中画 参数调节
+@property (nonatomic, strong) NSMutableArray <XYEffectPropertyInfoModel *> *effectPluginList;// 画中画 效果插件
+
+/// 根据时间点来获取插件模板关键帧
+/// @param itemModel itemModel
+/// @param seekPosition 播放器的当前时间点
+/// @param block mian Block
+- (void)fetchPropertyItemKeyFrameModel:(XYEffectPropertyItemModel *)itemModel seekPosition:(NSInteger)seekPosition block:(void (^)(XYEffectPropertyKeyInfo *keyFramModel))block;
 
 /// 根据引擎万分比计算视觉效果在播放区域显示的rect
 /// @param regionRect 引擎万分比
@@ -79,25 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param mRect MRECT
 - (CGRect)cgRectFromMRect:(MRECT)mRect;
 
-#pragma mark - 关键帧
-/// 添加一个关键帧
-/// @param position 当前时间点
-- (void)addNewKeyFrame:(NSInteger)position;
 
-/// 更新当前时间点上的关键帧
-/// @param position 当前时间点
-- (void)updateKeyFrame:(NSInteger)position;
-
-
-/// 模版更新后，更新所有关键帧
-/// @param oldDefaultWidth 原模版的默认宽
-/// @param newDefaultWidth 新模版的默认宽
-/// @param newDefaultHeight 新模版的默认高
-- (void)updateAllKeyFramesWithOldDefaultWidth:(CGFloat)oldDefaultWidth newDefaultWidth:(CGFloat)newDefaultWidth newDefaultHeight:(CGFloat)newDefaultHeight;
-
-/// 删除一个关键帧
-/// @param position 当前时间点
-- (void)deleteKeyFrame:(NSInteger)position;
 
 @end
 

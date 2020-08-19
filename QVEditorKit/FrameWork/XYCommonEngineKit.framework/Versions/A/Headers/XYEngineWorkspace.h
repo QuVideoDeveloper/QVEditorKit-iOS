@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 + (void)reloadAllData;//刷新所有内存数据
-+ (void)cleanAllData;
++ (void)cleanAllData;//删除缓存的内存数据
 
 + (XYStoryboard *)currentStoryboard;
 

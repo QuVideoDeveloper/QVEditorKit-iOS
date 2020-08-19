@@ -38,10 +38,10 @@
 @property (nonatomic, copy) NSString *textTemplateFilePath;
 @property (nonatomic) MDWord startPosition;
 @property (nonatomic) MDWord duration;
-@property (nonatomic) MPOINT ptRotateCenter;
+//@property (nonatomic) MPOINT ptRotateCenter;
 @property (nonatomic) MFloat fRotateAngle;
 @property (nonatomic) MRECT textRegionRatio;//文字部分相对于整个bubble的万分比区域 1
-@property (nonatomic) MRECT rcRegionRatio;
+//@property (nonatomic) MRECT rcRegionRatio;
 @property (nonatomic) BOOL isStaticPicture;
 @property (nonatomic) BOOL defaultIsStaticPicture;
 @property (nonatomic) CGFloat textOneLineHeight;
