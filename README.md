@@ -1607,7 +1607,7 @@ XYProjectExportConfiguration 参数说明：
 | 名称  | 解释 | 类型 |
 | :-: | :-: | :-: |
 | projectType | 工程的类型 | XYProjectType |
-| exportingFilePath | 导出文件路径，需要带后缀，提取音频则只支持m4a | String |
+| exportFilePath | 导出文件路径，需要带后缀，提取音频则只支持m4a | String |
 | width | 导出宽 | NSInteger |
 | height | 导出高 | NSInteger |
 | isGIF | 是否导出Gif图片 | BOOL |
