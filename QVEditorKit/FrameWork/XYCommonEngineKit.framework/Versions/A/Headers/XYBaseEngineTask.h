@@ -54,6 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL needRebuildThumbnailManager;//是否需要重新创建ThumbnailManager
 @property (nonatomic, assign) BOOL isInstantRefresh; //YES的情况下，该效果将会快速刷新
 @property (nonatomic, assign) BOOL skipRefreshPlayer; //只需要设置值 不需要刷新播放器
+@property (nonatomic, assign) BOOL skipPreprocessNotice;//跳过引擎前处理的通知
+
 @property (nonatomic, strong) XYTaskErrorModel *errorModel;
 @property (nonatomic, copy) void(^completionBlock)(BOOL success, NSError *error, id obj);
 - (void)run;

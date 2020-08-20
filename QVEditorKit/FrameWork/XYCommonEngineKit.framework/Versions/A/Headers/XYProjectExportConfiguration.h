@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) XYProjectType projectType;
 
 /// 导出的路径 需要创建文件夹及导出对应文件的后缀名，如导出mp4 格式是**/filename.mp4, 导出GIF 格式是**/filename.GIF
-@property (nonatomic, copy) NSString *exportingFilePath;
+@property (nonatomic, copy) NSString *exportFilePath;
 
 /// 导出分辨率类型
 @property (nonatomic, assign) XYEngineResolution resolution;

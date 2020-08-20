@@ -53,10 +53,8 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 
 @interface XYStoryboardSaveConfig : NSObject
 
-@property (nonatomic, copy) NSString *prjFilePath;
-@property (nonatomic) BOOL needUpdateThumbnail;
-@property (nonatomic, copy) NSString *thumbnailFilePath;//封面缩略图保存的路径
-@property (nonatomic) UInt64 thumbPos;
+@property (nonatomic, copy) NSString * _Nullable prjFilePath;
+
 
 @end
 

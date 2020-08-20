@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSInteger clipIndex;//当前的clipIndex
 @property (nonatomic) NSInteger globalIndex;//用于切换到了临时storyboard 时使用
 @property (nonatomic) BOOL isReversed;//是否被倒放
+@property (nonatomic) NSInteger videoFileDuration;//物理视频文件的总时长
 
 @property (nonatomic, assign) NSInteger objIndex;
 @property (nonatomic, assign) BOOL isSwitchSourceRange;// 切换临时时变速后的源的长度

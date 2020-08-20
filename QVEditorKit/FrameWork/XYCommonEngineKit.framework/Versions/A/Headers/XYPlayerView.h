@@ -113,4 +113,5 @@
 
 - (void)updateDisplayContextConfig;
 
+- (void)removePlayerObserver;
 @end
