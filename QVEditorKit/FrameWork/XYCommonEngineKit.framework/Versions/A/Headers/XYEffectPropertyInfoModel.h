@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 对应的模板插件的属性列表
 @property (nonatomic, copy) NSArray <XYEffectPropertyItemModel *> *itemList;
 
+/// 是否关闭此效果
+@property (nonatomic, assign) BOOL disable;
+
 @end
 
 NS_ASSUME_NONNULL_END

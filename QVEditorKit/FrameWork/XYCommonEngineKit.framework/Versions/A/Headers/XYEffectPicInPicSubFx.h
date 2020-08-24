@@ -5,13 +5,13 @@
 //  Created by 夏澄 on 2020/6/15.
 //
 
-#import <Foundation/Foundation.h>
+#import "XYEffectBasePicInPicInfo.h"
 
 @class XYVeRangeModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYEffectPicInPicSubFx : NSObject
+@interface XYEffectPicInPicSubFx : XYEffectBasePicInPicInfo
 
 /// 子特效素材路径
 @property (nonatomic, copy) NSString *subFxPath;

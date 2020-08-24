@@ -5,14 +5,14 @@
 //  Created by 夏澄 on 2020/6/15.
 //
 
-#import <Foundation/Foundation.h>
+#import "XYEffectBasePicInPicInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYEffectPicInPicChromaInfo : NSObject
+@interface XYEffectPicInPicChromaInfo : XYEffectBasePicInPicInfo
 
-/// 是否开启
-@property (nonatomic, assign) BOOL enable;
+/// 是否删除此效果
+@property (nonatomic, assign) BOOL isDelete;
 
 ///抠色的颜色值, 如0xFFFFFF
 @property (nonatomic, assign) NSInteger colorHexValue;

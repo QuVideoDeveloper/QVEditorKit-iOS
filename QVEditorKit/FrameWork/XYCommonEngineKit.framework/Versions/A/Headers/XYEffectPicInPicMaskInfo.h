@@ -5,12 +5,12 @@
 //  Created by 夏澄 on 2020/6/15.
 //
 
-#import <Foundation/Foundation.h>
+#import "XYEffectBasePicInPicInfo.h"
 #import "XYEngineEnum.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYEffectPicInPicMaskInfo : NSObject
+@interface XYEffectPicInPicMaskInfo : XYEffectBasePicInPicInfo
 
 /// 蒙版类型
 @property (nonatomic, assign) XYEffectMaskType maskType;

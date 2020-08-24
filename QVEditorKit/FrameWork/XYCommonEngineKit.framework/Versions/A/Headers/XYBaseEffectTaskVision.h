@@ -119,10 +119,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param effectVisionModel effectVisionModel
  - (void)set3DTransform:(XYEffectVisionModel *)effectVisionModel;
 
-/// 设置更新关键帧
-/// @param effectVisionModel effectVisionModel
-- (void)handleSetEffectKeyFrameInfo:(XYEffectVisionModel *)effectVisionModel;
-
 /// 设置画中画效果插件
 /// @param effectVisionModel effectVisionModel
 - (void)setEffectEffectPlugin:(nonnull XYEffectVisionModel *)effectVisionModel;
