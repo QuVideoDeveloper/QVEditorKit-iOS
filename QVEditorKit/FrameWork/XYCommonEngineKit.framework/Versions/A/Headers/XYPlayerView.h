@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 
 
-@class XYVeRangeModel, XYPlayerViewConfiguration, XYPlayerCallBackData;
+@class XYVeRangeModel, XYPlayerViewConfiguration, XYPlayerCallBackData, XYStreamContextView;
 
 //播放器Delegate
 @protocol XYPlayerViewDelegate <NSObject>
@@ -23,6 +23,7 @@
 @end
 
 @interface XYPlayerView : UIView
+@property (nonatomic, strong) XYStreamContextView *streamContextView;
 @property (nonatomic, assign) CGSize streamSize;//播放器中引擎内容真正渲染的区域，引擎的坐标都相对于这个区域来计算，这个区域的位置是相对于XYPlayerView的位置居中的，如计算区域手势可通过这里转换得到
 @property (nonatomic, assign, getter=isDisablePlayAndSeek) BOOL disablePlayAndSeek;//禁止手动播放和Seek操作
 @property (strong, nonatomic) XYPlayerViewConfiguration *playerConfig;//当前播放器的播放源Config

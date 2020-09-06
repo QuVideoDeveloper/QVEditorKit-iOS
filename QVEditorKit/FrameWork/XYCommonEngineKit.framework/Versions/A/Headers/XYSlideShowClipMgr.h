@@ -32,11 +32,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)moveSource:(UInt32)srcIndex dstIndex:(UInt32)dstIndex;
 
 ///  替换源的视频和图片
-/// @param sourceNode 源对象sourceNode
+/// @param sourceNodeIdx 源对象 Idx
 /// @param media 媒体资源对象
 /// @param success 成功回调 主线程
 /// @param failure 错误回调 主线程 code为-1时 不能再添加视频的源
-- (void)replaceSourceWithSourceNode:(XYSlideShowSourceNode *)sourceNode
+- (void)replaceSourceWithSourceNode:(NSInteger)sourceNodeIdx
                    media:(XYSlideShowMedia *)media
                  success:(void (^)(void))success
                  failure:(void(^)(NSError *error, NSInteger code))failure;

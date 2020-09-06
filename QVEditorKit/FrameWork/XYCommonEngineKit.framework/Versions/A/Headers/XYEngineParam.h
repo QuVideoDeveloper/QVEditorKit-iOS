@@ -12,6 +12,7 @@
 @interface XYEngineParam : NSObject
 
 @property (nonatomic, copy) NSString *licensePath;
+@property (nonatomic, copy) NSString *portraitModelPath;//人体扣像文件路径
 @property (nonatomic) BOOL defaultPlaybackMute;
 @property (nonatomic) UInt32 outputVideoFormat;
 @property (nonatomic) UInt32 outputAudioFormat;

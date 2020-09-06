@@ -15,11 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class XYStoryboard;
-@class XYCommonEngineRequest;
-@class XYEffectVisionTextModel;
-@class XYAdjustEffectValueModel;
-@class PHAsset;
+@class XYStoryboard, XYCommonEngineRequest, XYEffectVisionTextModel, XYAdjustEffectValueModel, PHAsset, XYClipCurveSpeed;
 
 @interface XYClipModel : XYBaseEngineModel
 @property (nonatomic, copy) NSString *clipFilePath;
@@ -43,9 +39,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) CGFloat storyboardRatioValue;
 
 @property (nonatomic, assign) BOOL     isMute;//是否静音  type为video时有效
-@property (nonatomic, assign) CGFloat  volumeValue;//音量值 值范围 0- 200 100是原声音量 
-@property (nonatomic, assign) CGFloat  voiceChangeValue;//变声值 值范围 -60~60
+@property (nonatomic, assign) CGFloat  volumeValue;//音量值, 值范围 [0,200] 100是原声音量
+@property (nonatomic, assign) CGFloat  voiceChangeValue;//变声值, 值范围 [-60,60]
 @property (nonatomic, assign) CGFloat  speedValue;//视频变速
+
+/// 曲线变速
+@property (nonatomic, strong) XYClipCurveSpeed *curveSpeed;
 @property (nonatomic, assign) BOOL     speedAdjustEffect;//视频变速是否刷新效果
 @property (nonatomic, assign) BOOL     iskeepTone;//是否保持原声调
 @property (nonatomic, assign) BOOL     isAudioNSXOn;//是否开启音频降噪功能
@@ -71,6 +70,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger fixTime;//用于缩略图的起始时间的校准
 @property (readonly, nonatomic, copy) NSDictionary *clipParam;
 
+
+
+/// /// 根据曲线变速后的时间范围获取对应的原clip的时间范围
+/// @param range 变后的对应的时间范围
+- (XYVeRangeModel *)fetchSouceRangeWithCurveSpeedRange:(XYVeRangeModel *)range;
+
+/// /// 根据原clip的时间范围获取对应的曲线变速后的时间范围
+/// @param range 原clip的时间范围
+- (XYVeRangeModel *)fetchCurveSpeedRangeWithSouceRange:(XYVeRangeModel *)range;
 
 /// 根据phAsset 获取到给引擎的镜头路径
 /// @param phAsset PHAsset对象

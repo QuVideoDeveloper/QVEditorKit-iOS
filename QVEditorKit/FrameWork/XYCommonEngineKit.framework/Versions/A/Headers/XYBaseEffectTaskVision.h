@@ -123,6 +123,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param effectVisionModel effectVisionModel
 - (void)setEffectEffectPlugin:(nonnull XYEffectVisionModel *)effectVisionModel;
 
+/// 设置画中画曲线变色
+/// @param effectVisionModel effectVisionModel
+- (void)setEffectEffectCurveColor:(nonnull XYEffectVisionModel *)effectVisionModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -50,6 +50,7 @@
 #import <XYCommonEngineKit/XYClipThumbnailModel.h>
 #import <XYCommonEngineKit/XYClipThumbnailOperation.h>
 #import <XYCommonEngineKit/XYPlayerView.h>
+#import <XYCommonEngineKit/XYStreamContextView.h>
 #import <XYCommonEngineKit/TextInfo.h>
 #import <XYCommonEngineKit/XYEffectPicInPicOverlayInfo.h>
 #import <XYCommonEngineKit/XYEffectPicInPicMaskInfo.h>
@@ -61,6 +62,8 @@
 #import <XYCommonEngineKit/XYPlaybackModule.h>
 #import <XYCommonEngineKit/XYTaskErrorModel.h>
 #import <XYCommonEngineKit/XYSlideShowClipMgr.h>
+#import <XYCommonEngineKit/XYSlideShowEffectMgr.h>
+#import <XYCommonEngineKit/XYSlideShowThemeTextInfo.h>
 #import <XYCommonEngineKit/XYSlideShowEditor.h>
 #import <XYCommonEngineKit/XYSlideShowSourceNode.h>
 #import <XYCommonEngineKit/XYSlideShowEnum.h>
@@ -80,8 +83,10 @@
 #import <XYCommonEngineKit/XYEffectPropertyInfoModel.h>
 #import <XYCommonEngineKit/XYEffectPropertyItemModel.h>
 #import <XYCommonEngineKit/XYEngineAudioPlayer.h>
-
-
+#import <XYCommonEngineKit/XYClipCurveSpeed.h>
+#import <XYCommonEngineKit/XYColorCurveInfo.h>
+#import <XYCommonEngineKit/XYPoint.h>
+#import <XYCommonEngineKit/XYSlideShowTransformModel.h>
 
 
 #endif /* XYCommonEngineKit_h */

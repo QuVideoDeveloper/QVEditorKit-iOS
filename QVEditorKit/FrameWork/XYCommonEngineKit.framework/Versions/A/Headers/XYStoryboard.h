@@ -411,7 +411,7 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 - (MFloat)clipOriginVolume:(NSInteger)clipIndex;
 - (MFloat)clipOriginVolumeWithPClip:(CXiaoYingClip *)pClip;
 - (MRESULT)updateClipVolume:(NSInteger)clipIndex volumeValue:(MFloat)volumeValue;
-
+- (MRESULT)updateClipVolumeWithPClip:(CXiaoYingClip *)clip volumeValue:(MFloat)volumeValue;
 - (NSString *)getClipIdentifier:(CXiaoYingClip *)clip;
 - (MRESULT)setClipIdentifier:(CXiaoYingClip *)clip identifier:(NSString *)identifier;
 - (int)getLayoutMode:(int)width height:(int)height;

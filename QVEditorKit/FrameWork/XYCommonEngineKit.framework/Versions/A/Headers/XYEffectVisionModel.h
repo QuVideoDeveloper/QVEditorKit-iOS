@@ -7,7 +7,7 @@
 
 #import "XYEffectModel.h"
 
-@class XYEffectPicInPicOverlayInfo, XYEffectPicInPicMaskInfo, XYEffectPicInPicChromaInfo, XYEffectPicInPicFilterInfo, XYEffectPicInPicSubFx, XYAdjustItem, XYEffectKeyFrameInfo, XYVe3DDataF, XYEffectPropertyInfoModel, XYEffectPropertyItemModel, XYEffectPropertyKeyInfo;
+@class XYEffectPicInPicOverlayInfo, XYEffectPicInPicMaskInfo, XYEffectPicInPicChromaInfo, XYEffectPicInPicFilterInfo, XYEffectPicInPicSubFx, XYAdjustItem, XYEffectKeyFrameInfo, XYVe3DDataF, XYEffectPropertyInfoModel, XYEffectPropertyItemModel, XYEffectPropertyKeyInfo, XYColorCurveInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -58,6 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) XYEffectPicInPicFilterInfo *filterInfo; //画中画 滤镜
 @property (nonatomic, strong) NSMutableArray <XYEffectPicInPicSubFx *> *fxInfoList; //画中画 特效
 @property (nonatomic, copy) NSArray <XYAdjustItem *> *adjustItems;// 画中画 参数调节
+@property (nonatomic, strong) XYColorCurveInfo *colorCurveInfo;// 画中画 曲线变色
 @property (nonatomic, strong) NSMutableArray <XYEffectPropertyInfoModel *> *effectPluginList;// 画中画 效果插件
 
 /// 根据时间点来获取插件模板关键帧

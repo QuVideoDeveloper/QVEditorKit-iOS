@@ -47,12 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 在源的数组中的位置
 @property (nonatomic) NSInteger idx;
 
-/// 在播放器stremSize的中心点
-@property (nonatomic, readonly) CGPoint point;
-
-/// 在播放器stremSize的宽高
-@property (nonatomic, readonly) CGSize size;
-
+/// 在播放器stremSize的frame
+@property (nonatomic, readonly) CGRect frame;
 
 @property (nonatomic, strong, nonnull) CXiaoYingVirtualSourceInfoNode *vSourceInfoNode;
 
