@@ -111,7 +111,8 @@ typedef struct
 #import "QCamEffectInquiryItem.h"
 #import "QCamEffectInquiryResult.h"
 #import "QCamEffectPasterInfo.h"
-
+#import "CXiaoYingKeyFrameCommon.h"
+#import "CXiaoYing3DTransform.h"
 #import "CXiaoYingEffectSubItemSource.h"
 #import "CXiaoYingEngine.h"
 #import "CXiaoYingEffect.h"
@@ -164,8 +165,8 @@ typedef struct
 #import "QBenchLogger.h"
 #import "CXiaoYingAudioProvider.h"
 #import "CXiaoYingAudioPlayer.h"
-
-
+#import "CXiaoYingTextAdvStyle.h"
+#import "CXiaoYingSegmentUtils.h"
 
 
 #define QVET_RENDER_TARGET_SCREEN   0x00000001

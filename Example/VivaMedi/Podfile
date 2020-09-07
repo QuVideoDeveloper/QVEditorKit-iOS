@@ -22,7 +22,8 @@ target 'VivaMedi' do
   pod 'SDWebImage'
   pod 'FMDB'
   pod 'YYModel'
-
+  pod 'YYImage/WebP'
+  pod 'SSZipArchive'
 
   # Pods for VivaMedi
 

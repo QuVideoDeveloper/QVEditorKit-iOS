@@ -1,5 +1,4 @@
-     /*----------------------------------------------------------------------------------------------
-*
+/*----------------------------------------------------------------------------------------------
 * This file is ArcSoft's property. It contains ArcSoft's trade secret, proprietary and 		
 * confidential information. 
 * 
@@ -93,7 +92,7 @@ extern "C"
 //subtype for outputstream
 #define MV2_MODULE_TYPE_MIDOUTPUTSTREAM			    'mid '	//1835623456  //media outputstream module iwth IMV2MediaOutputStream interface
 #define MV2_MODULE_TYPE_MIDIOUTPUTSTREAM			'midi'	//1835623529  //media outputstream module iwth IMV2MediaOutputStream interface
-#define MV2_MODULE_TYPE_AACOUTPUTSTREAM				'aac '	////1633772320  //media outputstream module iwth IMV2MediaOutputStream interface
+#define MV2_MODULE_TYPE_AACOUTPUTSTREAM				'aac '	//1633772320  //media outputstream module iwth IMV2MediaOutputStream interface
 #define MV2_MODULE_TYPE_MEDIAOUTPUTSTREAM			'mops'	//1836019827
 #define MV2_MODULE_TYPE_MP3OUTPUTSTREAM				'mp3 '	//1836069664	//media outputstream module iwth IMV2MediaOutputStream interface
 #define MV2_MODULE_TYPE_AMOI_MEDIAOUTPUTSTREAM		'mopa'	//1836019809 // only for amoi(1389) project 
@@ -183,7 +182,7 @@ extern "C"
 #define MV2_CODEC_TYPE_H264				'264 ' //842413088
 #define MV2_CODEC_TYPE_RGB24			'rgb '
 #define MV2_CODEC_TYPE_I420			    'i420'
-#define MV2_CODEC_TYPE_H265             '265 '
+#define MV2_CODEC_TYPE_H265             '265 ' //842413344
 
 #define MV2_CODEC_TYPE_MJPEG			'mjpg' //1835692135
 #define MV2_CODEC_TYPE_MPEG1			'mpg1' //
@@ -1263,10 +1262,12 @@ typedef struct
 #define MV2_ASMELOG_LEVEL_VIDEO_PAYLOAD					0x40
     
     
-#define MV2_H264_PROFILE_UNKNOW                        0x0
-#define MV2_H264_PROFILE_BASELINE                      0x1
-#define MV2_H264_PROFILE_MAIN                          0x2
-#define MV2_H264_PROFILE_HIGH                          0x3
+#define MV2_H264_PROFILE_UNKNOW                         0x0
+#define MV2_H264_PROFILE_BASELINE                       0x1
+#define MV2_H264_PROFILE_MAIN                           0x2
+#define MV2_H264_PROFILE_HIGH                           0x3
+#define MV2_HEVC_PROFILE_MAIN                           0x10
+#define MV2_HEVC_PROFILE_MAIN10                         0x11
     
 #define MV2_H264_LEVEL_UNKNOW                           0
 #define MV2_H264_LEVEL_30                               30
@@ -1413,6 +1414,7 @@ typedef enum
 	MV2_UNSTANDARD_MPEG4,
 	MV2_STANDARD_H264,
 	MV2_UNSTANDARD_H264,
+	MV2_H265,
 }MV2_HW_ENC_RESOLUTION;
 
 typedef enum
@@ -1429,7 +1431,7 @@ typedef enum
 
 
 
-#define MV2_HWENC_RES_TYPE_NUM 4
+#define MV2_HWENC_RES_TYPE_NUM 5
 
 #define MV2_HW_GPU_RENDER_LEN   32
 

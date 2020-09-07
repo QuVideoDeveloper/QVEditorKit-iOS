@@ -30,6 +30,7 @@ typedef struct _tagCXYEffectPropertyItem
     MBool   bIsSupportKeyframe;
     MTChar* pszName;
     MTChar* pszWildCards;
+	MChar * pszKeyName;//for unity key frame
     MDWord  dwUnit;//单位 0：无（默认）1：角度 2：百分比
 	MDWord  dwPrecision;//精度 0：（默认）1：十分比 2：百分比 3：千分比 4：万分比
     MLong   lAdjustPos;

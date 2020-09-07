@@ -14,10 +14,13 @@
 extern "C"
 {
 #endif
+//rect  to transform easy to test
+MVoid QVET_RectToTransform(MRECT rect, QVET_3D_TRANSFORM *pTransform, MFloat fRoationZ);
 
-//utility functions
-//interface to check if file is editable or not
+//获取transform单位阵
+MVoid QVET_GetIdentityTransform(QVET_3D_TRANSFORM *pTransform);
 
+MVoid QVET_TransformToRect(MRECT *pRect, QVET_3D_TRANSFORM transform, MFloat *pfRoationZ);
 
 MRESULT QVET_GetWMTagFromFile(MTChar *videoFile, MTChar *tag, MDWord bufLen);
 
@@ -334,10 +337,19 @@ MRESULT AMVE_EffectGetKeyFrameColorCurveValue(MHandle hEffect, MDWord dwTimestam
 MRESULT AMVE_EffectGetCurrentValueForKeyFrameTransform(const QVET_KEYFRAME_TRANSFORM_DATA* pData, MDWord dwTimestamp, QVET_KEYFRAME_TRANSFORM_VALUE* pValue);
 MRESULT AMVE_EffectGetCurrentValueForKeyFrameTransformPos(const QVET_KEYFRAME_TRANSFORM_POS_DATA* pData, MDWord dwTimestamp, QVET_KEYFRAME_TRANSFORM_POS_VALUE* pValue);
 
-MRESULT AMVE_EffectGetTemplateIdArray(MHandle hEffect, QVET_TEMPLATE_ID_ARRAY *pValue);
 
-MRESULT AMVE_EffectSetTemplateIdArray(MHandle hEffect, QVET_TEMPLATE_ID_ARRAY *pValue);
+QVET_KEYFRAME_COMMON_VALUE * AMVE_EffectGetKeyFrameCommonValue(MHandle hEffect, MLong lKeyValue, MLong lTimeStamp);
+MRESULT AMVE_EffectGetKeyFrameTransform3DValue(MHandle hEffect, MLong lTimeStamp, QVET_3D_TRANSFORM* pValue);
+MRESULT AMVE_EffectGetCurrentValueForKeyFrameCommonValue(QVET_KEYFRAME_COMMON_DATA* pData, MLong lTimeStamp, QVET_KEYFRAME_COMMON_VALUE* pValue);
+MRESULT AMVE_EffectKeyFrameCommonUpdateBaseValue(MHandle hEffect, MLong lKeyValue, MFloat fBaseValue);//更新CommonBaseValue的偏移值
+MRESULT AMVE_EffectKeyFrameCommonInsertOrReplaceValue(MHandle hEffect, MLong lKeyValue, QVET_KEYFRAME_COMMON_VALUE *pValue);//fTimeStamp没有关键帧则会插入，如果存在关键帧则会替换
+MRESULT AMVE_EffectKeyFrameCommonRemoveValue(MHandle hEffect, MLong lKeyValue, MLong lTimeStamp);//移除fTimeStamp对应的关键帧 治理float类型底层会转成int类型进行比较
 
+MVoid   AMVE_EffectKeyFrame2DConvertTo3DTransform(const MRECT rcOrignRect,
+												const QVET_KEYFRAME_TRANSFORM_POS_DATA* pData,
+												const QVET_KEYFRAME_TRANSFORM_SCALE_DATA *pScaleData,
+												const QVET_KEYFRAME_TRANSFORM_ROTATION_DATA *pRotation,
+												QVET_KEYFRAME_COMMON_DATA_LIST *pTransformList);//2D转3D关键帧用的
 
 //The interfaces for stream
 MRESULT AMVE_StreamOpen(AMVE_STREAM_SOURCE_TYPE* pSource, AMVE_STREAM_PARAM_TYPE* pParam, MHandle *phStream);

@@ -92,7 +92,6 @@
 #define QVET_ERR_ETTEXT_UTILS_BASE      (QVET_ERR_BASE+0x00003800)    //ettextutils.cpp 
 #define QVET_ERR_TEXTUTILS_JNI_BASE     (QVET_ERR_BASE+0x00003900)     //textutils_jni.cpp 
 
-
 //0x00803A00
 //0x00803B00
 //0x00803C00
@@ -122,7 +121,7 @@
 #define QVET_ERR_AMUT_BASE			(QVET_ERR_BASE+0x00016000)	//etieanimatemoveutils.cpp   	0x00816000
 #define QVET_ERR_PPARSER_BASE		(QVET_ERR_BASE+0x00017000)	//etpkgparser.cpp   			0x00817000
 #define QVET_ERR_LZ4_BASE           (QVET_ERR_BASE+0x00018000)  //etCompressLz4Interface.cpp    //0x00018000
-//0x00019000
+
 //0x0001A000
 //0x0001B000
 #define QVET_ERR_IEFTR_BASE			(QVET_ERR_BASE+0x0001C000)	//etieframetrackreader.cpp   	0x0081C000
@@ -306,27 +305,28 @@
 #define QVET_ERR_3DSETTING_PARSE_BASE	(QVET_ERR_BASE+0x000AF400) //ve3dsettingparser.cpp
 #define QVET_ERR_TAE_BASE	            (QVET_ERR_BASE+0x000AF500) 
 #define QVET_ERR_PEN_XMLPARSER_BASE		(QVET_ERR_BASE+0x000AF600)   	//0x008AF600 etpenxmlparser.cpp
-#define QVET_ERR_PEN_STREAM_BASE			(QVET_ERR_BASE+0x000AF700)   	//0x008AF700 etpenoutputstream.cpp
-#define QVET_ERR_AR3D_STREAM_BASE		(QVET_ERR_BASE+0x000AF800)   	//0x008AF700 etar3dstream.cpp
-#define QVET_ERR_AR3D_SCENE_PARSER_BASE	(QVET_ERR_BASE+0x000AF900)   	//0x008AF700 etar3dstream.cpp
+#define QVET_ERR_PEN_STREAM_BASE		(QVET_ERR_BASE+0x000AF700)   	//0x008AF700 etpenoutputstream.cpp
+#define QVET_ERR_AR3D_STREAM_BASE		(QVET_ERR_BASE+0x000AF800)   	//0x000AF800 etar3dstream.cpp
+#define QVET_ERR_AR3D_SCENE_PARSER_BASE	(QVET_ERR_BASE+0x000AF900)   	//0x000AF900 etar3dstream.cpp
 #define QVET_ERR_RIPPLE_XMLPARSER_BASE	(QVET_ERR_BASE+0x000B0000)   	//0x000B0000 etripplexmlparser.cpp
 #define QVET_ERR_RIPPLE_STREAM_BASE		(QVET_ERR_BASE+0x000B0100)   	//0x000B0100 etripplrstream.cpp
 #define QVET_ERR_LAYER_STYLR_XMLPARSER_BASE		(QVET_ERR_BASE+0x000B0300)   	//0x000B0300 etlayerStylexmlparser.cpp
 #define QVET_ERR_LAYER_STYLR_STREAM_BASE		(QVET_ERR_BASE+0x000B0400)   	//0x000B0400 etlayerStylestream.cpp
-#define QVET_ERR_WEBP_BASE                (QVET_ERR_BASE+0x000B1200)       //0x008B1200 vethreadwebpcomposer.cpp
+#define QVET_ERR_WEBP_BASE					(QVET_ERR_BASE+0x000B1200)       //0x008B1200 vethreadwebpcomposer.cpp
 #define QVET_ERR_PARTICLE_BASE			(QVET_ERR_BASE+0x000B1300)		//0x008B1300 particle lib
 #define QVET_ERR_PARTICLE_END			(QVET_ERR_BASE+0x000B14FF)		//0x008B14FF particle lib
 #define QVET_ERR_ATOM3D_BASE			(QVET_ERR_BASE+0x000B2000)		//0x008B2000 atom3d lib	
 #define QVET_ERR_ATOM3D_END				(QVET_ERR_BASE+0x000B6FFF)		//0x008B6FFF atom3d lib
-#define QVET_ERR_COLORCURVE_BASE		(QVET_ERR_BASE+0x000B7000)		//0x008B7000 etcolorcurveoutputstream.cpp
-#define QVET_ERR_DISTRIBUTE_BASE		(QVET_ERR_BASE+0x000B8000)		//0x008B8000 etdistributestream.cpp
-#define QVET_ERR_MOTIONTILE_BASE		(QVET_ERR_BASE+0x000B9000)		//0x008B9000 motiontile.cpp
-#define QVET_ERR_MOTIONTILE_PARSER_BASE (QVET_ERR_BASE+0x000BA000)		//0x008BA000 motiontileparser.cpp
+#define QVET_ERR_COLORCURVE_BASE		(QVET_ERR_BASE+0x000B7000)		//0x008B7000 colorcurve.cpp
+#define QVET_ERR_DISTRIBUTE_BASE		(QVET_ERR_BASE+0x000B8000)		//0x008B7000 etdistributestream.cpp
+#define QVET_ERR_MOTIONTILE_BASE		(QVET_ERR_BASE+0x000B9000)		//0x008B7000 motiontile.cpp
+#define QVET_ERR_MOTIONTILE_PARSER_BASE (QVET_ERR_BASE+0x000BA000)		//0x008B7000 motiontileparser.cpp
 #define QVET_ERR_MESHWARP_BASE		    (QVET_ERR_BASE+0x000BB000)		//0x008BB000 meshwarp.cpp
 #define QVET_ERR_MESHWARP_PARSER_BASE	(QVET_ERR_BASE+0x000BC000)		//0x008BC000 meshwarpparser.cpp
 #define QVET_ERR_SABER_BASE		        (QVET_ERR_BASE+0x000BD000)		//0x008BD000 etsaberstream.cpp
 #define QVET_ERR_SABER_PARSER_BASE	    (QVET_ERR_BASE+0x000BE000)		//0x008BE000 etsaberparser.cpp
 #define QVET_ERR_PSSCATTEROS_BASE		(QVET_ERR_BASE+0x000BF000)		//0x008BF000 etparticlescatter.cpp
+
 /*
 * Error Definition Zone for FilePackage Tools
 * Range: [0x008B0000, 0x008BF000]
@@ -366,8 +366,9 @@
 #define QERR_OC_CEBASE_PROTECTED    (QVET_ERR_BASE+0x000D1700)  //QCamBase+Protected.mm    0x008D1700
 #define QERR_OC_PCME_BASE           (QVET_ERR_BASE+0x000D1800)  //QPCMExtractor.mm    0x008D1800
 #define QERR_OC_AUDIO_PROVIDER_BASE         (QVET_ERR_BASE+0x000D1B00)      //0X000D1B00  CXiaoYingAudioProvider.cmm
-#define QERR_OC_TEXT_ADVSTYLE_BASE  (QVET_ERR_BASE+0x000D1C00)  //0x000D1C00 CXiaoYingTextAdvStyle.mm
+#define QERR_OC_TEXT_ADVSTYLE_BASE   (QVET_ERR_BASE+0x000D1C00)
 #define QERR_OC_AUDIO_PLAYER_BASE   (QVET_ERR_BASE+0x000D1D00)  //CXiaoyingAudioPlayer.mm
+#define QERR_OC_SEGMENT_UTILS_BASE   (QVET_ERR_BASE+0x000D1E00)  //CXiaoyingSegmentUtils.mm
 
 /*
 *	以下是针对 JNI层的cpp err分段
@@ -378,7 +379,7 @@
 #define QVET_ERR_JCVN_BASE			(QVET_ERR_BASE+0x000E2000)	//vecovernative.cpp		0x008E2000
 #define QVET_ERR_JPN_BASE			(QVET_ERR_BASE+0x000E3000)	//veplayernative.cpp	0x008E3000
 #define QVET_ERR_JPDN_BASE			(QVET_ERR_BASE+0x000E4000)	//veproducernative.cpp 	0x008E4000
-#define QVET_ERR_JSBN_BASE			(QVET_ERR_BASE+0x000E5000)	//vestoryboardnative.cpp 	0x008E5000
+#define QVET_ERR_JSBN_BASE			(QVET_ERR_BASE+0x000E5000)	//vestory boardnative.cpp 	0x008E5000
 #define QVET_ERR_JUTL_BASE			(QVET_ERR_BASE+0x000E6000)	//veutilfunc.cpp	 		0x008E6000
 #define QVET_ERR_JPTN_BASE			(QVET_ERR_BASE+0x000E7000)	//etposternative.cpp 		0x008E7000
 #define QVET_ERR_JFRN_BASE			(QVET_ERR_BASE+0x000E8000)	//etframereadernative.cpp 	0x008E8000

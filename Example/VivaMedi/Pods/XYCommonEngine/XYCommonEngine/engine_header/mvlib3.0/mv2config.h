@@ -1436,7 +1436,6 @@ Note:
 //reopen audio in the stream, it's only for veoutputstream.cpp
 #define MV2_CFG_MEDIASTREAM_REOPEN_AUDIO				(MV2_CFG_MEDIASTREAM_BASE + 38)
 
-
 //get m_frameData 浅拷贝
 #define MV2_CFG_MEDIASTREAM_VIDEOFRAMEDATA			       (MV2_CFG_MEDIASTREAM_BASE + 39)
 
@@ -3044,11 +3043,10 @@ Note:
 #define MV2_CFG_CODEC_SET_CUDA_CONTEXT             (MV2_CFG_CODEC_BASE+63)
 
 #define MV2_CFG_CODEC_SET_NVJPEG_CONTEXT           (MV2_CFG_CODEC_BASE+64)
-
 #endif
 
-#define MV2_CFG_CODEC_SEEK_DST_TIME                (MV2_CFG_CODEC_BASE+65) 
 
+#define MV2_CFG_CODEC_SEEK_DST_TIME                (MV2_CFG_CODEC_BASE+65) 
 
 #define MV2_CFG_CODEC_REQUEST_KEY_FRAME            (MV2_CFG_CODEC_BASE+66) 
 
@@ -3306,7 +3304,9 @@ Note:
 #define MV2_CFG_CUSTOM_SLSH_MULTIVIDEO_MODE             (MV2_CFG_CUSTOM_BASE + 104)
 #endif
 
- #endif	//_MV2CONFIG_H_
+#define MV2_CFG_MEDIASTREAM_SCENE_INPUT_TRANS_PARAM           (MV2_CFG_CUSTOM_BASE + 108)
+
+#endif	//_MV2CONFIG_H_
 
 
 

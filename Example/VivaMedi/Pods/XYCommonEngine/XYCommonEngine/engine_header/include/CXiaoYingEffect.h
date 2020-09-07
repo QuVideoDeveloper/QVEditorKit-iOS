@@ -150,7 +150,7 @@
     MInt64 llKeyLineId;// method == 2 此值必须要设置
     MFloat floatValue;// 值
     MFloat fOffsetValue;//整体关键帧的偏移
-    QVET_KEYFRAME_TRANSFORM_EXTINFO extInfo;//method==3 时，这个值是引擎用来储存贝塞尔曲线的信息的
+    QVET_KEYFRAME_TRANSFORM_FLOAT_EXTINFO extInfo;//method==3 时，这个值是引擎用来储存贝塞尔曲线的信息的
     QVET_KEYFRAME_EASINGINFO easingInfo;//缓动曲线配置
 }
 @end
@@ -392,11 +392,6 @@
 
 - (NSMutableArray *) getSubItemSourceList:(UInt32)dwEffctSubTypeMin Max:(UInt32)dwEffctSubTypeMax;
 
-- (NSMutableArray *) getTemplateIdArray;
-
-- (MRESULT) setTemplateIdArray:(NSMutableArray *)pArray;//用于设置动画字幕的组合模板用的
-
-
 - (MRESULT)setEffectHandle:(MHandle)hEffect;
 
 - (MHandle)getEffectHandle;
@@ -406,5 +401,31 @@
 - (CXiaoYingPipStoryboardInfo *) getPipStoryboardInfo;
 
 - (MRESULT) setPipStoryboardInfo:(CXiaoYingPipStoryboardInfo *)poStoryboardInfo;
+
+//设置 3D transform信息
+- (MRESULT) setTransform3dInfo:(CXiaoYingTransformInfo *)pTransformInfo;
+// 获取3D transform 信息
+- (CXiaoYingTransformInfo *) getTransform3dInfo;
+//获取含有关键帧对应的时间的3D transform
+- (CXiaoYingTransformInfo *) getKeyFrameTransform3DValue:(MLong)lTimeStamp;
+//更新key 对应的base value
+- (MRESULT)updateKeyFrameCommonBaseValue:(MLong)lKey withOffsetValue:(MFloat)fOffsetValue;
+//插入或者替换value，具体根据ts时间，关键帧如果没有ts对应value，插入，否则替换
+- (MRESULT)insertOrReplaceKeyFrameCommonValue:(MLong)lKey withValue:(CXiaoYingKeyFrameCommonValue *)pValue;
+//删除关键帧
+- (MRESULT)removeKeyFrameCommonValue:(MLong)lKey timeStamp:(MLong)lTimeStamp;
+//获取data下边的关键帧的数据
++ (CXiaoYingKeyFrameCommonValue *)getCurrentValueForKeyFrameCommonValue:(CXiaoYingKeyFrameCommonData*)pData timeStamp:(MLong)lTimeStamp;
+//获取common data 关键帧数据
+- (MRESULT) setKeyFrameCommonData:(CXiaoYingKeyFrameCommonData *)pData;
+//获取data的key 关键帧数据
+- (CXiaoYingKeyFrameCommonData *) getKeyFrameCommonData:(MLong)lKey;
+//获取key frame datalist数据
+- (NSArray *) getKeyFrameCommonDataList;
+- (QVET_KEYFRAME_TRANSFORM_POS_DATA ) ocKeyframePosToCFramePos:(CXiaoYingKeyFrameTransformPosData*) src;
+
+- (QVET_KEYFRAME_TRANSFORM_ROTATION_DATA ) ocKeyframeRotationToCFrameRotation:(CXiaoYingKeyFrameTransformRotationData*) src;
+- (QVET_KEYFRAME_TRANSFORM_SCALE_DATA ) ocKeyframeScaleToCFrameScale:(CXiaoYingKeyFrameTransformScaleData*) src;
+
 @end // CXiaoYingEffect 
 

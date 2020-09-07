@@ -77,7 +77,7 @@ typedef struct
 	MDWord dwReserved[6];
 } QVET_TEMPLATE_MPO_SETTINGS;
 
-#define QVTP_LAYOUT_MODE_NUMBER				9
+#define QVTP_LAYOUT_MODE_NUMBER				11
 
 #define QVTP_LAYOUT_MODE_NONE				0x00000000
 #define QVTP_LAYOUT_MODE_PORTRAIT			0x00000001
@@ -91,6 +91,9 @@ typedef struct
 #define QVTP_LAYOUT_MODE_W18_H9				0x00000040
 #define QVTP_LAYOUT_MODE_W3_H2              0x00000080
 #define QVTP_LAYOUT_MODE_W2_H3              0x00000100
+#define QVTP_LAYOUT_MODE_W6_H7              0x00000200
+#define QVTP_LAYOUT_MODE_W7_H6              0x00000400
+
 
 
 #define QVTP_FILE_ID_INVALID				0
@@ -122,6 +125,9 @@ typedef struct
 #define QVTP_FILE_ID_STYLEFILE_W18_H9		22
 #define QVTP_FILE_ID_STYLEFILE_W3_H2        23
 #define QVTP_FILE_ID_STYLEFILE_W2_H3        24
+#define QVTP_FILE_ID_STYLEFILE_W6_H7        500//老的版本会用到，会用到30所以这里安全起见底下按照500递增
+#define QVTP_FILE_ID_STYLEFILE_W7_H6        502
+
 
 
 #define QVTP_FILE_ID_INFOFILE_W3_H4			QVTP_FILE_ID_INFOFILE_PORTRAIT
@@ -133,6 +139,9 @@ typedef struct
 #define QVTP_FILE_ID_INFOFILE_W18_H9		20
 #define QVTP_FILE_ID_INFOFILE_W3_H2         25
 #define QVTP_FILE_ID_INFOFILE_W2_H3         26
+#define QVTP_FILE_ID_INFOFILE_W6_H7         501//老的版本会用到，会用到30所以这里安全起见底下按照500递增
+#define QVTP_FILE_ID_INFOFILE_W7_H6         503
+
 
 
 #define QVTP_FILE_ID_LAYOUT_MAP				100
@@ -154,6 +163,9 @@ typedef struct
 #define QVTP_FILE_ID_AV_CONFIG_W9_H18           (QVTP_FILE_ID_AV_FILE_BASE+6)//306
 #define QVTP_FILE_ID_AV_CONFIG_W3_H2            (QVTP_FILE_ID_AV_FILE_BASE+7)//307
 #define QVTP_FILE_ID_AV_CONFIG_W2_H3            (QVTP_FILE_ID_AV_FILE_BASE+8)//308
+#define QVTP_FILE_ID_AV_CONFIG_W6_H7            (QVTP_FILE_ID_AV_FILE_BASE+9)//309
+#define QVTP_FILE_ID_AV_CONFIG_W7_H6            (QVTP_FILE_ID_AV_FILE_BASE+10)//310
+
 
 #define QVTP_FILE_ID_MUSIC					1000
 #define QVTP_FILE_ID_LRC                    1001

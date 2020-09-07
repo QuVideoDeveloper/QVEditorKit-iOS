@@ -93,7 +93,7 @@
 @property(readwrite,nonatomic) NSMutableString* pFillImagePath;
 @end
 
-@interface CXiaoYingTextBoardCongif : NSObject
+@interface CXiaoYingTextBoardConfig : NSObject
 {
     MBool _showBoard;
     Float32 _boardRound;
@@ -102,6 +102,8 @@
 @property(readwrite,nonatomic) MBool showBoard;
 @property(readwrite,nonatomic) Float32 boardRound;
 @property(readwrite,nonatomic) CXiaoYingTextAdvanceFill* pBoardFill;
+- (MRESULT) ConvertToCBoardConfig : (MVoid*) pBoardConfig
+                             Flag : (MBool) bFlag;
 @end
 
 @interface CXiaoYingTextAdvStyle : NSObject
@@ -109,12 +111,10 @@
     CXiaoYingTextAdvanceFill* _pFontFill;
     NSMutableArray <CXiaoYingTextStorkeItem*>* _pStrokes;
     NSMutableArray <CXiaoYingTextShadowItem*>* _pShadows;
-    CXiaoYingTextBoardCongif* _pBoardConfig;
 }
 @property(readwrite,nonatomic) CXiaoYingTextAdvanceFill* pFontFill;
 @property(readwrite,nonatomic) NSMutableArray* pStrokes;
 @property(readwrite,nonatomic) NSMutableArray* pShadows;
-@property(readwrite,nonatomic) CXiaoYingTextBoardCongif* pBoardConfig;
 - (MRESULT) ConvertToCAdvStyle : (MVoid*) pAdvStyleParam
                           Flag : (MBool) bFlag;
 @end

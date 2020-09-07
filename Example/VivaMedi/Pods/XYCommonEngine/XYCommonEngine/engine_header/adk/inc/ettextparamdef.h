@@ -26,13 +26,13 @@ struct QEVTTextGradientStyle {
 struct QEVTTextStrokeItem {
 	MFloat opacity;//[0 - 1]
 	MCOlORRGB color;
-	MFloat size;//[0-0.5]
+	MFloat size;//[0-1.0]
 };
 
 struct QEVTTextShadowItem {
 	MFloat opacity;//[0 - 1]
 	MCOlORRGB color;
-	MFloat size;//[0-0.5]
+	MFloat size;//[0-1.0]
 	MFloat spread;//[0-1] show same as stroke when spread==1
 	MFloat angle;
 	MFloat distance;
@@ -76,8 +76,7 @@ struct QTextAdvanceStyle
 	std::vector<QEVTTextStrokeItem> strokes;
 	std::vector<QEVTTextShadowItem> shadows;
 	
-	QTextBoardConfig boradConfig;
-	QTextAdvanceStyle() :fontFill(), strokes(0), shadows(0), boradConfig(){}
+	QTextAdvanceStyle() :fontFill(), strokes(0), shadows(0){}
 
 };
 
