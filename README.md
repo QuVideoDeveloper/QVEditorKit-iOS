@@ -233,6 +233,21 @@ typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
 ```
 #### 1. 剪辑工程
 ##### 创建、保存和加载工程
+###### 加在工程如果失败 需要处理错误吗 error.code
+错误码说明
+```
+typedef NS_ENUM(UInt64,  XYTaskLoadProjectErrorCode) {
+
+    /// 素材丢失
+    
+    XYTaskLoadProjectStateTemplateMissing = QVET_ERR_COMMON_TEMPLATE_MISSING;
+    
+    /// 镜头源文件丢失
+    
+    XYTaskLoadProjectStateClipFileMissing = QVET_ERR_COMMON_PRJLOAD_CLIPFILE_MISSING;
+
+};
+```
 ```
   /**
    * 创建新的工程
