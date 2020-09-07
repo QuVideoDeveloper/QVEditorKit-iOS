@@ -41,6 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isReload;//根据 trackType groupId 刷新对应的memory的数据
 @property (nonatomic, assign) XYEngineReloadTimeLineType reloadTimeLineType;//刷新timeLine 方式
 @property (nonatomic, assign) BOOL succeed;
+@property (nonatomic, strong) NSError *error;
+
 @property (nonatomic, assign) BOOL isAutoplay;//是否自动播放
 @property (nonatomic, assign) BOOL isNeedCheckTrans;
 @property (nonatomic, assign) BOOL adjustEffect; //是否刷新效果

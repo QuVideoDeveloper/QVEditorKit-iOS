@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL verticalReversal; //竖直翻转
 @property (nonatomic, assign) BOOL horizontalReversal; //水平翻转
 
-@property (nonatomic, strong) XYVe3DDataF *center;//中心点 如果有修改锚点 ，效果的位置就是相对这个中心点偏移了anchor.x,anchor.y,anchor.z
+@property (nonatomic, strong) XYVe3DDataF *center;// 中心点 如果有修改锚点 ，效果的位置就是相对这个中心点偏移了anchor.x,anchor.y,anchor.z
 @property (nonatomic, strong) XYVe3DDataF *size;//效果以streamsize的宽高深
 @property (nonatomic, strong) XYVe3DDataF *degree;//角度,(0,0,0)为效果以x/y/z轴的旋转角度 。取值范围是 0~360
 @property (nonatomic, strong) XYVe3DDataF *anchorOffset;//相对锚点偏移量 默认为(0,0,0)

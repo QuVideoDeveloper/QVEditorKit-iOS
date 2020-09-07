@@ -255,4 +255,12 @@ typedef NS_ENUM(NSInteger,  XYMethodKeyFrameType) {
 
 };
 
+typedef NS_ENUM(UInt64,  XYTaskLoadProjectErrorCode) {
+    /// 素材丢失
+    XYTaskLoadProjectStateTemplateMissing = QVET_ERR_COMMON_TEMPLATE_MISSING,
+    /// 镜头源文件丢失
+    XYTaskLoadProjectStateClipFileMissing = QVET_ERR_COMMON_PRJLOAD_CLIPFILE_MISSING,
+
+};
+
 #endif /* XYEngineEnum_h */
