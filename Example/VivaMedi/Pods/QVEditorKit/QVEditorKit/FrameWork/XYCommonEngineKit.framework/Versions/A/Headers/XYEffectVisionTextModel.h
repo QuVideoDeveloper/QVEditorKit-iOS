@@ -13,6 +13,7 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
     XYEffectVisionTextAlignmentLeft = AMVE_STYLE_TEXT_ALIGNMENT_LEFT,
     XYEffectVisionTextAlignmentMiddle = AMVE_STYLE_TEXT_ALIGNMENT_HOR_CENTER | AMVE_STYLE_TEXT_ALIGNMENT_VER_CENTER,
     XYEffectVisionTextAlignmentRight = AMVE_STYLE_TEXT_ALIGNMENT_RIGHT,
+    XYEffectVisionTextAlignmentVertical = AMVE_STYLE_TEXT_ALIGNMENT_TOP ,
     XYEffectVisionTextAlignmentJustify = AMVE_STYLE_TEXT_ALIGNMENT_HOR_FULLFILL | AMVE_STYLE_TEXT_ALIGNMENT_VER_FULLFILL,
 };
 
@@ -47,7 +48,8 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
 
 //动画字幕相关
 @property (nonatomic, assign) BOOL isAnimatedText;//是否动画字幕
-
+//是否支持竖排文字
+@property (nonatomic, assign) BOOL isSupportVertical;
 //主题字幕相关
 @property (nonatomic, assign) ThemeTextType themeTextType;//主题文字类型
 @property (nonatomic, assign) NSInteger themeTextSubIndex;//主题文字顺序

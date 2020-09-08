@@ -133,11 +133,11 @@
 
 - (NSInteger)getClipEffectConfigIndexWithClipIndex:(int)dwClipIndex trackType:(MDWord)dwTrackType groupId:(MDWord)groupId layerID:(MFloat)layerId;
 
-- (MRESULT)setClipTransition:(NSString *)transPath configureIndex:(UInt32)configureIndex dwClipIndex:(int)dwClipIndex;
+- (MRESULT)setClipTransition:(NSString *)transPath configureIndex:(UInt32)configureIndex dwClipIndex:(int)dwClipIndex dwDuration:(NSInteger)dwDuration;
 
 - (NSString *)getClipTransitionPath:(int)dwClipIndex;
 
-- (MRESULT)setClipTransition:(NSString *)transPath configureIndex:(UInt32)configureIndex pClip:(CXiaoYingClip *)pClip;
+- (MRESULT)setClipTransition:(NSString *)transPath configureIndex:(UInt32)configureIndex pClip:(CXiaoYingClip *)pClip dwDuration:(NSInteger)dwDuration;
 - (NSString *)getClipTransitionPathByClip:(CXiaoYingClip *)clip;
 
 - (BOOL)isAllClipPicture;
@@ -215,5 +215,13 @@
 - (void)setEffectPropertyWithPropertyID:(NSInteger)dwPropertyID
                                   value:(CGFloat)value
                               clipIndex:(NSInteger)idx;
+
+- (MRESULT)setClipUserData:(NSDictionary *)userDataDic pClip:(CXiaoYingClip *)pClip;
+- (NSDictionary *)getClipUserData:(CXiaoYingClip *)pClip;
+
+//- (QVET_CURVE_SPEED_VALUES)getClipCurveSpeed:(CXiaoYingClip *)pClip;
+//
+//- (void)setClipCurveSpeed:(CXiaoYingClip *)pClip curveSpeed:(QVET_CURVE_SPEED_VALUES)curveSpeed;
+
 @end
 

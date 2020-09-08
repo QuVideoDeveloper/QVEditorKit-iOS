@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class XYSlideShowConfiguration, XYSlideShowMedia, XYSlideShowClipMgr;
+@class XYSlideShowConfiguration, XYSlideShowMedia, XYSlideShowClipMgr, XYSlideShowEffectMgr;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) CXiaoYingSlideShowSession * _Nullable slideShowSession;
 @property (nonatomic, strong) XYSlideShowClipMgr * _Nullable clipMgr;
+@property (nonatomic, strong) XYSlideShowEffectMgr * _Nullable effctMgr;
 
 + (XYSlideShowEditor *)sharedInstance;
 
@@ -22,18 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param config 初始化配置
 - (void)initializeWithConfig:(XYSlideShowConfiguration *)config;
 
-/// 根据媒体资源创建工程
-/// @param medias 媒体资源对象
-
-/// 根据媒体资源创建工程
-/// @param medias 媒体资源对象
-/// @param themeId 主题
-
 /// 根据主题及媒体资源创建工程
 /// @param themeId 主题id
 /// @param medias 媒体资源对象
 /// @param complete 结束回调 主线程
-- (void)createProjectWithThemeId:(NSInteger)themeId
+- (void)createProjectWithThemeId:(UInt64)themeId
                           medias:(NSArray <XYSlideShowMedia *> *)medias
                          complete:(void (^)(BOOL success))complete;
 

@@ -1,5 +1,5 @@
 ENABLE_BITCODE = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../Pods/QVEditorKit/QVEditorKit/FrameWork" "${PODS_ROOT}/QVCommonKit/QVCommonKit/CoreFrameWork" "${PODS_ROOT}/YYImage/Vendor"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/QVCommonKit/QVCommonKit/CoreFrameWork" "${PODS_ROOT}/QVEditorKit/QVEditorKit/FrameWork" "${PODS_ROOT}/YYImage/Vendor"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/QVMediCamera" "${PODS_ROOT}/Headers/Public/QVMediEdit" "${PODS_ROOT}/Headers/Public/QVMediToolbarKit" "${PODS_ROOT}/Headers/Public/QVMediTools" "${PODS_ROOT}/Headers/Public/ReactiveObjC" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/SSZipArchive" "${PODS_ROOT}/Headers/Public/SVProgressHUD" "${PODS_ROOT}/Headers/Public/TZImagePickerController" "${PODS_ROOT}/Headers/Public/XYCommonEngine" "${PODS_ROOT}/Headers/Public/YYCache" "${PODS_ROOT}/Headers/Public/YYCategories" "${PODS_ROOT}/Headers/Public/YYImage" "${PODS_ROOT}/Headers/Public/YYKeyboardManager" "${PODS_ROOT}/Headers/Public/YYModel" "${PODS_ROOT}/Headers/Public/YYWebImage"
 OTHER_CFLAGS = $(inherited) -fmodule-map-file="${PODS_ROOT}/Headers/Public/SSZipArchive/SSZipArchive.modulemap"

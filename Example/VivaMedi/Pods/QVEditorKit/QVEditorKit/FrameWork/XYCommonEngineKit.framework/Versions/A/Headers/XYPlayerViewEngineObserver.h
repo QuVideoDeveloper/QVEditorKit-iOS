@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYPlayerViewEngineObserver : NSObject
 
+@property (nonatomic, weak) XYPlayerView *editorPlayerView;
 
 /// 开始监听引擎操作
 /// @param playerView 工具播放器

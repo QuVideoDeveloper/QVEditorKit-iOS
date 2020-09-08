@@ -78,7 +78,10 @@ MRESULT AMVE_GetBubbleThumbnailByTemplate(MHandle hSessionCtx,
 												AMVE_BUBBLETEXT_SOURCE_TYPE* pBubbleSrc,
 												MSIZE *pBGSize, //bg video frame size
 												MSIZE *pContentSize, //bubble content size
-												MDWord dwTimeStamp); 
+												MDWord dwTimeStamp);
+//hVecList std::vector<std::string> 模板需要引擎具备哪些功能
+MRESULT AMVE_GetMaterialNeedEngineSupportList(const MChar *pszTemplatePath, MHandle hVecList);
+
 #if WIN32
 		
 MRESULT AMVE_EffectThumbnailMgrCreate(MHandle *phThumbnailMgr,
@@ -171,6 +174,8 @@ MRESULT AMVE_SessionContextDestroy(MHandle hContext);
 MRESULT AMVE_SessionContextSetProp(MHandle hContext, MDWord dwPropId, MVoid* pData, MDWord dwSize);
 
 MRESULT AMVE_SessionContextGetProp(MHandle hContext, MDWord dwPropId, MVoid* pData, MDWord* pdwSize);
+//获取引擎支持功能列表， std::vector<std::string>
+MRESULT AMVE_SessionContextGetEngineSupportList(MHandle hVecCtx);
 
 //The interfaces for clip
 MRESULT AMVE_ClipCreate(MHandle hSessionContext, AMVE_MEDIA_SOURCE_TYPE* pSource, MHandle* phClip); 

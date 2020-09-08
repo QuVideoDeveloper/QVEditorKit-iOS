@@ -259,6 +259,7 @@
 */
 + (MBool) IsSupportNSX;
 
++ (NSArray<NSString *> * _Nullable) GetMaterialNeedSupportList:(NSString*) templateFile;
 @end // CXiaoYingUtils
 
 

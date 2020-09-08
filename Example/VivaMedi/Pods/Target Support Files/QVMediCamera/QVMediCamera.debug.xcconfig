@@ -1,7 +1,8 @@
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/QVMediCamera
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../Pods/QVEditorKit/QVEditorKit/FrameWork" "${PODS_ROOT}/QVCommonKit/QVCommonKit/CoreFrameWork"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/QVCommonKit/QVCommonKit/CoreFrameWork" "${PODS_ROOT}/QVEditorKit/QVEditorKit/FrameWork"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/QVMediCamera" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/QVMediCamera" "${PODS_ROOT}/Headers/Public/ReactiveObjC" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/XYCommonEngine" "${PODS_ROOT}/Headers/Public/YYModel"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/QVMediCamera" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/QVMediCamera" "${PODS_ROOT}/Headers/Public/ReactiveObjC" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/SSZipArchive" "${PODS_ROOT}/Headers/Public/XYCommonEngine" "${PODS_ROOT}/Headers/Public/YYModel"
+OTHER_CFLAGS = $(inherited) -fmodule-map-file="${PODS_ROOT}/Headers/Public/SSZipArchive/SSZipArchive.modulemap"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}

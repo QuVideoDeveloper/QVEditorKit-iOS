@@ -21,7 +21,8 @@
 @property (nonatomic) NSInteger bgColor;
 @property (nonatomic) void* hSession;
 @property (nonatomic) CGFloat videoRatio;//视频比例
-@property (nonatomic) CGSize playStreamSize;//视频播放流的尺寸
+@property (nonatomic) BOOL autoFit;//设置尺寸后 自适应大小 默认YES
+@property (nonatomic) CGSize playViewSize;//playview 的尺寸
 
 @property (nonatomic) BOOL needRebuildStram;//是否需要rebuild stream
 

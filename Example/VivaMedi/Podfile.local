@@ -1,4 +1,4 @@
-pod 'QVEditorKit', :path => '../Pods/QVEditorKit'
+#pod 'QVEditorKit', :path => '../Pods/QVEditorKit'
 
 pod 'QVMediToolbarKit', :path => '../Pods/QVMediToolbarKit'
 

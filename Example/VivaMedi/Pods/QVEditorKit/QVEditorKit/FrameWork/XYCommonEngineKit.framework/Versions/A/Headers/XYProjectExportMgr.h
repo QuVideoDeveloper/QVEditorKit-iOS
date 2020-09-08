@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, XYProjectExportResultType) {
 typedef void (^export_start_block)(void);
 typedef void (^export_success_block)(void);
 typedef void (^export_progress_block)(NSInteger currentTime,NSInteger totalTime);
-typedef void (^export_failure_block)(XYProjectExportResultType result, NSInteger errorCode);
+typedef void (^export_failure_block)(XYProjectExportResultType result, NSInteger errorCode, NSString * _Nullable error);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -56,6 +56,18 @@ NS_ASSUME_NONNULL_BEGIN
            progress:(export_progress_block)progress
             success:(export_success_block)success
             failure:(export_failure_block)failure;
+
+/// 视频提取音频
+/// @param filePath 需要的视频资源路径
+/// @param exportFilePath 导出的文件了路径
+/// @param progress 提取进度 主线程
+/// @param success 提取成功 主线程
+/// @param failure 提取失败 主线程
+- (void)extractAudioWithFilePath:(NSString *)filePath
+             exportFilePath:(NSString *)exportFilePath
+                   progress:(export_progress_block)progress
+                    success:(export_success_block)success
+                    failure:(export_failure_block)failure;
 @end
 
 NS_ASSUME_NONNULL_END

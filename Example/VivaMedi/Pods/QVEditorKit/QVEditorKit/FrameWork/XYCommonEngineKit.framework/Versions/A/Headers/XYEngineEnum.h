@@ -8,6 +8,7 @@
 #ifndef XYEngineEnum_h
 #define XYEngineEnum_h
 #import "XYEngineDef.h"
+#import <XYCommonEngine/CXiaoYingInc.h>
 
 typedef NS_ENUM(NSInteger, XYCommonEngineClipModuleType) {
     XYCommonEngineClipModuleImage = AMVE_IMAGE_CLIP,
@@ -19,9 +20,9 @@ typedef NS_ENUM(NSInteger, XYCommonEngineClipModuleType) {
 };
 
 typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
-    XYCommonEngineTaskNone,
+    XYCommonEngineTaskNone = 0,
     //获取引擎数据 不在内存中能拿到的数据 需引擎取
-    XYCommonEngineTaskIDAchieveEngineTaskHandle = 0,
+    XYCommonEngineTaskIDAchieveEngineTaskHandle,
     XYCommonEngineTaskIDObserverEveryTaskStart,//每个引擎操作开始前回调 ⚠️注意回调是在子线程
     XYCommonEngineTaskIDObserverEveryTaskFinish,//每个引擎操作完成后回调 ⚠️注意回调是在子线程
     XYCommonEngineTaskIDFinanceObserverEveryTaskFinish,//每个引擎操作完成后回调 ⚠️注意回调是在子线程 ⚠️ 给变现用
@@ -50,6 +51,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDClipUpdateVolume,//修改原clip的声音大小 需要的参数 volumeValue
     XYCommonEngineTaskIDClipFilterAdd,//添加滤镜 需要的参数 clipEffectModel对象设置值 1. 对应的FilterFilePath 2. 对应的FilterAlpha 0～1.0  3. effectConfigIndex 对应素材的TemplateItemData 的 nConfigureCount 4.groupID <XYCommonEngineGroupIDColorFilter 调色滤镜 XYCommonEngineGroupIDThemeFilter 特色滤镜 XYCommonEngineGroupIDThemeFilter 主题滤镜>
     XYCommonEngineTaskIDClipFilterUpdateAlpha,//修改滤镜程度 需要的参数 1. 对应的FilterAlpha 0～1.0 2.<XYCommonEngineGroupIDColorFilter 调色滤镜 XYCommonEngineGroupIDThemeFilter 特色滤镜 XYCommonEngineGroupIDThemeFilter 主题滤镜>
+    XYCommonEngineTaskIDClipFilterUpdate,
     XYCommonEngineTaskIDClipVoiceChange,//变声 需要的参数 voiceChangeValue
     XYCommonEngineTaskIDClipAdjustUpdate,//参数调节   1.adjustItem dwCurrentValue
     XYCommonEngineTaskIDClipSpeed,//变速 1. speedValue 2.iskeepTone//是否保持原声调 调用变速前需要判断设置后clip时长是否>=VIVAVIDEO_MINIMUM_TRIM_RANGE。 设置后需要重新计算效果
@@ -82,8 +84,8 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDClipAudioNSX,//音频降噪功能是否开启，默认关
     
     XYCommonEngineTaskIDClipReplaceSource,//clip 路径替换
-    
-    
+    XYCommonEngineTaskIDClipCurveSpeedUpdate, //曲线变速
+
     
     //Project 相关taskID========================================================================Project 相关taskID
     XYCommonEngineTaskIDQProjectCreate,//创建新工程
@@ -94,7 +96,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     
     
     //effect 相关taskID========================================================================effect 相关taskID
-    
+    XYCommonEngineTaskIDEffectUpdate,//用于删除clip 修剪clip等对效果起始点及长度的修改或者删除
     
     //背景音乐相关的
     
@@ -120,17 +122,22 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDEffectVisionUpdate,  //更新可视效果 用这个model：XYEffectVisionModel 里面的参数都可以修改
     XYCommonEngineTaskIDEffectVisionDuplicate, //复制一个可视效果
     XYCommonEngineTaskIDEffectVisionDelete,  //删除可视效果 用这个model：XYEffectVisionModel 需要确保pEffect有值
+    XYCommonEngineTaskIDEffectVisionKeyFrameUpdate, //关键帧添加和更新
     //可视效果-字幕
     XYCommonEngineTaskIDEffectVisionTextAdd,  //添加字幕效果 用这个model：XYEffectVisionTextModel
     XYCommonEngineTaskIDEffectVisionTextUpdate,  //更新字幕效果 用这个model：XYEffectVisionTextModel 里面的参数都可以修改
     XYCommonEngineTaskIDEffectVisionDelelteKeyFrame,  //根据visionModels 删除关键帧
+    XYCommonEngineTaskIDEffectVisionUpdate3dInfo,  //中心点：center，尺寸大小：size，相对中心的（锚点偏移量）anchorOffset
+
     //高级功能 混合模式 画中画
     XYCommonEngineTaskIDEffectVisionPinInPicOverlayUpdate,//混合模式
     XYCommonEngineTaskIDEffectVisionPinInPicChromaUpdate,//画中画抠图（绿幕）
     XYCommonEngineTaskIDEffectVisionPinInPicMaskUpdate,//画中画蒙版效果
     XYCommonEngineTaskIDEffectVisionPinInPicFilterUpdate,//画中画滤镜
-    XYCommonEngineTaskIDEffectVisionPinInPicSubFX,//画中画特效
-    XYCommonEngineTaskIDEffectVisionPinInPicSubAdjust,//画中画滤镜的参数调节
+    XYCommonEngineTaskIDEffectVisionPinInPicFXUpdate,//画中画特效
+    XYCommonEngineTaskIDEffectVisionPinInPicAdjustUpdate,//画中画滤镜的参数调节
+    XYCommonEngineTaskIDEffectVisionPinInPicPluginUpdate,//设置画中画效果插件
+    XYCommonEngineTaskIDEffectVisionPinInPicColorCurve,//设置画中画颜色曲线
 
 };
 
@@ -226,5 +233,34 @@ typedef NS_ENUM(NSInteger,  XYEffectMaskType) {
     XYEffectMaskTypeRectangle = 4,//矩形蒙版
 };
 
+typedef NS_ENUM(NSInteger,  XYKeyFrameType) {
+    XYKeyFrameTypePosition = 0, //位置关键帧
+    XYKeyFrameTypeRotation, //旋转关键帧
+    XYKeyFrameTypeScale, //缩放关键帧
+    XYKeyFrameTypeAnchorOffset,
+    XYKeyFrameTypeAlpha, //透明度关键帧
+    XYKeyFrameTypeMask, //蒙版关键帧
+    XYKeyFrameTypeAttribute //属性关键帧
+};
+
+typedef NS_ENUM(NSInteger,  XYKeyFrameOffsetOpcodeType) {
+    XYKeyFrameOffsetOpcodeTypePlus = KEYFRAME_TRANSFORM_COMMON_OFFSET_TYPE_PLUS, //相对offset 做加法操作
+    XYKeyFrameOffsetOpcodeTypeMul = KEYFRAME_TRANSFORM_COMMON_OFFSET_TYPE_MUL, //相对offset 做乘法操作
+};
+
+typedef NS_ENUM(NSInteger,  XYMethodKeyFrameType) {
+    XYMethodKeyFrameTypeNormal = METHOD_KEYFRAME_TYPE_LINEAR_INTER, //普通线性插值
+    XYMethodKeyFrameTypeLinear = METHOD_KEYFRAME_TYPE_KEY_LINEAR, //在线条上进行线性插值，需要模板 暂不支持
+    XYMethodKeyFrameTypeBezier = METHOD_KEYFRAME_TYPE_BEZIER_INTER, //bezier curve interpolation
+
+};
+
+typedef NS_ENUM(UInt64,  XYTaskLoadProjectErrorCode) {
+    /// 素材丢失
+    XYTaskLoadProjectStateTemplateMissing = QVET_ERR_COMMON_TEMPLATE_MISSING,
+    /// 镜头源文件丢失
+    XYTaskLoadProjectStateClipFileMissing = QVET_ERR_COMMON_PRJLOAD_CLIPFILE_MISSING,
+
+};
 
 #endif /* XYEngineEnum_h */

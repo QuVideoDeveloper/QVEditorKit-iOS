@@ -11,10 +11,10 @@
 #import "QVEngineDataSourceProtocol.h"
 
 @class XYSlideShowThemeTextInfo;
-@class XYThemeTextScene;
+@class XYSlideShowThemeTextScene;
 @class XYSlideShowMedia;
 @class XYSlideShowSourceNode;
-@class XYVideoScene;
+@class XYSlideShowSourceNodeScene;
 @class XYPlayerView;
 NS_ASSUME_NONNULL_BEGIN
 
@@ -89,7 +89,9 @@ typedef struct{
 - (NSArray<XYSlideShowMedia *> *)getSourceInfoNodeArray;
 - (XYSlideShowMedia *_Nullable)getOriginalSourceInfoNodeAtIndex:(UInt32)index;
 - (NSArray<XYSlideShowMedia *> *)getOriginalSourceInfoNodeArray;
-- (void)makeStoryboard:(NSString *)fullLanguage completeBlock:(AE_COMPLETE_BLOCK)completeBlock detectFaceProgress:(AEProgressBlock _Nullable)progressBlock;
+- (void)makeStoryboard:(NSString *)fullLanguage
+            resolution:(CGSize)resolution
+         completeBlock:(AE_COMPLETE_BLOCK)completeBlock detectFaceProgress:(AEProgressBlock _Nullable)progressBlock;
 - (CXiaoYingStoryBoardSession * _Nullable)getStoryboardSession;
 - (CXiaoYingStoryBoardSession *)duplicateStoryboard;
 
@@ -121,7 +123,7 @@ typedef struct{
 
 #pragma mark - theme text
 
-- (NSArray<XYThemeTextScene *> *)getThemeTextSceneArray;
+- (NSArray<XYSlideShowThemeTextScene *> *)getThemeTextSceneArray;
 - (void)setThemeText:(XYSlideShowThemeTextInfo *)themeTextInfo;
 
 #pragma mark - virtual image edit
@@ -132,7 +134,7 @@ typedef struct{
 
 - (NSArray<XYSlideShowSourceNode *> *)getVirtualImgInfoNodeArray;
 
-- (NSArray<XYVideoScene *> *)videoSceneArray;
+- (NSArray<XYSlideShowSourceNodeScene *> *)slideShowSourceNodeSceneArray;
 
 - (BOOL)updateVirtualImageFaceCenter:(XYSlideShowSourceNode *)vImageInfoNode
                          faceCenterX:(NSInteger)faceCenterX
@@ -158,6 +160,9 @@ typedef struct{
 - (MRESULT)setSlideShowSessionSceneResolution:(MPOINT *)pStbSize;
 
 - (void)moveVirtualSource:(UInt32)dwSrcIndex dwDstIndex:(UInt32)dwDstIndex;
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

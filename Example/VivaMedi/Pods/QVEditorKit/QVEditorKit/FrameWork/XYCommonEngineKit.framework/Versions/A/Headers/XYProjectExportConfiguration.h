@@ -7,11 +7,11 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, XYEngineExportType) {
-    XYEngineExportType480 = 0,
-    XYEngineExportType720,
-    XYEngineExportType1080,
-    XYEngineExportType4k,
+typedef NS_ENUM(NSInteger, XYEngineResolution) {
+    XYEngineResolution480 = 0,
+    XYEngineResolution720,
+    XYEngineResolution1080,
+    XYEngineResolution4k,
 };
 
 @class XYVeRangeModel, XYStoryboard;
@@ -21,26 +21,36 @@ typedef NS_ENUM(NSInteger, XYProjectType) {
     XYProjectTypeSlideShow,//幻灯片
 };
 
+typedef NS_ENUM(NSInteger, XYProjectExportType) {
+    XYProjectExportTypeVideo = 0,//导出视频
+    XYProjectExportTypeGIF,//导出GIF
+    XYProjectExportTypeWebp,//导出webp
+    XYProjectExportTypeAudio,//导出音频
+
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XYProjectExportConfiguration : NSObject
 
+/// 导出类型 默认导出视频
+@property (nonatomic, assign) XYProjectExportType exportType;
 
 /// 工程的类型 默认是正常的编辑工程
 @property (nonatomic, assign) XYProjectType projectType;
 
 /// 导出的路径 需要创建文件夹及导出对应文件的后缀名，如导出mp4 格式是**/filename.mp4, 导出GIF 格式是**/filename.GIF
-@property (nonatomic, copy) NSString *exportingFilePath;
+@property (nonatomic, copy) NSString *exportFilePath;
 
 /// 导出分辨率类型
-@property (nonatomic, assign) XYEngineExportType expType;
+@property (nonatomic, assign) XYEngineResolution resolution;
 
 /// 自定义的导出分辨率限制，使用自定义的话，expType就不重要了
 @property (nonatomic, assign) CGSize customLimitSize;
 
 
 /// 导出的视频的range 默认是全长 如导出GIF 需要设置trimRange
-@property (nonatomic, assign) XYVeRangeModel *trimRange;
+@property (nonatomic, strong) XYVeRangeModel *trimRange;
 
 /// 导出视频填充背景颜色 默认是黑色 格式是 0x000000
 @property (nonatomic, assign) NSInteger bgColor;
@@ -54,9 +64,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// 水印的样式 对应的水印样式模版的id
 @property (nonatomic, assign) long long llWaterMarkID;
 
-/// 导出的是否是GIF
-@property (nonatomic, assign) BOOL isGIF;
-
 /// 导出的fps 默认30
 @property (nonatomic, assign) NSInteger fps;
 
@@ -65,9 +72,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 比特率系数；在原计算出来的BitRate基础上乘以该系数 值范围 [1, 10] 默认值为1
 @property (nonatomic) CGFloat bitRate;
-
-/// 导出是否是音频
-@property (nonatomic, assign) BOOL isAudio;
 
 /// 用于提取音频
 @property (nonatomic, strong) XYStoryboard *storyboard;

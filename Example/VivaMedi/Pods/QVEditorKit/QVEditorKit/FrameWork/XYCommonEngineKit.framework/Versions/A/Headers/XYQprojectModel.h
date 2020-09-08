@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XYQprojectModel : XYBaseEngineModel
 
 @property (nonatomic, copy) NSString *prjFilePath;//保存工程的路径
-@property (nonatomic, copy) NSString *thumbnailFilePath;//封面缩略图保存的路径
-@property (nonatomic) UInt64 thumbPos;;//根据时间点来获取封面缩略图
+@property (nonatomic, assign) BOOL isAsynchronouTaskQueune;//是否在引擎队列 如果中途自动保存 建议使用YES
+
 
 @end
 

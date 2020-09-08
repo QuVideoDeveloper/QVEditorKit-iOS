@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)runTask:(XYClipModel *)clipModel;
 - (void)runTaskToMore:(NSArray <XYClipModel *> *)clipModels;//应用多个或者全部
 
+- (void)runTask:(XYClipModel *)clipModel
+completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;
+- (void)runTaskToMore:(NSArray <XYClipModel *> *)clipModels completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;//应用多个或者全部
+
 @end
 
 NS_ASSUME_NONNULL_END

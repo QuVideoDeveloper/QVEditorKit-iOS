@@ -18,6 +18,7 @@
 
 - (void)initDBWithTargetPath:(NSString *)targetPath sourcePath:(NSString *)sourcePath;
 
+- (void)onSetTargetPath:(NSString *)targetPath sourcePath:(NSString *)sourcePath;
 /**
  Upgrade database in sub class
  */

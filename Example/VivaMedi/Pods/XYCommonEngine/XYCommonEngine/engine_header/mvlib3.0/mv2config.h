@@ -2466,6 +2466,7 @@ for get
 
 #define MV2_CFG_AVERAGE_GOP_TIME                        (MV2_CFG_MEDIAFILE_BASE+221)
 
+#define MV2_CFG_STREAM_FX_ORIGNAL_TYPE                        (MV2_CFG_MEDIAFILE_BASE+222)
 
 ///////configuration type ID for display//////////////////////
 #define MV2_CFG_DISPLAY_BASE				0x09000000

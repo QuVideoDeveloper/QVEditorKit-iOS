@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGSize videoResolution;
 
 /// 语言
-@property (nonatomic, copy) NSString *fullLanguage;
+@property (nonatomic, copy) NSString *language;
+
 @end
 
 NS_ASSUME_NONNULL_END

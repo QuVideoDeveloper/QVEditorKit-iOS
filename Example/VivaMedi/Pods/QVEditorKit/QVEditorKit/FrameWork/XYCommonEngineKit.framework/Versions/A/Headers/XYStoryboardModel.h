@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSArray <TextInfo *> *themeTextList;//主题字幕list
 @property (nonatomic, copy) NSString *themePath;//主题素材路径
 @property (nonatomic, copy) NSArray *themeMusicPathList;//主题音乐路径
-@property(nonatomic, assign, readonly) NSInteger themeID;//主题id
+@property(nonatomic, assign, readonly) UInt64 themeID;//主题id
 @property(nonatomic, assign) CGFloat ratioValue;
 @property(nonatomic, assign) BOOL isPhotoMV;
 @property(nonatomic, assign) CGSize outPutResolution;//分辨率

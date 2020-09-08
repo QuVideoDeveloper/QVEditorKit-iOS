@@ -61,6 +61,7 @@
 		AA5901B28DB0FD8AD2D453CB /* libPods-VivaMediTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VivaMediTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE36F39F249370130025D10D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AE36F3AB24938F240025D10D /* VivaMedi-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VivaMedi-prefix.pch"; sourceTree = "<group>"; };
+		AE833C83250722200027BAE9 /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		AEA0C7AF2446AD13000294C4 /* VivaMedi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VivaMedi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA0C7B22446AD13000294C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AEA0C7B32446AD13000294C4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -228,6 +229,7 @@
 		AEA0C7E72446D938000294C4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AE833C83250722200027BAE9 /* license.txt */,
 				AEA0C7E82446D953000294C4 /* private */,
 			);
 			path = Resource;

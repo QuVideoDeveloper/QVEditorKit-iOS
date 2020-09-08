@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (PHAsset *)getAssetByAssetID:(NSString *)assetID;
 + (PHAsset *)getAssetByAssetPath:(NSString *)assetPath;
 
-- (int)calculateClipIndexByTime:(MDWord)time;
 - (int)calculateClipIndexByTime:(MDWord)time virtualInfos:(NSArray <XYSlideShowSourceNode *> *)virtualInfos;
 
 @end

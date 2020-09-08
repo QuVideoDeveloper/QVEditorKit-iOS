@@ -21,6 +21,8 @@
 #import "XYPlayerView.h"
 #import "QVEngineDataSourceProtocol.h"
 
+@class XYEffectPropertyInfoModel;
+
 static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineAppVersion";
 
 
@@ -41,15 +43,18 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 @protocol XYStoryboardTemplateDelegate <NSObject>
 
 - (NSString *)onGetTemplateFilePathWithID:(UInt64)templateID;
+- (UInt64)onGetTemplateIDWithTemplateFilePath:(NSString *)TemplateFilePath;
+
 - (NSInteger)onGetThemeCoverPositionByThemeId:(UInt64)themeId;
+/// 根据模板id 获取模板信息 此接口是获取参数调节模板，效果插件模板信息
+/// @param templateID 模板id
+- (XYEffectPropertyInfoModel *)onGetEffectPropertyInfoWithTemplateID:(UInt64)templateID;
 @end
 
 @interface XYStoryboardSaveConfig : NSObject
 
-@property (nonatomic, copy) NSString *prjFilePath;
-@property (nonatomic) BOOL needUpdateThumbnail;
-@property (nonatomic, copy) NSString *thumbnailFilePath;//封面缩略图保存的路径
-@property (nonatomic) UInt64 thumbPos;
+@property (nonatomic, copy) NSString * _Nullable prjFilePath;
+
 
 @end
 
@@ -71,6 +76,8 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 @property (nonatomic, weak) id<XYStoryboardEditTextParserDelegate> textParserDelegate;
 
 @property (nonatomic, weak) id<QVEngineDataSourceProtocol> textDataSourceDelegate;
+/// 是否开启日志的打印
+@property (nonatomic, assign) BOOL isPrintLog;
 
 
 //模版解析delegate
@@ -404,7 +411,7 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 - (MFloat)clipOriginVolume:(NSInteger)clipIndex;
 - (MFloat)clipOriginVolumeWithPClip:(CXiaoYingClip *)pClip;
 - (MRESULT)updateClipVolume:(NSInteger)clipIndex volumeValue:(MFloat)volumeValue;
-
+- (MRESULT)updateClipVolumeWithPClip:(CXiaoYingClip *)clip volumeValue:(MFloat)volumeValue;
 - (NSString *)getClipIdentifier:(CXiaoYingClip *)clip;
 - (MRESULT)setClipIdentifier:(CXiaoYingClip *)clip identifier:(NSString *)identifier;
 - (int)getLayoutMode:(int)width height:(int)height;
@@ -478,5 +485,7 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 //- (AMVE_MUL_BUBBLETEXT_INFO *)fetchTemplateMultiTextInfo:(NSString *)templatePath;
 
 - (NSString *)fetchLanguageCode;//向外部获取语言
+
++ (void)printLog:(NSString *)log errorCode:(NSInteger)errorCode;
 
 @end

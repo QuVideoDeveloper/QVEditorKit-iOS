@@ -25,13 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger effectConfigIndex;//有些素材包含多种效果，表示使用第几个效果，默认0
 
 @property (nonatomic, copy) NSString *colorFilterFilePath;//调色滤镜的路径
-@property (nonatomic, assign) CGFloat colorFilterAlpha;//调色程度值 滤镜调节
+@property (nonatomic, assign) CGFloat colorFilterAlpha;//调色程度值 滤镜调节 值范围 0-1
 
 @property (nonatomic, copy) NSString *themeFilterFilePath;//主题滤镜的路径
-@property (nonatomic, assign) CGFloat themeFilterAlpha;//主题程度值 滤镜调节
+@property (nonatomic, assign) CGFloat themeFilterAlpha;//主题程度值 滤镜调节 值范围 0-1
 
 @property (nonatomic, copy) NSString *fxFilterFilePath;//特效滤镜的路径
-@property (nonatomic, assign) CGFloat fxFilterAlpha;//特效程度值 滤镜调节
+@property (nonatomic, assign) CGFloat fxFilterAlpha;//特效程度值 滤镜调节 值范围 0-1
 
 @property (nonatomic, copy) NSString *effectTransFilePath;//转场的路径
 

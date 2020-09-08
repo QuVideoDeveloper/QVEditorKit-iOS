@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)runTask:(XYStoryboardModel *)storyboardModel;
 
+- (void)runTask:(XYStoryboardModel *)storyboardModel
+completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;
+
 - (BOOL)bgmIsAddedByTheme:(NSString *)bgmPath;
 
 @end

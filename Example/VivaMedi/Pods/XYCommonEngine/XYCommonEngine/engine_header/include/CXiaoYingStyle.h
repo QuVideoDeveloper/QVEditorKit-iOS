@@ -527,6 +527,8 @@ typedef struct _tagCXYEffectPropertyInfo
 
 - (MDWord) GetThemeExportSize: (MSIZE *)pExportSize;
 
+- (MDWord) GetThemeExportSizeList: (NSMutableArray * _Nonnull) arrExportSize;
+
 + (NSArray<NSString *> * _Nullable) GetThemeDefaultMusicPaths:(CXiaoYingEngine*) pEngine
                             ThemePath:(NSString*) templateFile;
 

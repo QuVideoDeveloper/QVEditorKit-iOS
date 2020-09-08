@@ -229,6 +229,12 @@ typedef struct
 	MBool bHasImageFile;
 } QVET_WATERMARK_INFO;
 
+typedef struct _QVET_EXPORT_SIZE_TYPE
+{
+	MDWord dwSizeCnt;
+	MSIZE* pExportSize;
+}QVET_EXPORT_SIZE_TYPE;
+
 
 
 
@@ -272,7 +278,6 @@ typedef struct __tagQVET_PEN_XML_SETTING
         MDWord metalnessPicId;
         MDWord heightPicId;
 	}material_2D;
-
 
 	MDWord  outTxID;
     MDWord  clearTarget;
@@ -444,7 +449,7 @@ MBool AMVE_StyleIsSlideShowTheme(MHandle hStyle);
 
 MBool AMVE_StyleIsFixedSizeTheme(MHandle hStyle);
 
-MRESULT AMVE_StyleGetThemeExportSize(MHandle hStyle, MSIZE * pExportSize);
+MRESULT AMVE_StyleGetThemeExportSize(MHandle hStyle, QVET_EXPORT_SIZE_TYPE* pExportSize);
 
 MRESULT AMVE_StyleGetThemeCoverPosition(MHandle hStyle,MDWord* pdwPosition);
 

@@ -31,6 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)runTaskToMore:(NSArray <XYEffectModel *> *)effectModels;//应用多个或者全部
 - (void)adjustEffect:(XYCommonEngineTaskID)taskID;
 
+- (void)runTask:(XYEffectModel *)effectModel
+completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;
+- (void)runTaskToMore:(NSArray <XYEffectModel *> *)effectModels completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;//应用多个或者全部
+
 @end
 
 NS_ASSUME_NONNULL_END

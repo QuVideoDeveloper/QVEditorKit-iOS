@@ -15,25 +15,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class XYStoryboard;
-@class XYCommonEngineRequest;
-@class XYEffectVisionTextModel;
-@class XYAdjustEffectValueModel;
-@class PHAsset;
+@class XYStoryboard, XYCommonEngineRequest, XYEffectVisionTextModel, XYAdjustEffectValueModel, PHAsset, XYClipCurveSpeed;
 
 @interface XYClipModel : XYBaseEngineModel
-
 @property (nonatomic, copy) NSString *clipFilePath;
 @property (nonatomic, copy) NSString *filterFilePath;
 @property (nonatomic) NSInteger filterConfigIndex;
 @property (nonatomic, copy) NSString *musicFilePath;
 @property (nonatomic) NSInteger dwMusicTrimStartPos;
 @property (nonatomic) NSInteger dwMusicTrimLen;
-@property (nonatomic) CGRect cropRect;
+@property (nonatomic) CGRect cropRect;//比例 (0,0,1,1)表示裁剪的区域时全部
 @property (nonatomic) NSInteger rotation;//值范围 0-360
 @property (nonatomic) NSInteger clipIndex;//当前的clipIndex
 @property (nonatomic) NSInteger globalIndex;//用于切换到了临时storyboard 时使用
 @property (nonatomic) BOOL isReversed;//是否被倒放
+@property (nonatomic) NSInteger videoFileDuration;//物理视频文件的总时长
 
 @property (nonatomic, assign) NSInteger objIndex;
 @property (nonatomic, assign) BOOL isSwitchSourceRange;// 切换临时时变速后的源的长度
@@ -43,9 +39,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) CGFloat storyboardRatioValue;
 
 @property (nonatomic, assign) BOOL     isMute;//是否静音  type为video时有效
-@property (nonatomic, assign) CGFloat  volumeValue;//音量值 值范围
-@property (nonatomic, assign) CGFloat  voiceChangeValue;//变声值 值范围 -60~60
+@property (nonatomic, assign) CGFloat  volumeValue;//音量值, 值范围 [0,200] 100是原声音量
+@property (nonatomic, assign) CGFloat  voiceChangeValue;//变声值, 值范围 [-60,60]
 @property (nonatomic, assign) CGFloat  speedValue;//视频变速
+
+/// 曲线变速
+@property (nonatomic, strong) XYClipCurveSpeed *curveSpeed;
 @property (nonatomic, assign) BOOL     speedAdjustEffect;//视频变速是否刷新效果
 @property (nonatomic, assign) BOOL     iskeepTone;//是否保持原声调
 @property (nonatomic, assign) BOOL     isAudioNSXOn;//是否开启音频降噪功能
@@ -59,7 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) XYClipModel *duplicateClipModel;
 @property (nonatomic, assign) CGSize clipSize;//clip 的原始尺寸
-@property (nonatomic, assign) CGSize sourceSize;//源视频宽高，相对streamSize的尺寸
 
 //交互顺序
 @property (nonatomic, assign) NSInteger sourceIndex;
@@ -70,7 +68,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger frontTransTime;//转场前部分时间
 @property (nonatomic, assign) NSInteger backTransTime;//转场后部分时间
 @property (nonatomic, assign) NSInteger fixTime;//用于缩略图的起始时间的校准
+@property (readonly, nonatomic, copy) NSDictionary *clipParam;
 
+
+
+/// /// 根据曲线变速后的时间范围获取对应的原clip的时间范围
+/// @param range 变后的对应的时间范围
+- (XYVeRangeModel *)fetchSouceRangeWithCurveSpeedRange:(XYVeRangeModel *)range;
+
+/// /// 根据原clip的时间范围获取对应的曲线变速后的时间范围
+/// @param range 原clip的时间范围
+- (XYVeRangeModel *)fetchCurveSpeedRangeWithSouceRange:(XYVeRangeModel *)range;
 
 /// 根据phAsset 获取到给引擎的镜头路径
 /// @param phAsset PHAsset对象

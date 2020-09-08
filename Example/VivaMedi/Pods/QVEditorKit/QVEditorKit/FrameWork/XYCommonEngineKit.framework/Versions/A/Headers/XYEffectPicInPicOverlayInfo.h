@@ -5,11 +5,11 @@
 //  Created by 夏澄 on 2020/6/15.
 //
 
-#import <Foundation/Foundation.h>
+#import "XYEffectBasePicInPicInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYEffectPicInPicOverlayInfo : NSObject
+@interface XYEffectPicInPicOverlayInfo : XYEffectBasePicInPicInfo
 
 /// 混合模式素材路径
 @property (nonatomic, copy) NSString *overlayPath;

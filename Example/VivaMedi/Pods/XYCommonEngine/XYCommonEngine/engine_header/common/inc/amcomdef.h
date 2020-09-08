@@ -167,6 +167,12 @@ typedef struct __tag_point
 	MLong y; 
 } MPOINT, *PMPOINT;
 
+typedef struct __tag_f_point
+{ 
+	MFloat fX; 
+	MFloat fY; 
+} MFPOINT, *PMFPOINT;
+
 #define MNull		0
 #define MFalse		0
 #define MTrue		1

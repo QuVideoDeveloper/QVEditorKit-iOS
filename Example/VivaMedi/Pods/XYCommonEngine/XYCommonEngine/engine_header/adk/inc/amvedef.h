@@ -88,6 +88,7 @@
 #define AMVE_PROP_CONTEXT_DEF_STUFF_IMG_FILE			(AMVE_PROP_CONTEXT_BASE+42) //填充clip的设定图片路径
 
 #define AMVE_PROP_CONTEXT_IMAGE_SOURCE_FPS			(AMVE_PROP_CONTEXT_BASE+44)
+#define AMVE_PROP_CONTEXT_EXPRESS_MSG_ADAPTER		(AMVE_PROP_CONTEXT_BASE+45)  //编辑状态下贴纸滤镜等等用户触发相关的回调
 #define AMVE_PROP_CONTEXT_REMAIN_MEM_QUERY          (AMVE_PROP_CONTEXT_BASE+46) //剩余内存查询回调
 #define AMVE_PROP_CONTEXT_VIDEO_CONSTANT_FPS         	(AMVE_PROP_CONTEXT_BASE+47) //视频的最小帧率，帧率小于这个帧率会补帧
 #define AMVE_PROP_CONTEXT_SEGMENT_MODEL_FILE        (AMVE_PROP_CONTEXT_BASE+48) //分割算法模型文件路径
@@ -504,7 +505,14 @@
 
 //该属性用于变速时是否进行变调的判断
 #define AMVE_PROP_CLIP_IS_TIME_SCALE_USE_AUDIO_PITCH   (AMVE_PROP_CLIP_BASE+73)
-#define AMVE_PROP_CLIP_SEG_MASK                        (AMVE_PROP_CLIP_BASE+75) 
+//变速播放参数
+#define AMVE_PROP_CLIP_CURVE_SPEED_POINTS			   (AMVE_PROP_CLIP_BASE+74)
+#define AMVE_PROP_CLIP_SEG_MASK                        (AMVE_PROP_CLIP_BASE+75)
+#define AMVE_PROP_CLIP_IS_SET_CURVE_SPEED			   (AMVE_PROP_CLIP_BASE+76)
+//开启曲线变速时用来给app获取原始时长
+#define AMVE_PROP_CLIP_CURVE_SRC_RANGE				   (AMVE_PROP_CLIP_BASE+77)
+//开启曲线变速时用来给app获取缩放后的时长
+#define AMVE_PROP_CLIP_CURVE_SCALE_RANGE			   (AMVE_PROP_CLIP_BASE+78)
 
 
 //constants used to identify the property for storyboard
@@ -1206,6 +1214,13 @@ typedef struct _tagQVET_FILEPATH_MODIFIER{
 	MVoid* pUserData;
 }QVET_FILEPATH_MODIFIER;
 
+#define QVET_EXPRESSION_PASTER_NONE                    -1
+#define QVET_EXPRESSION_PASTER_STOPPED                 0
+#define QVET_EXPRESSION_PASTER_STARTED                 1
+#define QVET_EXPRESSION_PASTER_DOING                   2
+#define QVET_EXPRESSION_PASTER_SWITCH                  3
+
+
 typedef struct _tagAMVE_USER_DATA_TYPE
 {
 	MByte*	  pbyUserData;
@@ -1654,6 +1669,27 @@ typedef struct
 #define AMVE_TEXT_TRANSFORM_DATA_TYPE_NONE     0
 #define AMVE_TEXT_TRANSFORM_DATA_TYPE_STRING   1
 
+
+typedef struct __tagAMVE_EXPRESSION_PASTER_STATUS
+{
+	MTChar pszTemplate[AMVE_MAXPATH];
+	MDWord	dwStatus;	//QVET_EXPRESSION_PASTER_XXX
+}AMVE_EXPRESSION_PASTER_STATUS;
+
+#define AMVE_EVENT_EXPRESSION_NONE						    0
+#define AMVE_EVENT_EXPRESSION_PASTER_DISPLAY_STATUS_CHANGE  1
+
+typedef MVoid(*AMVE_EXPRESS_MSG_CALLBACK)
+(MVoid* pUserData, MDWord dwWhat, MDWord dwWParam, MDWord dwLParam, MVoid* pData);
+
+typedef struct _tagQVET_EXPRESS_MSG_ADAPTER
+{
+	AMVE_EXPRESS_MSG_CALLBACK fnCB;
+	MVoid * pUserData;
+}QVET_EXPRESS_MSG_ADAPTER;
+
+
+
 //The callback function
 typedef MRESULT  (*AMVE_FNTHEMEOPERATECALLBACK)(
 		AMVE_THEME_OPERATE_TYPE* pCBData,
@@ -1951,6 +1987,7 @@ typedef struct _tagAMVE_MUL_BUBBLETEXT_INFO
 typedef struct __tag_SwitchGroupInfo{
     MDWord dwItemCount;
     MDWord* pItemList;
+	MDWord dwSwitchExpType;  //表明这个组切换的人脸动作类型,大type为随机的时候生效
 }QVET_PASTE_SWITCH_GROUP_INFO;
 
 typedef struct __tag_PasteSwitchInfo
@@ -2008,6 +2045,7 @@ typedef struct __tagQVET_SCENE_ELEMENT_INFO
     MBool  bApplyPanzoom;
 	QVET_SCENE_ELEMENT_TIME time;
 	MBool bFaceAlign;  //表示这个源是否需要做人脸对齐
+	MDWord dwFreezeID;
 } QVET_SCENE_ELEMENT_INFO;
 
 
@@ -3285,6 +3323,17 @@ typedef struct
 	MDWord dwSrcCount;
 	MVoid** pSubRangeList; //std::vector<AMVE_POSITION_RANGE_TYPE>*指针,为了防止出现编译问题，这里用MVoid**
 }QVET_SLSH_SCENE_SUB_SOURCE_RANGE;
+
+/*app配置的变速点位参数,这里app在pPoints中配置的Y值并不是ui上看到的实际倍速,而是1-100之间的等份值,引擎会根据这个值
+  做一个映射,1-50表示倍速在1/dwMaxScale-1,51-100表示倍速在1-dwMaxScale,这样做的好处是方便app在ui上将Y轴设计成不均匀
+  形式,这样用户在[0,1]这段区间的倍速有更大的调整空间,否则使用体验不佳
+  X的值也是0-100的等份值,把原视频的trimlen均分为100等份*/
+typedef struct
+{
+	MDWord dwMaxScale;   //默认的最大倍速,实际倍速调整范围为[1/dwMaxScale, dwMaxScale]
+	MDWord dwSize;		 //配置的点位数量
+	MPOINT* pPoints;    //实际的坐标点位,x为原始视频实际时间戳,单位ms,y表示1-100之间的等份值
+}QVET_CURVE_SPEED_VALUES;
 
 typedef enum _tagQVET_KEYFRAME_3D_TRANSFORM_TYPE
 {

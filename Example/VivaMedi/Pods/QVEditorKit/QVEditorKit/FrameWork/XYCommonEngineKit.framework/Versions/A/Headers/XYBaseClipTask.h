@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy) NSArray <XYClipModel *> *clipModels;
 
+- (void)enumerateObjectsUsingBlock:(void (NS_NOESCAPE ^)(XYClipModel *obj, NSUInteger idx, BOOL *stop))userBlock;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

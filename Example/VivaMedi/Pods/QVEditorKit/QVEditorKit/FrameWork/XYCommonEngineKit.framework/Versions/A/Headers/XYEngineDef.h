@@ -38,7 +38,7 @@
 #define SUB_TYPE_PIC_IN_PIC_FX_MIN 1000 //画中画特效的起始type
 #define SUB_TYPE_PIC_IN_PIC_FX_MAX 2000 //画中画特效的最大type
 #define SUB_TYPE_PIC_IN_PIC_ADJUST 100 //画中画参数调节
-
+#define SUB_TYPE_PIC_IN_PIC_COLOR_CURVE 101 //画中画曲线调色
 
 //Groups
 #define GROUP_ID_DEFAULT 0
@@ -76,6 +76,11 @@
 //马赛克像素化最小值
 #define VIVAVIDEO_MOSAIC_PIXEL_MIN_VALUE     10
 
+//效果插件的sub type 最小值
+#define EFFECT_SUB_TYPE_MIN     5000
+
+//效果插件的sub type 最大值
+#define EFFECT_SUB_TYPE_MAX     6000
 
 #define XY_CUSTOM_COVER_BACK_IDENTIFIER    @"xy_custom_cover_back_identifier"
 

@@ -92,6 +92,7 @@
 
 - (MDWord) GetVersion;
 
++ (NSArray<NSString *> * _Nullable) GetEngineSupportList;
 @end // CXiaoYingEngine
 
 

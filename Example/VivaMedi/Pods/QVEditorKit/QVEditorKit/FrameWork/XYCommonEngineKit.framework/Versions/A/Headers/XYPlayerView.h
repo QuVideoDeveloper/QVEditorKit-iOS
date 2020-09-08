@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 
 
-@class XYVeRangeModel, XYPlayerViewConfiguration, XYPlayerCallBackData;
+@class XYVeRangeModel, XYPlayerViewConfiguration, XYPlayerCallBackData, XYStreamContextView;
 
 //播放器Delegate
 @protocol XYPlayerViewDelegate <NSObject>
@@ -23,6 +23,7 @@
 @end
 
 @interface XYPlayerView : UIView
+@property (nonatomic, strong) XYStreamContextView *streamContextView;
 @property (nonatomic, assign) CGSize streamSize;//播放器中引擎内容真正渲染的区域，引擎的坐标都相对于这个区域来计算，这个区域的位置是相对于XYPlayerView的位置居中的，如计算区域手势可通过这里转换得到
 @property (nonatomic, assign, getter=isDisablePlayAndSeek) BOOL disablePlayAndSeek;//禁止手动播放和Seek操作
 @property (strong, nonatomic) XYPlayerViewConfiguration *playerConfig;//当前播放器的播放源Config
@@ -53,6 +54,12 @@
 
 ///  暂停
 - (void)pause;
+
+/// 同步强制暂停，force参数为YES的话，无论当前是否播放中都会同步执行一下pause操作
+/// 且在pause前会等待当前播放器线程之前所有操作完成
+/// @param force 是否强制暂停, ⚠️当需要严格控制播放器与引擎线程之间的时序关系时才用YES
+- (void)pause:(BOOL)force;
+
 
 /// 播放
 /// @param async 是否异步播放
@@ -105,4 +112,7 @@
 /// @param volume 音量值
 - (void)setVolume:(MDWord)volume;
 
+- (void)updateDisplayContextConfig;
+
+- (void)removePlayerObserver;
 @end
