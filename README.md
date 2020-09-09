@@ -22,6 +22,7 @@ inhibit_all_warnings!
 pod 'QVEditorKit'
 pod 'SSZipArchive'
 pod 'YYImage/WebP'
+pod 'PromisesObjC'
 
 ```
 ## 小影 iOS 剪辑SDK 接入文档
