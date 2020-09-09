@@ -115,4 +115,6 @@
 - (void)updateDisplayContextConfig;
 
 - (void)removePlayerObserver;
+
+- (void)forcePause;
 @end

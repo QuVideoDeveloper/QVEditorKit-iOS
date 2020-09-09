@@ -154,4 +154,5 @@ playbackModuleDelegate:(id<PlaybackModuleDelegate>)playbackModuleDelegate;
               endPos:(MDWord)endPos
                async:(BOOL)async;
 
+- (void)forcePause;
 @end

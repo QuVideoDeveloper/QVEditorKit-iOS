@@ -6,7 +6,7 @@ PODS:
   - QVCommonKit (0.9.8):
     - QVCommonKit/Core (= 0.9.8)
   - QVCommonKit/Core (0.9.8)
-  - QVEditorKit (1.0.4):
+  - QVEditorKit (1.0.7):
     - FMDB
     - QVCommonKit
     - ReactiveObjC
@@ -120,7 +120,7 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   QVCommonKit: ee38329f11bee6c9bcd1efc08507bf208adb5e11
-  QVEditorKit: 4bca02e6b865342515dd335607bef1c95e098cb6
+  QVEditorKit: 9883ae50f2e3f0aaf5b9d2f17f76f5bfff11bbdd
   QVMediCamera: d24dec2d03234ce18243720d2f1a1221b17ce639
   QVMediEdit: 228e1f20a589751b915ea2399176bad11cc7c1b6
   QVMediToolbarKit: 7fc3f193b49acd462e3328a43050345a9e509778
