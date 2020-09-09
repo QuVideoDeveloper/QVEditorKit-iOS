@@ -43,6 +43,7 @@ TODO: Add long description of the pod here.
   s.dependency 'QVCommonKit'
   s.dependency 'XYCommonEngine'
   s.dependency 'SSZipArchive'
+  s.dependency 'PromisesObjC'
 
   #s.dependency 'QVEngineKit'
  # s.dependency 'XYCommonEngine' , '0.1.0'
