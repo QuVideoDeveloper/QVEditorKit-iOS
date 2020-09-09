@@ -91,5 +91,4 @@
 #import <XYCommonEngineKit/XYThumbnailGeneratorInputModel.h>
 #import <XYCommonEngineKit/XYThumbnailGeneratorOutputModel.h>
 
-
 #endif /* XYCommonEngineKit_h */
