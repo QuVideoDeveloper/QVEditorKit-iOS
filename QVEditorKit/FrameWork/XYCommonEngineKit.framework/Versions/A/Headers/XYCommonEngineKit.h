@@ -87,6 +87,9 @@
 #import <XYCommonEngineKit/XYColorCurveInfo.h>
 #import <XYCommonEngineKit/XYPoint.h>
 #import <XYCommonEngineKit/XYSlideShowTransformModel.h>
+#import <XYCommonEngineKit/XYThumbnailGenerator.h>
+#import <XYCommonEngineKit/XYThumbnailGeneratorInputModel.h>
+#import <XYCommonEngineKit/XYThumbnailGeneratorOutputModel.h>
 
 
 #endif /* XYCommonEngineKit_h */

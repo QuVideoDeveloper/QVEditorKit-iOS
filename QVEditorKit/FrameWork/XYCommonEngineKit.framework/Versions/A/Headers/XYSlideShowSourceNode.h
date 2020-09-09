@@ -50,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 在播放器stremSize的frame
 @property (nonatomic, readonly) CGRect frame;
 
+@property (nonatomic, assign) NSInteger focusCenterX;
+@property (nonatomic, assign) NSInteger focusCenterY;
+
 @property (nonatomic, strong, nonnull) CXiaoYingVirtualSourceInfoNode *vSourceInfoNode;
 
 - (instancetype)initWithVSourceInfoNode:(CXiaoYingVirtualSourceInfoNode *)vSourceInfoNode;
