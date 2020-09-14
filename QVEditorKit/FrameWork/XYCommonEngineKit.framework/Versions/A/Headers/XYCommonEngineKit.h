@@ -90,5 +90,9 @@
 #import <XYCommonEngineKit/XYThumbnailGenerator.h>
 #import <XYCommonEngineKit/XYThumbnailGeneratorInputModel.h>
 #import <XYCommonEngineKit/XYThumbnailGeneratorOutputModel.h>
+#import <XYCommonEngineKit/XYAudioAnalyzerProvider.h>
+#import <XYCommonEngineKit/XYAudioPCMDataManager.h>
+#import <XYCommonEngineKit/XYAudioExtractConfig.h>
+#import <XYCommonEngineKit/XYAudioExtractorModel.h>
 
 #endif /* XYCommonEngineKit_h */
