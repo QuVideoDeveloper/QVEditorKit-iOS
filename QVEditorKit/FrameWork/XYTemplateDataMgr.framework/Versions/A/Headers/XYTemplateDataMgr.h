@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, XYTemplateDataType) {
     XYTemplateDataTypeThemeCover = AMVE_STYLE_MODE_COVER,//主题封面
     XYTemplateDataTypeTranstion = AMVE_STYLE_MODE_TRANSITION,//转场
     XYTemplateDataTypeFilter = AMVE_STYLE_MODE_EFFECT,//滤镜
-    XYTemplateDataTypePaster = AMVE_STYLE_MODE_PASTER_FRAME,//贴纸
+    XYTemplateDataTypeSticker = AMVE_STYLE_MODE_PASTER_FRAME,//贴纸
     XYTemplateDataTypeFX = AMVE_STYLE_MODE_ANIMATED_FRAME,//特效
     XYTemplateDataTypeTransition = AMVE_STYLE_MODE_TRANSITION,//转场
     XYTemplateDataTypeMusic = AMVE_STYLE_MODE_MUSIC,//音乐
@@ -86,8 +86,6 @@ TEMPLATE_QUERY_LAYOUT_MASK_W3H4)
 //for 4.0 key for only one section
 //#define ONLY_ONE_SECTION_KEY            @"onlyOneSectionKey"
 
-
-
 typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
 
 
@@ -146,7 +144,11 @@ typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
 - (void)uninstall:(NSString*)strTemplatePath;
 - (NSArray<XYTemplateItemData *>*)query:(XYTemplateDataType)nTemplateType queryMask:(int)nQueryMask;
 
+- (XYTemplateDataType)getTemplateDataTypeByID:(UInt64)lID;
+
 #pragma mark -- public method for template data
+
+- (NSArray<XYTemplateItemData *>*)getAllTemplateList;
 
 - (NSArray<NSNumber *> *)getPasterComboByID:(UInt64)lID;
 - (CXiaoYingEffectSwichInfo *)getPasterSwitchInfoByID:(UInt64)lID;
@@ -227,5 +229,9 @@ typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
                      isSynchronous:(BOOL)isSynchronous
                         targetSize:(CGSize)targetSize
                      resultHandler:(void(^)(UIImage *image))resultHandler;
+
+/// 根据模板id 获取模板信息 此接口是获取参数调节模板，效果插件模板信息
+/// @param templateID 模板id
+- (XYEffectPropertyInfoModel *)requestEffectPropertyInfoWithTemplateID:(UInt64)templateID;
 
 @end

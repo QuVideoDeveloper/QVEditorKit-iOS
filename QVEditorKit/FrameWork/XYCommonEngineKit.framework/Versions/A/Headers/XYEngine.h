@@ -21,7 +21,7 @@
 @interface XYEngine : NSObject
 
 @property (nonatomic, weak) id<CXiaoYingTemplateAdapter> templateDelegate;
-@property (nonatomic, weak) id<QVEngineDataSourceProtocol> engineLogDelegate;
+@property (nonatomic, weak) id<QVEngineDataSourceProtocol> engineDataSource;
 /// 开启引擎日志写入到本地 默认关闭
 @property (nonatomic, assign) BOOL isSaveLog;
 

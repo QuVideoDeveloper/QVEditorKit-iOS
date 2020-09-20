@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CXiaoYingSlideShowSession.h"
 #import "QVEngineDataSourceProtocol.h"
+#import "XYEngineStructClass.h"
 
 @class XYSlideShowThemeTextInfo;
 @class XYSlideShowThemeTextScene;
@@ -21,12 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^AE_COMPLETE_BLOCK)(UInt32 result, id _Nullable userData);
 typedef void (^AEProgressBlock)(NSUInteger doneNum, NSUInteger totalNum);
 
-typedef struct{
-    SInt32 top;
-    SInt32 bottom;
-    SInt32 left;
-    SInt32 right;
-}XYClipPadding;
 
 @protocol XYAutoEditMgrDataSource <NSObject>
 

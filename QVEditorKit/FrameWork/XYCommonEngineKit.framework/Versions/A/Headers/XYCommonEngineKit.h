@@ -94,5 +94,6 @@
 #import <XYCommonEngineKit/XYAudioPCMDataManager.h>
 #import <XYCommonEngineKit/XYAudioExtractConfig.h>
 #import <XYCommonEngineKit/XYAudioExtractorModel.h>
+#import <XYCommonEngineKit/XYEngineStructClass.h>
 
 #endif /* XYCommonEngineKit_h */

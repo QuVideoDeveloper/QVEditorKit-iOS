@@ -12,6 +12,8 @@
 #import "XYEffectPropertyMgr.h"
 #import "XYClipEffectModel.h"
 #import "XYCommonEngineGlobalData.h"
+#import "XYEngineStructClass.h"
+#import "XYColorCurveInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *musicFilePath;
 @property (nonatomic) NSInteger dwMusicTrimStartPos;
 @property (nonatomic) NSInteger dwMusicTrimLen;
-@property (nonatomic) CGRect cropRect;//比例 (0,0,1,1)表示裁剪的区域时全部
+@property (nonatomic) XYClipPadding cropRect;//比例 (0,0,10000,10000)表示裁剪的区域时全部 ,是个万分比
 @property (nonatomic) NSInteger rotation;//值范围 0-360
 @property (nonatomic) NSInteger clipIndex;//当前的clipIndex
 @property (nonatomic) NSInteger globalIndex;//用于切换到了临时storyboard 时使用
@@ -53,11 +55,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) XYClipMirrorMode mirrorMode;
 @property (nonatomic, copy) NSArray <XYAdjustItem *> *adjustItems;// 参数调节等
 @property (nonatomic, strong) XYEffectPropertyData *clipPropertyData;//图片动画 clip的手势 背景颜色 背景图片 属性
+@property (nonatomic, strong) XYColorCurveInfo *colorCurveInfo;// 曲线变色
 //@property (nonatomic, assign) NSInteger splitVideoPositon;//相对视频总时长的postion
 @property (nonatomic, assign) NSInteger splitClipPostion;//相对clip分割的postion
 
 @property (nonatomic, strong) XYClipModel *duplicateClipModel;
-@property (nonatomic, assign) CGSize clipSize;//clip 的原始尺寸
+@property (nonatomic, assign) CGSize originSize;//clip 原始尺寸
+@property (nonatomic, assign) CGSize clipSize;//clip 目前的原始尺寸
 
 //交互顺序
 @property (nonatomic, assign) NSInteger sourceIndex;

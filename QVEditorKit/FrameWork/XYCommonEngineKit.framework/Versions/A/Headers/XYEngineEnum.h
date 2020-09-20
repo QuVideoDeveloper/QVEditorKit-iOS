@@ -45,6 +45,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     //clip 相关taskID========================================================================clip 相关taskID
     
     XYCommonEngineTaskIDClipAddClip,
+    XYCommonEngineTaskIDClipUpdate,//更新镜头
     XYCommonEngineTaskIDClipRotation,//旋转clip 需要的参数rotation
     XYCommonEngineTaskIDClipCrop,//旋转clip 需要的参数cropRect
     XYCommonEngineTaskIDClipMuteState,//设置声音是否开启  需要的参数 isMute
@@ -85,6 +86,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     
     XYCommonEngineTaskIDClipReplaceSource,//clip 路径替换
     XYCommonEngineTaskIDClipCurveSpeedUpdate, //曲线变速
+    XYCommonEngineTaskIDClipColorCurveUpdate, //曲线颜色
 
     
     //Project 相关taskID========================================================================Project 相关taskID

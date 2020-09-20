@@ -23,8 +23,6 @@
 
 @class XYEffectPropertyInfoModel;
 
-static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineAppVersion";
-
 
 
 #pragma mark - Delegate定义
@@ -487,5 +485,7 @@ static NSString * _Nullable const kXYCommonEngineAppVersion = @"kXYCommonEngineA
 - (NSString *)fetchLanguageCode;//向外部获取语言
 
 + (void)printLog:(NSString *)log errorCode:(NSInteger)errorCode;
+
+- (void)updateEffectGroupID:(CXiaoYingEffect *)pEffect groupID:(MDWord)groupID;
 
 @end

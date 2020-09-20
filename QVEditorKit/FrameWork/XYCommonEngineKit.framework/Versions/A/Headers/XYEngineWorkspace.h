@@ -65,12 +65,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)resume;
 
-+ (BOOL)projectIsBelow:(NSString *)appVersion;
-
 + (void)clean;
 
 + (CGFloat)outPutResolutionWidth;
 
+/// 升级修复信息
++ (void)restore;
 @end
 
 NS_ASSUME_NONNULL_END

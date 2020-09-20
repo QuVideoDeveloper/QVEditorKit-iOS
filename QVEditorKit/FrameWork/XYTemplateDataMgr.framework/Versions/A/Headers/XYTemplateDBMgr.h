@@ -5,12 +5,12 @@
 //  Created by hzy on 2019/8/22.
 //
 
-#import <XYDatabase/XYBaseDatabase.h>
-#import <XYDatabase/XYDBUtility.h>
+#import <QVDatabase/QVBaseDatabase.h>
+#import <QVDatabase/QVDBUtility.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XYTemplateDBMgr : XYBaseDatabase
+@interface XYTemplateDBMgr : QVBaseDatabase
 
 @end
 

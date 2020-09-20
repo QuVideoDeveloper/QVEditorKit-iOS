@@ -1,0 +1,6 @@
+framework module QVCategory {
+  umbrella header "QVCategory.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XYEngineStructClass.h"
 
 @interface XYClipDataItem : NSObject
 
@@ -23,7 +24,7 @@
 @property (nonatomic) UInt64 dwMusicTrimStartPos;
 @property (nonatomic) UInt64 dwMusicTrimLen;
 
-@property (nonatomic) CGRect cropRect;
+@property (nonatomic) XYClipPadding cropRect;
 @property (nonatomic) UInt64 rotation;
 
 @property (nonatomic) BOOL isGIF;

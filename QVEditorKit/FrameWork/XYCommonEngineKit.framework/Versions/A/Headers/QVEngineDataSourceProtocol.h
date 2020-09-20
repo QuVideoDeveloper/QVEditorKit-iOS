@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param textPrepareMode 根据textPrepareMode类型设置参数
 - (QVTextPrepareModel *)textPrepare:(QVTextPrepareMode)textPrepareMode;
 
+/// 工程load起来需要修复的路径 将修复好的路径返回
+/// @param filePath 保存的原始路径
+- (NSString *)loadFilePathModifierWithOriginPath:(NSString *)filePath;
 
 /// traceLog
 /// @param log 输出的日子字符串

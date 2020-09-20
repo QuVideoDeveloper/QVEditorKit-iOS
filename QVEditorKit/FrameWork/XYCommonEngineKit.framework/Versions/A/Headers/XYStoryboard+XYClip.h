@@ -219,9 +219,9 @@
 - (MRESULT)setClipUserData:(NSDictionary *)userDataDic pClip:(CXiaoYingClip *)pClip;
 - (NSDictionary *)getClipUserData:(CXiaoYingClip *)pClip;
 
-//- (QVET_CURVE_SPEED_VALUES)getClipCurveSpeed:(CXiaoYingClip *)pClip;
-//
-//- (void)setClipCurveSpeed:(CXiaoYingClip *)pClip curveSpeed:(QVET_CURVE_SPEED_VALUES)curveSpeed;
+- (QVET_CURVE_SPEED_VALUES)getClipCurveSpeed:(CXiaoYingClip *)pClip;
+
+- (void)setClipCurveSpeed:(CXiaoYingClip *)pClip curveSpeed:(QVET_CURVE_SPEED_VALUES)curveSpeed;
 
 @end
 

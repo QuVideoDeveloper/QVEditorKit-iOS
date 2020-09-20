@@ -7,9 +7,7 @@
 
 #import "XYBaseEffectTask.h"
 
-@class XYEffectVisionModel;
-@class XYEffectVisionTextModel;
-@class XYEffectVisionKeyFrameModel;
+@class XYEffectVisionModel, XYEffectVisionTextModel, XYEffectVisionKeyFrameModel, XYColorCurveInfo, XYColorCurveItem;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -127,6 +125,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param effectVisionModel effectVisionModel
 - (void)setEffectEffectCurveColor:(nonnull XYEffectVisionModel *)effectVisionModel;
 
++ (NSMutableArray<XYColorCurveItem *> *)fetchCurveColorInfo:(CXiaoYingEffect *)colorCurveEffect;
++ (void)updateCurveColor:(CXiaoYingEffect *)colorCurveEffect colorCurveInfo:(XYColorCurveInfo *)colorCurveInfo;
 @end
 
 NS_ASSUME_NONNULL_END

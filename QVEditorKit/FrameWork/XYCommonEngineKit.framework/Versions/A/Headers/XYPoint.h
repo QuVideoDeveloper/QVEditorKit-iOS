@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 /*! @brief y*/
 @property(assign, nonatomic) NSInteger y;
 
++ (XYPoint *)make:(NSInteger)x y:(NSInteger)y;
+
 @end
 
 NS_ASSUME_NONNULL_END
