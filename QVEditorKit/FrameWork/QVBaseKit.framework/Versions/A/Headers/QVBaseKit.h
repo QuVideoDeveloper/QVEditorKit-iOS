@@ -8,11 +8,11 @@
 #ifndef QVBaseKit_h
 #define QVBaseKit_h
 
-#import "XYDeviceUtility.h"
+#import "QVDeviceUtility.h"
 #import "QVOpenUDID.h"
-#import "NSFileManager+XYFileList.h"
-#import "NSString+SendBoxFullPath.h"
-#import "NSArray+XYFileList.h"
-#import "NSString+XYFileManager.h"
+#import "NSFileManager+QVFileList.h"
+#import "NSString+QVSendBoxFullPath.h"
+#import "NSArray+QVFileList.h"
+#import "NSString+QVFileManager.h"
 
 #endif /* QVBaseKit_h */

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface XYMemoryUsageInfo : NSObject
+@interface QVMemoryUsageInfo : NSObject
 
 @property (nonatomic) float usage;//已用内存(MB)
 @property (nonatomic) float total;//总内存(MB)
@@ -21,7 +21,7 @@
 
 @end
 
-@interface XYDeviceUtility : NSObject
+@interface QVDeviceUtility : NSObject
 
 + (NSString *)openUDID;
 + (NSString *)advertisingIdentifier;
@@ -36,7 +36,7 @@
 + (NSString *)cellularProviderName;
 + (NSString *)getReadableDeviceName;
 + (long long)freeDiskSpaceInBytes;
-+ (XYMemoryUsageInfo *)memoryUsageInfo;
++ (QVMemoryUsageInfo *)memoryUsageInfo;
 + (NSString *)fullLanguage;
 + (NSString *)pushLanguage;
 + (NSString *)fullLanguageWithCountry;

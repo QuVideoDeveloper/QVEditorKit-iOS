@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (XYFileList)
+@interface NSArray (QVFileList)
 
-+ (NSArray *)xy_getFileList:(NSString *)folderPath byExts:(NSArray *)exts;
++ (NSArray *)qv_getFileList:(NSString *)folderPath byExts:(NSArray *)exts;
 
-+ (NSArray *)xy_getFileList:(NSString *)folderPath byExt:(NSString *)ext;
++ (NSArray *)qv_getFileList:(NSString *)folderPath byExt:(NSString *)ext;
 
 @end
