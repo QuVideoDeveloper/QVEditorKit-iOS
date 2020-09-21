@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 证书路径
 @property (nonatomic, copy) NSString *licensePath;
 
+///人体扣像文件路径
+@property (nonatomic, copy) NSString *portraitModelPath;
+
 /// clip错误时显示图片的地址。如相册的图片被删除或者上传到iCloud等
 @property (nonatomic, copy) NSString *corruptImgPath;
 
