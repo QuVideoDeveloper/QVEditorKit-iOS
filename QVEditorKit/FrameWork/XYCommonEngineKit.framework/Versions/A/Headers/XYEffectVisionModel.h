@@ -7,7 +7,7 @@
 
 #import "XYEffectModel.h"
 
-@class XYEffectPicInPicOverlayInfo, XYEffectPicInPicMaskInfo, XYEffectPicInPicChromaInfo, XYEffectPicInPicFilterInfo, XYEffectPicInPicSubFx, XYAdjustItem, XYEffectKeyFrameInfo, XYVe3DDataF, XYEffectPropertyInfoModel, XYEffectPropertyItemModel, XYEffectPropertyKeyInfo, XYColorCurveInfo;
+@class XYEffectPicInPicOverlayInfo, XYEffectPicInPicMaskInfo, XYEffectPicInPicChromaInfo, XYEffectPicInPicFilterInfo, XYEffectPicInPicSubFx, XYAdjustItem, XYEffectKeyFrameInfo, XYVe3DDataF, XYEffectPropertyInfoModel, XYEffectPropertyItemModel, XYEffectPropertyKeyInfo, XYColorCurveInfo, XYEffectPicInPicAnimFiterInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -56,6 +56,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) XYEffectPicInPicMaskInfo *maskInfo; //画中画 蒙版
 @property (nonatomic, strong) XYEffectPicInPicChromaInfo *chromaInfo; //画中画 抠色信息数据（绿幕）
 @property (nonatomic, strong) XYEffectPicInPicFilterInfo *filterInfo; //画中画 滤镜
+@property (nonatomic, strong) XYEffectPicInPicAnimFiterInfo *animFilterInfo; //画中画 动画滤镜
+
+
 @property (nonatomic, strong) NSMutableArray <XYEffectPicInPicSubFx *> *fxInfoList; //画中画 特效
 @property (nonatomic, copy) NSArray <XYAdjustItem *> *adjustItems;// 画中画 参数调节
 @property (nonatomic, strong) XYColorCurveInfo *colorCurveInfo;// 画中画 曲线变色

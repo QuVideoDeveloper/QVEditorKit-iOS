@@ -7,7 +7,6 @@
 
 #ifndef XYCommonEngineKit_h
 #define XYCommonEngineKit_h
-//#import <XYCommonEngine/CXiaoYingInc.h>
 
 #import <XYCommonEngineKit/XYEngine.h>
 #import <XYCommonEngineKit/XYEngineParam.h>
@@ -57,6 +56,8 @@
 #import <XYCommonEngineKit/XYEffectPicInPicChromaInfo.h>
 #import <XYCommonEngineKit/XYEffectPicInPicSubFx.h>
 #import <XYCommonEngineKit/XYEffectPicInPicFilterInfo.h>
+#import <XYCommonEngineKit/XYEffectPicInPicAnimFiterInfo.h>
+
 
 #import <XYCommonEngineKit/XYPlayerViewConfiguration.h>
 #import <XYCommonEngineKit/XYPlaybackModule.h>

@@ -13,6 +13,7 @@
 #define LAYER_ID_VIDEO_PARAM_ADJUST_EFFECT 1.2f //参数调节
 #define LAYER_ID_VIDEO_PARAM_CURVE_COLOR_EFFECT 1.3f //曲线调色
 
+#define LAYER_ID_ANIMATION_FILTER_EFFECT 0.7f                 //动画滤镜
 #define LAYER_ID_EFFECT 1.0f                    //调色滤镜
 #define LAYER_ID_FX_EFFECT 1.5f                 //特效滤镜
 
@@ -69,6 +70,7 @@
 #define GROUP_THEME_TEXT_FRAME 4                //主题文字
 #define GROUP_ID_THEME_FILTER -4                 //主题里的滤镜
 #define GROUP_ID_FX_FILTER 15                 //特效滤镜
+#define GROUP_ID_ANIMATION_FILTER 200                 //动画滤镜
 #define GROUP_ID_LYRICS 100 //歌词字幕
 //支持的最小的trim时长
 #define VIVAVIDEO_MINIMUM_TRIM_RANGE 500 //ms

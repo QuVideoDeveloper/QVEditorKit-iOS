@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *fxFilterFilePath;//特效滤镜的路径
 @property (nonatomic, assign) CGFloat fxFilterAlpha;//特效程度值 滤镜调节 值范围 0-1
 
+@property (nonatomic, copy) NSString *animFilterFilePath;//动画滤镜的路径
+
+
 @property (nonatomic, copy) NSString *effectTransFilePath;//转场的路径
 
 @property (nonatomic, strong) XYVeRangeModel *transDestRange;//转场在视频中的range

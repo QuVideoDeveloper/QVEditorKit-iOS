@@ -137,6 +137,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDEffectVisionPinInPicMaskUpdate,//画中画蒙版效果
     XYCommonEngineTaskIDEffectVisionPinInPicFilterUpdate,//画中画滤镜
     XYCommonEngineTaskIDEffectVisionPinInPicFXUpdate,//画中画特效
+    XYCommonEngineTaskIDEffectVisionPinInPicAnimFilterUpdate,//画中画动画滤镜
     XYCommonEngineTaskIDEffectVisionPinInPicAdjustUpdate,//画中画滤镜的参数调节
     XYCommonEngineTaskIDEffectVisionPinInPicPluginUpdate,//设置画中画效果插件
     XYCommonEngineTaskIDEffectVisionPinInPicColorCurve,//设置画中画颜色曲线
@@ -164,6 +165,8 @@ typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
     XYCommonEngineGroupIDColorFilter = GROUP_IMAGING_EFFECT,//调色滤镜
     XYCommonEngineGroupIDThemeFilter = GROUP_ID_THEME_FILTER,//主题滤镜group
     XYCommonEngineGroupIDFXFilter = GROUP_ID_FX_FILTER,//特效滤镜。
+    XYCommonEngineGroupIDAnimationFilter = GROUP_ID_ANIMATION_FILTER,//动画滤镜。
+
 };
 
 typedef NS_ENUM(NSInteger, XYCommonEngineRequestID) {

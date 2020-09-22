@@ -97,6 +97,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param effectVisionModel effectVisionModel
 - (void)setEffectSubFX:(nonnull XYEffectVisionModel *)effectVisionModel;
 
+/// 设置画中画动画滤镜
+/// @param effectVisionModel effectVisionModel
+- (void)setEffectAnimFilter:(nonnull XYEffectVisionModel *)effectVisionModel;
+
 /// 设置画中画滤镜参数调节
 /// @param effectVisionModel effectVisionModel
 - (void)setEffectSubAdjust:(nonnull XYEffectVisionModel *)effectVisionModel;
@@ -127,6 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSMutableArray<XYColorCurveItem *> *)fetchCurveColorInfo:(CXiaoYingEffect *)colorCurveEffect;
 + (void)updateCurveColor:(CXiaoYingEffect *)colorCurveEffect colorCurveInfo:(XYColorCurveInfo *)colorCurveInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END
