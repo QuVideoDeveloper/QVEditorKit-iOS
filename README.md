@@ -308,6 +308,8 @@ XYPlayerView *editorPlayerView = [[XYPlayerView alloc] initWithFrame:CGRectMake(
  editorPlayerView.backgroundColor = [UIColor blackColor];
  [appView addSubview:editorPlayerView];
 [editorPlayerView refreshWithConfig:^XYPlayerViewConfiguration *(XYPlayerViewConfiguration *config) {
+        config = [XYPlayerViewConfiguration currentStoryboardSourceConfig];
+        config.playViewSize = playSize;
         return config;
     }];
 ```
