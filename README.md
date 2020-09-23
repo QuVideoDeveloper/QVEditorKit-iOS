@@ -282,7 +282,10 @@ typedef NS_ENUM(UInt64,  XYTaskLoadProjectErrorCode) {
   /**
    * 删除工程
    */
- [[NSFileManager defaultManager] removeItemAtPath:prjFilePath error:nil]
+            XYQprojectModel *project = [[XYQprojectModel alloc] init];
+            project.prjFilePath = projectFilePath;
+            project.taskID = XYCommonEngineTaskIDQProjectRemoveProject;
+            [[XYEngineWorkspace projectMgr] runTask:project];
 ```
 
 
