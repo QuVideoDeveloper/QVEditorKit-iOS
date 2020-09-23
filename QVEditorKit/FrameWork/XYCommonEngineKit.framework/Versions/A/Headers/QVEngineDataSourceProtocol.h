@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol QVEngineDataSourceProtocol <NSObject>
 
+@optional
 /// 可选参数 默认获取系统的语言编码
 - (NSString *)languageCode;
 

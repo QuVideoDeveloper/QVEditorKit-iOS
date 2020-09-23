@@ -93,6 +93,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDQProjectCreate,//创建新工程
     XYCommonEngineTaskIDQProjectSaveProject,//prjFilePath
     XYCommonEngineTaskIDQProjectLoadProject,//prjFilePath
+    XYCommonEngineTaskIDQProjectRemoveProject,//prjFilePath
     XYCommonEngineTaskIDProjectMemoryDataLoadFinish,
 
     
