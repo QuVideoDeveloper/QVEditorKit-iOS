@@ -34,6 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 是否开启引擎日志写入到本地 默认关闭
 @property (nonatomic, assign) BOOL isSaveLog;
 
+/// 是否开启metal 默认关闭
+@property (nonatomic, assign) BOOL metalEnable;
+
 @end
 
 @interface QVEditor : NSObject

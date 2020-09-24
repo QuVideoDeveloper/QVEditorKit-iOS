@@ -56,7 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSArray <XYAdjustItem *> *adjustItems;// 参数调节等
 @property (nonatomic, strong) XYEffectPropertyData *clipPropertyData;//图片动画 clip的手势 背景颜色 背景图片 属性
 @property (nonatomic, strong) XYColorCurveInfo *colorCurveInfo;// 曲线变色
-//@property (nonatomic, assign) NSInteger splitVideoPositon;//相对视频总时长的postion
 @property (nonatomic, assign) NSInteger splitClipPostion;//相对clip分割的postion
 
 @property (nonatomic, strong) XYClipModel *duplicateClipModel;
