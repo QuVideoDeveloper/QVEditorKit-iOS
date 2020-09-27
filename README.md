@@ -384,7 +384,11 @@ editorPlayerView.playStreamBounds
 ```
 [editorPlayerView removePlayDelegate:self]//移除监听播放回调
 ```
-
+13) 销毁播放器
+```
+/// 销毁
+- (void)destroySource;
+```
 ##### 3. 获取工程相关信息
 
 ```
