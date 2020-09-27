@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *animFilterFilePath;//动画滤镜的路径
 
+/// 3D滤镜外部源路径
+@property (nonatomic, copy) NSString *externalSource;
 
 @property (nonatomic, copy) NSString *effectTransFilePath;//转场的路径
 

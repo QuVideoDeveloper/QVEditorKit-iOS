@@ -488,4 +488,5 @@
 
 - (void)updateEffectGroupID:(CXiaoYingEffect *)pEffect groupID:(MDWord)groupID;
 
+
 @end

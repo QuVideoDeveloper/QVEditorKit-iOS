@@ -242,4 +242,8 @@
 - (MRESULT )updateAuioPicthEffect:(int)index tracktype:(MDWord)dwTrackType groupID:(MDWord)groupID volumeValue:(MFloat)picthValue;
 
 - (MFloat)audioPitchEffectIndex:(int)index trackType:(MDWord)dwTrackType groupID:(MDWord)groupID;
+
+- (NSString *)getEffectExternalSource:(CXiaoYingEffect *)pEffect;
+- (void)setEffectExternalSource:(CXiaoYingEffect *)pEffect filePath:(NSString *)filePath;
+
 @end

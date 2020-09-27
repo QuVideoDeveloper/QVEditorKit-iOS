@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XYOperationMgrBase.h"
+#import "XYEngineClassHeader.h"
 
 @class XYStoryboardModel;
 @class XYStbBackUpModel;
@@ -21,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)runTask:(XYStoryboardModel *)storyboardModel;
 
 - (void)runTask:(XYStoryboardModel *)storyboardModel
-completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;
+completionBlock:(XYTaskCompletionBlock)completionBlock;
 
 - (BOOL)bgmIsAddedByTheme:(NSString *)bgmPath;
 

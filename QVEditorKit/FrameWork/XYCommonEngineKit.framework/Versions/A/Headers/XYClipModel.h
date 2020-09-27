@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL isReversed;//是否被倒放
 @property (nonatomic) NSInteger videoFileDuration;//物理视频文件的总时长
 
+/// 是否需要模糊背景 默认是YES
+@property (nonatomic) BOOL isBlurBack;
 @property (nonatomic, assign) NSInteger objIndex;
 @property (nonatomic, assign) BOOL isSwitchSourceRange;// 切换临时时变速后的源的长度
 @property (readonly, nonatomic, assign) XYCommonEngineClipModuleType clipType;

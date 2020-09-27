@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 滤镜程度,0~100    
 @property (nonatomic, assign) NSInteger filterLevel;
 
+/// 3D滤镜外部源路径
+@property (nonatomic, copy) NSString *externalSource;
+
 @end
 
 NS_ASSUME_NONNULL_END

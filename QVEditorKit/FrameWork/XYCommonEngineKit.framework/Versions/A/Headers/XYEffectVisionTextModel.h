@@ -20,6 +20,12 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
 @interface XYEffectVisionSubTitleLabelInfoModel : NSObject
 @property (nonatomic, assign) NSInteger mParamID;
 @property (nonatomic, copy) NSString *text;//字幕当前文字
+
+/// 是否粗体 默认不是
+@property (nonatomic, assign) NSInteger isBold;
+/// 是否斜体 默认不是
+@property (nonatomic, assign) NSInteger isItalic;
+
 @property (nonatomic, strong) UIColor *textColor;//字幕颜色
 @property (nonatomic, copy) NSString *textDefault;//字幕素材的默认文字
 @property (nonatomic, copy) NSString *textFontName;//字幕字体名称

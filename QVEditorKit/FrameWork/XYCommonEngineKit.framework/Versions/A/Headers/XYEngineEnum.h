@@ -25,7 +25,6 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDAchieveEngineTaskHandle,
     XYCommonEngineTaskIDObserverEveryTaskStart,//每个引擎操作开始前回调 ⚠️注意回调是在子线程
     XYCommonEngineTaskIDObserverEveryTaskFinish,//每个引擎操作完成后回调 ⚠️注意回调是在子线程
-    XYCommonEngineTaskIDFinanceObserverEveryTaskFinish,//每个引擎操作完成后回调 ⚠️注意回调是在子线程 ⚠️ 给变现用
     XYCommonEngineTaskIDObserverTempWorkspaceEveryTaskFinish,
     XYCommonEngineTaskIDObserverTempWorkspaceEveryTaskFinishDispatchMain,//每个引擎操作完成后回调 ⚠️注意回调是在主线程 且引擎线程任务都执行完了
     XYCommonEngineTaskIDObserverEveryTaskFinishDispatchMain,//每个引擎操作完成后回调 ⚠️注意回调是在主线程 且引擎线程任务都执行完了

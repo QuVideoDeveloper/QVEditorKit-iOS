@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)postTaskHandle:(dispatch_block_t)taskHandleBlock;
 
+- (void)postSaveTask:(void (^)(void))preprocessBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

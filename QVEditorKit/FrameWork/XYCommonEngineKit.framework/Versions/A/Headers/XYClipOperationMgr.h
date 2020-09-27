@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XYOperationMgrBase.h"
+#import "XYEngineClassHeader.h"
 
 @class XYClipModel;
 @class XYBaseEngineTask;
@@ -26,8 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)runTaskToMore:(NSArray <XYClipModel *> *)clipModels;//应用多个或者全部
 
 - (void)runTask:(XYClipModel *)clipModel
-completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;
-- (void)runTaskToMore:(NSArray <XYClipModel *> *)clipModels completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;//应用多个或者全部
+completionBlock:(XYTaskCompletionBlock)completionBlock;
+- (void)runTaskToMore:(NSArray <XYClipModel *> *)clipModels completionBlock:(XYTaskCompletionBlock)completionBlock;//应用多个或者全部
 
 @end
 

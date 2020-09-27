@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "XYOperationMgrBase.h"
 #import "XYEngineEnum.h"
+#import "XYEngineClassHeader.h"
 
 
 @class XYEffectModel;
@@ -32,8 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)adjustEffect:(XYCommonEngineTaskID)taskID;
 
 - (void)runTask:(XYEffectModel *)effectModel
-completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;
-- (void)runTaskToMore:(NSArray <XYEffectModel *> *)effectModels completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;//应用多个或者全部
+completionBlock:(XYTaskCompletionBlock)completionBlock;
+- (void)runTaskToMore:(NSArray <XYEffectModel *> *)effectModels completionBlock:(XYTaskCompletionBlock)completionBlock;//应用多个或者全部
 
 @end
 

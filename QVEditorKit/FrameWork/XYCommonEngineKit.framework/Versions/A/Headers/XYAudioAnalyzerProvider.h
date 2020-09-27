@@ -46,8 +46,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 解析音乐卡的
 /// @param config 配置参数
-/// @param progress 进度 主线程
-/// @param finish 结束 主线程
+/// @param progress 进度 子线程
+/// @param finish 结束 子线程
 - (void)analyzeAudioDots:(XYAudioDotParam *)config
                 progress:(AudioAnalyzerProgressBlock)progress
                   finish:(AudioAnalyzerFinishBlock)finish;

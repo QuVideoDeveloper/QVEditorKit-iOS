@@ -6,6 +6,7 @@
 //
 
 #import "XYOperationMgrBase.h"
+#import "XYEngineClassHeader.h"
 
 @class XYQprojectModel;
 
@@ -18,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)runTask:(XYQprojectModel *)projectModel;
 
 - (void)runTask:(XYQprojectModel *)projectModel
-completionBlock:(void(^)(BOOL success, NSError *error, id obj))completionBlock;
+completionBlock:(XYTaskCompletionBlock)completionBlock;
 
 @end
 
