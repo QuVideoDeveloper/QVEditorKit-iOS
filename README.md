@@ -520,10 +520,10 @@ XYEffectVisionModel参数说明：XYEffectVisionModel继承XYEffectModel
 
 | 名称  | 解释 | 类型 | 
 | :-: | :-: | :-: | 
-| width | 宽度 | CGFloat | 
-| height | 高度 | XYCommonEngineGroupID | 
-| centerPoint | 相对于播放界面的中心点坐标 | CGPoint |
-| rotation | 旋转角度，顺时针 0 - 360| NSInteger | 
+| size.width | 宽度 | CGFloat | 
+| size.height | 高度 | CGFloat | 
+| center | 相对于播放界面的中心点坐标 | XYVe3DDataF |
+| degree | 旋转角度，顺时针 0 - 360| XYVe3DDataF | 
 | propData | 程度调节，默认1.0，范围 0 -1  | CGFloat | 
 | verticalReversal | 竖直翻转 | BOOL | 
 | horizontalReversal | 水平翻转  | BOOL | 
@@ -1237,9 +1237,9 @@ XYEffectVisionModel参数说明：
 | :-: | :-: | :-: | :-: |
 | defaultWidth | 默认宽度，素材中提取| CGFloat | 非必须 | 
 | defaultHeight |默认高度，素材中提取 | CGFloat | 非必须 | 
-| width | 宽 | CGFloat | 必须 | 
-| height | 高 | CGFloat | 必须 | 
-| rotation | 旋转角度， 0~360 | CGFloat | 非必须 | 
+| size.width | 宽 | CGFloat | 必须 | 
+| size.height | 高 | CGFloat | 必须 | 
+| degree | 旋转角度， 0~360 | XYVe3DDataF | 非必须 | 
 | horizontalReversal | 水平反转 | BOOL | 非必须 | 
 | verticalReversal | 垂直反转 | BOOL | 非必须 | 
 | centerPoint | 相对于播放StreamSize的中心点坐标 | CGPoint | 必须 | 
