@@ -43,6 +43,11 @@ typedef struct XYQRect {
                                  effectType:(XYCommonEnginebackgroundType)effectType
                                      doAnim:(BOOL)doAnim
                                  storyBoard:(XYStoryboard *)storyBoard;
+
++ (void)setSingleClipAnimationWithClip:(CXiaoYingClip *)pClip
+                                 effectType:(XYCommonEnginebackgroundType)effectType
+                                     doAnim:(BOOL)doAnim
+                            storyBoard:(XYStoryboard *)storyBoard;
 @end
 
 NS_ASSUME_NONNULL_END

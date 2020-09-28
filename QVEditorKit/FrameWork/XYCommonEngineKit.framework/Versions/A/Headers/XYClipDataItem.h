@@ -29,6 +29,7 @@
 
 @property (nonatomic) BOOL isGIF;
 @property (nonatomic) BOOL isBlurBack;
+@property (nonatomic) BOOL isAnim;
 
 @property (nonatomic) NSInteger clipIndex;
 @property (nonatomic, copy) NSString *identifier;//clip 的唯一标识符 新增by sunshine
