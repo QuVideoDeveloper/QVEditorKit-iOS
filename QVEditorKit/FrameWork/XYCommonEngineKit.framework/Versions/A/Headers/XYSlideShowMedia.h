@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param phAsset PHAsset对象
 + (NSString *)getMediaPathForEngine:(PHAsset *)phAsset;
 
-- (instancetype)initWithMediaPath:(NSString *)mediaPath mediaTyp:(XYSlideShowMediaType)mediaType;
+- (instancetype)initWithMediaPath:(NSString *)mediaPath mediaType:(XYSlideShowMediaType)mediaType;
 
 - (instancetype)initWithNode:(CXiaoYingSourceInfoNode *)node;
 

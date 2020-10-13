@@ -17,6 +17,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface XYMediaInfo : NSObject
+
+@property (nonatomic) CGSize size;
+
+@end
+
 @class XYStoryboard, XYCommonEngineRequest, XYEffectVisionTextModel, XYAdjustEffectValueModel, PHAsset, XYClipCurveSpeed;
 
 @interface XYClipModel : XYBaseEngineModel
@@ -98,6 +104,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (XYEffectVisionTextModel *)fetchCustomBackTextModel;
 
++ (XYMediaInfo *)fetchClipSizeWithClipPath:(NSString *)clipPath;
+
+/// 判断图片是否有人像
+/// @param position clip上的时间点
+/// @param width clip缩略图的宽
+/// @param height clip缩略图的高
+/// @param degree 纹理转正需要旋转的角度
+/// 是否原图
+/// @param threshold 目标人像占比
+- (BOOL)thumbnailHasPortrait:(NSInteger)position
+                       width:(NSInteger)width
+                      height:(NSInteger)height
+                      degree:(NSInteger)degree
+            onlyOriginalClip:(BOOL)onlyOriginalClip
+                   threshold:(CGFloat)threshold;
 @end
 
 NS_ASSUME_NONNULL_END

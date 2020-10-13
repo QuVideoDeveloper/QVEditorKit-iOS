@@ -117,4 +117,8 @@
 - (void)removePlayerObserver;
 
 - (void)forcePause;
+
+
++ (CGSize)fecthStreamSizeWithPlaySize:(CGSize)palySize videoRatio:(CGFloat)videoRatio;
+
 @end

@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <XYCommonEngine/CXiaoYingInc.h>
 #import "QVEngineDataSourceProtocol.h"
+#import "XYEngineEnum.h"
 
 #define XY_TIMESCALE_DIV_4 0.25
 #define XY_TIMESCALE_DIV_2 0.5
@@ -24,6 +25,8 @@
 @property (nonatomic, weak) id<QVEngineDataSourceProtocol> engineDataSource;
 /// 开启引擎日志写入到本地 默认关闭
 @property (nonatomic, assign) BOOL isSaveLog;
+/// 输出终端输出日志等级
+@property (nonatomic, assign) XYMonLogLevelType logLevel;
 
 + (XYEngine *)sharedXYEngine;
 

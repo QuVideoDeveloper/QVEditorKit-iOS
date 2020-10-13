@@ -268,4 +268,14 @@ typedef NS_ENUM(UInt64,  XYTaskLoadProjectErrorCode) {
 
 };
 
+typedef NS_ENUM(NSInteger,  XYMonLogLevelType) {
+    XYMonLogLevelTypeNone = MON_LOG_LEVEL_NONE,
+    XYMonLogLevelTypeI = MON_LOG_LEVLE_I,
+    XYMonLogLevelTypeD = MON_LOG_LEVLE_D,
+    XYMonLogLevelTypeE = MON_LOG_LEVLE_E,
+    XYMonLogLevelTypeB = MON_LOG_LEVLE_B,
+    XYMonLogLevelTypeT = MON_LOG_LEVLE_T,
+    XYMonLogLevelTypeAll = MON_LOG_LEVEL_ALL,
+};
+
 #endif /* XYEngineEnum_h */

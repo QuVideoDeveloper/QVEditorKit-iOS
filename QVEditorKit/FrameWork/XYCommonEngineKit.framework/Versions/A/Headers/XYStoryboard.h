@@ -77,6 +77,7 @@
 /// 是否开启日志的打印
 @property (nonatomic, assign) BOOL isPrintLog;
 
+@property (nonatomic, copy) NSString *portraitModelPath;//人体扣像文件路径
 
 //模版解析delegate
 @property (nonatomic, weak) id<XYStoryboardTemplateDelegate> templateDelegate;

@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class XYClipThumbnailCompleteModel, XYClipThumbnailInputModel;
+@class XYClipThumbnailCompleteModel, XYClipThumbnailInputModel, XYClipModel;
 
 
 NS_ASSUME_NONNULL_BEGIN

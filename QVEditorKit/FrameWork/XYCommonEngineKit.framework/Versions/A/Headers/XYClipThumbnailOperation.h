@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)syncReturnPlaceholderThumbnail;
 
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -12,7 +12,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XYSlideShowClipMgr : NSObject
-
 /// 获取工程场景数量
 - (NSInteger)fetchSceneCount;
 
