@@ -35,16 +35,14 @@
 #import <Foundation/Foundation.h>
 /// progress 值范围 [0-1]
 typedef void (^AudioAnalyzerProgressBlock)(CGFloat progress);
-typedef void (^AudioAnalyzerFinishBlock)(BOOL success, NSString *outPath, NSError * _Nullable error);
+typedef void (^AudioAnalyzerFinishBlock)(BOOL success, NSString * _Nullable outPath, NSError * _Nullable error);
 
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XYAudioAnalyzerProvider : NSObject
 
-+ (XYAudioAnalyzerProvider *)provider;
-
-/// 解析音乐卡的
+/// 解析音乐卡点
 /// @param config 配置参数
 /// @param progress 进度 子线程
 /// @param finish 结束 子线程
@@ -56,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 根据路径获取对应的dot数据
 /// @param outputFilePath 输出的路径
 /// @param range 范围
-- (NSArray<NSNumber*>* _Nullable)fetchDotByOutputFilepath:(NSString *)outputFilePath range:(XYVeRangeModel *)range;
+- (NSArray<NSNumber *> * _Nullable)fetchDotByOutputFilepath:(NSString *)outputFilePath range:(XYVeRangeModel *)range;
 
 /// 销毁audio analyzer
 - (BOOL)unInit;

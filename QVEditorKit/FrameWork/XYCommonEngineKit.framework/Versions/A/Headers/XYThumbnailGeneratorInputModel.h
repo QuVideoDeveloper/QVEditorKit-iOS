@@ -6,9 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
 #import "XYEngineEnum.h"
 #import "XYClipModel.h"
+#import <Photos/Photos.h>
 
 typedef NS_ENUM(NSInteger, XYThumbnailType) {
     XYThumbnailTypeUnknown,//未知格式
@@ -49,6 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 真实时间的缩略图会在这个区域内返回 [requestedTime-requestedTimeTolerance, requestedTime+requestedTimeTolerance] requestedTimeTolerance越短的话，就会耗费更多时间, -1的话就是没有限制
 @property (nonatomic, assign) NSInteger requestedTimeTolerance;
+
+/// 忽略内部计算，直接用originalSeekPositions的时间从原视频来获取缩略图
+@property (nonatomic, assign) BOOL useOriginalSeekPositionDirectly;
 
 @property (nonatomic, copy) void (^outputBlock)(id outputModel);
 

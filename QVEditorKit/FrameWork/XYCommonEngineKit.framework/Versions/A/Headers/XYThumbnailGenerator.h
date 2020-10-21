@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)destroy;
 
+/// 清除缓存的无法获取缩略图的key（iOS14会出现一开始没权限拿不到，后来用户授权了又可以拿到了的情况）
+- (void)cleanFailedCacheMap;
+
 @end
 
 NS_ASSUME_NONNULL_END

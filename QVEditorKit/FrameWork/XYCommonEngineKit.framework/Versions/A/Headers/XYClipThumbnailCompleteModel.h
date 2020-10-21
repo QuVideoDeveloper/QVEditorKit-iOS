@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger beginTime;
 @property (nonatomic, assign) NSInteger endTime;
 @property (nonatomic, assign) NSInteger clipIndex;
+@property (nonatomic, copy) NSString *cacheKey;//缓存的key
+@property (nonatomic, assign) BOOL needCleanCache;
 
 @end
 

@@ -8,6 +8,7 @@
 #ifndef XYCommonEngineKit_h
 #define XYCommonEngineKit_h
 
+#import <XYCommonEngineKit/XYCommonEngineDefileHeader.h>
 #import <XYCommonEngineKit/XYEngine.h>
 #import <XYCommonEngineKit/XYEngineParam.h>
 #import <XYCommonEngineKit/XYEditUtils.h>
@@ -97,5 +98,7 @@
 #import <XYCommonEngineKit/XYAudioExtractorModel.h>
 #import <XYCommonEngineKit/XYEngineStructClass.h>
 #import <XYCommonEngineKit/XYEngineClassHeader.h>
+#import <XYCommonEngineKit/XYDotAnalyzerProvider.h>
+#import <XYCommonEngineKit/XYVideoAnalyzerProvider.h>
 
 #endif /* XYCommonEngineKit_h */

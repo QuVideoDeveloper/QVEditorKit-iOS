@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineClipModuleType) {
     XYCommonEngineClipModuleThemeCoverFront = 111110,//主题片头
     XYCommonEngineClipModuleThemeCoverBack = 111111,//主题片尾
     XYCommonEngineClipModuleCustomCoverBack = 111112,//自定义片尾
+    XYCommonEngineClipModuleSceneClip = 111113,
 };
 
 typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
