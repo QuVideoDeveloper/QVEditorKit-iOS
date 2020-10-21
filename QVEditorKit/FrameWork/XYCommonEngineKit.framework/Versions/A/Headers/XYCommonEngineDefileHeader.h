@@ -4,6 +4,7 @@
 //
 //  Created by 夏澄 on 2020/10/16.
 //
+#import <Foundation/Foundation.h>
 
 #ifndef XYCommonEngineDefileHeader_h
 #define XYCommonEngineDefileHeader_h
