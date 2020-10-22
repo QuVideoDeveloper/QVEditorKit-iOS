@@ -27,6 +27,8 @@
 @property (nonatomic, assign) BOOL isSaveLog;
 /// 输出终端输出日志等级
 @property (nonatomic, assign) XYMonLogLevelType logLevel;
+/// 是否开启Benchlog的输出 默认不开启
+@property (nonatomic, assign) BOOL isPrintBenchlog;
 
 + (XYEngine *)sharedXYEngine;
 

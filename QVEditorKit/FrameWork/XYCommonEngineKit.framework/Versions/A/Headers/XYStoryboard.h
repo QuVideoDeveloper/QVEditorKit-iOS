@@ -77,6 +77,9 @@
 /// 是否开启日志的打印
 @property (nonatomic, assign) BOOL isPrintLog;
 
+/// 播放器分辨率的宽 输出会基于宽根据比例计算出高
+@property (nonatomic, assign) NSInteger outputResolutionWidth;
+
 @property (nonatomic, copy) NSString *portraitModelPath;//人体扣像文件路径
 
 //模版解析delegate

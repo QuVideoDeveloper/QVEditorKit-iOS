@@ -36,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 直接使用外部传入的seekPosition来从原视频中获取缩略图，忽略内部计算
 @property (nonatomic, assign) BOOL useInputSeekPositionDirectly;
 
+/// 内部计算时忽略TrimRange
+@property (nonatomic, assign) BOOL ignoreTrimRange;
+
 //业务方需要的信息，来时啥样，complete回去时啥样
 @property (nonatomic, assign) NSInteger beginTime;
 @property (nonatomic, assign) NSInteger endTime;
@@ -61,7 +64,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// ThumbnailManager销毁时，是否需要清除该缩略图的缓存
 @property (nonatomic, assign) BOOL needCleanCache;
 
-
+/// 复制一个clip用于取缩略图
+/// @param clip 需要被复制的clip
+- (void)duplicatedClip:(CXiaoYingClip *)clip;
 
 @end
 

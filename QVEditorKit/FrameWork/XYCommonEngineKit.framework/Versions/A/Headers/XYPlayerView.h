@@ -28,6 +28,9 @@
 @property (nonatomic, assign, getter=isDisablePlayAndSeek) BOOL disablePlayAndSeek;//禁止手动播放和Seek操作
 @property (strong, nonatomic) XYPlayerViewConfiguration *playerConfig;//当前播放器的播放源Config
 
+/// 是否在播放中
+@property (nonatomic, assign) BOOL isPlaying;
+
 /// 注册Delegate
 /// @param delegate observer
 - (void)addPlayDelegate:(id <XYPlayerViewDelegate>)delegate;
