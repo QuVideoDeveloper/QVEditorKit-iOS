@@ -37,6 +37,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// 是否开启metal 默认关闭
 @property (nonatomic, assign) BOOL metalEnable;
 
+/// 输出终端输出日志等级
+@property (nonatomic, assign) XYMonLogLevelType logLevel;
+
+/// 是否开启Benchlog的输出 默认不开启
+@property (nonatomic, assign) BOOL isPrintBenchlog;
+
+/// 播放器分辨率的宽 输出会基于宽根据比例计算出高 默认值 640
+@property (nonatomic, assign) NSInteger outputResolutionWidth;
+
 @end
 
 @interface QVEditor : NSObject
