@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 滤镜路径
 @property (nonatomic, copy) NSString *filterPath;
 
-/// 滤镜程度,0~100    
+/// 滤镜程度,值范围[0-100] 默认值100
 @property (nonatomic, assign) NSInteger filterLevel;
 
 /// 3D滤镜外部源路径

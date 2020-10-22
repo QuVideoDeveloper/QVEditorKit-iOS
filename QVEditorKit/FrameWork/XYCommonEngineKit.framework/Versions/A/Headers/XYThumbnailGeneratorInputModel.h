@@ -53,6 +53,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 忽略内部计算，直接用originalSeekPositions的时间从原视频来获取缩略图
 @property (nonatomic, assign) BOOL useOriginalSeekPositionDirectly;
 
+/// 内部计算时忽略TrimRange
+@property (nonatomic, assign) BOOL ignoreTrimRange;
+
 @property (nonatomic, copy) void (^outputBlock)(id outputModel);
 
 @property (nonatomic, copy) void (^placeholderBlock)(id outputModel);

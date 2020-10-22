@@ -45,9 +45,6 @@
 /// 销毁播放源
 - (void)destroySource;
 
-/// 是否在播放中
-- (BOOL)isPlaying;
-
 ///  播放
 
 - (void)play;
