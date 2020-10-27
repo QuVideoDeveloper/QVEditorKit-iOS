@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class CXiaoYingVirtualSourceInfoNode, XYRectModel, XYVeRangeModel, XYSlideShowTransformModel, XYSlideShowMedia;
+@class CXiaoYingVirtualSourceInfoNode, XYVeRangeModel, XYSlideShowTransformModel, XYSlideShowMedia;
 
 @interface XYSlideShowSourceNode : NSObject
 
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy, nonnull) NSString *mediaPath;
 
 /// 旋转角度
-@property (nonatomic) NSUInteger rotation;
+@property (nonatomic) CGFloat degree;
 
 /// node 所在视频上的时间点
 @property (nonatomic, readonly) NSInteger previewPos;
@@ -42,13 +42,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(readwrite, nonatomic, strong) XYSlideShowTransformModel *transform;
 
 /// 视频的trim range
-@property(nonatomic, strong, readonly) XYVeRangeModel *trimRange; 
+@property(nonatomic, strong, readonly) XYVeRangeModel *trimRange;
 
 /// 在源的数组中的位置
 @property (nonatomic) NSInteger idx;
 
 /// 在播放器stremSize的frame
 @property (nonatomic, readonly) CGRect frame;
+
+/// 源是否进行扣像
+@property (nonatomic, readonly) BOOL bDigOutImage;
 
 @property (nonatomic, assign) NSInteger focusCenterX;
 @property (nonatomic, assign) NSInteger focusCenterY;

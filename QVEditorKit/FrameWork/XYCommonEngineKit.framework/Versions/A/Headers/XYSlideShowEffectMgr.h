@@ -44,8 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param themeTextInfo 字幕对象
 - (void)updateThemeText:(XYSlideShowThemeTextInfo *)themeTextInfo;
 
-/// <#Description#>
-/// @param sceneIdx <#sceneIdx description#>
+/// 根据场景获取字幕
+/// @param sceneIdx sceneIdx
 - (NSArray <XYSlideShowThemeTextInfo *> *)fetchSlideShowThemeTextListBySceneIndex:(NSInteger)sceneIdx
 ;
 /// 设置静音
