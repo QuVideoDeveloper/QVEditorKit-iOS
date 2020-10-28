@@ -492,5 +492,5 @@
 
 - (void)updateEffectGroupID:(CXiaoYingEffect *)pEffect groupID:(MDWord)groupID;
 
-
+- (void)setCropMaskWithMediaPath:(NSString *)mediaPath degree:(NSInteger)degree sceneIdx:(NSInteger)sceneIdx;
 @end

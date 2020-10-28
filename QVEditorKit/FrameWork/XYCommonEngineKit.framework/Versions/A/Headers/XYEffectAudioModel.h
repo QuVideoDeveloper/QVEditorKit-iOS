@@ -5,6 +5,10 @@
 //  Created by 夏澄 on 2019/11/7.
 //
 
+/*
+ iTunes 路径例子 ipod-library://item/item.mp3?id=352343695305987142
+ */
+
 #import "XYEffectModel.h"
 
 NS_ASSUME_NONNULL_BEGIN

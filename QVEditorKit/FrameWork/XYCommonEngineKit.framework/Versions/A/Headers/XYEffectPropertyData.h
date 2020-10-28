@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger linearGradientAngle; //线性渐变的旋转角度 默认为水平方向，取值范围：0~360，对应的角度：0~360，单位为°
 @property (nonatomic, copy) NSArray *backgroundColorList;//严格要求排序是起始颜色 中间颜色 结束颜色   数组里的对象  格式（0Xffffff）
 
-@property (nonatomic, copy) NSString *backImagePath;//设置背景图片。参数 1. clipPropertyData.backImagePath 设置默认背景图片 传nil
+@property (nonatomic, copy, nullable) NSString *backImagePath;//设置背景图片。参数 1. clipPropertyData.backImagePath 设置默认背景图片 传nil
 //缩放 移动 旋转 需要的参数。 一、缩放 需要的参数 scaleX scaleY (没做缩放默认值是1)
 @property (nonatomic, assign) CGFloat scale;
 
