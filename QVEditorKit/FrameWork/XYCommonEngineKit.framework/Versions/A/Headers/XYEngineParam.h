@@ -23,6 +23,7 @@
 @property (nonatomic) UInt64 defaultBgmId;
 @property (nonatomic, copy) NSString *tempFolderPath;
 @property (nonatomic, copy) NSString *corruptImagePath;
+@property (nonatomic, assign) UInt64 imageClipMaxDuration;
 
 - (instancetype)initWithDefaultParam;
 

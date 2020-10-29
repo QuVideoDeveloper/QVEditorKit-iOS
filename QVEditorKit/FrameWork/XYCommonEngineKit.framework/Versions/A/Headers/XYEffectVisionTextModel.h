@@ -21,8 +21,12 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
 @property (nonatomic, assign) NSInteger mParamID;
 @property (nonatomic, copy) NSString *text;//字幕当前文字
 
+/// 文字部分相对于整个字幕尺寸的万分比rect
+@property (nonatomic, assign) CGRect textRegionRect;
+
 /// 是否粗体 默认不是
 @property (nonatomic, assign) NSInteger isBold;
+
 /// 是否斜体 默认不是
 @property (nonatomic, assign) NSInteger isItalic;
 
@@ -50,7 +54,6 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
 @property (nonatomic, assign) NSInteger textVersion;//字幕版本，当前没用到
 @property (nonatomic, assign) NSInteger textTransparency;//字幕不透明度 全透明0，不透明100
 @property (nonatomic, assign) CGFloat textOneLineHeight;//字幕单行高度
-@property (nonatomic, assign) CGRect textRegionRect;//文字部分相对于整个Bubble的万分比rect
 
 //动画字幕相关
 @property (nonatomic, assign) BOOL isAnimatedText;//是否动画字幕
@@ -66,6 +69,11 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
 @property (nonatomic, assign) BOOL useCustomTextInfo;//第一次添加 如果这个值是YES，则文字大小、颜色、字体、位置、阴影、描边、描边大小、对齐方式，都用外面传进来的值，否则用模版里的信息
 @property (nonatomic, copy) NSArray <XYEffectVisionSubTitleLabelInfoModel *> *multiTextList;//多行字幕标签信息列表， 单行字幕数组里只有一个
  
+
+/// 获取素材推荐的最小时长
+/// @param filePath 素材路径
++ (NSInteger)getTemplateMinDurationWithTemplateFilePath:(NSString *)filePath;
+
 @end
 
 NS_ASSUME_NONNULL_END
