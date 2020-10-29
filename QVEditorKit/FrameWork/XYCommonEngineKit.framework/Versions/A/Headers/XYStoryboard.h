@@ -444,9 +444,6 @@
                                                textShadowXShift:(CGFloat)textShadowXShift
                                                textShadowYShift:(CGFloat)textShadowYShift
                                               textStrokePercent:(CGFloat)textStrokePercent;
-
-- (BOOL)isAnimatedText:(NSInteger)templateID;
-
 #pragma mark - 8.0.0 Clip
 - (NSInteger)setClipSourceRange:(CXiaoYingClip *)cXiaoYingClip sourceRange:(AMVE_POSITION_RANGE_TYPE)sourceRange;
 
