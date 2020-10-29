@@ -602,6 +602,8 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
 | textShadowBlurRadius | 阴影模糊程度: 必须>=0| CGFloat |
 | textShadowXShift | 阴影X轴偏移 | CGFloat |
 | textShadowXShift | 阴影Y轴偏移| CGFloat |
+| textRegionRect | 文字部分相对于整个字幕尺寸的万分比rect| CGRect |
+
 
 XYEffectKeyFrameInfo参数说明：（由于功能复杂，后期可能调整数据结构）
 | 名称  | 解释 | 类型 |
