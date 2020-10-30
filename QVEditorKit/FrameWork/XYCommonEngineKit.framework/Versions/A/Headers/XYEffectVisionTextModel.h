@@ -71,7 +71,7 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
  
 
 /// 获取素材推荐的最小时长
-/// @param filePath 素材路径
+/// @param filePath 素材路径 返回是值范围 [0 - 无限大]
 + (NSInteger)getTemplateMinDurationWithTemplateFilePath:(NSString *)filePath;
 
 @end

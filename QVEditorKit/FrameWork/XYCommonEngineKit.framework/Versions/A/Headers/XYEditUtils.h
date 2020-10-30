@@ -62,6 +62,8 @@ typedef void (^PROCESS_IMAGE_RESULT_BLOCK)(BOOL suc);
 
 + (AMVE_BUBBLETEXT_SOURCE_TYPE *)allocBubbleSource;
 
++ (AMVE_BUBBLETEXT_SOURCE_TYPE *)allocBubbleSourceWithMutiTextCount:(NSInteger)mutiTextCount;
+
 + (void)freeBubbleSource:(AMVE_BUBBLETEXT_SOURCE_TYPE *)pBubbleSource;
 
 + (int)ARGB2ABGR:(int)argbValue;
