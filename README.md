@@ -1551,7 +1551,23 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
 | textShadowBlurRadius | 阴影模糊程度: 必须>=0| CGFloat |非必须| 
 | textShadowXShift | 阴影X轴偏移 | CGFloat |非必须| 
 | textShadowXShift | 阴影Y轴偏移| CGFloat |非必须| 
-1）字幕文本
+
+1）字幕添加
+
+```
+	XYEffectVisionTextModel * textModel = [XYEffectVisionTextModel new];
+        textModel.taskID = XYCommonEngineTaskIDEffectVisionTextAdd;
+        textModel.groupID = XYCommonEngineGroupIDText;
+        textModel.filePath = filePath;
+        textModel.templateID = templateID;
+        XYEffectVisionSubTitleLabelInfoModel *subTextModel = [XYEffectVisionSubTitleLabelInfoModel new];
+        subTextModel.text = text;
+        textModel.multiTextList = @[subTextModel];
+        NSInteger beginTime = 0;
+        textModel.destVeRange = [XYVeRangeModel VeRangeModelWithPosition:beginTime length:length];
+  [XYEngineWorkspace effectMgr] runTask:textModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
+```
+2）字幕文本
 
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
@@ -1562,10 +1578,10 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
     currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
     XYEffectVisionSubTitleLabelInfoModel *labelInfoModel = currentEffectModel.multiTextList[textIndex];
   labelInfoModel.text = text;
-   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
+  [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
-2）字幕字体
+3）字幕字体
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
 	// effectIndex为同类型中第几个效果
@@ -1579,7 +1595,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
 ```
 
 
-3）字幕文本颜色
+4）字幕文本颜色
 
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
@@ -1593,7 +1609,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
-4）字幕文本阴影
+5）字幕文本阴影
 
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
@@ -1610,7 +1626,7 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
 
-5）字幕文本描边
+6）字幕文本描边
 ```
 	// groupId默认为GROUP_ID_SUBTITLE
 	// effectIndex为同类型中第几个效果
