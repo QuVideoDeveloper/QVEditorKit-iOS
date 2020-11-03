@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param block 主线程 返回缩略图
 - (void)fetchThumbnailsWithThumbnailSize:(CGSize)thumbnailSize seekPosition:(NSInteger)seekPosition block:(void (^)(UIImage *image))block;
 
+/// 销毁视频根据时间点来获取缩略图的句柄 如退出当前工程需要销毁或者更改了效果，不然下次进来获取的还是上次数据
+- (void)destroyThumbnailHandle;
+
 @end
 
 NS_ASSUME_NONNULL_END
