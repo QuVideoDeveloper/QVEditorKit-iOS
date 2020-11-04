@@ -1529,6 +1529,18 @@ XYEffectVisionModel * visionModel = [XYEffectVisionModel new];
   currentEffectModel.keyFrameInfo = keyFrameInfo;
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
+6.2.21 设置位置 大小 旋转角度
+```
+            effectVisionModel.taskID = XYCommonEngineTaskIDEffectVisionUpdate3dInfo;
+            effectVisionModel.size.x = x;
+            effectVisionModel.size.y = y;
+            effectVisionModel.degree.z = z
+            effectVisionModel.center.x = x;
+            effectVisionModel.center.y = y;
+            [[XYEngineWorkspace effectMgr] runTask:effectVisionModel completionBlock:^(BOOL success, NSError * _Nullable error, id  _Nullable obj) {
+                
+            }];
+```
 
 * 字幕
 
