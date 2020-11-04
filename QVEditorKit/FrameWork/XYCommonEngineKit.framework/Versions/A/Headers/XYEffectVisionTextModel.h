@@ -17,11 +17,13 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
     XYEffectVisionTextAlignmentJustify = AMVE_STYLE_TEXT_ALIGNMENT_HOR_FULLFILL | AMVE_STYLE_TEXT_ALIGNMENT_VER_FULLFILL,
 };
 
+@class XYEffectVisionTextModel;
+
 @interface XYEffectVisionSubTitleLabelInfoModel : NSObject
 @property (nonatomic, assign) NSInteger mParamID;
 @property (nonatomic, copy) NSString *text;//字幕当前文字
 
-/// 文字部分相对于整个字幕尺寸的万分比rect
+/// 多行字幕每个文本部分相对于整个字幕尺寸的万分比rect
 @property (nonatomic, assign) CGRect textRegionRect;
 
 /// 是否粗体 默认不是
@@ -47,6 +49,11 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
 @property (nonatomic, assign) float textShadowBlurRadius;//阴影模糊程度: iOS必须>=0; Android必须>0;
 @property (nonatomic, assign) float textShadowXShift;//阴影X轴偏移
 @property (nonatomic, assign) float textShadowYShift;//阴影Y轴偏移
+
+/// 获取多行字幕每个文本部分streamSize尺寸
+/// @param textModel textModel 对象
+- (CGRect)fetchTextRect:(XYEffectVisionTextModel *)textModel;
+
 @end
 
 @interface XYEffectVisionTextModel : XYEffectVisionModel

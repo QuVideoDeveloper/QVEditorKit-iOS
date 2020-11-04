@@ -45,6 +45,8 @@
 - (void)refreshWithConfig:(XYPlayerViewConfiguration *(^)(XYPlayerViewConfiguration * config))block;
 
 
+- (void)privateUpdateWithConfig:(XYPlayerViewConfiguration *(^)(XYPlayerViewConfiguration * config))block;
+
 /// 销毁播放源
 - (void)destroySource;
 
