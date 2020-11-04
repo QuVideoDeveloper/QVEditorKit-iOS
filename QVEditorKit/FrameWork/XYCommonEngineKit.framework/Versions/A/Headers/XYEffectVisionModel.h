@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isInstantRefresh; //YES的情况下，该效果将会快速刷新
 @property (nonatomic, strong) XYEffectKeyFrameInfo *keyFrameInfo;
 @property (nonatomic) CGFloat currentScale; //根据当前宽度和dafault宽度自动计算当前放大倍数，只读
-@property (nonatomic, assign) BOOL isResetLayerID;//是否只是resetLayerID
+//@property (nonatomic, assign) BOOL isResetLayerID;//是否只是resetLayerID
 @property (nonatomic, assign) NSInteger previewDuration;//动画预览时长
 @property (nonatomic, assign) NSInteger volume;//效果的音量（只有特效和视频画中画才有作用）
 

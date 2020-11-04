@@ -40,8 +40,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XYEffectModel : XYBaseEngineModel
 
 @property (readonly, nonatomic, assign) XYCommonEngineTrackType trackType;
-@property (readonly, nonatomic, assign) CGFloat layerID;//效果的层级信息，是一个浮点数，数字越大 层级越高；
-@property (nonatomic, assign) NSInteger horizontalPosition;//在timeline 上第几行
+@property (readonly, nonatomic, assign) CGFloat layerID;//效果的层级信息，是一个浮点数，数字越大 层级越高
+
+/// 业务自己直接设置layerID 而不通过 horizontalPosition参数来设置 默认通过horizontalPosition 设置layerID
+@property (nonatomic, assign) BOOL layerIdSetBySelf;
+
+/// 层级 范围 [0 - max]的整数
+@property (nonatomic, assign) NSInteger horizontalPosition;
 @property (nonatomic, strong) NSMutableArray *everyCellMaxLayerIdList;//每行最大的laerid 根据index 递增
 @property (readonly, nonatomic, assign) NSInteger indexInStoryboard;
 @property (nonatomic, assign) CGFloat  voiceChangeValue;//变声值

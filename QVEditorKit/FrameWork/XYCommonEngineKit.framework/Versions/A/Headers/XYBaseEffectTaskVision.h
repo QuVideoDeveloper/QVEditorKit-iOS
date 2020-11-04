@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Basic
 
 /// 获取一个新的图层ID
-- (float)newEffectLayerId;
+- (float)newEffectLayerId:(XYEffectVisionModel *)effectModel;
 
 #pragma mark - Text
 /// 从模版中获取信息并更新XYEffectVisionTextModel
@@ -131,6 +131,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSMutableArray<XYColorCurveItem *> *)fetchCurveColorInfo:(CXiaoYingEffect *)colorCurveEffect;
 + (void)updateCurveColor:(CXiaoYingEffect *)colorCurveEffect colorCurveInfo:(XYColorCurveInfo *)colorCurveInfo;
+
+- (void)updateLayerID:(XYEffectVisionModel *)effectModel;
 
 @end
 
