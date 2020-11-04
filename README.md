@@ -505,6 +505,9 @@ XYEffectModel参数说明：
 | destVeRange | effect在storyboard上的 mVeRange（起始点，时长） | XYVeRangeModel | 
 | trimVeRange | 对效果时长的裁剪 | destVeRange | 
 | layerID | 效果的层级信息，是一个浮点数，数字越大 层级越高 | CGFloat | 
+| horizontalPosition | 层级 范围 [0 - max]的整数 | NSInteger | 
+| layerIdSetBySelf | 业务自己直接设置layerID 而不通过 horizontalPosition参数来设置 默认通过horizontalPosition 设置layerID | BOOL | 
+
 
 XYEffectAudioModel参数说明：XYEffectAudioModel继承XYEffectModel
 
