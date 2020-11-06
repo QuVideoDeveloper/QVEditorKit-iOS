@@ -11,9 +11,9 @@
 @interface XYMultiSubTextInfo : NSObject
 @property (nonatomic, assign) NSInteger mParamID;
 /// 是否粗体 默认不是
-@property (nonatomic, assign) NSInteger isBold;
+@property (nonatomic, assign) BOOL isBold;
 /// 是否斜体 默认不是
-@property (nonatomic, assign) NSInteger isItalic;
+@property (nonatomic, assign) BOOL isItalic;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSString *fontName;

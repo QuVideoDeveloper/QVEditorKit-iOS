@@ -27,10 +27,10 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
 @property (nonatomic, assign) CGRect textRegionRect;
 
 /// 是否粗体 默认不是
-@property (nonatomic, assign) NSInteger isBold;
+@property (nonatomic, assign) BOOL isBold;
 
 /// 是否斜体 默认不是
-@property (nonatomic, assign) NSInteger isItalic;
+@property (nonatomic, assign) BOOL isItalic;
 
 @property (nonatomic, strong) UIColor *textColor;//字幕颜色
 @property (nonatomic, copy) NSString *textDefault;//字幕素材的默认文字
