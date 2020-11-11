@@ -13,6 +13,21 @@
 #import "XYTemplateDBDefine.h"
 #import "XYTemplateDBMgr.h"
 
+
+@interface XYTemplateXtyInfo : NSObject
+
+@property (nonatomic) BOOL bIsAnimated;
+/// 模板推荐开始的时间
+@property (nonatomic) NSInteger dwStaticPos;
+
+/// 模板推荐的时长 范围 [0 - 无限大]
+@property (nonatomic) NSInteger dwMinDuration;
+
+/// 默认的title
+@property (nonatomic, copy) NSString *title;
+
+@end
+
 typedef NS_ENUM(NSInteger, XYTemplateDataType) {
     XYTemplateDataTypeTheme = AMVE_STYLE_MODE_THEME,//主题
     XYTemplateDataTypeThemeCover = AMVE_STYLE_MODE_COVER,//主题封面
@@ -195,9 +210,6 @@ typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
 //获取人脸表情动作提示类型
 - (NSInteger)getPasterExpressionType:(UInt64)templateID;
 
-//获取字幕的子类型
-- (NSInteger)getXYTemplateItemDataSubTcid:(XYTemplateItemData *)data;
-
 //判断是否有音频
 -(BOOL)isContainVoiceInExtFileWithTemplateFilePath:(NSString *)filePath;
 
@@ -233,5 +245,7 @@ typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
 /// 根据模板id 获取模板信息 此接口是获取参数调节模板，效果插件模板信息
 /// @param templateID 模板id
 - (XYEffectPropertyInfoModel *)requestEffectPropertyInfoWithTemplateID:(UInt64)templateID;
+
+- (NSArray <XYTemplateXtyInfo *> *)requestTemplateTextInfoWithTemplateID:(UInt64)templateID;
 
 @end

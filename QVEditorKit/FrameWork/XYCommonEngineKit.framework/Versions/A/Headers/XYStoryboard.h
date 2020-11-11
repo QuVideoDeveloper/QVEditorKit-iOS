@@ -490,4 +490,11 @@
 - (void)updateEffectGroupID:(CXiaoYingEffect *)pEffect groupID:(MDWord)groupID;
 
 - (void)setCropMaskWithMediaPath:(NSString *)mediaPath degree:(NSInteger)degree sceneIdx:(NSInteger)sceneIdx;
+
+/// 如果需要支持panzoom 需要设置mask 引擎默认扣像是AMVE_PROP_CLIP_RESET_SEG_MASK 不支持移动缩放等
+- (void)updateMask:(MBITMAP *)mask clipIdx:(NSInteger)clipIdx;
+
+/// 删除外部设置的涂抹后的mask,恢复自动抠像
+- (void)resetMaskWithClipIdx:(NSInteger)clipIdx;
+
 @end

@@ -167,6 +167,8 @@ typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
     XYCommonEngineGroupIDThemeFilter = GROUP_ID_THEME_FILTER,//主题滤镜group
     XYCommonEngineGroupIDFXFilter = GROUP_ID_FX_FILTER,//特效滤镜。
     XYCommonEngineGroupIDAnimationFilter = GROUP_ID_ANIMATION_FILTER,//动画滤镜。
+    XYCommonEngineGroupIDThemeTextFrame = GROUP_THEME_TEXT_FRAME,//主题字幕
+    XYCommonEngineGroupIDThemeTextAnimation = GROUP_ID_THEME_TEXT_ANIMATION,//主题动画字幕
 
 };
 

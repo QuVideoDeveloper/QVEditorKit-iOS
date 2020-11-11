@@ -91,6 +91,10 @@
 /// @param async YES异步执行操作，NO同步执行该操作
 - (void)displayRefreshAsync:(BOOL)async;
 
+
+/// 用于扣像移动缩放旋转调用 解决因为设置的transform和播放器刷新不在同一个队列问题而出现的白边及闪动问题
+- (void)displayRefreshCurrentThead;
+
 ///开始调整effect前先锁定该effect下的图层
 - (NSInteger)lockStuffUnderEffect:(CXiaoYingEffect *)effect async:(BOOL)async;
 

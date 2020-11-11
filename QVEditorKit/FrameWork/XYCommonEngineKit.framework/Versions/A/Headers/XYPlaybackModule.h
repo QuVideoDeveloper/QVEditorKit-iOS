@@ -107,6 +107,8 @@ playbackModuleDelegate:(id<PlaybackModuleDelegate>)playbackModuleDelegate;
 
 - (void)displayRefresh;
 
+- (void)displayRefreshCurrentThead;
+
 - (void)refreshEffect:(CXiaoYingClip *)clip
                OpCode:(MDWord)opCode
                Effect:(CXiaoYingEffect *)effect;

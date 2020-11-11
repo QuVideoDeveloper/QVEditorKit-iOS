@@ -76,11 +76,6 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
 @property (nonatomic, assign) BOOL useCustomTextInfo;//第一次添加 如果这个值是YES，则文字大小、颜色、字体、位置、阴影、描边、描边大小、对齐方式，都用外面传进来的值，否则用模版里的信息
 @property (nonatomic, copy) NSArray <XYEffectVisionSubTitleLabelInfoModel *> *multiTextList;//多行字幕标签信息列表， 单行字幕数组里只有一个
  
-
-/// 获取素材推荐的最小时长
-/// @param filePath 素材路径 返回是值范围 [0 - 无限大]
-+ (NSInteger)getTemplateMinDurationWithTemplateFilePath:(NSString *)filePath;
-
 @end
 
 NS_ASSUME_NONNULL_END
