@@ -1653,7 +1653,11 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
     labelInfoModel.textStrokeWPercent = textStrokeWPercent;
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
+7）获取字幕素材配置信息
+```
+NSArray <XYTemplateXtyInfo *>*list = [[XYTemplateDataMgr sharedInstance] requestTemplateTextInfoWithTemplateID:templateID];
 
+```
 #### 7. 导出
 ```
   /**
