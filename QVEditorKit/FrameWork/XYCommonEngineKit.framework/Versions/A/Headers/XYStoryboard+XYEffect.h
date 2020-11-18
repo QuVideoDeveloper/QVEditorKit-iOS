@@ -246,4 +246,6 @@
 - (NSString *)getEffectExternalSource:(CXiaoYingEffect *)pEffect;
 - (void)setEffectExternalSource:(CXiaoYingEffect *)pEffect filePath:(NSString *)filePath;
 
+- (MRESULT)setTextBgColor:(UIColor *)color effect:(CXiaoYingEffect *)effect;
+
 @end

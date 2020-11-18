@@ -34,7 +34,8 @@
 @end
 
 @interface XYMultiTextInfo : NSObject
-
+/// 字幕背景颜色
+@property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic) MInt64 textTemplateID;
 @property (nonatomic, copy) NSString *identifier;//唯一标志
 @property (nonatomic, strong) UIColor *textColor;

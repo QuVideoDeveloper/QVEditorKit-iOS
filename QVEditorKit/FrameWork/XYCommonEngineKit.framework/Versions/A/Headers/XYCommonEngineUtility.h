@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)xy_createFolder:(NSString *)folderPath;
     
 + (BOOL)xy_isFileExist:(NSString *)filePath;
+
++ (CVPixelBufferRef)pixelBufferFromCGImage:(UIImage *)inputImage;
+
 @end
 
 NS_ASSUME_NONNULL_END

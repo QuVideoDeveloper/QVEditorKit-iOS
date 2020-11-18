@@ -100,5 +100,7 @@
 #import <XYCommonEngineKit/XYEngineClassHeader.h>
 #import <XYCommonEngineKit/XYDotAnalyzerProvider.h>
 #import <XYCommonEngineKit/XYVideoAnalyzerProvider.h>
+#import <XYCommonEngineKit/XYDrawLayerPaintPenInfo.h>
+
 
 #endif /* XYCommonEngineKit_h */

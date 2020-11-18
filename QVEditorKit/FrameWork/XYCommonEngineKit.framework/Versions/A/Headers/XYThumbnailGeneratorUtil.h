@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
           thumbnailPixelSize:(CGSize)thumbnailPixelSize
                seekPositions:(NSArray<NSNumber *> *)seekPositions
       requestedTimeTolerance:(NSInteger)requestedTimeTolerance
+                  newCalFunc:(BOOL)newCalFunc
+                clipDuration:(NSInteger)clipDuration
            completionHandler:(void(^)(UIImage * __nullable image, NSInteger actualSeekPosition))completionHandler;
 
 /// 图片镜头从PHAsset中获取缩略图

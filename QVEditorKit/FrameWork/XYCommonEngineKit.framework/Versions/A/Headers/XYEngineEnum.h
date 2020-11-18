@@ -9,6 +9,7 @@
 #define XYEngineEnum_h
 #import "XYEngineDef.h"
 #import <XYCommonEngine/CXiaoYingInc.h>
+//#import <XYCommonEngine/etdrawlayerdata.h>
 
 typedef NS_ENUM(NSInteger, XYCommonEngineClipModuleType) {
     XYCommonEngineClipModuleImage = AMVE_IMAGE_CLIP,
@@ -87,8 +88,10 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDClipReplaceSource,//clip 路径替换
     XYCommonEngineTaskIDClipCurveSpeedUpdate, //曲线变速
     XYCommonEngineTaskIDClipColorCurveUpdate, //曲线颜色
+    XYCommonEngineTaskIDClipDrawPen, //画笔功能
+    XYCommonEngineTaskIDClipDrawPenUndo, //画笔功能Undo
+    XYCommonEngineTaskIDClipDrawPenRedo, //画笔功能Redo
 
-    
     //Project 相关taskID========================================================================Project 相关taskID
     XYCommonEngineTaskIDQProjectCreate,//创建新工程
     XYCommonEngineTaskIDQProjectSaveProject,//prjFilePath
@@ -280,5 +283,28 @@ typedef NS_ENUM(NSInteger,  XYMonLogLevelType) {
     XYMonLogLevelTypeT = MON_LOG_LEVLE_T,
     XYMonLogLevelTypeAll = MON_LOG_LEVEL_ALL,
 };
+
+typedef NS_ENUM(NSInteger,  XYDrawPaintType) {
+    XYDrawPaintTypeDefault = 0, //默认是铅笔
+    XYDrawPaintTypePencil = 0, //铅笔
+    XYDrawPaintTypePen = 1, //钢笔
+    XYDrawPaintTypeWaterPen = 2, //水笔
+    XYDrawPaintTypeBrush = 3, //笔刷
+    XYDrawPaintTypeMarkPen = 4, //马克笔
+    XYDrawPaintTypeReasure = 5, //擦除
+    XYDrawPaintTypeEnd = 6,
+};
+//typedef NS_ENUM(NSInteger,  XYDrawPaintType) {
+//    XYDrawPaintTypeDefault = EU_DRAW_PAINT_DEFAULT, //默认是铅笔
+//    XYDrawPaintTypePencil = EU_DRAW_PAINT_DEFAULT, //铅笔
+//    XYDrawPaintTypePen = EU_DRAW_PAINT_DEFAULT, //钢笔
+//    XYDrawPaintTypeWaterPen = EU_DRAW_PAINT_WATER_PEN, //水笔
+//    XYDrawPaintTypeBrush = EU_DRAW_PAINT_BRUSH, //笔刷
+//    XYDrawPaintTypeMarkPen = EU_DRAW_PAINT_MARK_PEN, //马克笔
+//    XYDrawPaintTypeReasure = EU_DRAW_PAINT_ERASURE, //擦除
+//    XYDrawPaintTypeEnd = EU_DRAW_PAINT_END,
+//
+//};
+
 
 #endif /* XYEngineEnum_h */

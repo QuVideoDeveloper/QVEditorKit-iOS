@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@class XYStoryboard, XYCommonEngineRequest, XYEffectVisionTextModel, XYAdjustEffectValueModel, PHAsset, XYClipCurveSpeed;
+@class XYStoryboard, XYCommonEngineRequest, XYEffectVisionTextModel, XYAdjustEffectValueModel, PHAsset, XYClipCurveSpeed, XYDrawLayerPaintPenInfo;
 
 @interface XYClipModel : XYBaseEngineModel
 @property (nonatomic, copy) NSString *clipFilePath;
@@ -81,6 +81,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger fixTime;//用于缩略图的起始时间的校准
 @property (readonly, nonatomic, copy) NSDictionary *clipParam;
 
+/// 画笔
+@property (nonatomic, strong) XYDrawLayerPaintPenInfo *drawLayerPenInfo;
+
+
 
 
 /// /// 根据曲线变速后的时间范围获取对应的原clip的时间范围
@@ -119,6 +123,13 @@ NS_ASSUME_NONNULL_BEGIN
                       degree:(NSInteger)degree
             onlyOriginalClip:(BOOL)onlyOriginalClip
                    threshold:(CGFloat)threshold;
+
+/// 获取画笔undo队列的个数
+- (NSInteger)drawPenUndoCount;
+
+/// 获取画笔redo队列的个数
+- (NSInteger)drawPenRendCount;
+
 @end
 
 NS_ASSUME_NONNULL_END

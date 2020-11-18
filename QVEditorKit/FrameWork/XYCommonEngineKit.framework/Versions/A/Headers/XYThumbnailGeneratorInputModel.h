@@ -56,6 +56,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 内部计算时忽略TrimRange
 @property (nonatomic, assign) BOOL ignoreTrimRange;
 
+/// 新的修复的方法 根据时间取对应的帧 修复老的方法获取缩略图不对问题 默认YES
+@property (nonatomic, assign) BOOL newCalFunc;
+
+@property (nonatomic, assign) NSInteger clipDuraton;
+
 @property (nonatomic, copy) void (^outputBlock)(id outputModel);
 
 @property (nonatomic, copy) void (^placeholderBlock)(id outputModel);

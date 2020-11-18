@@ -50,9 +50,9 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
 @property (nonatomic, assign) float textShadowXShift;//阴影X轴偏移
 @property (nonatomic, assign) float textShadowYShift;//阴影Y轴偏移
 
-/// 获取多行字幕每个文本部分streamSize尺寸
-/// @param textModel textModel 对象
-- (CGRect)fetchTextRect:(XYEffectVisionTextModel *)textModel;
+/// 获取多行字幕每个文本部分相对整体字幕的rect
+/// @param textSize 字幕整体的size
+- (CGRect)fetchTextRect:(CGSize)textSize;
 
 @end
 
@@ -62,9 +62,9 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
 @property (nonatomic, assign) NSInteger textTransparency;//字幕不透明度 全透明0，不透明100
 @property (nonatomic, assign) CGFloat textOneLineHeight;//字幕单行高度
 
-//动画字幕相关
+/// 素材获取是否是动画字幕
 @property (nonatomic, assign) BOOL isAnimatedText;//是否动画字幕
-//是否支持竖排文字
+/// 素材获取是否支持竖排文字
 @property (nonatomic, assign) BOOL isSupportVertical;
 //主题字幕相关
 @property (nonatomic, assign) ThemeTextType themeTextType;//主题文字类型
@@ -72,6 +72,9 @@ typedef NS_ENUM(NSInteger, XYEffectVisionTextAlignment) {
 
 //字幕额外效果
 @property (nonatomic, assign) BOOL isTextExtraEffectEnabled;//是否启用以下额外效果
+
+/// 字幕背景颜色
+@property (nonatomic, strong) UIColor *backgroundColor;
 
 @property (nonatomic, assign) BOOL useCustomTextInfo;//第一次添加 如果这个值是YES，则文字大小、颜色、字体、位置、阴影、描边、描边大小、对齐方式，都用外面传进来的值，否则用模版里的信息
 @property (nonatomic, copy) NSArray <XYEffectVisionSubTitleLabelInfoModel *> *multiTextList;//多行字幕标签信息列表， 单行字幕数组里只有一个
