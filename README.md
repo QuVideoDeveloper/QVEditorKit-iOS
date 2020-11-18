@@ -1653,7 +1653,19 @@ XYEffectVisionSubTitleLabelInfoModel参数说明：
     labelInfoModel.textStrokeWPercent = textStrokeWPercent;
    [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
 ```
-7）获取字幕素材配置信息
+7）字幕对齐方式
+```
+	// groupId默认为GROUP_ID_SUBTITLE
+	// effectIndex为同类型中第几个效果
+	// textIndex表示组合字幕中的第几个字幕
+        // textAlignment XYEffectVisionTextAlignment
+	XYEffectVisionTextModel *currentEffectModel = [[[XYEngineWorkspace effectMgr] effectModels:(groupID)] objectAtIndex:effectIndex];
+    currentEffectModel.taskID = XYCommonEngineTaskIDEffectVisionTextUpdate;
+      XYEffectVisionSubTitleLabelInfoModel *labelInfoModel = currentEffectModel.multiTextList[textIndex];
+  labelInfoModel.textAlignment = textAlignment;
+   [XYEngineWorkspace effectMgr] runTask:currentEffectModel completionBlock:^(BOOL success, NSError * _Nonnull error, id  _Nonnull obj) {     }];
+```
+8）获取字幕素材配置信息
 ```
 NSArray <XYTemplateXtyInfo *>*list = [[XYTemplateDataMgr sharedInstance] requestTemplateTextInfoWithTemplateID:templateID];
 
