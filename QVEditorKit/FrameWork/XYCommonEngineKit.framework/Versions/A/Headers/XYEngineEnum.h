@@ -134,6 +134,14 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDEffectVisionTextUpdate,  //更新字幕效果 用这个model：XYEffectVisionTextModel 里面的参数都可以修改
     XYCommonEngineTaskIDEffectVisionDelelteKeyFrame,  //根据visionModels 删除关键帧
     XYCommonEngineTaskIDEffectVisionUpdate3dInfo,  //中心点：center，尺寸大小：size，相对中心的（锚点偏移量）anchorOffset
+    
+    // 画笔
+    XYCommonEngineTaskIDEffectVisionPenAdd, //添加一个画笔effect
+    XYCommonEngineTaskIDEffectVisionPenDraw, //画笔draw 修改对应的model：XYDrawLayerPaintPenInfo
+    XYCommonEngineTaskIDEffectVisionPenUpdate, //画笔更新 比例更新画笔的层级和时间range
+    XYCommonEngineTaskIDEffectVisionPenUndo, //画笔undo
+    XYCommonEngineTaskIDEffectVisionPenRedo, //画笔redo
+
 
     //高级功能 混合模式 画中画
     XYCommonEngineTaskIDEffectVisionPinInPicOverlayUpdate,//混合模式
@@ -172,7 +180,7 @@ typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
     XYCommonEngineGroupIDAnimationFilter = GROUP_ID_ANIMATION_FILTER,//动画滤镜。
     XYCommonEngineGroupIDThemeTextFrame = GROUP_THEME_TEXT_FRAME,//主题字幕
     XYCommonEngineGroupIDThemeTextAnimation = GROUP_ID_THEME_TEXT_ANIMATION,//主题动画字幕
-
+    XYCommonEngineGroupIDDrawPen = GROUP_ID_VIDEO_PARAM_DRAW_PEN_EFFECT,//画笔
 };
 
 typedef NS_ENUM(NSInteger, XYCommonEngineRequestID) {

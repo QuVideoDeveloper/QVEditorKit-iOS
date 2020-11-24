@@ -59,6 +59,7 @@
 #define GROUP_COVER_TITLE 0xFFFFFFFF            //封面文字
 #define GROUP_ID_VIDEO_PARAM_ADJUST_EFFECT 105  //滤镜参数调节
 #define GROUP_ID_VIDEO_PARAM_CURVE_COLOR_EFFECT 106  //clip 曲线调色
+#define GROUP_ID_VIDEO_PARAM_DRAW_PEN_EFFECT 107  //画笔
 
 #define GROUP_ID_THEME_TEXT_ANIMATION -8        //主题动画文字
 #define GROUP_ID_COLLAGE 20                     //画中画

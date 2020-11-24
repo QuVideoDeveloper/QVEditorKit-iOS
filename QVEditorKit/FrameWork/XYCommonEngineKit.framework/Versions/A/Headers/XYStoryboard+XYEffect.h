@@ -247,5 +247,11 @@
 - (void)setEffectExternalSource:(CXiaoYingEffect *)pEffect filePath:(NSString *)filePath;
 
 - (MRESULT)setTextBgColor:(UIColor *)color effect:(CXiaoYingEffect *)effect;
-
+- (CXiaoYingEffect *)addClipEffect:(NSString *)effectPath
+                       effectAlpha:(MFloat)effectAlpha
+                 effectConfigIndex:(MDWord)effectConfigIndex
+                             pClip:(CXiaoYingClip *)pClip
+                         trackType:(MDWord)dwTrackType
+                           groupId:(MDWord)groupId
+                           layerId:(MFloat)layerId;
 @end

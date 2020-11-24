@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger,  XYDrawLayerState) {
 /// 画笔类型
 @property(nonatomic, readwrite) XYDrawPaintType dwPenType;
 
-/// 线条的颜色 16进制值 格式0x******FF
+/// 线条的颜色 16进制值 格式0xABGR 0xFFFFFFFF
 @property(nonatomic, readwrite) NSInteger dwLineColor;
 
 /// 0 实线 1 虚线
@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger,  XYDrawLayerState) {
 /// 发光的宽度， 相对于底图的百分比 例如底图宽度720， 真实的发光半径是=720*fLightRadius
 @property(nonatomic, readwrite) CGFloat fLightRadius;
 
-/// 发光的颜色 16进制值 格式0x******FF
+/// 发光的颜色 16进制值 格式0xABGR 0xFFFFFFFF
 @property(nonatomic, readwrite) NSInteger dwLightColor;
 
 /// 边缘羽化程度 0~1； 边缘羽化只有在开启发光或者擦出功能才会有作用
