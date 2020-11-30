@@ -15,6 +15,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XYBaseEffectTask : XYBaseEngineTask
+@property (nonatomic, assign) BOOL isReloadAllEffect;
 @property (nonatomic, assign) BOOL isReload;//根据 trackType groupId 刷新对应的memory的数据
 @property (nonatomic, strong) XYEffectModel *effectModel;
 @property (nonatomic, copy) NSArray <XYEffectModel *> *effectModels;
