@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 媒体资源类型
 @property (nonatomic, readonly) XYSlideShowMediaType mediaType;
 
-///源的缩放、移动、旋转
+/// 源的缩放、移动、旋转
 @property(readwrite, nonatomic, strong) XYSlideShowTransformModel *transform;
 
 /// 视频的trim range

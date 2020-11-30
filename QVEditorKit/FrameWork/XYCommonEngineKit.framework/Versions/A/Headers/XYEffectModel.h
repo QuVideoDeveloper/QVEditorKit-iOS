@@ -40,6 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XYEffectModel : XYBaseEngineModel
 
 @property (readonly, nonatomic, assign) XYCommonEngineTrackType trackType;
+@property (nonatomic, assign) BOOL isDelete;
 @property (readonly, nonatomic, assign) CGFloat layerID;//效果的层级信息，是一个浮点数，数字越大 层级越高
 
 /// 业务自己直接设置layerID 而不通过 horizontalPosition参数来设置 默认通过horizontalPosition 设置layerID

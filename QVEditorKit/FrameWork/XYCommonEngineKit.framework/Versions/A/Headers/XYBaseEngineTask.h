@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "XYEngineEnum.h"
 #import "XYCommonEngineGlobalData.h"
+#import "XYEngineClassHeader.h"
 
 typedef NS_ENUM(NSInteger, XYEngineTaskType) {
     XYEngineTaskTypeClip,
@@ -59,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL skipPreprocessNotice;//跳过引擎前处理的通知
 
 @property (nonatomic, strong) XYTaskErrorModel *errorModel;
-@property (nonatomic, copy) void(^completionBlock)(BOOL success, NSError *error, id obj);
+@property (nonatomic, copy) XYTaskCompletionBlock completionBlock;
 - (void)run;
 - (void)engineOperate;//需要子类实现
 - (void)engineOperateEnd;//需要子类实现

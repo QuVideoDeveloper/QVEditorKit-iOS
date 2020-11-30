@@ -25,6 +25,9 @@
 @property (nonatomic, copy) NSString *corruptImagePath;
 @property (nonatomic, assign) UInt64 imageClipMaxDuration;
 
+/// 是否开启抗锯齿
+@property (nonatomic, assign) BOOL openAntiJagged;
+
 - (instancetype)initWithDefaultParam;
 
 @end
