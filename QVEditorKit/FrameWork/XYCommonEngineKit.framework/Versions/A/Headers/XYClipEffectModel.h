@@ -35,6 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *animFilterFilePath;//动画滤镜的路径
 
+@property (nonatomic, assign) CGFloat layerID;
+
+@property (nonatomic, assign) BOOL isPortrait; // 扣像滤镜
+
+
 /// 3D滤镜外部源路径
 @property (nonatomic, copy) NSString *externalSource;
 

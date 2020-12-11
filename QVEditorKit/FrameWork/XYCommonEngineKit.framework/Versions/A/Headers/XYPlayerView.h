@@ -127,4 +127,6 @@
 
 + (CGSize)fecthStreamSizeWithPlaySize:(CGSize)palySize videoRatio:(CGFloat)videoRatio;
 
+- (void)updateEngineDisplayContextWithWidth:(CGFloat)width height:(CGFloat)height degree:(CGFloat)degree;
+
 @end

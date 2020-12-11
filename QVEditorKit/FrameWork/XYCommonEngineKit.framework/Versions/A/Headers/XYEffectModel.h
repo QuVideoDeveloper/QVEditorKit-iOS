@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 业务自己直接设置layerID 而不通过 horizontalPosition参数来设置 默认通过horizontalPosition 设置layerID
 @property (nonatomic, assign) BOOL layerIdSetBySelf;
+@property (nonatomic, assign) BOOL isLockEffect;
 
 /// 层级 范围 [0 - max]的整数
 @property (nonatomic, assign) NSInteger horizontalPosition;
@@ -71,6 +72,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (void)reload;
+- (void)reloadIdentifier;
+- (void)reloadUserData;
+- (void)reloadMdestVeRange;
 - (void)reloadLayerId;
 - (NSInteger)fetchLayerIdCellIndex;//根据layerid 获取转化后的index 从0 开始
 - (void)updateRelativeClipInfo;//刷新相对clip的数据 添加 手动修改mDestVeRange都需要刷新下

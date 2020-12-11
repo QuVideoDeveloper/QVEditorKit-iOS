@@ -46,6 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 播放器分辨率的宽 输出会基于宽根据比例计算出高 默认值 640
 @property (nonatomic, assign) NSInteger outputResolutionWidth;
 
+/// 是否开启抗锯齿
+@property (nonatomic, assign) BOOL openAntiJagged;
+
 @end
 
 @interface QVEditor : NSObject

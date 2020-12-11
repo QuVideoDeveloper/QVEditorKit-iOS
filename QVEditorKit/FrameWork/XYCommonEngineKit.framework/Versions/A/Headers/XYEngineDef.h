@@ -19,6 +19,7 @@
 
 //audio
 #define LAYER_ID_PANZOOM -1.5f                    //背景颜色 缩放
+#define LAYER_ID_PORTRAIT -2.0f                    //扣像effect的layerID
 
 #define LAYER_ID_DUB 2.0f                       //音效
 #define LAYER_ID_RECORD 3.0f                    //录音

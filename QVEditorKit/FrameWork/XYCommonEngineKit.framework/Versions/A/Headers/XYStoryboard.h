@@ -21,7 +21,7 @@
 #import "XYPlayerView.h"
 #import "QVEngineDataSourceProtocol.h"
 
-@class XYEffectPropertyInfoModel;
+@class XYEffectPropertyInfoModel, XYDrawLayerPaintPenInfo;
 
 
 
@@ -61,6 +61,7 @@
  引擎封装层最主要的类
  */
 @interface XYStoryboard : NSObject <AMVESessionStateDelegate, AMVEThemeOptDelegate>
+@property (nonatomic, strong) XYDrawLayerPaintPenInfo *penInfo;
 @property (weak, nonatomic) XYPlayerView *playView;
 @property (nonatomic, weak) CXiaoYingPlayerSession *playSeesion;
 @property (nonatomic, strong) UIImage *collogeCutOutImage;

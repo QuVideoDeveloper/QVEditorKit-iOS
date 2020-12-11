@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger duplicateStartPos;//复制效果的起始点
 @property (nonatomic, copy) NSString *title;//如音乐的名称
 
+- (void)lockEffect:(CXiaoYingEffect *)effect isLock:(BOOL)isLock;
+
 @end
 
 NS_ASSUME_NONNULL_END

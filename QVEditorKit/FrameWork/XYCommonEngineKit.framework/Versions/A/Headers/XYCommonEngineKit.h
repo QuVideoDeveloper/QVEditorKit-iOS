@@ -101,6 +101,8 @@
 #import <XYCommonEngineKit/XYDotAnalyzerProvider.h>
 #import <XYCommonEngineKit/XYVideoAnalyzerProvider.h>
 #import <XYCommonEngineKit/XYDrawLayerPaintPenInfo.h>
+#import <XYCommonEngineKit/XYEffectDrawPenModel.h>
+
 
 
 #endif /* XYCommonEngineKit_h */
