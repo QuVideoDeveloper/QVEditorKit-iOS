@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import "XYEngineEnum.h"
 
 @interface XYEngineParam : NSObject
 
@@ -27,6 +28,10 @@
 
 /// 是否开启抗锯齿
 @property (nonatomic, assign) BOOL openAntiJagged;
+
+/// 分割精度
+@property (nonatomic, assign) XYSegPrecisionMode segPrecisionMode;
+
 
 - (instancetype)initWithDefaultParam;
 

@@ -49,6 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 是否开启抗锯齿
 @property (nonatomic, assign) BOOL openAntiJagged;
 
+/// 分割精度
+@property (nonatomic, assign) XYSegPrecisionMode segPrecisionMode;
+
 @end
 
 @interface QVEditor : NSObject

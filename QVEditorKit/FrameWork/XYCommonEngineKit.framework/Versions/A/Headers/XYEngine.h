@@ -30,6 +30,7 @@
 /// 是否开启Benchlog的输出 默认不开启
 @property (nonatomic, assign) BOOL isPrintBenchlog;
 
+
 + (XYEngine *)sharedXYEngine;
 
 //templateAdapter和filePathAdapter必须在引擎初始化的时候设置

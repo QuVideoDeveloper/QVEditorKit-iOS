@@ -302,6 +302,15 @@ typedef NS_ENUM(NSInteger,  XYDrawPaintType) {
     XYDrawPaintTypeReasure = 5, //擦除
     XYDrawPaintTypeEnd = 6,
 };
+
+typedef NS_ENUM(NSInteger,  XYSegPrecisionMode) {
+    XYSegPrecisionModeAuto   = 0, // 分割默认使用自动模式(根据手机硬件自动选择)
+    XYSegPrecisionModeHigh   = 1, // 分割高精度 速度慢
+    XYSegPrecisionModeNormal = 2, // 分割精度中 速度中
+    XYSegPrecisionModeLow    = 3, // 分割精度低 速度高
+};
+
+
 //typedef NS_ENUM(NSInteger,  XYDrawPaintType) {
 //    XYDrawPaintTypeDefault = EU_DRAW_PAINT_DEFAULT, //默认是铅笔
 //    XYDrawPaintTypePencil = EU_DRAW_PAINT_DEFAULT, //铅笔
