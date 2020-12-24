@@ -181,6 +181,8 @@ typedef NS_ENUM(MDWord, XYCommonEngineGroupID) {
     XYCommonEngineGroupIDThemeTextFrame = GROUP_THEME_TEXT_FRAME,//主题字幕
     XYCommonEngineGroupIDThemeTextAnimation = GROUP_ID_THEME_TEXT_ANIMATION,//主题动画字幕
     XYCommonEngineGroupIDDrawPen = GROUP_ID_VIDEO_PARAM_DRAW_PEN_EFFECT,//画笔
+    XYCommonEngineGroupIDDrawPenOnionskin = GROUP_ID_VIDEO_PARAM_DRAW_PEN_ONION_SKIN,//画笔
+
 };
 
 typedef NS_ENUM(NSInteger, XYCommonEngineRequestID) {

@@ -66,6 +66,7 @@
 #define GROUP_ID_COLLAGE 20                     //画中画
 #define GROUP_ID_VIDEO_PARAM_ADJUST_PANZOOM -10 //比例调节里的Panzoom效果，C D E模版
 #define GROUP_ID_VIDEO_PARAM_ANIM_PANZOOM -3    //镜头编辑里的图片动画效果，4B00000000000003模版
+#define GROUP_ID_VIDEO_PARAM_DRAW_PEN_ONION_SKIN 111 //洋葱皮
 
 
 //主题的
