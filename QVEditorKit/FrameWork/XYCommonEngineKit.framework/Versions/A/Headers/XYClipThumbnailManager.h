@@ -54,13 +54,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param completeBlock 清除完成后的回调
 - (void)cleanDiskCache:(void (^)(void))completeBlock;
 
-
-/// 监听正式工程相关变化
-- (void)addRealTaskObserver;
-
-/// 监听临时工程相关变化
-- (void)addTempTaskObserver;
-
 /// 销毁
 - (void)destroyThumbnailManager;
 

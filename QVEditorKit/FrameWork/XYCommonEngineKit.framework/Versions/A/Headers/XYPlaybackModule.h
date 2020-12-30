@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import <XYCommonEngine/CXiaoYingInc.h>
 
+@class XYVe3DDataF;
+
 typedef NS_ENUM(NSInteger, XYPlayerState) {
     XYPlayerStateNone = AMVE_PROCESS_STATUS_NONE,
     XYPlayerStateReady = AMVE_PROCESS_STATUS_READY,
@@ -157,4 +159,9 @@ playbackModuleDelegate:(id<PlaybackModuleDelegate>)playbackModuleDelegate;
                async:(BOOL)async;
 
 - (void)forcePause;
+
+- (void)updateEngineTransform:(QVET_3D_TRANSFORM)transform;
+
+- (QVET_3D_TRANSFORM)fetchEngineTransform;
+
 @end

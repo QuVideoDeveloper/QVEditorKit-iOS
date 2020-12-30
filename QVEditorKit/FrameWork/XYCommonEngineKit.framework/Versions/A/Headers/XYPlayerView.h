@@ -7,8 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-
-@class XYVeRangeModel, XYPlayerViewConfiguration, XYPlayerCallBackData, XYStreamContextView;
+@class XYVeRangeModel, XYPlayerViewConfiguration, XYPlayerCallBackData, XYStreamContextView, XYVe3DDataF;
 
 //播放器Delegate
 @protocol XYPlayerViewDelegate <NSObject>
@@ -128,5 +127,9 @@
 + (CGSize)fecthStreamSizeWithPlaySize:(CGSize)palySize videoRatio:(CGFloat)videoRatio;
 
 - (void)updateEngineDisplayContextWithWidth:(CGFloat)width height:(CGFloat)height degree:(CGFloat)degree;
+
+- (void)updateEngineTransform:(QVET_3D_TRANSFORM)transform;
+
+- (QVET_3D_TRANSFORM)fetchEngineTransform;
 
 @end
