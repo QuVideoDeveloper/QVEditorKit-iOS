@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 视觉类效果的model
 @interface XYEffectVisionModel : XYEffectModel
+@property (nonatomic, assign) CGFloat templateConfitDegree; // 素材中提取的角度
 @property (nonatomic, assign) CGFloat defaultWidth; //默认宽度，素材中提取
 @property (nonatomic, assign) CGFloat defaultHeight; //默认高度，素材中提取
 @property (nonatomic, assign) BOOL reCalculateFrame; // YES不管当前宽高，重新计算宽高
