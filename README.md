@@ -725,16 +725,13 @@ TextInfo 参数说明：
 #### 5. Clip剪辑功能接口
 1）添加
 ```
-__block NSMutableArray <XYClipModel *> *clipArr = [[NSMutableArray alloc] initWithCapacity:mediaList.count];
-    [mediaList enumerateObjectsUsingBlock:^(XYAlbumMediaItem * _Nonnull mediaItem, NSUInteger idx, BOOL * _Nonnull stop) {
-        XYClipModel *clipModel = [[XYClipModel alloc] init];
-        clipModel.sourceVeRange.dwPos = mediaItem.startPoint;
-        clipModel.sourceVeRange.dwLen = mediaItem.endPoint - mediaItem.startPoint;
-        clipModel.clipFilePath = []XYClipModel getClipFilePathForEngine:phAsset];
-        clipModel.rotation = [mediaItem angleDegreeFormOrientation:mediaItem.orientation];
-        clipModel.clipIndex = idx;
-        [clipArr addObject:clipModel];
-    }];
+    XYClipModel *clipModel = [[XYClipModel alloc] init];
+    clipModel.sourceVeRange.dwPos = 0;
+    clipModel.sourceVeRange.dwLen = duration;
+    clipModel.clipFilePath = []XYClipModel getClipFilePathForEngine:phAsset];
+    clipModel.rotation = rotation;
+    clipModel.clipIndex = idx;//idx 需要添加顺序 如第一个是0 第二是1 ....
+    [clipArr addObject:clipModel];    
     XYClipModel *taskModel = [[XYClipModel alloc] init];
     taskModel.taskID = XYCommonEngineTaskIDClipAddClip;
     taskModel.clipModels = clipArr;
