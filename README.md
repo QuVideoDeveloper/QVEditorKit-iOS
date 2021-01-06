@@ -728,7 +728,7 @@ TextInfo 参数说明：
     XYClipModel *clipModel = [[XYClipModel alloc] init];
     clipModel.sourceVeRange.dwPos = 0;
     clipModel.sourceVeRange.dwLen = duration;
-    clipModel.clipFilePath = []XYClipModel getClipFilePathForEngine:phAsset];
+    clipModel.clipFilePath = [XYClipModel getClipFilePathForEngine:phAsset];
     clipModel.rotation = rotation;
     clipModel.clipIndex = idx;//idx 需要添加顺序 如第一个是0 第二是1 ....
     [clipArr addObject:clipModel];    
