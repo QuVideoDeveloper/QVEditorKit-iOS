@@ -254,4 +254,7 @@
                          trackType:(MDWord)dwTrackType
                            groupId:(MDWord)groupId
                            layerId:(MFloat)layerId;
+
+- (void)effectFrameScale:(CXiaoYingEffect *)pEffect speed:(CGFloat)speed;
+
 @end

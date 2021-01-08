@@ -102,6 +102,7 @@
 #import <XYCommonEngineKit/XYVideoAnalyzerProvider.h>
 #import <XYCommonEngineKit/XYDrawLayerPaintPenInfo.h>
 #import <XYCommonEngineKit/XYEffectDrawPenModel.h>
+#import <XYCommonEngineKit/XYSegmentCallBackData.h>
 
 
 

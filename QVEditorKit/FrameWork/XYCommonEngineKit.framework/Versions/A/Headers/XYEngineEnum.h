@@ -325,5 +325,8 @@ typedef NS_ENUM(NSInteger,  XYSegPrecisionMode) {
 //
 //};
 
-
+typedef NS_ENUM(NSInteger, XYSegmentState) {
+    XYSegmentStateRunning = AMVE_PROCESS_STATUS_RUNNING,
+    XYSegmentStateStopped = AMVE_PROCESS_STATUS_STOPPED,
+};
 #endif /* XYEngineEnum_h */

@@ -52,6 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 分割精度
 @property (nonatomic, assign) XYSegPrecisionMode segPrecisionMode;
 
+///人体扣像mask缓存目录
+@property (nonatomic, copy) NSString *portraitMaskCacheDir;
+
 @end
 
 @interface QVEditor : NSObject

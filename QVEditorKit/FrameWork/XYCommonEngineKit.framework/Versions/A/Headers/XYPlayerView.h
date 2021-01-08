@@ -15,7 +15,7 @@
 @optional
 
 /// 播放器回调
-/// @param playbackData 播放放回的值
+/// @param playbackData 播放回调的值
 - (void)playbackStateCallBack:(XYPlayerCallBackData *)playbackData;
 
 
