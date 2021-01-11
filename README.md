@@ -1703,6 +1703,22 @@ XYProjectExportMgr 导出管理类说明：
                 progress:(export_progress_block)progress
                  success:(export_success_block)success
                  failure:(export_failure_block)failure;
+		 //
+ XYProjectExportConfiguration *config = [[XYProjectExportConfiguration alloc] init];
+   config.resolution = XYEngineResolution480;
+        NSString *exportFolder = [NSString stringWithFormat:@"%@/public",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0]];
+        [NSFileManager qvmedi_createFolderWithPath:exportFolder];
+    NSString *exportFileName = @"video.mp4";
+    exportFileName = [NSString stringWithFormat:@"%@%@",[NSDate date],exportFileName];
+        NSString *exportFileFullPath = [NSString stringWithFormat:@"%@/%@",exportFolder, exportFileName];
+        config.exportFilePath = exportFileFullPath;
+        [[XYEngineWorkspace exportMgr] exportWithConfig:config start:^{
+            
+        } progress:^(NSInteger currentTime, NSInteger totalTime) {
+        } success:^{
+            
+        } failure:^(XYProjectExportResultType result, NSInteger errorCode, NSString *error) {
+        }];	 
 
 /// 取消导出
 - (void)cancel;
