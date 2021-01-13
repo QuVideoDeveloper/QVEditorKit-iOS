@@ -134,7 +134,8 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDEffectVisionTextUpdate,  //更新字幕效果 用这个model：XYEffectVisionTextModel 里面的参数都可以修改
     XYCommonEngineTaskIDEffectVisionDelelteKeyFrame,  //根据visionModels 删除关键帧
     XYCommonEngineTaskIDEffectVisionUpdate3dInfo,  //中心点：center，尺寸大小：size，相对中心的（锚点偏移量）anchorOffset
-    
+    XYCommonEngineTaskIDEffectVisionUpdateArDepth, //更新效果的深度值 值范围（0，5]
+
     // 画笔
     XYCommonEngineTaskIDEffectVisionPenAdd, //添加一个画笔effect
     XYCommonEngineTaskIDEffectVisionPenDraw, //画笔draw 修改对应的model：XYDrawLayerPaintPenInfo

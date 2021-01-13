@@ -92,4 +92,8 @@
 
 @property (nonatomic, copy) NSString *licensePath;
 
+@property (nonatomic, assign) BOOL enableAR;
+
+@property (nonatomic, assign) BOOL enableDepth;
+
 @end

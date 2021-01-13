@@ -70,6 +70,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isAddedByTheme;//效果是否来自于 主题
 @property (nonatomic, assign) BOOL isEqualStoryboardDuration;//跟整个视频总时长一样长
 
+/// 深度值 有效距离是（0.0，5.0]
+@property (nonatomic, assign) CGFloat arDepthValue;
 
 - (void)reload;
 - (void)reloadIdentifier;
