@@ -66,6 +66,12 @@
 /// License文件地址
 @property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ licensePath)(NSString *licensePath);
 
+/// 是否开启AR
+@property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ enableAR)(BOOL enableAR);
+
+/// 是否开启深度信息
+@property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ enableDepth)(BOOL enableDepth);
+
 @end
 
 @interface QVMediCameraEngineParamMakerParam : NSObject
