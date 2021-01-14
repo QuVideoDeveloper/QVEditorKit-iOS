@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <XYCommonEngine/QCamDef.h>
+//#import <XYCommonEngine/QCamDef.h>
 
 typedef NS_ENUM(NSInteger, QVMediCameraEngineRecordState) {
     QVMediCameraEngineRecordStateIdle,//预览中

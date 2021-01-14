@@ -23,10 +23,10 @@
 //[self doSomething:^(XYChainParamMaker *maker) {
 //    maker.demoIntegerParam(0).demoStringParam(@"ccc").demoBOOLParam(YES);
 //}];
-#import <XYCommonEngine/CXiaoYingInc.h>
+//#import <XYCommonEngine/CXiaoYingInc.h>
 #import "QVMediCameraEnginePreviewView.h"
 
-@class QVMediCameraEngineParamMakerParam;
+@class QVMediCameraEngineParamMakerParam, CXiaoYingEngine;
 
 @interface QVMediCameraEngineParamMaker : NSObject
 
@@ -41,8 +41,8 @@
 /// 是否开启Metal
 @property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ enableMetal)(BOOL enableMetal);
 
-/// Camera引擎需要的模版路径ID转换方法
-@property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ templateAdapter)(id<CXiaoYingTemplateAdapter> templateAdapter);
+/// Camera引擎需要的模版路径ID转换方法 CXiaoYingTemplateAdapter
+@property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ templateAdapter)(id templateAdapter);
 
 /// Cam引擎输入尺寸(预览分辨率)，需要与Session preset尺寸相同
 @property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ inputResolutionSize)(CGSize inputResolutionSize);
@@ -82,7 +82,8 @@
 
 @property (nonatomic, assign) BOOL enableMetal;
 
-@property (nonatomic, weak) id<CXiaoYingTemplateAdapter> templateAdapter;
+/// <CXiaoYingTemplateAdapter>
+@property (nonatomic, weak) id templateAdapter;
 
 @property (nonatomic, assign) CGSize inputResolutionSize;
 
