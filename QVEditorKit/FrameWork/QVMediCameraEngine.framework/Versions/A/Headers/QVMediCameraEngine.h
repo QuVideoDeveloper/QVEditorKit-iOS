@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <QVMediCameraKit/QVMediCameraDevice.h>
 #import "QVMediCameraEngineParamMaker.h"
 #import "QVMediCameraRecordParamMaker.h"
 #import "QVMediCameraEngineStateModel.h"
@@ -27,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface QVMediCameraEngine : NSObject <QVMediCameraDeviceProtocol>
+@interface QVMediCameraEngine : NSObject 
 
 /// Camera当前状态相关引擎参数
 @property (nonatomic, strong, readonly) QVMediCameraEngineStateModel *stateModel;
