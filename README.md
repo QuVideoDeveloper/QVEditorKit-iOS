@@ -1866,6 +1866,7 @@ NSArray XYSlideShowSourceNode *> *nodeList = [XYSlideShowEditor sharedInstance].
     [self.cameraEngine initCameraEngineWithParamMaker:^(XYCameraEngineParamMaker * _Nonnull paramMaker) {
         paramMaker.cXiaoYingEngine([[XYEngine sharedXYEngine] getCXiaoYingEngine]);//传入CXiaoYingEngine
         paramMaker.enableMetal(YES);//是否启用Metal
+	paramMaker.enableDepth(YES);//是否启用深度信息
         paramMaker.previewView(self.fullSceenPreviewView);//预览用的view
         paramMaker.inputResolutionSize(CGSizeMake(1280, 720)).outputResolutionSize(CGSizeMake(1280, 720));//设置输入输入的分辨率
         paramMaker.renderRegionRect(self.fullSceenPreviewView.bounds);//用于在预览view上渲染的区域
