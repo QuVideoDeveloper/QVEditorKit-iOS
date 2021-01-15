@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @protocol QVMediCameraEngineProtocol <NSObject>
-
+@optional
 /// CameraEngine的状态回调
 /// @param stateModel CameraEngine当前状态Model
 - (void)onCameraEngineStateUpdate:(QVMediCameraEngineStateModel *)stateModel;
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface QVMediCameraEngine : NSObject 
+@interface QVMediCameraEngine : NSObject
 
 /// Camera当前状态相关引擎参数
 @property (nonatomic, strong, readonly) QVMediCameraEngineStateModel *stateModel;

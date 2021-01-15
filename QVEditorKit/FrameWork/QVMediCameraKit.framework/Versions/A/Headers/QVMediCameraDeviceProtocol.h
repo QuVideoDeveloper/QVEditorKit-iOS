@@ -11,13 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol QVMediCameraDeviceProtocol <NSObject>
-
-@required
+@optional
 - (void)firstCameraVideoOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 
 - (void)firstCameraAudioOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 
-@optional
 - (void)secondCameraVideoOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 
 - (void)secondCameraAudioOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer;
