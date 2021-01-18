@@ -11,7 +11,7 @@
 #import "QVMediCameraEngineStateModel.h"
 #import "QVMediCameraClipModel.h"
 #import "QVMediCameraFaceBeatyModel.h"
-
+#import "QVMediCameraDeviceProtocol.h"
 @class QVMediCameraEnginePreviewView;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface QVMediCameraEngine : NSObject
+@interface QVMediCameraEngine : NSObject <QVMediCameraDeviceProtocol>
 
 /// Camera当前状态相关引擎参数
 @property (nonatomic, strong, readonly) QVMediCameraEngineStateModel *stateModel;
