@@ -14,6 +14,7 @@
 #import "XYCommonEngineGlobalData.h"
 #import "XYEngineStructClass.h"
 #import "XYColorCurveInfo.h"
+#import <YYModel/YYModel.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,7 +26,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class XYStoryboard, XYCommonEngineRequest, XYEffectVisionTextModel, XYAdjustEffectValueModel, PHAsset, XYClipCurveSpeed, XYDrawLayerPaintPenInfo;
 
+@interface XYClipUserDataModel : NSObject <YYModel>
+
+/// 检测是否有人像 1: 有人像，0:没有人像，nil 没有检测过
+@property (nonatomic, strong, nullable) NSNumber *isHasPortrait;
+
+@end
+
 @interface XYClipModel : XYBaseEngineModel
+@property (nonatomic, strong) XYClipUserDataModel *clipUserInfo;
 @property (nonatomic, copy) NSString *clipFilePath;
 @property (nonatomic, copy) NSString *filterFilePath;
 @property (nonatomic) NSInteger filterConfigIndex;
@@ -85,8 +94,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) XYDrawLayerPaintPenInfo *drawLayerPenInfo;
 
 
-
-
 /// /// 根据曲线变速后的时间范围获取对应的原clip的时间范围
 /// @param range 变后的对应的时间范围
 - (XYVeRangeModel *)fetchSouceRangeWithCurveSpeedRange:(XYVeRangeModel *)range;
@@ -116,21 +123,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param height clip缩略图的高
 /// @param degree 纹理转正需要旋转的角度
 /// 是否原图
-/// @param threshold 目标人像占比
-- (BOOL)thumbnailHasPortrait:(NSInteger)position
-                       width:(NSInteger)width
-                      height:(NSInteger)height
-                      degree:(NSInteger)degree
-            onlyOriginalClip:(BOOL)onlyOriginalClip
-                   threshold:(CGFloat)threshold;
-
-
-/// 判断图片是否有人像
-/// @param position clip上的时间点
-/// @param width clip缩略图的宽
-/// @param height clip缩略图的高
-/// @param degree 纹理转正需要旋转的角度
-/// 是否原图
 - (BOOL)thumbnailMultiHasPortrait:(NSInteger)position
                             width:(NSInteger)width
                            height:(NSInteger)height
@@ -142,6 +134,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 获取画笔redo队列的个数
 - (NSInteger)drawPenRendCount;
+
+/// 判断视频是否有深度信息
+/// @param clipPath clipPath
+/// @param block block
++ (void)isVideoHasDepthWithClipPath:(NSString *)clipPath
+                              block:(void(^)(BOOL isHas))block;
 
 @end
 

@@ -217,6 +217,9 @@
                               clipIndex:(NSInteger)idx;
 
 - (MRESULT)setClipUserData:(NSDictionary *)userDataDic pClip:(CXiaoYingClip *)pClip;
+
+- (MRESULT)setClipUserDataInfo:(NSString *)strUserDataStr pClip:(CXiaoYingClip *)pClip;
+
 - (NSDictionary *)getClipUserData:(CXiaoYingClip *)pClip;
 
 - (QVET_CURVE_SPEED_VALUES)getClipCurveSpeed:(CXiaoYingClip *)pClip;
