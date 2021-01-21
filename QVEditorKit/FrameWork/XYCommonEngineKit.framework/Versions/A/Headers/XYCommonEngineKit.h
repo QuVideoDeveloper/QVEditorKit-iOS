@@ -103,7 +103,7 @@
 #import <XYCommonEngineKit/XYDrawLayerPaintPenInfo.h>
 #import <XYCommonEngineKit/XYEffectDrawPenModel.h>
 #import <XYCommonEngineKit/XYSegmentCallBackData.h>
-
+#import <XYCommonEngineKit/XYEffectRelativeClipInfo.h>
 
 
 #endif /* XYCommonEngineKit_h */
