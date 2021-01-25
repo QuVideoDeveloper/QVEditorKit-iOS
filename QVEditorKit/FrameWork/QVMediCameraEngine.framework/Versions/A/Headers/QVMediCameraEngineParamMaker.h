@@ -72,6 +72,12 @@
 /// 是否开启深度信息
 @property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ enableDepth)(BOOL enableDepth);
 
+/// 是否开启深度信息预览
+@property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ enableDepthPreView)(BOOL enableDepthPreView);
+
+/// 深度信息预览区域万分比 坐标系是左到右，下到上
+@property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ depthPreViewRect)(CGRect depthPreViewRect);
+
 @end
 
 @interface QVMediCameraEngineParamMakerParam : NSObject
@@ -102,5 +108,7 @@
 @property (nonatomic, assign) BOOL enableAR;
 
 @property (nonatomic, assign) BOOL enableDepth;
+@property (nonatomic, assign) BOOL enableDepthPreView;
+@property (nonatomic, assign) CGRect depthPreViewRect;
 
 @end

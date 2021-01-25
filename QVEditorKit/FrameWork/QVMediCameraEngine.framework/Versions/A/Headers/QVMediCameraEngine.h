@@ -97,6 +97,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param templateFilePath 模版文件地址
 - (void)setFilterTemplate:(NSString *)templateFilePath;
 
+/// 判断设备是否支持激光雷达的深度信息
++ (BOOL)deviceIsSceneDepthSupported;
+
+/// 判断设备是否支持双摄
++ (BOOL)deviceIsDepthDataDeliverySupported;
 @end
 
 NS_ASSUME_NONNULL_END
