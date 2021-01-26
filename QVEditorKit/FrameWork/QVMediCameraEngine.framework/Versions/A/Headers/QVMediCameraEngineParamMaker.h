@@ -75,7 +75,7 @@
 /// 是否开启深度信息预览
 @property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ enableDepthPreView)(BOOL enableDepthPreView);
 
-/// 深度信息预览区域万分比 坐标系是左到右，下到上
+/// 深度信息预览区域归一化 坐标系是左到右，下到上
 @property (nonatomic, copy, readonly) QVMediCameraEngineParamMaker *(^ depthPreViewRect)(CGRect depthPreViewRect);
 
 @end
