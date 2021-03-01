@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QVEditorKit'
-  s.version          = '1.0.74'
+  s.version          = '1.0.75'
   s.summary          = 'A short description of QVEditorKit.'
 
 # This description is used to generate tags and improve search results.
@@ -34,7 +34,18 @@ TODO: Add long description of the pod here.
 
   s.frameworks = 'VideoToolbox', 'Webkit', 'Photos', 'ImageIO', 'QuartzCore', 'AssetsLibrary', 'CoreGraphics' , 'Accelerate', 'UIKit', 'Foundation', 'AdSupport', 'CoreTelephony', 'CoreMedia', 'SceneKit', 'AudioToolbox'
   
-  s.vendored_frameworks = 'QVEditorKit/FrameWork/*.framework'
+
+#公共Class
+
+s.subspec 'Core' do |ce|
+      ce.vendored_frameworks = 'QVEditorKit/FrameWork/Core/*.framework'
+
+end
+
+s.subspec 'Editor' do |ed|
+    ed.vendored_frameworks = 'QVEditorKit/FrameWork/Editor/*.framework'
+end
+
   
   s.dependency 'ReactiveObjC'
   s.dependency 'FMDB'
