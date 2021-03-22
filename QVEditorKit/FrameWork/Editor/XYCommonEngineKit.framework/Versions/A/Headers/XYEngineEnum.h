@@ -128,7 +128,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDEffectVisionUpdate,  //更新可视效果 用这个model：XYEffectVisionModel 里面的参数都可以修改
     XYCommonEngineTaskIDEffectVisionDuplicate, //复制一个可视效果
     XYCommonEngineTaskIDEffectVisionDelete,  //删除可视效果 用这个model：XYEffectVisionModel 需要确保pEffect有值
-    XYCommonEngineTaskIDEffectVisionKeyFrameUpdate, //关键帧添加和更新
+    XYCommonEngineTaskIDEffectVisionKeyFrameUpdate,  //关键帧添加和更新, 手势移动的时候也调用次taskid 来移动等
     //可视效果-字幕
     XYCommonEngineTaskIDEffectVisionTextAdd,  //添加字幕效果 用这个model：XYEffectVisionTextModel
     XYCommonEngineTaskIDEffectVisionTextUpdate,  //更新字幕效果 用这个model：XYEffectVisionTextModel 里面的参数都可以修改

@@ -116,6 +116,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param effectVisionModel effectVisionModel
 - (void)handleSetEffectKeyFrameInfo:(XYEffectVisionModel *)effectVisionModel;
 
+/// 设置更新关键帧整体偏移量 修改对应关键帧的 也可以单独更新
+/// @param effectVisionModel effectVisionModel offsetValue
+- (void)updateEffectKeyFrameOffset:(XYEffectVisionModel *)effectVisionModel;
 
 /// 设置3d信息
 /// @param effectVisionModel effectVisionModel

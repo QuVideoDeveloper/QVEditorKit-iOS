@@ -35,6 +35,9 @@
 ///人体扣像mask缓存目录
 @property (nonatomic, copy) NSString *portraitMaskCacheDir;
 
+/// 扣像是否开启同步
+@property (nonatomic, assign) BOOL segSync;
+
 - (instancetype)initWithDefaultParam;
 
 @end

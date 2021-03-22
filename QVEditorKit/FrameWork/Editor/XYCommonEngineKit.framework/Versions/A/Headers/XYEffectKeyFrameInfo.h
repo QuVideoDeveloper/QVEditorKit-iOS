@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "XYEngineEnum.h"
 
-@class XYKeyPosInfo, XYKeyScaleInfo, XYKeyRotationInfo, XYKeyAlphaInfo;
+@class XYKeyPosInfo, XYKeyScaleInfo, XYKeyRotationInfo, XYKeyAlphaInfo, XYKeyAnchorOffsetInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 不透明度关键帧列表
 @property (nonatomic, strong) NSMutableArray <XYKeyAlphaInfo *> *alphaList;
 
-@property (nonatomic, strong) NSMutableArray <XYKeyAlphaInfo *> *anchorOffsetList;
+@property (nonatomic, strong) NSMutableArray <XYKeyAnchorOffsetInfo *> *anchorOffsetList;
 
 @end
 

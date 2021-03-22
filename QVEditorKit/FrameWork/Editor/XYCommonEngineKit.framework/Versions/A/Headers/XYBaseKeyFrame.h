@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 变化方式 普通线性插值还是贝塞尔
 @property (nonatomic, assign) XYMethodKeyFrameType methodType;
 
-/// 整体偏移，相对关键帧的整体偏移，defalut = 1
+/// 整体偏移，相对关键帧的整体偏移，defalut = 1 目前没有同步关键帧的计算
 @property (nonatomic, assign) CGFloat offsetValue;
 
 /// 相对于效果入点的时间
