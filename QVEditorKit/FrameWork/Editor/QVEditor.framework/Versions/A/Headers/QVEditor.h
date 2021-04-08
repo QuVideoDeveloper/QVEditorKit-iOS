@@ -55,6 +55,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///人体扣像mask缓存目录
 @property (nonatomic, copy) NSString *portraitMaskCacheDir;
 
+/// 扣像是否开启同步 默认开启
+@property (nonatomic, assign) BOOL segSync;
+
 @end
 
 @interface QVEditor : NSObject

@@ -137,6 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateLayerID:(XYEffectVisionModel *)effectModel;
 
++ (void)updateEffect3DTransform:(CXiaoYingEffect *)pEffect size:(XYVe3DDataF *)size center:(XYVe3DDataF *)center;
 @end
 
 NS_ASSUME_NONNULL_END

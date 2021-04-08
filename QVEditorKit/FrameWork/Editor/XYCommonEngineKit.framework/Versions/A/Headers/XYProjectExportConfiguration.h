@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class XYVe3DDataF;
+
 typedef NS_ENUM(NSInteger, XYEngineResolution) {
     XYEngineResolution480 = 0,
     XYEngineResolution720,
@@ -75,6 +77,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 用于提取音频
 @property (nonatomic, strong) XYStoryboard *storyboard;
+
+/// 导出时水印的尺寸
+@property (nonatomic, strong) XYVe3DDataF *watermarkSize;
+
+/// 导出时水印的中心点位置
+@property (nonatomic, strong) XYVe3DDataF *watermarkCenter;
 
 @end
 
