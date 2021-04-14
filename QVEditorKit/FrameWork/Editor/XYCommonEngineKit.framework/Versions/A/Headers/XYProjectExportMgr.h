@@ -68,6 +68,11 @@ NS_ASSUME_NONNULL_BEGIN
                    progress:(export_progress_block)progress
                     success:(export_success_block)success
                     failure:(export_failure_block)failure;
+
+/// 根据resolution 得到导出分辨率大小
+/// @param resolution XYEngineResolution
+- (CGSize)getExportResolutionSize:(XYEngineResolution)resolution;
+
 @end
 
 NS_ASSUME_NONNULL_END

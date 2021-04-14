@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString * _Nullable effectEffectMaskMirrorPath; //镜像蒙版
 @property (nonatomic, copy) NSString * _Nullable effectEffectMaskRadialPath; //径向蒙版
 @property (nonatomic, copy) NSString * _Nullable effectEffectMaskRectanglePath; //矩形蒙版
+@property (nonatomic, copy) NSString * _Nullable segmentMaskEffectPath; //画中画人体扣像
 
 @property (nonatomic, assign) UInt64 adjustEffectId;//
 @property (nonatomic, copy) NSString * _Nullable adjustEffectPath; //参数调节模板路径

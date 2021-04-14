@@ -43,6 +43,7 @@
 #define SUB_TYPE_PIC_IN_PIC_FX_MAX 2000 //画中画特效的最大type
 #define SUB_TYPE_PIC_IN_PIC_ADJUST 100 //画中画参数调节
 #define SUB_TYPE_PIC_IN_PIC_COLOR_CURVE 101 //画中画曲线调色
+#define SUB_TYPE_PIC_IN_PIC_SEGMENT 102 //画中画扣像
 
 //Groups
 #define GROUP_ID_DEFAULT 0

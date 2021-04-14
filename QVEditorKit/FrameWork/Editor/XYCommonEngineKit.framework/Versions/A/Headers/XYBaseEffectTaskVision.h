@@ -138,6 +138,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateLayerID:(XYEffectVisionModel *)effectModel;
 
 + (void)updateEffect3DTransform:(CXiaoYingEffect *)pEffect size:(XYVe3DDataF *)size center:(XYVe3DDataF *)center;
+
+/// 设置画中画人体扣像效果
+/// @param effectVisionModel effectVisionModel
+- (void)setEffectSubSegment:(nonnull XYEffectVisionModel *)effectVisionModel;
+
 @end
 
 NS_ASSUME_NONNULL_END
