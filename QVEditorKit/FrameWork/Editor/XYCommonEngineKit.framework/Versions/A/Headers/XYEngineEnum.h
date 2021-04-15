@@ -154,6 +154,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDEffectVisionPinInPicAdjustUpdate,//画中画滤镜的参数调节
     XYCommonEngineTaskIDEffectVisionPinInPicPluginUpdate,//设置画中画效果插件
     XYCommonEngineTaskIDEffectVisionPinInPicColorCurve,//设置画中画颜色曲线
+    XYCommonEngineTaskIDEffectVisionPinInPicSegment, //设置画中画人口扣像
 
 };
 

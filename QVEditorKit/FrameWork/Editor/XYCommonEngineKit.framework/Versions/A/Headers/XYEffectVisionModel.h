@@ -65,6 +65,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) XYColorCurveInfo *colorCurveInfo;// 画中画 曲线变色
 @property (nonatomic, strong) NSMutableArray <XYEffectPropertyInfoModel *> *effectPluginList;// 画中画 效果插件
 
+/// 是否开启人体扣像效果
+@property (nonatomic, assign) BOOL segmentEnable;
+
 /// 根据时间点来获取插件模板关键帧
 /// @param itemModel itemModel
 /// @param seekPosition 播放器的当前时间点
