@@ -58,7 +58,7 @@
 @property (nonatomic) MDWord dwVersion;
 @property (nonatomic) BOOL isFrameMode;       //isFrameMode为YES的情况下，贴纸应用到全透明的Storyboard上也是透明的，否则背景会变黑
 @property (nonatomic) MDWord dwTransparency; //透明度，全透明0～100不透明 1
-@property (nonatomic) BOOL isInstantRefresh; //快速刷新效果
+@property (nonatomic) BOOL isLockRefresh; //快速刷新效果
 @property (nonatomic, copy) NSString *userData; //自定义数据
 @property (nonatomic) BOOL isAnimatedText;
 @property (nonatomic) float scaleRatio; //字幕放大倍数

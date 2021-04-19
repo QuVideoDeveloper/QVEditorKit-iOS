@@ -71,6 +71,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 升级修复信息
 + (void)restore;
+
+/// 获取引擎版本号
++ (UInt32)getEngineVersion;
+
 @end
 
 NS_ASSUME_NONNULL_END

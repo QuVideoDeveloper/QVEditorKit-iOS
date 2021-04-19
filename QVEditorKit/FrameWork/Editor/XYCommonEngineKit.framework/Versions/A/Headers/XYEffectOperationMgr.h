@@ -11,8 +11,7 @@
 #import "XYEngineClassHeader.h"
 
 
-@class XYEffectModel;
-@class XYEffectVisionKeyFrameModel;
+@class XYEffectModel, XYEffectVisionModel, XYEffectVisionKeyFrameModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (XYEffectModel *)fetchEffectModel:(NSString *)identifier;
 - (NSArray <XYEffectModel *> *)fetchEffectModel:(XYCommonEngineGroupID)groupType filePath:(NSString *)filePath;
 - (void)fetchKeyFrameModel:(NSString *)identifier seekPosition:(NSInteger)seekPosition block:(void (^)(XYEffectVisionKeyFrameModel *keyFramModel))block;
+- (void)fetchFacePasterVisionModel:(NSString *)identifier block:(void (^)(XYEffectVisionModel *visionModel))block;
 - (void)fetchKeyFrameModelWithEffectModel:(XYEffectModel *)effectModel seekPosition:(NSInteger)seekPosition block:(void (^)(XYEffectVisionKeyFrameModel *keyFramModel))block;
 
 - (void)runTask:(XYEffectModel *)effectModel;

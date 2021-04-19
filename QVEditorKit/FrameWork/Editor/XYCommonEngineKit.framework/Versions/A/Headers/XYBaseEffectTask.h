@@ -15,6 +15,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XYBaseEffectTask : XYBaseEngineTask
+@property (nonatomic, assign) BOOL mustPlayRefeshFisrst;
 @property (nonatomic, assign) BOOL isReloadAllEffect;
 @property (nonatomic, strong) XYEffectModel *effectModel;
 @property (nonatomic, copy) NSArray <XYEffectModel *> *effectModels;

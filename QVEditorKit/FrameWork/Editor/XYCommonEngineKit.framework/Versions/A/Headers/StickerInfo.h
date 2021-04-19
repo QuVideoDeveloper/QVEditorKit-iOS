@@ -47,4 +47,7 @@
 
 @property (nonatomic, copy) NSString *userData; //自定义数据
 
+/// 人脸效果支持最大的一个 默认是YES
+@property (nonatomic, assign) BOOL maxFaceOnly;
+
 @end

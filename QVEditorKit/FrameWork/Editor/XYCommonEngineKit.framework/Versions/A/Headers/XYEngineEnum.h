@@ -155,6 +155,7 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDEffectVisionPinInPicPluginUpdate,//设置画中画效果插件
     XYCommonEngineTaskIDEffectVisionPinInPicColorCurve,//设置画中画颜色曲线
     XYCommonEngineTaskIDEffectVisionPinInPicSegment, //设置画中画人口扣像
+    XYCommonEngineTaskIDEffectVisionPinInFaceReset, // 重置人脸贴纸
 
 };
 

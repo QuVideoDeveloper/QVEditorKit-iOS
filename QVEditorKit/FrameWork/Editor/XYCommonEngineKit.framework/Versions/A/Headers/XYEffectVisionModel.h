@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isFrameMode; //YES的情况下，应用到全透明的Storyboard上也是透明的，否则背景会变黑
 @property (nonatomic, assign) BOOL defaultIsStaticPicture; //该视觉效果默认是否静态
 @property (nonatomic, assign) BOOL isStaticPicture; //YES的情况下，该效果将会静态展示
-@property (nonatomic, assign) BOOL isInstantRefresh; //YES的情况下，该效果将会快速刷新
+@property (nonatomic, assign) BOOL isLockRefresh; //YES的情况下，该效果为锁定刷新，不使用需要设置为NO
 @property (nonatomic, strong) XYEffectKeyFrameInfo *keyFrameInfo;
 @property (nonatomic) CGFloat currentScale; //根据当前宽度和dafault宽度自动计算当前放大倍数，只读
 //@property (nonatomic, assign) BOOL isResetLayerID;//是否只是resetLayerID
@@ -65,8 +65,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) XYColorCurveInfo *colorCurveInfo;// 画中画 曲线变色
 @property (nonatomic, strong) NSMutableArray <XYEffectPropertyInfoModel *> *effectPluginList;// 画中画 效果插件
 
-/// 是否开启人体扣像效果
+/// 是否开启人体扣像效果 默认不开启
 @property (nonatomic, assign) BOOL segmentEnable;
+
+/// 人脸效果支持最大的一个 默认是YES
+@property (nonatomic, assign) BOOL maxFaceOnly;
 
 /// 根据时间点来获取插件模板关键帧
 /// @param itemModel itemModel
@@ -84,7 +87,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param mRect MRECT
 - (CGRect)cgRectFromMRect:(MRECT)mRect;
 
+- (void)reload3DTransform;
 
+/// 判断是否是人脸贴纸
++ (BOOL)isFacePaster:(NSString *)templatePath;
 
 @end
 

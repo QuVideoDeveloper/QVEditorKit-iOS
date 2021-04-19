@@ -143,6 +143,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param effectVisionModel effectVisionModel
 - (void)setEffectSubSegment:(nonnull XYEffectVisionModel *)effectVisionModel;
 
+- (void)updateFacePaster3DTransform:(XYEffectVisionModel *)effectVisionModel;
 @end
 
 NS_ASSUME_NONNULL_END
