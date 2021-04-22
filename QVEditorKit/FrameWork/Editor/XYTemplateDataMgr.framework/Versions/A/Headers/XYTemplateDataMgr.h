@@ -248,4 +248,8 @@ typedef void (^XYTEMPLATE_COMPLETE_BLOCK)(BOOL result);
 
 - (NSArray <XYTemplateXtyInfo *> *)requestTemplateTextInfoWithTemplateID:(UInt64)templateID;
 
+/// 获取滤镜素材的时长
+/// @param effectFilterFilePath 滤镜素材文件地址
+- (NSInteger)requestEffectFilterDuration:(NSString *)effectFilterFilePath;
+
 @end
