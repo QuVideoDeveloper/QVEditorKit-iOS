@@ -50,4 +50,7 @@
 /// 人脸效果支持最大的一个 默认是YES
 @property (nonatomic, assign) BOOL maxFaceOnly;
 
+/// 人脸贴纸，当没有检测到是否需要将贴纸渲染出来 默认渲染
+@property (nonatomic, assign) BOOL noFaceRenderingEnable;
+
 @end

@@ -71,6 +71,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 人脸效果支持最大的一个 默认是YES
 @property (nonatomic, assign) BOOL maxFaceOnly;
 
+/// 人脸贴纸，当没有检测到是否需要将贴纸渲染出来 默认渲染
+@property (nonatomic, assign) BOOL noFaceRenderingEnable;
+
 /// 根据时间点来获取插件模板关键帧
 /// @param itemModel itemModel
 /// @param seekPosition 播放器的当前时间点
