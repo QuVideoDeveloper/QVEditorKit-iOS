@@ -84,6 +84,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 导出时水印的中心点位置
 @property (nonatomic, strong) XYVe3DDataF *watermarkCenter;
 
+/// 是否开启恒定帧率
+@property (nonatomic, assign) BOOL constRateEnable;
+
 @end
 
 NS_ASSUME_NONNULL_END
