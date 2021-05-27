@@ -93,6 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 画笔
 @property (nonatomic, strong) XYDrawLayerPaintPenInfo *drawLayerPenInfo;
 
+@property (nonatomic, strong) XYVeRangeModel *clipTimeRange;
 
 /// /// 根据曲线变速后的时间范围获取对应的原clip的时间范围
 /// @param range 变后的对应的时间范围
@@ -140,7 +141,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param block block
 + (void)isVideoHasDepthWithClipPath:(NSString *)clipPath
                               block:(void(^)(BOOL isHas))block;
-
 @end
 
 NS_ASSUME_NONNULL_END
