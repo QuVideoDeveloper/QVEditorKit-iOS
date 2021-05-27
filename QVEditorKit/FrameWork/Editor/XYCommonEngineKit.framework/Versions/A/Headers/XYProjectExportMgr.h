@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 视频提取音频
 /// @param filePath 需要的视频资源路径
-/// @param exportFilePath 导出的文件了路径
+/// @param exportFilePath 导出的文件了路径 后缀必须是.m4a
 /// @param progress 提取进度 主线程
 /// @param success 提取成功 主线程
 /// @param failure 提取失败 主线程
