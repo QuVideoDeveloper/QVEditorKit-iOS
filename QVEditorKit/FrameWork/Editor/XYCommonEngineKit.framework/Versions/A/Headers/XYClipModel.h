@@ -85,8 +85,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) CXiaoYingClip *pClip;
 @property (nonatomic, strong) XYAdjustEffectValueModel *adjustEffectValueModel;//如trim 变化的绝对值 左边 用于效果重新计算
 
-@property (nonatomic, assign) NSInteger frontTransTime;//转场前部分时间
-@property (nonatomic, assign) NSInteger backTransTime;//转场后部分时间
+@property (nonatomic, assign) NSInteger frontTransTime;//转场前部分时间 给出的都是clip的重合区域 各一半
+@property (nonatomic, assign) NSInteger backTransTime;//转场后部分时间 给出的都是clip的重合区域 各一半
 @property (nonatomic, assign) NSInteger fixTime;//用于缩略图的起始时间的校准
 @property (readonly, nonatomic, copy) NSDictionary *clipParam;
 
