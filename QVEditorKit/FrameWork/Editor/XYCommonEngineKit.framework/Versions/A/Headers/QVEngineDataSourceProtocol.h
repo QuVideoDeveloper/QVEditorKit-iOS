@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param textPrepareMode 根据textPrepareMode类型设置参数
 - (QVTextPrepareModel *)textPrepare:(QVTextPrepareMode)textPrepareMode;
 
-/// 工程load起来需要修复的路径 将修复好的路径返回
+/// 工程load起来需要修复的路径 将修复好的路径返回 如果不是业务自己管理路径 return nil
 /// @param filePath 保存的原始路径
 - (NSString *)loadFilePathModifierWithOriginPath:(NSString *)filePath;
 
