@@ -118,6 +118,8 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDEffectAudioUpdateTrimRange,//修改背景音乐的trimRange 对应 需要的参数 1.mTrimVeRange
     XYCommonEngineTaskIDEffectAudioVoiceChange,//背景音乐变声
     XYCommonEngineTaskIDEffectAudioDuplicate,//复制 对应 需要的参数  new 新的model 1.mDestVeRange 开始的时间和结束时间 新的赋值给duplicateClipModel
+    XYCommonEngineTaskIDEffectAudioSpilt,// 分割的时候需要修改当前model和splitNewEffectModel的trimVeRange，sourceVeRange，destVeRange
+
     XYCommonEngineTaskIDEffectAudioLyic,//歌词文件生成字幕的接口 lyricPath：歌曲字幕lyric文件路径 lyricTtid：歌词模板的素材id
     XYCommonEngineTaskIDEffectResetThemeAudio,//恢复主题带的音乐 参数 1. groupid = XYCommonEngineGroupIDBgmMusic
 

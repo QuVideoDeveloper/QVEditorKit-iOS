@@ -58,6 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *title;//如音乐的名称
 @property (nonatomic, assign) NSInteger duplicateStartPos;//复制效果的起始点
 
+/// 分割后新的参数设置
+@property (nonatomic, strong) XYEffectModel *splitNewEffectModel;
 
 @property (nonatomic, strong) XYEffectModel *duplicateEffectModel;
 
