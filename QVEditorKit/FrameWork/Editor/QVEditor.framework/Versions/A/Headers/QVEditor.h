@@ -58,6 +58,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 扣像是否开启同步 默认开启
 @property (nonatomic, assign) BOOL segSync;
 
+/// 扣像是否使用视频接口
+@property (nonatomic, assign) BOOL segUseVideoEnable;
+
 @end
 
 @interface QVEditor : NSObject

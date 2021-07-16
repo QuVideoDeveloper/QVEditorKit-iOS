@@ -38,6 +38,9 @@
 /// 扣像是否开启同步
 @property (nonatomic, assign) BOOL segSync;
 
+/// 扣像是否使用视频接口
+@property (nonatomic, assign) BOOL segUseVideoEnable;
+
 - (instancetype)initWithDefaultParam;
 
 @end
