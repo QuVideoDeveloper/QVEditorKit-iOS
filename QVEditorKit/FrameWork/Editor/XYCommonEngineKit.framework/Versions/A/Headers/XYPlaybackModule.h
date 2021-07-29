@@ -164,4 +164,6 @@ playbackModuleDelegate:(id<PlaybackModuleDelegate>)playbackModuleDelegate;
 
 - (QVET_3D_TRANSFORM)fetchEngineTransform;
 
+- (void)setUseAsyncPlayer:(BOOL)isUseAsyncPlayer;
+
 @end

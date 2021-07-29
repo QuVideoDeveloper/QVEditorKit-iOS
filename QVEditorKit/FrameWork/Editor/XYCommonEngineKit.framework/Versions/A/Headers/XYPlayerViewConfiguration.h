@@ -27,6 +27,8 @@
 
 @property (nonatomic) BOOL needRebuildStram;//是否需要rebuild stream
 
+/// 异步播放器
+@property (nonatomic) BOOL isUseAsyncPlayer;
 + (XYPlayerViewConfiguration *)currentStoryboardSourceConfig;
 
 + (XYPlayerViewConfiguration *)storyboardSourceConfig:(XYStoryboard *)storyboard;
