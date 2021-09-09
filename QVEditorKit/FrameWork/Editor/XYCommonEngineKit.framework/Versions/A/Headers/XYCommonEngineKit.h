@@ -104,6 +104,7 @@
 #import <XYCommonEngineKit/XYEffectDrawPenModel.h>
 #import <XYCommonEngineKit/XYSegmentCallBackData.h>
 #import <XYCommonEngineKit/XYEffectRelativeClipInfo.h>
+#import <XYCommonEngineKit/XYBeatDetectionProvider.h>
 
 
 #endif /* XYCommonEngineKit_h */
