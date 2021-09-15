@@ -21,7 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) CGSize outPutResolution;//分辨率
 @property(nonatomic, assign) BOOL isPropRatioSelected;//是否设置了比例 如原比例为NO 非原比例 YES
 @property(nonatomic, assign) NSInteger videoDuration;//视频总时长
-
+/// 是否末尾补黑帧,默认false（详解【高级玩法-自由黑帧模式】一章说明）
+@property (nonatomic, assign) BOOL isUseStuffClip;
 - (void)reload;
 - (void)reloadThemeID;
 @end

@@ -42,7 +42,8 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     XYCommonEngineTaskIDStoryboardRedo,//redo
     XYCommonEngineTaskIDStoryboardBackUp,//back up 备份
     XYCommonEngineTaskIDStoryboardReset,//Reset 重置掉备份后的所有的改动
-    
+    XYCommonEngineTaskIDStoryboardUseStuffClip,//黑帧模式
+
     //clip 相关taskID========================================================================clip 相关taskID
     
     XYCommonEngineTaskIDClipAddClip,
