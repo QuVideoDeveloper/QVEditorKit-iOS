@@ -104,7 +104,8 @@ typedef NS_ENUM(NSInteger, XYCommonEngineTaskID) {
     
     //effect 相关taskID========================================================================effect 相关taskID
     XYCommonEngineTaskIDEffectUpdate,//用于删除clip 修剪clip等对效果起始点及长度的修改或者删除
-    
+    XYCommonEngineTaskIDEffectUpdateExtendParams, //用于更新业务自定义参数
+
     //背景音乐相关的
     
     XYCommonEngineTaskIDEffectAudioAdd,// 对应 需要的参数,1. filePath 音乐的路径 2. mTrimVeRange 3.mDestVeRange 开始的时间和结束时间。5. title 音乐名称 5.groupID = XYCommonEngineGroupIDBgmMisic 6.isRepeatON
