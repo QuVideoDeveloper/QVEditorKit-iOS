@@ -1,1 +1,0 @@
-../../../XYCommonEngine/XYCommonEngine/engine_header/include/cev4_inc/basic_class/QCamCapturePara.h

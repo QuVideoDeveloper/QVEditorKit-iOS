@@ -1,6 +1,0 @@
-framework module QVEditor {
-  umbrella header "QVEditor.h"
-
-  export *
-  module * { export * }
-}

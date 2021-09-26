@@ -1,7 +1,0 @@
-#pod 'QVEditorKit', :path => '../Pods/QVEditorKit'
-
-pod 'QVMediToolbarKit', :path => '../Pods/QVMediToolbarKit'
-
-pod 'QVMediEdit', :path => '../Pods/QVMediEdit'
-pod 'QVMediCamera', :path => '../Pods/QVMediCamera'
-pod 'QVMediTools', :path => '../Pods/QVMediTools'

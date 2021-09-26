@@ -1,6 +1,0 @@
-framework module QVMediCameraEngine {
-  umbrella header "QVMediCameraEngine.h"
-
-  export *
-  module * { export * }
-}

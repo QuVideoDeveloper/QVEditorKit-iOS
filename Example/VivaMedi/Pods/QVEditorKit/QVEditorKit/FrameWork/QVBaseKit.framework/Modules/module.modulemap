@@ -1,6 +1,0 @@
-framework module QVBaseKit {
-  umbrella header "QVBaseKit.h"
-
-  export *
-  module * { export * }
-}
