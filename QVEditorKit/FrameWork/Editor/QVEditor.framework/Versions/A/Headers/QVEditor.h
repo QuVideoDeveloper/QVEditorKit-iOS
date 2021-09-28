@@ -61,6 +61,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 扣像是否使用视频接口
 @property (nonatomic, assign) BOOL segUseVideoEnable;
 
+/// 扣像预制一个初始化
+@property (nonatomic, assign) BOOL isPreCreateGlobalSeg;
+
 @end
 
 @interface QVEditor : NSObject
