@@ -44,6 +44,8 @@
 /// 扣像预制一个初始化
 @property (nonatomic, assign) BOOL isPreCreateGlobalSeg;
 
+/// 骨骼点预制一个初始化
+@property (nonatomic, assign) BOOL isPreCreateGlobalHumanPose;
 
 - (instancetype)initWithDefaultParam;
 

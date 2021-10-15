@@ -64,6 +64,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 扣像预制一个初始化
 @property (nonatomic, assign) BOOL isPreCreateGlobalSeg;
 
+/// 骨骼点预制一个初始化
+@property (nonatomic, assign) BOOL isPreCreateGlobalHumanPose;
+
 @end
 
 @interface QVEditor : NSObject
