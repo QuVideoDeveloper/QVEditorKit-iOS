@@ -67,6 +67,8 @@ playbackModuleDelegate:(id<PlaybackModuleDelegate>)playbackModuleDelegate;
 
 - (NSInteger)deactiveStream;
 
+- (SInt32)activeStreamWithPosition:(int)position;
+
 - (void)playWithOutShowLayer;
 
 - (void)play;
